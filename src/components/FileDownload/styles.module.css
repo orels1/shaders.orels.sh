@@ -1,0 +1,27 @@
+.customIconBlock {
+  padding: 5px;
+  border-radius: 4px;
+  background-color: hsl(0, 0%, 80%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+}
+
+[data-theme=dark] .customIconBlock {
+  background-color: hsl(0, 0%, 20%);
+}
+
+.customIcon {
+  width: 40px;
+  height: 40px;
+}
+
+[data-theme=dark] .customIcon {
+  filter: invert();
+}
+
+.fileDownload {
+  margin: 0.7rem 0rem;
+}

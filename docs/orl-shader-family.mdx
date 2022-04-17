@@ -1,0 +1,55 @@
+---
+title: ORL Shader Family
+---
+
+import FileDownload from "@site/src/components/FileDownload";
+
+# ORL Shader Family
+
+> A Filament-based collection of shaders + extras. Pronounced as "orel" (aw-rEl)
+
+:::info Shader Types
+
+Any shader containing **"Standard"** in the name is PBR-based. With everything else being special shaders for VFX and other specific purposes
+
+:::
+
+## Download
+
+- [ ] Download and import Shadergraph Markdown using the package below (it will auto-import the package into Unity Package Manager)
+  <FileDownload
+    title="install-shadergraph-markdown"
+    type="UnityPackage"
+    icon={require("@site/static/img/unity-512.webp").default}
+    link="https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FZObkp5MOJr2YSLcv8ODH%2Fuploads%2F15J3WH7UlxhjWvZlsiwF%2Finstall-shadergraph-markdown.unitypackage?alt=media&token=9a0c5fd9-76d4-4819-9318-863b3b9b1a9c"
+  />
+- [ ] [Download an import the lastest release of ORL Shaders](https://github.com/orels1/orels-Unity-Shaders/releases)
+- [ ] All of the shaders should be added under the orels1 category in the shaders list
+- [ ] Check out these docs to learn more about the shaders available! Base Shader is a good way to start
+- [ ] Enjoy!
+
+:::tip Repo Download
+
+You can also download the repo itself as a ZIP file, it has the same contents as the unity package on the release page
+
+:::
+
+## Demo World
+
+If you're interested in seeing most of the shaders in action, [you can check out this world](https://vrchat.com/home/launch?worldId=wrld_cea7e89a-1e10-48cc-aace-6feef5978a95&instanceId=0) which uses them for basically everything and has some demos for you to play with!
+
+![The Demo World](/img/docs/orl-shader-family/image.png)
+
+## Credits
+
+While most of the shaders were written by me (orels1), a lot of the Google Filament-related code is based on the implementations done by z3y and Silent, please check out their shaders too!
+
+- [z3y's Simple Lit](https://github.com/z3y/shaders)
+- [Silent's Filamented](https://gitlab.com/s-ilent/filamented)
+- [Google Filament source](https://github.com/google/filament)
+
+While the above shaders have served as an incredibly well made bases that I drew from to make the PBR setup for the ORL Standard family of shaders, I extended mine with a lot of extra features like Audio Link, Vertex Animations, a simple Glass variant and others.
+
+For building the final shader files in a nice modular way - the [Modular Shader System](https://github.com/VRLabs/Modular-Shader-System/) by VRLabs was used. I highly recommend checking it out if you are a shader developer!
+
+Also absolutely gigantic Thank You to the VRC Shader Dev discord for helping me along the way!
