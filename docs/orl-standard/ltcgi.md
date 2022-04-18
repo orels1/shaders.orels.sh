@@ -26,7 +26,9 @@ You must import the LTCGI package into the project for the shader to work correc
 
 :::
 
-![LTCGI](/img/docs/orl-standard/ltcgi/ltcgi.png)
+<p align="center">
+  <img alt="LTCGI Inspector" src="/img/docs/orl-standard/ltcgi/ltcgi.png" />
+</p>
 
 ## Settings
 
