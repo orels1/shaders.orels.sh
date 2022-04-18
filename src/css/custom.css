@@ -76,3 +76,8 @@ small {
   border-color: #6067706f;
   box-shadow: 0 3px 3px 0 rgba(0,0,0,0.3);
 }
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+}

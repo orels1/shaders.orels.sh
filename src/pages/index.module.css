@@ -4,10 +4,32 @@
  */
 
 .heroBanner {
-  padding: 4rem 0;
+  padding: 8rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
+  width: 100%;
+  flex: 1;
+  height: 100%;
+  display: flex;
+}
+
+.heroContainer {
+  position: relative;
+  z-index: 2;
+  color: #fff !important;
+}
+
+.heroBackground {
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  top: -25%;
+  left: -25%;
+  background-image: url('/img/docs/orl-shader-family/image.png');
+  background-position: center center;
+  background-size: cover;
+  filter: blur(30px);
 }
 
 @media screen and (max-width: 996px) {
