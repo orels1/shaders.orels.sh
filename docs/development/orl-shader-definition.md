@@ -344,7 +344,7 @@ In the VFX template `FinalColor` is constructed from `o.Albedo` and `o.Alpha`, s
 
 ## Shader Example
 
-Below is a fully annotated example of a shader with all the possible options. You can also find this example (without comments) in the `Shaders/orels1/Sources/ORL Shader Example.txt`
+Below is an example of a shader with all the possible sections present. You can also find this example in the `Shaders/orels1/Sources/Editor/ORL Shader Example.txt`
 
 ```hlsl
 #S#Settings
