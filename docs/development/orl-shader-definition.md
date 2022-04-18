@@ -324,7 +324,7 @@ void MyFragment() {
 
 ### FinalColor
 
-`FinalColor` is a value that contains the result of the final lighting calculation. You can modify its value using the Color Function, [see above in the Sections area](#sections)
+`FinalColor` is a value that contains the result of the final lighting calculation. You can modify its value using the Color Function, [see ColorFunction above](#tcolorfunction)
 
 For example, this is how you would lower the overall brightness of the material no matter what kind of calculations happened prior to that
 
