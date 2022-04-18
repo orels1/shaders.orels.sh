@@ -17,7 +17,7 @@ This page describes all of the properties that are shared between almost all of 
 ![Standard Preview](/img/docs/orl-standard/base-shader/image.png)
 
 <p align="center">
-  <img alt="Standard Editor" src="/img/docs/orl-standard/base-shader/image2.png" />
+  <img alt="Standard Editor" src="/img/docs/orl-standard/base-shader/base-shader-inspector.png" />
 </p>
 
 The UI is broken down into multiple sections some of which you can probably collapse since you will likely not be touching them too often, e.g., "Advanced Features" and "Internal".
@@ -43,7 +43,6 @@ Note that not all of the settings are always visible, some options will show and
 </div>
 </p>
 
-- Culling Mode: switches culling between Back/Front/Off
 - Main Color: Main tint color
 - Albedo: The Main Texture, its tiling and offset will be used by **all** the textures in the material, unless the texture slot provides its own tiling/offset parameters
 - Mapping Space: Allows you to select between UV-mapped and Local Space/World Space aligned textures, which is useful for flat surfaces like Floors or Ceilings
@@ -147,8 +146,17 @@ Details section allows adding extra variety to the surface with its own set of m
 ## Advanced Features
 
 <p align="center">
-  <img alt="Advanced Features controls" src="/img/docs/orl-standard/base-shader/advanced-features.png" />
+  <img alt="Advanced Features controls" src="/img/docs/orl-standard/base-shader/base-shader-advanced-features.png" />
 </p>
+
+- Culling Mode: Controls the culling applied to the mesh
+  - Back: Culls visible backfaces
+  - Front: Culls visible frontfaces
+  - Off: Renders in double-sided mode
+- Depth Write: Controls whether the object writes to depth
+  - On: Enables depth writing. As a rule of thumb - all opaque/cutout objects should write to depth
+  - Off: Disables depth writing, used for transparency
+- Depth Test: Controls how the depth testing is performed, you generally never need to change this
 
 ### GSAA
 

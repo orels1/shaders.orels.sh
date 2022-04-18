@@ -129,6 +129,7 @@ const config = {
         darkTheme: darkCodeTheme,
         additionalLanguages: ['csharp', 'glsl', 'hlsl']
       },
+      hideableSidebar: true,
       zoom: {
         selector: '.markdown :not(em) > img',
         config: {
