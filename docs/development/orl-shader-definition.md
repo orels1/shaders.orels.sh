@@ -61,6 +61,21 @@ You can use `self` to include current shader's module in a specific spot, if not
 "ORL PBR Module.asset"
 ```
 
+:::info Bare By Default
+
+Nothing is included by default, but when using the included PBR and VFX templates - it is assumed that you're going to include the following modules to get all the features:
+
+- For PBR:
+  - `ORL Utility Functions.asset`
+  - `ORL PBR Module.asset`
+- For VFX:
+  - `ORL Utility Functions.asset`
+  - `ORL VFX Module.asset`
+
+Those files are stored in `Shaders/orels1/Sources/Editor` folder
+
+:::
+
 ### `#S#Properties`
 
 Contains your shader properties, uses regular ShaderLab properties syntax
