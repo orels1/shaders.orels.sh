@@ -388,7 +388,7 @@ float4 _Mask_ST;
 TEXTURE2D(_Mask);
 SAMPLER(sampler_Mask);
 // these macros are defined in the UnitySamplingLib.stemplate
-// if you are using the ORL PBR Module - you have access to those
+// if you are using the ORL PBR or VFX Module - you have access to those
 
 #T#FragmentFunction
 void MyFragment() {

@@ -14,7 +14,7 @@ Layers are masked using vertex colors, which allows you to utilize the same mate
 
 :::info Triplanar Variant
 
-This shader also has a variant with Triplanar Effects support for added variety
+This shader also has a variant with [Triplanar Effects](/docs/orl-standard/triplanar-effects) support for added variety
 
 :::
 
