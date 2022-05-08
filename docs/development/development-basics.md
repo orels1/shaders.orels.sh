@@ -143,7 +143,7 @@ Manipulating the main texture that is already provided in the template is super 
 
 As you can see - the value of that texture is being assigned to an `o.Albedo` field of our surface struct.
 
-You can see what [other fields are available here](/docs/development//orl-shader-definition#surfacedata).
+You can see what [other fields are available here](/docs/development/orl-shader-definition#surfacedata).
 
 ```hlsl
 void MyFragment() {
