@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # ORL Shader Definition
 
 How the shaders are made
