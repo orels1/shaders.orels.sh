@@ -18,24 +18,22 @@ They are not meant to be compiled into a full working shader on their own, but o
 
 ## Creating a Module
 
-Start by creating new `.orlshader` module via the `Create/Shader/ORL/Shader Module` menu. Technically an ORL Shader Module is just the same kind of shader as any other, but we just skip all the includes or templates as we do not need them.
+Start by creating new `.orlsource` module via the `Create/Shader/ORL/Shader Module` menu. These files are not compiled into a full shader, and serve as simple containers for our directives that will be then assembled into a full shader by the generator.
 
-:::tip
-
-You don't need to generate actual shader files for modules, as they're only gonna be included in other shaders instead of being used directly
-
-:::
 
 Now that you have that handled - let's make a pulsing emission module!
 
 Let's start by adding a simple pulse to the emission output.
 
 ```hlsl
-#T#FragmentFunction
-void PulsingEmissionFragment() {
-  half pulse = (sin(_Time.y) + 1) / 2;
+%Fragment("PulsingEmissionFragment")
+{
+    void PulsingEmissionFragment(inout SurfaceData o)
+    {
+        half pulse = (sin(_Time.y) + 1) / 2;
 
-  o.Emission = pulse;
+        o.Emission = pulse;
+    }
 }
 ```
 
@@ -44,14 +42,14 @@ We can already test this by including it any other shader! For example, let's in
 To include a shader definition as a submodule - simply add it to the list of includes.
 
 ```hlsl
-#S#Includes
-"ORL Utility Functions.asset"
-"self"
-"PulsingEmission.orlshader"
-"ORL PBR Module.asset"
+%Includes()
+{
+  "self",
+  "PulsingEmission"
+}
 ```
 
-You can now regenerate your main shader and it should show the effect.
+You can now refresh your assets and the shader should regenerate with the new module included!
 
 ### Expanding the module
 
@@ -68,26 +66,35 @@ All you need to do is to add the new Property and Variable, and then update the 
 Here's the full final code of the module
 
 ```hlsl
-#S#Settings
-Name "PulsingEmission"
-Author "YOUR_NAME"
-Version "1.0.0"
+%ShaderName("PulsingEmission")
 
-#S#Properties
-_PulseSpeed("Pulse Speed", Range(0, 10)) = 1
+%Properties()
+{
+    _PulseSpeed("Pulse Speed", Range(0, 10)) = 1
+}
 
-#S#FragmentVariables
-half _PulseSpeed;
+%Variables()
+{
+    half _PulseSpeed;
+}
 
-#T#FragmentFunction
-void PulsingEmissionFragment() {
-  half pulse = (sin(_Time.y * _PulseSpeed) + 1) / 2;
+%Fragment("PulsingEmissionFragment")
+{
+    void PulsingEmissionFragment(inout SurfaceData o) {
+        half pulse = (sin(_Time.y * _PulseSpeed) + 1) / 2;
 
-  o.Emission *= pulse;
+        o.Emission *= pulse;
+    }
 }
 ```
 
-If you regenerate your main shader now - you should see only the provided emission texture pulse. And you'll be able to adjust the pulsing speed by moving the "Pulse Speed" slider!
+If you refresh your assets now - you should see only the provided emission texture pulse. And you'll be able to adjust the pulsing speed by moving the "Pulse Speed" slider!
+
+:::info
+
+As you might've noticed, we can include all kinds of directives inside the shader module, similar to how we did it in the main Shaded Definition files. This is one of the key powers of using the generator over simply splitting your shaders with `#includes` as every module can define all of the things it needs and exposes, from including other modules, to properties and textures. Which makes it easy to reuse them in different shaders!
+
+:::
 
 ### Next Steps
 
