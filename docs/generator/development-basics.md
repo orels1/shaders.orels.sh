@@ -94,7 +94,20 @@ void MyFragment(MeshData d, inout SurfaceData o) {
 
 Here we add our function code, in this case we only have a singular Fragment function which will be directly called in the Fragment stage. We also define some input parameters in the signature. Naming MATTERS here, as they will be directly copied into the call signature.
 
-You can check out all available parameters in the [Built-in Parameters](built-in-parameters) section.
+The built-in templates provide the following parameters
+
+- In Fragment, Meta and Shadow functions
+    - MeshData d
+    - FragementData i
+    - SurfaceData o
+- In Color functions
+    - MeshData d
+    - FragementData i
+    - SurfaceData o
+    - half4 FinalColor
+- In Vertex functions
+    - VertexData v
+    - FragmentData o
 
 In this case we want to get the mesh UVs from the MeshData (parameter `d`, for "data") and output the albedo color which is stored in a SurfaceData (parameter `o`, for "output")
 

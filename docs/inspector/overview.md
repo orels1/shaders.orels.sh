@@ -6,6 +6,14 @@ sidebar_position: 0
 
 ORL Shader Inspector is a Property-based shader GUI system for Unity. It is designed to be easy to use and extend, without requiring you to write much, if any, C# code when developing new shaders.
 
+<p align="center">
+  <img alt="ORL Shader Inspector used for ORL Standard shader" src="/img/docs/inspector/overview-banner.png" />
+
+  <br/>
+
+  <small>ORL Shader Inspector used for ORL Standard shader</small>
+</p>
+
 ## Features
 
 - H1 and H2 headers
@@ -68,6 +76,10 @@ To add a header, simply add the following property to the list of your shader pr
 UI_SomeHeader("# Some Header", Int) = 0
 ```
 
+<p align="center">
+  <img alt="H1 Header" src="/img/docs/inspector/overview-header-h1.png" />
+</p>
+
 The default value you provide will specify if the section will be expanded or collapsed by default. So if you pass `1` - the section will be expanded.
 
 H2 headers are added in a similar fashion, although the default value does not matter as they aren't foldouts
@@ -75,6 +87,10 @@ H2 headers are added in a similar fashion, although the default value does not m
 ```hlsl
 UI_SomeSubheader("## Some Subheader", Int) = 0
 ```
+
+<p align="center">
+  <img alt="H2 Header" src="/img/docs/inspector/overview-header-h2.png" />
+</p>
 
 :::tip
 
@@ -91,6 +107,10 @@ To do so, you can use the `%RemapSlider()` function.
 ```hlsl
 _SmoothnessRemap("Smoothness %RemapSlider(0,1)", Vector) = (0,1,0,0)
 ```
+
+<p align="center">
+  <img alt="Min Max Slider" src="/img/docs/inspector/overview-remap.png" />
+</p>
 
 This will generate a Min Max Slider that operates in the 0-1 range as defined by the arguments passed into the `RemapSlider` function.
 
@@ -117,7 +137,15 @@ The most basic usage looks like this
 _SomeProperty("Some Property %ShowIf(KEYWORD_ON)", Float) = 0
 ```
 
+<p align="center">
+  <img alt="Show If Hidden" src="/img/docs/inspector/overview-show-if-basic-hidden.png" />
+</p>
+
 This will only show the `_SomeProperty` property if the `KEYWORD_ON` is enabled. Otherwise the property will be completely hidden.
+
+<p align="center">
+  <img alt="Show If Shown" src="/img/docs/inspector/overview-show-if-basic-shown.png" />
+</p>
 
 The list of supported conditions is as follows
 
@@ -127,20 +155,34 @@ The list of supported conditions is as follows
   - Can be used as True/False, where any non-zero value will return True
   - Can also be used with direct value comparison, which is useful for `Enum` properties
 
+:::caution
+
+Note that, at this moment, comparing to numbers with decimal points is not supported
+
+:::
+
 All of the above can be inverted with `!` as well as combined in many ways using the `&&` and `||` operators and parentheses.
 
 That means you can do something like this
 
 ```hlsl
-_SomeExtraProperty("Some Extra Property %ShowIf(SHOW_EXTRA && (KEYWORD_ON || _SomeProperty > 0.5) && _MyEnum != 1 && !_BumpMap)", Float) = 0
+_SomeExtraProperty("Some Extra Property %ShowIf(SHOW_EXTRA && (KEYWORD_ON || _SomeProperty > 2) && _MyEnum != 1 && !_BumpMap)", Float) = 0
 ```
 
 Where this property will only be shown if
 
 - `SHOW_EXTRA` is defined
-- And either `KEYWORD_ON` is defined or `_SomeProperty` is greater than 0.5
+- And either `KEYWORD_ON` is defined or `_SomeProperty` is greater than 2
 - And `_MyEnum` is not equal to 1
 - And `_BumpMap` texture is not set
+
+<p align="center">
+  <img alt="Show If Hidden" src="/img/docs/inspector/overview-show-if-complex-hidden.png" />
+</p>
+
+<p align="center">
+  <img alt="Show If Shown" src="/img/docs/inspector/overview-show-if-complex-shown.png" />
+</p>
 
 Any complex shader GUI is bound to use this Function the most
 
@@ -156,6 +198,10 @@ The `%CombineWith()` function allows you to do just that.
 [HideInInspector][Enum(R,0,G,1,B,2,A,3)]_DetailsChannel("Details", Int) = 2
 [HideInInspector][Enum(R,0,G,1,B,2,A,3)]_SmoothnessChannel("Smooth", Int) = 3
 ```
+
+<p align="center">
+  <img alt="Combine multiple properties" src="/img/docs/inspector/overview-combine-with.png" />
+</p>
 
 Since the rest of the properties are already rendered by the root _MetallicChannel, we can safely `HideInInspector` everything that gets bundled inside `CombineWith`.
 
@@ -179,6 +225,10 @@ ORL Shader Inspector ships with a built-in Gradient Generator, which allows you 
 _Gradient("Gradient %Gradient()", 2D) = "white" {}
 ```
 
+<p align="center">
+  <img alt="Gradient" src="/img/docs/inspector/overview-gradients.png" />
+</p>
+
 The above will generate a simple gradient picker with a black-to-white gradient pre-filled, but not generated as a texture.
 
 You can also pass a default value to the function, which will be used to initialize the gradient.
@@ -186,6 +236,10 @@ You can also pass a default value to the function, which will be used to initial
 ```hlsl
 _Gradient("Gradient %Gradient((0,1,0,1), (1,0,0,1))", 2D) = "white" {}
 ```
+
+<p align="center">
+  <img alt="Gradient with Default" src="/img/docs/inspector/overview-gradients-default.png" />
+</p>
 
 This will generate a Green to Red gradient, which you can then modify.
 
@@ -218,6 +272,10 @@ To make the system more flexible, though, it also allows the user to pass a diff
 
 ORL Shader Inspector ships with a built-in Texture Packer, which is most handy for optimizing your texture taps, as well as working with various asset packs that might not have textures in a compatible format.
 
+<p align="center">
+  <img alt="Texture Packer" src="/img/docs/inspector/overview-packer.png" />
+</p>
+
 You do not need to do anything special to display the packer, every texture slot will have a Repack Texture button near it which will bring up the packing UI.
 
 Here you can specify which textures to use, fill values for cases when no texture is passed, as well as invert the final result.
@@ -234,6 +292,10 @@ To do so, you can use the markdown quote notation like this
 UI_ChannelsNote("> R: Albedo, G: Normal G, B: Smooth, A: Normal R", Int) = 0
 ```
 
+<p align="center">
+  <img alt="Note" src="/img/docs/inspector/overview-note.png" />
+</p>
+
 ### Link Field
 
 You might also want to link full external documentation in your inspector, and for that a markdown link notation is used
@@ -242,6 +304,10 @@ You might also want to link full external documentation in your inspector, and f
 UI_DetailsDocs("[This module has documentation](https://shaders.orels.sh/docs/orl-standard/base-shader#details)", Int) = 0
 ```
 
+<p align="center">
+  <img alt="Link" src="/img/docs/inspector/overview-link.png" />
+</p>
+
 ### Single-Line Textures
 
 While full-size texture slots with Tiling and Offset fields can be useful, often you want to render a single-line texture slot, which is more compact and takes less space.
@@ -249,8 +315,12 @@ While full-size texture slots with Tiling and Offset fields can be useful, often
 To do so - add a `>` after the texture property display name
 
 ```hlsl
-_BumpMap("Normal Map >", 2D) =  "bump" { }
+_BumpMap("Normal Map >", 2D) =  "bump" {}
 ```
+
+<p align="center">
+  <img alt="single Line" src="/img/docs/inspector/overview-single-line.png" />
+</p>
 
 ### Combine and Experiment
 
