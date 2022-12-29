@@ -6,7 +6,7 @@ sidebar_position: 3
 
 :::tip Check out the basics first
 
-If you have yet to go through the [Development Basics](/docs/development/development-basics) guide, I highly recommend checking that out first, before diving into modules.
+If you have yet to go through the [Development Basics](/docs/generator/development-basics) guide, I highly recommend checking that out first, before diving into modules.
 
 :::
 
@@ -37,7 +37,7 @@ Let's start by adding a simple pulse to the emission output.
 }
 ```
 
-We can already test this by including it any other shader! For example, let's include it in the one we made in the [Development Basics](/docs/development/development-basics) guide.
+We can already test this by including it any other shader! For example, let's include it in the one we made in the [Development Basics](/docs/generator/development-basics) guide.
 
 To include a shader definition as a submodule - simply add it to the list of includes.
 
@@ -100,4 +100,4 @@ As you might've noticed, we can include all kinds of directives inside the shade
 
 From here the sky really is the limit! You can add all kinds of effects all in separate modules to be able to quickly add snippets of code to a larger shader on-demand!
 
-I highly recommend checking out the [ORL Shader Definition docs](/docs/development/orl-shader-definition) to see what kinds of things you can influence and add to your modules to make your shaders more interesting.
+I highly recommend checking out the [ORL Shader Definition docs](/docs/generator/orl-shader-definition) to see what kinds of things you can influence and add to your modules to make your shaders more interesting.

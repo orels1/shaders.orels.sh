@@ -38,7 +38,7 @@ You can now right click on the newly created shader, and click Create -> Materia
 It will look something like this
 
 <p align="center">
-  <img alt="Newly created material" src="/img/docs/development/development-basics/development-basics-new-material.png" />
+  <img alt="Newly created material" src="/img/docs/generator/development-basics/development-basics-new-material.png" />
 
   <br/>
 
@@ -181,7 +181,7 @@ Manipulating the main texture that is already provided in the template is super 
 
 As you can see - the value of that texture is being assigned to an `o.Albedo` field of our surface struct.
 
-You can see what [other fields are available here](/docs/development/orl-shader-definition#surfacedata).
+You can see what [other fields are available here](/docs/generator/orl-shader-definition#surfacedata).
 
 ```hlsl
 void MyFragment(MeshData d, inout SurfaceData o)
@@ -240,7 +240,7 @@ You should see your newly added Emission texture and Tint color in the inspector
 
 
 <p align="center">
-  <img alt="Updated Material" src="/img/docs/development/development-basics/development-basics-updated-shader.png" />
+  <img alt="Updated Material" src="/img/docs/generator/development-basics/development-basics-updated-shader.png" />
 
   <br/>
 
@@ -251,6 +251,6 @@ You should see your newly added Emission texture and Tint color in the inspector
 
 From here you can go as deep as you want adding all kinds of fancy effects!
 
-And I also encourage you to check out the [ORL Shader Definition](/docs/development/orl-shader-definition) documentation for all the things available to you in the `.orlshader` file!
+And I also encourage you to check out the [ORL Shader Definition](/docs/generator/orl-shader-definition) documentation for all the things available to you in the `.orlshader` file!
 
-And if you want to learn more about creating modules that can be composed together - check out [this page](/docs/development/creating-modules).
+And if you want to learn more about creating modules that can be composed together - check out [this page](/docs/generator/creating-modules).

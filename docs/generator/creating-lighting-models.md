@@ -229,7 +229,7 @@ Then add the following contents to it
 }
 ```
 
-If any of these things seem unfamiliar, I recommend you go back and read the [Development Basics](/docs/development/development-basics) tutorial first.
+If any of these things seem unfamiliar, I recommend you go back and read the [Development Basics](/docs/generator/development-basics) tutorial first.
 
 Now create a sphere in the scene and assign a new material using our newly created shader to it. It should render as plain white sphere, which is what we want.
 
