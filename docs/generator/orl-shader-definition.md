@@ -289,6 +289,8 @@ Then despite the module being included below the `self` keyword, its Fragment fu
 
 This is primarily useful for maintaining a particular order of properties, while adjusting how the actual code gets executed. For example, the ORL Standard shader uses this to call Parallax UV adjustments before any other function while injecting its properties below the MainSettings of the base shader it is included from.
 
+:::
+
 ### `%PrePasses()`
 
 Contains a list of extra passes that will be appended at the beginning of the shader before the main passes.

@@ -29,7 +29,7 @@ You can also select VFX preset for the unlit shader setup, but if you are follow
 :::caution Path Resolution
 
 ORL Shader definitions automatically resolve paths to built-in assets if they start with `@/`.  
-For your own dependencies you can either provide relative paths, or absolute paths that start with `Assets/`.
+For your own dependencies you can either provide relative paths, or absolute paths that start with `/Assets` or `/Packages`.
 
 :::
 
