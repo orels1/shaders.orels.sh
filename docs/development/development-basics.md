@@ -254,4 +254,4 @@ From here you can go as deep as you want adding all kinds of fancy effects!
 
 And I also encourage you to check out the [ORL Shader Definition](/docs/development/orl-shader-definition) documentation for all the things available to you in the `.orlshader` file!
 
-And if you want to learn more about creating modules that can be composed together - check out [this page](/docs/development/creating-your-own-modules).
+And if you want to learn more about creating modules that can be composed together - check out [this page](/docs/development/creating-modules).

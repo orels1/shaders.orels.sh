@@ -14,14 +14,14 @@ As mentioned in the credits section of the main page - the ORL Shader package is
 
 The `.orlshader` file supports multiple blocks all of which are optional, except for the `%ShaderName()`.
 
-You can see all of the directives available to you out of the box in the shader example [at the bottom of this page](#shader-example).
+You can see all of the blocks available to you out of the box in the built-in templates in the shader example [at the bottom of this page](#shader-example).
 
 
-:::info Provided directives
+:::info Provided blocks
 
-Beyond the first couple of directives and the Function blocks - everything else is template-dependent. So a `%ShaderDefines` block will only be embedded in the shader if the base template of the lighting model has a `%ShaderDefines` hook inside of it.
+Beyond the configuration blocks like `%ShaderName()` and `%LightingModel()` - everything else is template-dependent. So a `%ShaderDefines` block will only be embedded in the shader if the base template of the lighting model has a `%ShaderDefines` hook inside of it.
 
-This means, if you're using a custom template, you can add any new directives you want, and they will be inserted into the template as-is.
+This means, if you're using a custom template, you can add any new directives you want, and they will be inserted into the template as-is. You can read more about custom templates [over here](/docs/development/creating-templates)
 
 :::
 

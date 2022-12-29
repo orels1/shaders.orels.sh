@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Creating Your Own Modules
+# Creating Modules
 
 :::tip Check out the basics first
 
