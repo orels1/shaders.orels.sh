@@ -160,6 +160,13 @@ Then add the following contents to it
 
 ```hlsl
 // Assets/Shaders/Functions/BlinnPhong/FragmentBase.orlsource
+%ShaderModifiers()
+{
+    ZWrite On
+    ZTest LEqual
+    Cull Back
+}
+
 %FragmentBase("FragmentBase")
 {
     void FragmentBase(MeshData d, SurfaceData o, inout half4 FinalColor)
@@ -171,6 +178,8 @@ Then add the following contents to it
 ```
 
 As you can see, we're specifying the `MeshData`, `SurfaceData`, and `FinalColor` as function parameters, as we'll need the mesh normal (contained in MeshData) to calculate the lighting, SurfaceData's albedo and smoothness to figure out the specular and then FinalColor to write our result to.
+
+We're also adding a list of `ShaderModifiers`, the PBR template uses properties to define things like ZWrite, ZTest and Culling, so we pass them directly as we're not exposing them as properties right now.
 
 For now we'll just render the albedo color, but we'll add the lighting in a moment.
 
@@ -336,6 +345,13 @@ Here's a full example of a Blinn-Phong lighting model we implemented in this gui
 
 ```hlsl
 // Assets/Shaders/Functions/BlinnPhong/FragmentBase.orlsource
+%ShaderModifiers()
+{
+    ZWrite On
+    ZTest LEqual
+    Cull Back
+}
+
 %FragmentBase("FragmentBase")
 {
     void FragmentBase(MeshData d, SurfaceData o, inout half4 FinalColor)
