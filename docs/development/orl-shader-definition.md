@@ -43,6 +43,8 @@ Defines the lighting model to use, defaults to `PBR` if not specified.
 
 Lighting models are special kinds of `.orlsource` modules,that specify where the rest of the code gets included in the shader using the `target` keyword in their `%Includes()` block. Check out the built in LightingModels to see how they work.
 
+You can also create your own lighting models, and use them in your shaders. Check out the [Creating Lighting Models](/docs/development/creating-lighting-models) guide for more info.
+
 ### %Template(string path)
 
 Defines the template to use. Is meant to be defined inside of the LightingModel, but can be overriden here if needed.
