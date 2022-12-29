@@ -30,20 +30,19 @@ A simple spin effect with configurable Axis and Origin point
 
 <p align="center">
   <img alt="Spin effect options" src="/img/docs/orl-standard/vertex-animation/vertex-animation-spin-inspector.png" />
-
+  <br />
   <small>Spin effect options</small>
 </p>
 
 - Spinning: Controls the application of spin effect. Options are: None/Local/World, where Local and World controls the reference space used for applying the effect
 - Spin Axis: The axis of spin in Local/World space based on the **Spinning** setting. Where something like X: 1, Y: 0, Z: 0 will spin the object along the X axis in Local/World space, and X: 0, Y: 1, Z: 0 will spin along the Y
+- Normalize Axis: Enables force-normalization of the **Spin Axis**. This is useful if you want to make sure that the axis is always kept as a unit-vector to avoid any mesh distortions
 - Spin Origin Point: The origin point of the spin, by default is set to 0,0,0, which is the object's pivot point. Note that the origin point is always applied in **local space**
 - Spin Speed: Controls the speed of the spin. Negative values reverse the spin direction
-
-:::caution Normalize the Axis
-
-Note that setting axis to a non-normalized value (where a sum of X/Y/Z is above or below 1) can result in unpredicted effects, but at the same time - feel free to experiment!
-
-:::
+- Phase Offset: Controls the offset of the animation, allows you to specify per-material time offsets
+- Position Offset: Enables the animation offset based on object's position
+- Position Offset Axis: Controls the axis which is considered for position offset. Options are: XYZ/X/Y/Z, where XYZ uses object's position as is, while individual axis will only consider the world-space X/Y/Z axis position. All other objects with the same X/Y/Z value will have the same animation offset
+- Position Offset Scale: Controls the strength of the position-based animation offset effect
 
 ## Float
 
@@ -63,9 +62,14 @@ Applies a floating effect to the object
 
 - Floating: Controls the application of float effect. Options are: None/Local/World, where Local and World controls the reference space used for applying the effect
 - Float Axis: The axis of floating in Local/World space based on the **Floating** setting. Where something like X: 1, Y: 0, Z: 0 will float the object along the X axis in Local/World space, and X: 0, Y: 1, Z: 0 will float along the Y
+- Normalize Axis: Enables force-normalization of the **Float Axis**. This is useful if you want to make sure that the axis is always kept as a unit-vector to avoid any mesh distortions
 - Float Speed: Controls the speed of the float effect
 - Float Amount: Controls the amount of movement applied
 Two Way: Determines if the object should only move in the positive direction along the specified **Float Axis**, purely a convenience function
+- Phase Offset: Controls the offset of the animation, allows you to specify per-material time offsets
+- Position Offset: Enables the animation offset based on object's position
+- Position Offset Axis: Controls the axis which is considered for position offset. Options are: XYZ/X/Y/Z, where XYZ uses object's position as is, while individual axis will only consider the world-space X/Y/Z axis position. All other objects with the same X/Y/Z value will have the same animation offset
+- Position Offset Scale: Controls the strength of the position-based animation offset effect
 
 ## Scale
 
@@ -86,3 +90,7 @@ Applies uniform scaling to the object
 - Scaling: Controls the application of the scaling effect. Options are: None/Uniform
 - Scale Speed: The speed of the scaling effect
 - Scale Amount: Controls the amount of scaling applied
+- Phase Offset: Controls the offset of the animation, allows you to specify per-material time offsets
+- Position Offset: Enables the animation offset based on object's position
+- Position Offset Axis: Controls the axis which is considered for position offset. Options are: XYZ/X/Y/Z, where XYZ uses object's position as is, while individual axis will only consider the world-space X/Y/Z axis position. All other objects with the same X/Y/Z value will have the same animation offset
+- Position Offset Scale: Controls the strength of the position-based animation offset effect

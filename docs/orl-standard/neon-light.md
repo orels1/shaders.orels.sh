@@ -23,6 +23,8 @@ The main difference from the Glass shader, is that it is not transparent and als
 
   <img alt="All of the provided options" src="/img/docs/orl-standard/neon-light/neon-inspector.png" />
 
+  <br />
+
   <small>All of the provided options</small>
 </p>
 

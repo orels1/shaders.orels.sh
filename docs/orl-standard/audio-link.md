@@ -19,6 +19,14 @@ Most of the AudioLink options are hidden by default and only show up based on th
 
 ## Global Settings
 
+<p align="center">
+  <img alt="Global AL Settings" src="/img/docs/orl-standard/audio-link/audio-link-general-settings.png" />
+
+  <br />
+  <small>Global settings for AudioLink effects</small>
+</p>
+
+
 - Mask: A main texture mask used to mask-out the audio link effect on your mesh, uses the UV channel selected below
 - UV Channel: Specifies which mesh UV channel (1-4) to use for the Audio Link mask and effects
 - Tint: Global tint color. Some effects provide their own coloring options, in which case you want to keep the Tint white and use it to control intensity
@@ -36,6 +44,7 @@ Shows a single Audio Link frequency band across the whole object
 <p align="center">
   <img alt="Band Selection effect options" src="/img/docs/orl-standard/audio-link/audio-link-band-selection-inspector.png" />
 
+  <br />
   <small>Band Selection effect options</small>
 </p>
 
@@ -54,15 +63,15 @@ Similar to Band Selection but uses object UV map for frequency selection. This a
 <p align="center">
   <img alt="UV Layout Reference" src="/img/docs/orl-standard/audio-link/audio-link-uv-layout.png" />
 
+  <br/>
   <small>UV Layout Reference</small>
-
 </p>
 
 <p align="center">
 
   <img alt="UV Based effect options" src="/img/docs/orl-standard/audio-link/audio-link-uv-based-inspector.png" />
+  
   <br />
-
   <small>UV Based effect options</small>
 </p>
 
@@ -81,6 +90,7 @@ Arguably one of the more sought-after effect. Shows a waveform of the current so
 <p align="center">
   <img alt="Waveform effect options" src="/img/docs/orl-standard/audio-link/audio-link-waveform-inspector.png" />
 
+  <br />
   <small>Waveform effect options</small>
 </p>
 

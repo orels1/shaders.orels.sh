@@ -18,9 +18,15 @@ In practice, this means that you can duplicate the same mesh many times, move th
 
 <br />
 
-:::info Static Objects Expected
+:::info
 
 While the demo above shows the objects moving, generally speaking you are not expected to move these in runtime, as this shader is primarily an environment design tool
+
+:::
+
+:::caution Do not static batch
+
+Static batching removes correct object origin data, utilize GPU instancing instead
 
 :::
 

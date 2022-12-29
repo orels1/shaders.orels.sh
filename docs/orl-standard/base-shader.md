@@ -174,6 +174,7 @@ GSAA, or Geometric Specular Anti Aliasing, helps avoid severe specular aliasing 
 
 ### Other Advanced Options
 
+- Non-Linear Lightprobe SH: Enables higher quality lightprobe sampling which is more accurate and behaves much better in high-intensity lighting scenarios. Is recommended for use on PC platforms, but might be fairly expensive on mobile.
 - Force Box Projection: Enables support for Box Projected reflection probes on platforms that do not support it natively, e.g. Android (Oculus Quest). This is fairly expensive for mobile hardware, so use it sparingly
 
 ## Lightmapping
@@ -186,9 +187,15 @@ GSAA, or Geometric Specular Anti Aliasing, helps avoid severe specular aliasing 
 - Specular Roughness Mod: Allows you to influence the roughness of Baked Specular, which can sometimes be too intensive due to imperfections of Baked Specular direction
 - Bicubic Sampling: Dramatically increases quality of the baked shadows, especially on the lower resolution lightmaps at a fairly small performance hit
 - Baked Specular: Toggles the display of baked specular. Only relevant when using some kind of Directional lightmap, e.g., Dominant Direction or Bakery's RNM or SH.
-- Enable Bakery Features: Allows usage of bakery-specific features like RNM or SH lightmaps
-- Bakery Mode: Specifies whether to use RNM or SH lightmaps for Baked Specular
+- Enable Bakery Features: Allows usage of bakery-specific features like RNM, SH or MonoSH lightmaps
+- Bakery Mode: Specifies whether to use RNM, SH or MonoSH lightmaps for Baked Specular
 - Bakery Non-Linear SH: Enables the Non-Linear SH sampling that can improve the contrast of the lighting on the mesh, especially with high-frequency normal maps
+
+:::tip Update Your Bakery
+
+If you're not seeing MonoSH in your Directionality Mode dropdown when using bakery, you should update to the latest version! MonoSH is a new feature that was added in Bakery 1.9.0, it allows you to use a single directional lightmap to achieve a level of quality comparable to the old regular SH lightmaps (which used 3 separate textures) and it doesn't require any special adapters to work
+
+:::
 
 <div style={{position: "relative", paddingTop: "64.73354231974922%"}}><iframe src="https://iframe.mediadelivery.net/embed/165/884ea2b0-6ef3-4ebf-b97c-e6fcbfcff7df?autoplay=true&loop=true&muted=true" loading="lazy" style={{border: "none", position: "absolute", top: 0, height: "100%", width: "100%"}} allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe></div>
 
@@ -197,6 +204,8 @@ GSAA, or Geometric Specular Anti Aliasing, helps avoid severe specular aliasing 
 
 <p align="center">
   <img alt="Without Baked Specular" src="/img/docs/orl-standard/base-shader/baked-specular-off.png" />
+
+  <br />
 
   <small>Without Baked Specular</small>
 </p>

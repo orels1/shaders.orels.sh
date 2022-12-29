@@ -26,12 +26,6 @@ These effects are also available for the Layered Material version of the shader,
   <img alt="Triplanar Effects Inspector" src="/img/docs/orl-standard/triplanar-effects/triplanar-effects-inspector.png" />
 </p>
 
-:::info Puddles Effect
-
-Puddles are not implemented yet, but are planned
-
-:::
-
 ## General Settings
 
 - Triplanar Masks: Specifies the texture to be used for applying the effects. Different channels are used for different things. The number besides the texture slot controls the scale of the texture
