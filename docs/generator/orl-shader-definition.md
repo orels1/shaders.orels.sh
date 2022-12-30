@@ -522,7 +522,7 @@ In the VFX template `FinalColor` is constructed from `o.Albedo` and `o.Alpha`, s
 
 ## Shader Example
 
-Below is an example of a shader with all the blocks supported by the built-in toon template. You can also find this example in the `/Packages/sh.orels.shaders/Runtime/Shaders/ORL Shader Example.txt`
+Below is an example of a shader with all the blocks supported by the built-in toon template. You can also find this example in the `/Packages/sh.orels.shaders.generator/Runtime/Resources/ORL Shader Example.txt`
 
 ```hlsl
 %ShaderName("My Awesome Shader")
