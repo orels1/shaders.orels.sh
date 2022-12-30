@@ -17,6 +17,8 @@ Most of the AudioLink options are hidden by default and only show up based on th
 
 :::
 
+There is also a Cutout version of the shader available under `orels1/Standard AudioLink Cutout" name
+
 ## Global Settings
 
 <p align="center">
