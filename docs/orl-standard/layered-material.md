@@ -37,19 +37,26 @@ This shader also has a variant with [Triplanar Effects](/docs/orl-standard/tripl
 
 ## General Settings
 
+<p align="center">
+  <img alt="Layered Material Demo" src="/img/docs/orl-standard/layered-material/layered-material-inspector.png" />
+
+</p>
+
 - Layer Count: The amount of layers used. Can go between 1 and 4
-- Vertex Color Debugging: Enables the Vertex Color debug view, see example above
+- Mask Type: Controls what is used for masking. Options are: Vertex Colors or a Texture
+- Mask Texture: Only visible when **Mask Type** is set to Texture. This will be used to mask the layers by color
+- Mask Debugging: Displays the mask values on the mesh based on selected **Mask Type**
 
 ## Per-Layer Settings
 
 All of the options here are cloned from the [Base Shader's Main Settings](/docs/orl-standard/base-shader#main-settings), check that documentation for more info
 
-The layers are by default filtered using these vertex colors:
+The layers are by default filtered using these colors:
 
-- Layer 1: Black vertex color
-- Layer 2: Red vertex color
-- Layer 3: Green vertex color
-- Layer 4: Blue vertex color
+- Layer 1: Black
+- Layer 2: Red
+- Layer 3: Green
+- Layer 4: Blue
 
 But you can swap the colors around if you want
 
