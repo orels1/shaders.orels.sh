@@ -81,3 +81,33 @@ small {
   display: flex;
   flex-direction: column;
 }
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.img-row > img,
+.img-row > div {
+  flex-shrink: 1 !important;
+  flex-grow: 0 !important;
+  max-width: 48% !important;
+  margin: 0 0.5rem !important;
+}
+
+.img-row > div > small {
+  margin-top: 0.5rem;
+}

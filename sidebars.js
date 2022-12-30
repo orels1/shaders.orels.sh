@@ -24,6 +24,11 @@ const sidebars = {
       ]
     },
     {
+      type: 'doc',
+      label: '🦄 Toon Shader',
+      id: 'toon',
+    },
+    {
       type: 'category',
       label: 'VFX',
       items: [
