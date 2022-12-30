@@ -1,4 +1,4 @@
-# v5 is out!
+# v5 is out as a pre-release
 
 Woah, the v5 of the shader package is finally out!
 
