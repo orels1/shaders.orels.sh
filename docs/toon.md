@@ -81,7 +81,8 @@ This documentation is broken up into modules that correspond to the foldouts in 
 </p>
 
 - Enable Outline: Enables the outline effect
-- Color: Controls the tint of the outline
+- Texture: Controls the outline color
+- Color: Controls the tint of the outline texture
 - Lighting Mode: Controls how the outline is lit. Defaults to Lit
   - Lit: Uses environment lighting to light the outline
   - Emissive: Uses the outline color directly
