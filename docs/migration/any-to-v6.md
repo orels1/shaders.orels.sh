@@ -41,7 +41,7 @@ Coming Soon (tm)
 
 After importing the new shaders, you will need to migrate your materials, which are currently pink.
 
-You should see a new `Tools` menu in your topbar, with an `orels1` submenu inside. Click on `orels1` and then `Migrate Shaders`
+You should see a new `Tools` menu in your topbar, with an `orels1` submenu inside. Click on `orels1` and then `Migrate Materials`
 
 <p align="center">
   <img alt="Tools submenu" src="/img/docs/migration/v6/v6-migrator.png" />
@@ -67,12 +67,45 @@ If you're not comfortable migrating outright, you can check "Dry Run" to see wha
 
 When the migration is done - all of the materials should un-pink themselves. And you can now start using the new shaders.
 
+You should get a log message outline how many materials were migrated in your console. Along with some information on potentially missing shaders / invalid materials.
+
 ## Step X: Rolling Back and Troubleshooting
 
-Since this operation involves deleting stuff, I want to reassure you that you can always rollback, as long as you haven't closed the project yet and have the migration in your undo stack.
+Since this operation involves deleting stuff, I want to reassure you that you can always rollback, there are 2  ways to do so.
 
-If you migrated the shaders and things are still totally pink or there are other unpredicted errors, you can immediately ctrl+Z to revert back to the all-pink old shaders, remove ORL Shaders from your project and import the last version you've been using from github.
+### If you have **NOT** done anything after migrating
+
+As long as you haven't closed the project yet and have the migration in your undo stack (basically have not done much after migrating, so unity still has the migration in the undo history).
+
+You can immediately ctrl+Z to revert back to the all-pink old shaders, remove ORL Shaders from your project and import the last version you've been using from github.
+
+### If you have closed unity / done other things after migrating / the ctrl+Z revert didnt work
+
+You can use the Revert tool, which is included in the ORL Shaders Migrator window
+
+- Import the older version of the shaders you were using before (either v4 or v5 pre-release)
+- Click on `Tools` -> `orels1` -> `Migrate Materials`
+
+<p align="center">
+  <img alt="Tools submenu" src="/img/docs/migration/v6/v6-migrator.png" />
+</p>
+
+- Click the "Revert" tab
+
+<p align="center">
+  <img alt="Migrator Window" src="/img/docs/migration/v6/v6-migrator-window-revert.png" />
+</p>
+
+- Click "Find Materials using ORL Shaders"
+
+<p align="center">
+  <img alt="Migrator Window" src="/img/docs/migration/v6/v6-migrator-window-revert-list.png" />
+</p>
+
+- Click "Revert Now"
 
 This will restore all the references to what they were.
+
+- Delete the new packages from your Packages list: `ORL Shaders`, `ORL Shader Generator`, `ORL Shader Inspector`
 
 If you encounter issues that force you to revert, please report them [either on github](https://github.com/orels1/orels-Unity-Shaders/issues/new) or by joining the [discord](http://discord.gg/orels1) and asking for help.
