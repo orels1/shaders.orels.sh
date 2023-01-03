@@ -6,22 +6,7 @@ sidebar_position: 1
 
 Migrating to the v6 versions is a 3 step process. This version is a complete rewrite with a totally new shader architecture. This means that all the old shaders are gone, and you will need to migrate your materials to the new shaders.
 
-## Step 1: Remove the old shaders
-
-While this might sound scary - its not actually a destructive process. Simply remove all the ORL shaders and their folders from your project.
-
-For reference, here are the folders you need to remove if you used the v4 of ORL Shaders
-
-- `Assets/Shaders/orels1/ORL`
-
-And if you used the pre-release v5, delete the following
-
-- `Assets/Shaders/orels1/ORL`
-- `Assets/Shaders/orels1/LICENSE`
-- `Assets/Shaders/orels1/README.md`
-- `Assets/Shaders/orels1/Sources`
-
-## Step 2: Import the new shaders
+## Step 1: Import the new shaders
 
 ### For Any Unity Project
 
@@ -37,9 +22,9 @@ Coming Soon (tm)
 
 - [ ] Add ORL Shaders package to your project
 
-## Step 3: Migrate your materials
+## Step 2: Migrate your materials
 
-After importing the new shaders, you will need to migrate your materials, which are currently pink.
+After importing the new shaders, you will need to migrate your materials.
 
 You should see a new `Tools` menu in your topbar, with an `orels1` submenu inside. Click on `orels1` and then `Migrate Materials`
 
@@ -65,9 +50,24 @@ After confirming that the list looks OK you can click "Migrate Now" button to st
 
 If you're not comfortable migrating outright, you can check "Dry Run" to see what the migrator will do without actually applying any changes. It will print everything it is planning to do to the console.
 
-When the migration is done - all of the materials should un-pink themselves. And you can now start using the new shaders.
-
 You should get a log message outline how many materials were migrated in your console. Along with some information on potentially missing shaders / invalid materials.
+
+## Step 3: Remove the old shaders
+
+Now you can safely remove all the old shaders
+
+For reference, here are the folders you need to remove if you used the v4 of ORL Shaders
+
+- `Assets/Shaders/orels1/ORL`
+
+And if you used the pre-release v5, delete the following
+
+- `Assets/Shaders/orels1/ORL`
+- `Assets/Shaders/orels1/LICENSE`
+- `Assets/Shaders/orels1/README.md`
+- `Assets/Shaders/orels1/Sources`
+
+Now you can start using all of the new shaders!
 
 ## Step X: Rolling Back and Troubleshooting
 
