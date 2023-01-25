@@ -195,6 +195,7 @@ Packed map is a more advanced mode of AudioLink effect, which allows you to puls
   - Green Channel: Will pulse based on the intensity of Mid and High Mid frequency bands
   - Blue Channel: Will pulse based on the intensity of High Frequency band
 - UV Set: Controls the UV channel used when sampling the **AudioLink Map**
+- Smoothing Level: Controls the amount of smoothness to add to the Audio Link data. Helps to reduce the "jerkiness" of the effect
 - Red Channel
   - Gradient: Enables VU Meter effect for the elements colored Red in the **AudioLink Map**
   - Color: Controls the color of the effect

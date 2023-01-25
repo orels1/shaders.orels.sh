@@ -128,6 +128,7 @@ A "volume level" bar effect for the selected frequency band
 </p>
 
 - Frequency Band: Controls which frequency band to sample. Options are: Bass (1), Low Mid (2), High Mid (3) and High (4)
+- Smoothing: Controls the amount of smoothing to be applied to AudioLink data. Can help eliminate some of the "jitter" in the effect
 - Bar UV Axis: Specifies which axis to use for the bar direction. Options are: X/Y/Negative X/Negative Y
 - Bar Gradient: Specifies a gradient used for the bar, allows for creating a volume meter effect with the higher levels being colored in a different way
 - Bar Scale: Controls the intensity of the bar movement
@@ -149,6 +150,7 @@ Pulses the whole object with a color. Has an additional option to scroll a textu
 </p>
 
 - Frequency Band: Controls which frequency band to sample. Options are: Bass (1), Low Mid (2), High Mid (3) and High (4)
+- Smoothing: Only visible when **Pulse Mode** is set to **Emission**. Controls the amount of smoothing to be applied to AudioLink data. Can help eliminate some of the "jitter" in the effect
 - Pulse Mode: Specifies one of the two effect modes
   - Emission: Lights up the object based on the current intensity of the selected **Frequency Band**
   - Texture: Adds a texture scrolling effect to the Emission pulse
