@@ -180,6 +180,7 @@ The most basic mode, pulses the material with a selected color, based on the int
 - UV Set: Controls the UV channel used when sampling the **AudioLink Map**
 - Color: Controls the color of the effect
 - Frequency Band: Controls which frequency is used to perform the pulsing
+- Smoothing Level: Controls the amount of smoothness to add to the Audio Link data. Helps to reduce the "jerkiness" of the effect
 
 ### Packed Map
 
