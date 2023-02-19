@@ -12,6 +12,13 @@ A simple Cloud Layer shader
 
 This shader is aimed at providing a passable cloud layer effect for background use without using any noise generators. The effect is fully unlit and relies on artistic use of gradients to look correct in the environment
 
+
+:::tip
+
+Put this shader on a pre-subdivided mesh. I recommend anywhere from 32k to 128k triangles for a small to medium sized layer (room-scale). And 512k for outdoor clouds. The shader will not work well with a low-poly mesh.
+
+:::
+
 <BunnyPlayer videoId="b4a74774-d7f3-4137-b28c-c1b7c1bd1b6a" />
 <br />
 
