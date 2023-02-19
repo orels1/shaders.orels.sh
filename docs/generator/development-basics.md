@@ -2,13 +2,45 @@
 sidebar_position: 1
 ---
 
-# Development Basics
+ORL Shader Generator is a text-based shader-generator framework that powers ORL Shader Package. You can use it for your own shaders as well and this guide will walk you through the basics of that process.
 
-:::caution BETA NOTICE
+## Installation
 
-This area of documentation is currently only relevant for the `packages` branch of the repository, which is not production-ready yet
+### Unity Package Manager
+
+You can add this package to any unity project if you have git installed by simply using the following git url in the package manager:
+
+```
+https://github.com/orels1/orels-Unity-Shaders.git#packages?path=Packages/sh.orels.shaders.generator
+```
+
+### Unity Package
+
+You can download the latest version of the generator [as a unitypackage here](https://github.com/orels1/orels-Unity-Shaders/releases). You need to download the `sh.orels.shaders.generator-X.X.X.unitypackage` file.
+
+### VRChat Creator Companion
+
+:::info
+
+VCC Listing Coming Soon
 
 :::
+
+Add this repo listing to your VCC
+
+```
+// future URL here
+```
+
+Afterwards - add ORL Shader Generator package to your project
+
+Having issues? [Hop by the discord](https://discord.gg/orels1)
+
+## Updating
+
+Simply download the latest release and import it into your project
+
+# Development Basics
 
 ORL Shaders are built using my own shader generator system which is included in the repository. And while you can just use the shaders that come pre-packaged in the core package, I encourage you to check out the generator, which allows you to easily add effects on top of my existing code, leveraging all of the PBR/Toon lighting and setup in an easy way.
 

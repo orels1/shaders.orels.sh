@@ -16,6 +16,12 @@ If you used the VCC to install the shaders, you can update them by going to the 
 
 ## Major version Migrations
 
+:::warning
+
+If your ORL Shaders are inside the `Assets` folder - you are on an old version and should use the guide below to migrate!
+
+:::
+
 The following versions have breaking changes and require a migration step
 
 - v6+, see [Migrating to v6](any-to-v6)

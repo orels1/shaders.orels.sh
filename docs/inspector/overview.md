@@ -38,23 +38,33 @@ https://github.com/orels1/orels-Unity-Shaders.git#packages?path=Packages/sh.orel
 
 ### Unity Package
 
-You can download the latest version of the inspector [as a unitypackage here](https://github.com/orels1/orels-Unity-Shaders/releases)
+You can download the latest version of the inspector [as a unitypackage here](https://github.com/orels1/orels-Unity-Shaders/releases). You need to download the `sh.orels.shaders.inspector-X.X.X.unitypackage` file.
 
 ### VRChat Creator Companion
+
+:::info
+
+VCC Listing Coming Soon
+
+:::
 
 Add this repo listing to your VCC
 
 ```
-Coming Soon (tm)
+// future URL here
 ```
 
 Afterwards - add ORL Shader Inspector package to your project
 
 Having issues? [Hop by the discord](https://discord.gg/orels1)
 
+## Updating
+
+Simply download the latest release and import it into your project
+
 ## Usage
 
-To use the inspector, simply reference it via the CustomEditor keyword in your shadder
+To use the inspector, simply reference it via the CustomEditor keyword in your shader
 
 ```hlsl
 CustomEditor "ORL.ShaderInspector.InspectorGUI"
