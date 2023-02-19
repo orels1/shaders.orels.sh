@@ -56,16 +56,40 @@ If you ever used BetterShaders - some of these things will look familiar. As I u
 
 ## Creating a Shader
 
-To create a new shader with ORL shaders - right click anywhere in the project, and select the `Create/Shader/ORL/PBR Shader` menu item. This will create a new skeleton `.orlshader` file for you with the PBR lighting settings set. So you can start adding your own custom code right there.
+To create a new shader with ORL shaders - create a new file in your project and call it, for example `MyShader.orlshader`.
 
-You can also select VFX preset for the unlit shader setup, but if you are following this guide - use the PBR one. Same goes for Toon
+Then open that file with a text editor and add the following
 
-:::caution Path Resolution
+```hlsl
+%ShaderName("My Shader")
 
-ORL Shader definitions automatically resolve paths to built-in assets if they start with `@/`.  
-For your own dependencies you can either provide relative paths, or absolute paths that start with `/Assets` or `/Packages`.
+%Properties()
+{
+    _MainTex("Main Texture", 2D) =  "white" { }
+}
 
-:::
+%Textures()
+{
+    TEXTURE2D(_MainTex);
+    SAMPLER(sampler_MainTex);
+}
+
+%Variables()
+{
+    half4 _MainTex_ST;
+}
+
+%Fragment("MyFragment")
+{
+    void MyFragment(MeshData d, inout SurfaceData o)
+    {
+        half2 uv = d.uv0.xy * _MainTex_ST.xy + _MainTex_ST.zw;
+        half3 albedo = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, uv).rgb;
+        
+        o.Albedo = albedo;
+    }
+}
+```
 
 You can now right click on the newly created shader, and click Create -> Material to quickly create a new material from that shader.
 

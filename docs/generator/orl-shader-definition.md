@@ -45,6 +45,13 @@ Lighting models are special kinds of `.orlsource` modules,that specify where the
 
 You can also create your own lighting models, and use them in your shaders. Check out the [Creating Lighting Models](/docs/generator/creating-lighting-models) guide for more info.
 
+:::caution Path Resolution
+
+ORL Shader definitions automatically resolve paths to built-in assets if they start with `@/`.  
+For your own dependencies you can either provide relative paths, or absolute paths that start with `/Assets` or `/Packages`.
+
+:::
+
 ### %Template(string path)
 
 Defines the template to use. Is meant to be defined inside of the LightingModel, but can be overriden here if needed.
