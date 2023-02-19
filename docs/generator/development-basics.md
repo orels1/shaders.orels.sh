@@ -2,6 +2,8 @@
 sidebar_position: 1
 ---
 
+# Development Basics
+
 ORL Shader Generator is a text-based shader-generator framework that powers ORL Shader Package. You can use it for your own shaders as well and this guide will walk you through the basics of that process.
 
 ## Installation
@@ -40,7 +42,7 @@ Having issues? [Hop by the discord](https://discord.gg/orels1)
 
 Simply download the latest release and import it into your project
 
-# Development Basics
+# Introduction
 
 ORL Shaders are built using my own shader generator system which is included in the repository. And while you can just use the shaders that come pre-packaged in the core package, I encourage you to check out the generator, which allows you to easily add effects on top of my existing code, leveraging all of the PBR/Toon lighting and setup in an easy way.
 
