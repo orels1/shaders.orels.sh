@@ -10,16 +10,21 @@ Migrating to the v6 versions is a 3 step process. This version is a complete rew
 
 ### For Any Unity Project
 
-- [ ] [Download and import the lastest release of ORL Shaders, Shader Generator and Shader Inspector](https://github.com/orels1/orels-Unity-Shaders/releases)
+- [ ] [Download and import the latest full release (the first .unitypackage file)](https://github.com/orels1/orels-Unity-Shaders/releases)
+
+You should grab the top `.unitypackage` file from the latest release. It contains all the shaders and tools. It should be named like
+
+```
+sh.orels.shaders-full-X.X.X.unitypackage
+```
 
 ### For VCC Users
-
-- [ ] Add this repo listing to your VCC
 
 ```
 Coming Soon (tm)
 ```
 
+- [ ] Add this repo listing to your VCC
 - [ ] Add ORL Shaders package to your project
 
 ## Step 2: Migrate your materials
