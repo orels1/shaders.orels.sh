@@ -24,4 +24,4 @@ If your ORL Shaders are inside the `Assets` folder - you are on an old version a
 
 The following versions have breaking changes and require a migration step
 
-- v6+, see [Migrating to v6](any-to-v6)
+- v6+, see [Migrating to v6](/docs/migration/any-to-v6)
