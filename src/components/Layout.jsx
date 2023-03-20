@@ -34,6 +34,7 @@ const navigation = [
       },
       { title: 'Vertex Animation', href: '/docs/orl-standard/vertex-animation' },
       { title: 'Neon Light', href: '/docs/orl-standard/neon-light' },
+      { title: 'Glass', href: '/docs/orl-standard/glass' },
     ],
   },
   {
