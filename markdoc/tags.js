@@ -2,6 +2,7 @@ import { Callout } from '@/components/Callout'
 import { QuickLink, QuickLinks } from '@/components/QuickLinks'
 import { LinkButton } from '@/components/LinkButton';
 import Video from '@/components/Video';
+import UnityDemo from '@/components/UnityDemo';
 
 const tags = {
   callout: {
@@ -38,6 +39,15 @@ const tags = {
       title: { type: String },
     },
     render: Video,
+  },
+  'unity-demo': {
+    selfClosing: true,
+    attributes: {
+      url: { type: String },
+      width: { type: Number },
+      height: { type: Number },
+    },
+    render: UnityDemo,
   },
   'quick-links': {
     render: QuickLinks,

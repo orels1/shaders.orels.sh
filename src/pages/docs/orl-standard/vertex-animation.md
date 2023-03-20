@@ -37,17 +37,9 @@ A simple spin effect with configurable Axis and Origin point
 
 Applies a floating effect to the object
 
-<BunnyPlayer videoId="ef7abed9-52cf-4c88-9f96-61fb3195dbbc" />
+{% video url="https://iframe.mediadelivery.net/embed/165/ef7abed9-52cf-4c88-9f96-61fb3195dbbc?autoplay=true&loop=true&muted=true" title="Float Effect" /%}
 
-<br />
-
-<p align="center">
-  <img alt="Float effect options" src="/img/docs/orl-standard/vertex-animation/vertex-animation-float-inspector.png" />
-
-  <br />
-
-  <small>Float effect options</small>
-</p>
+![Float Effect Options](/img/docs/orl-standard/vertex-animation/vertex-animation-float-inspector.png "Float Effect Options")
 
 - Floating: Controls the application of float effect. Options are: None/Local/World, where Local and World controls the reference space used for applying the effect
 - Float Axis: The axis of floating in Local/World space based on the **Floating** setting. Where something like X: 1, Y: 0, Z: 0 will float the object along the X axis in Local/World space, and X: 0, Y: 1, Z: 0 will float along the Y
@@ -64,17 +56,9 @@ Two Way: Determines if the object should only move in the positive direction alo
 
 Applies uniform scaling to the object
 
-<BunnyPlayer videoId="f289b1d7-dc10-4cb1-b77c-e474b30974e6" />
+{% video url="https://iframe.mediadelivery.net/embed/165/f289b1d7-dc10-4cb1-b77c-e474b30974e6?autoplay=true&loop=true&muted=true" title="Scale Effect" /%}
 
-<br />
-
-<p align="center">
-  <img alt="Scale effect options" src="/img/docs/orl-standard/vertex-animation/vertex-animation-scale-inspector.png" />
-
-  <br />
-
-  <small>Scale effect options</small>
-</p>
+![Scale Effect Options](/img/docs/orl-standard/vertex-animation/vertex-animation-scale-inspector.png "Scale Effect Options")
 
 - Scaling: Controls the application of the scaling effect. Options are: None/Uniform
 - Scale Speed: The speed of the scaling effect

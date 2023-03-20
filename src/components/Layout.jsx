@@ -33,6 +33,7 @@ const navigation = [
         href: '/docs/orl-standard/audio-link',
       },
       { title: 'Vertex Animation', href: '/docs/orl-standard/vertex-animation' },
+      { title: 'Neon Light', href: '/docs/orl-standard/neon-light' },
     ],
   },
   {

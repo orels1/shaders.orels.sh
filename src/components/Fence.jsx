@@ -1,15 +1,23 @@
 import { Fragment } from 'react';
-import Highlight, { defaultProps } from 'prism-react-renderer';
+import Highlight, { defaultProps, Prism } from 'prism-react-renderer';
+import githubTheme from 'prism-react-renderer/themes/github';
+import shadersOfPurpleTheme from 'prism-react-renderer/themes/shadesOfPurple';
 import clsx from 'clsx';
 import CopyButton from '@/components/CopyButton';
 
+(typeof global !== "undefined" ? global : window).Prism = Prism;
+
 export function Fence({ children, language }) {
+  // @ts-ignore
+  (typeof global !== "undefined" ? global : window).Prism = Prism;
+  require('prismjs/components/prism-csharp');
+  require('prismjs/components/prism-hlsl');
   return (
     <Highlight
       {...defaultProps}
       code={children.trimEnd()}
       language={language}
-      theme={undefined}
+      theme={shadersOfPurpleTheme}
     >
       {({ className, style, tokens, getTokenProps }) => (
         <div className="relative group">
