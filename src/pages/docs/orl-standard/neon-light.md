@@ -11,10 +11,6 @@ Neon Light is partially based on the [Glass](/docs/orl-standard/glass) effect wh
 
 The main difference from the Glass shader, is that it is not transparent and also does not offer the blurred glass effect. It is generally aimed at providing a drop-in replacement for pure emission glow that is often used for neon lights, to add a bit more visual flair with the flickering and rim highlights and shadowing
 
-## Demo
-
-{% unity-demo url="https://orels1.b-cdn.net/shaders/docs/orl-standard/neon-light" /%}
-
 ## Shader Overview
 
 ![Neon sign from the Demo World](/img/docs/orl-standard/neon-light/neon-demo.png "Neon sign from the Demo World")

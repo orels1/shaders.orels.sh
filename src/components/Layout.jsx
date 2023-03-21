@@ -34,19 +34,28 @@ const navigation = [
       },
       { title: 'Vertex Animation', href: '/docs/orl-standard/vertex-animation' },
       { title: 'Neon Light', href: '/docs/orl-standard/neon-light' },
+      { title: 'Color Randomisation', href: '/docs/orl-standard/color-randomisation' },
       { title: 'Glass', href: '/docs/orl-standard/glass' },
+      { title: 'Tessellated Displacement', href: '/docs/orl-standard/tessellated-displacement' },
+      { title: 'Triplanar Effects', href: '/docs/orl-standard/triplanar-effects' },
+      { title: 'Layered Parallax', href: '/docs/orl-standard/layered-parallax' },
+      { title: 'Layered Material', href: '/docs/orl-standard/layered-material' },
+      { title: 'Vertical Fog', href: '/docs/orl-standard/vertical-fog' },
+      { title: 'LTCGI', href: '/docs/orl-standard/ltcgi' },
     ],
   },
   {
     title: 'Toon Shaders',
     links: [
-      { title: 'Base Shader', href: '/docs/orl-standard/base-shader' },
+      { title: 'Base Shader', href: '/docs/toon/base-shader' },
     ],
   },
   {
     title: 'VFX Shaders',
     links: [
-      { title: 'Base Shader', href: '/docs/orl-standard/base-shader' },
+      { title: 'Clouds', href: '/docs/vfx/clouds' },
+      { title: 'Cubemap Screen', href: '/docs/vfx/cubemap-screen' },
+      { title: 'Block Fader', href: '/docs/vfx/block-fader' },
     ],
   },
   {
