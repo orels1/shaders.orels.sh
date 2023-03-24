@@ -38,8 +38,6 @@ https://github.com/orels1/orels-Unity-Shaders.git#packages?path=Packages/sh.orel
 
 ### VRChat Creator Companion
 
-
-
 Add this repo listing to your VCC
 
 ```

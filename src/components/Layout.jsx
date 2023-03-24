@@ -72,6 +72,16 @@ const navigation = [
     ]
   },
   {
+    title: 'Shader Generator',
+    links: [
+      { title: 'Development Basics', href: '/docs/generator/development-basics' },
+      { title: 'ORL Shader Definition', href: '/docs/generator/orl-shader-definition' },
+      { title: 'Creating Modules', href: '/docs/generator/creating-modules' },
+      { title: 'Creating Lighting Models', href: '/docs/generator/creating-lighting-models' },
+      { title: 'Creating Templates', href: '/docs/generator/creating-templates' },
+    ]
+  },
+  {
     title: 'Contributing',
     links: [
       { title: 'How to contribute', href: '/docs/development/' },

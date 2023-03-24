@@ -12,9 +12,9 @@ description: A collection of practical Unity shaders for your next project.
 
 {% quick-link title="Shaders List" icon="presets" href="/docs/shaders-list" description="Learn about all the shaders included in the package." /%}
 
-{% quick-link title="Generator" icon="plugins" href="/" description="Leverage the ORL Generator system to make your own shaders" /%}
+{% quick-link title="Generator" icon="plugins" href="/docs/generator/development-basics" description="Leverage the ORL Generator system to make your own shaders" /%}
 
-{% quick-link title="Inspector" icon="theming" href="/" description="Learn how to use the ORL Inspector to its fullest" /%}
+{% quick-link title="Inspector" icon="theming" href="/docs/inspector/overview" description="Learn how to use the ORL Inspector to its fullest" /%}
 
 {% /quick-links %}
 
