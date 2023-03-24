@@ -22,10 +22,10 @@ export function Fence({ children, language }) {
       {({ className, style, tokens, getTokenProps }) => (
         <div className="relative group">
           <CopyButton
-            className="group-hover:opacity-100 opacity-0 absolute top-2 right-2 z-10"
+            className="group-hover:opacity-100 opacity-0 absolute top-2 right-2 z-30"
             content={children.toString().trimEnd()}
           />
-          <pre className={clsx(className)} style={style}>
+          <pre className={clsx(className, 'relative z-20')} style={style}>
             <code>
               {tokens.map((line, lineIndex) => (
                 <Fragment key={lineIndex}>
@@ -39,6 +39,7 @@ export function Fence({ children, language }) {
               ))}
             </code>
           </pre>
+          <div className="absolute -inset-[1px] rounded-[12px] opacity-30 z-10 bg-gradient-to-br from-purple-300 to-purple-500/50" />
         </div>
       )}
     </Highlight>
