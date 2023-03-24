@@ -59,6 +59,19 @@ const navigation = [
     ],
   },
   {
+    title: 'Migration Guides',
+    links: [
+      { title: 'General Overview', href: '/docs/migration' },
+      { title: 'Migrating to v6.x', href: '/docs/migration/any-to-v6' },
+    ]
+  },
+  {
+    title: 'Shader Inspector',
+    links: [
+      { title: 'Inspector Overview', href: '/docs/inspector/overview' },
+    ]
+  },
+  {
     title: 'Contributing',
     links: [
       { title: 'How to contribute', href: '/docs/development/' },
