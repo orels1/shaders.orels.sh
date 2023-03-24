@@ -7,9 +7,71 @@ ORL Shader Generator is a text-based shader-generator framework that powers ORL 
 
 ---
 
-# Installation
+## Why a generator?
 
-## Unity Package Manager
+The main reason I built this generator is to allow me to easily create new shaders and effects without having to write the same code over and over again. It also allows me to easily add new features to all of my shaders at once, without having to go through the process of updating each shader individually.
+
+While unity provides a built-in way to manage shader "submodules" of sorts via the `#include` directive, it is very inflexible, and can only include raw cg/hlsl code instead of working on ShaderLab level.
+
+ORL Shader Generator allows shaders to be split into shader bases and individual modules, which can then be combined together in different ways to create different final shaders. Each module, in turn, can dictate its Properties, Variables, Textures, Functions and even submodules, which will then be recursively gathered and de-duplicated.
+
+Altogether it allows me to create a full PBR shader with an extra overlay texture slot in just a few lines of code, and leave the rest of the shader to be handled by the generator.
+
+Here's an example
+
+```hlsl
+%ShaderName("Texture Overlay")
+
+%Properties()
+{
+    _OverlayTex("Overlay Texture", 2D) = "white" {}
+}
+
+%Variables()
+{
+    half4 _OverlayTex_ST;
+}
+
+%Textures()
+{
+    TEXTURE2D(_OverlayTex);
+    SAMPLER(sampler_OverlayTex);
+}
+
+%Includes()
+{
+    "@/Shaders/ORL Standard",
+    "self"
+}
+
+%Fragment("TextureOverlayFragment")
+{
+    void TextureOverlayFragment(MeshData d, inout SurfaceData o)
+    {
+        half2 uv = d.uv0.xy * _OverlayTex_ST.xy + _OverlayTex_ST.zw;
+        half4 overlayTex = SAMPLE_TEXTURE2D(_OverlayTex, sampler_OverlayTex, uv);
+        o.Albedo *= overlayTex;
+    }
+}
+```
+
+This will output a fully-functional PBR shader, with all the metallic/smoothness/emission slots you would expect, and an extra overlay texture slot that will multiply the albedo of the object by the overlay texture.
+
+I have a bit more thoughts in the subject in [this blog post](https://blog.orels.sh/creating-a-custom-shader-generation-system-with-mss-and-scriptedimporters/), although it was written before I made my own system. Back then I relied on Modular Shader System, which achieves similar goals but relies heavily on UI-based tools.
+
+## Features
+
+- Built-in support for PBR, Toon and Unlit shaders
+- Modular structure with infinite module nesting support
+- Making a new shader takes less than a dozen lines of code
+- VR w/ SPS-I, Lightmapping, Shadowcasting and Bakery support
+- Many included utilities to help with day-to-day shader tasks
+- CoreRP sampling macros for texture sampling
+- Export to single-file shaders for easy distribution
+
+## Installation
+
+### Unity Package Manager
 
 You can add this package to any unity project if you have git installed by simply using the following git url in the package manager:
 
@@ -17,11 +79,11 @@ You can add this package to any unity project if you have git installed by simpl
 https://github.com/orels1/orels-Unity-Shaders.git#packages?path=Packages/sh.orels.shaders.generator
 ```
 
-## Unity Package
+### Unity Package
 
 You can download the latest version of the generator [as a unitypackage here](https://github.com/orels1/orels-Unity-Shaders/releases). You need to download the `sh.orels.shaders.generator-X.X.X.unitypackage` file.
 
-## VRChat Creator Companion
+### VRChat Creator Companion
 
 {% callout type="note" %}
 VCC Listing Coming Soon
@@ -37,11 +99,11 @@ Afterwards - add ORL Shader Generator package to your project
 
 Having issues? [Hop by the discord](https://discord.gg/orels1)
 
-# Updating
+## Updating
 
 Simply download the latest release and import it into your project
 
-# Introduction
+## Introduction
 
 ORL Shaders are built using my own shader generator system which is included in the repository. And while you can just use the shaders that come pre-packaged in the core package, I encourage you to check out the generator, which allows you to easily add effects on top of my existing code, leveraging all of the PBR/Toon lighting and setup in an easy way.
 
@@ -51,7 +113,7 @@ This is achieved by using a special ScriptedImporter-powered [ORL Shader Definit
 If you ever used BetterShaders - some of these things will look familiar. As I used to use that system as the backbone of my own shaders. But extending lighting models for BetterShaders is a bit more complicated than I prefer, so after exploring the open source systems that are out there - I ended up building my own.
 {% /callout %}
 
-## Creating a Shader
+### Creating a Shader
 
 To create a new shader with ORL shaders - create a new file in your project and call it, for example `MyShader.orlshader`.
 
@@ -97,7 +159,7 @@ It will look something like this
 For ease of use - I recommend creating a sphere in the scene and dropping that material onto it, so you can instantly see the changes.
 
 
-### Adding your first effect
+#### Adding your first effect
 
 Now that you have an `.orlshader` file created - open it in any editor of your choice.
 
@@ -175,7 +237,7 @@ The rest is just regular shader code. We adjust the UVs by Tiling and Offset par
 
 Let's expand it a bit by adding a tint color and emission texture. Things are more fun when they glow!
 
-### Add new Properties
+#### Add new Properties
 
 As with the regular shaders - you'll need to define your properties so they can be set in the editor.
 
@@ -192,7 +254,7 @@ Add a `_EmissionMap` texture and a `_Color` to the properties block. It should n
 }
 ```
 
-### Add a Texture variable
+#### Add a Texture variable
 
 Now that you have your property added - we need to create a variable to use it in the actual fragment function.
 
@@ -231,7 +293,7 @@ Doing that allows us to use this texture in our fragment function!
 We keep Textures and Variables here separate, because in URP/HDRP - the variables must be explicitly defined inside of a CBUFFER that is shared across all passes. While textures are defined per-pass, same way as they are in Built-In RP. To simplify the code generation and allow for same shader code to be used across pipelines - we split them into two separate blocks.
 {% /callout %}
 
-### Tint the Main Texture
+#### Tint the Main Texture
 
 Manipulating the main texture that is already provided in the template is super easy!
 
@@ -251,7 +313,7 @@ void MyFragment(MeshData d, inout SurfaceData o)
 }
 ```
 
-### Sample the Texture
+#### Sample the Texture
 
 Now we can actually sample the texture and display some colors!
 
@@ -294,7 +356,7 @@ You should see your newly added Emission texture and Tint color in the inspector
 
 ![Updated Material](/img/docs/generator/development-basics/development-basics-updated-shader.png)
 
-### Next Steps
+## Next Steps
 
 From here you can go as deep as you want adding all kinds of fancy effects!
 
