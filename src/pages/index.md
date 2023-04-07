@@ -38,7 +38,7 @@ https://orels1.github.io/orels-Unity-Shaders/index.json
 
 Or use the Add to VCC button below
 
-{% link-button href="vcc://vpm/add-repo?url=orels1.github.io/orels-Unity-Shaders/index.json" variant="secondary" text="Add to VCC" /%}
+{% link-button href="vcc://vpm/addRepo?url=https://orels1.github.io/orels-Unity-Shaders/index.json" variant="secondary" text="Add to VCC" /%}
 
 Open the Project Management screen for your project and add the "ORL Shaders" package.
 
