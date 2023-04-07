@@ -19,6 +19,16 @@ const code = `export default {
 }`
 
 const tabs = [
+  { name: 'Trailer', content: (
+    <div className="flex align-center justify-center relative w-full h-full pointer-events-none">
+      <iframe
+        src="https://iframe.mediadelivery.net/embed/165/2ab12cf8-645f-4ced-9425-ef332f610224?autoplay=true&loop=true&muted=true"
+        loading="lazy"
+        allow="accelerometer; gyroscope; autoplay; encrypted-media;"      
+        className="aspect-video absolute inset-0 w-full h-full pointer-events-none"
+      ></iframe>
+    </div>
+  )},
   { name: 'Standard', content: (
     <Image
       src={heroStandardImage}
