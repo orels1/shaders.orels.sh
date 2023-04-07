@@ -59,7 +59,9 @@ If you're updating from an old version, most of the time you can just get the la
 
 ## Getting help
 
-If you're having trouble with the shaders, you can ask for help in my [discord server](https://discord.gg/orels1).
+You can check out the [Frequently Asked Questions section](/docs/faq) to see if your question is already answered there.
+
+Otherwise, if you're still having trouble with the shaders, you can ask for help in my [discord server](https://discord.gg/orels1).
 
 If you are a shader developer yourself and want to file a code-specific issue with a bit more detail, drop by the github repo and [submit an issue there](https://github.com/orels1/orels-Unity-Shaders/issues/new)!
 

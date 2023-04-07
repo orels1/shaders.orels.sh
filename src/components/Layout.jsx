@@ -11,6 +11,7 @@ import { Search } from '@/components/Search'
 import { ThemeSelector } from '@/components/ThemeSelector'
 import Image from 'next/image'
 import logoImage from '@/images/orl.png'
+import Banner from './Banner'
 
 const navigation = [
   {
@@ -18,6 +19,7 @@ const navigation = [
     links: [
       { title: 'Getting started', href: '/' },
       { title: 'Installation', href: '/docs/installation' },
+      { title: 'FAQ', href: '/docs/faq' },
     ],
   },
   {
@@ -32,16 +34,17 @@ const navigation = [
         title: 'AudioLink',
         href: '/docs/orl-standard/audio-link',
       },
-      { title: 'Vertex Animation', href: '/docs/orl-standard/vertex-animation' },
-      { title: 'Neon Light', href: '/docs/orl-standard/neon-light' },
       { title: 'Color Randomisation', href: '/docs/orl-standard/color-randomisation' },
+      { title: 'Dissolve', href: '/docs/orl-standard/dissolve' },
       { title: 'Glass', href: '/docs/orl-standard/glass' },
+      { title: 'Layered Material', href: '/docs/orl-standard/layered-material' },
+      { title: 'Layered Parallax', href: '/docs/orl-standard/layered-parallax' },
+      { title: 'LTCGI', href: '/docs/orl-standard/ltcgi' },
+      { title: 'Neon Light', href: '/docs/orl-standard/neon-light' },
       { title: 'Tessellated Displacement', href: '/docs/orl-standard/tessellated-displacement' },
       { title: 'Triplanar Effects', href: '/docs/orl-standard/triplanar-effects' },
-      { title: 'Layered Parallax', href: '/docs/orl-standard/layered-parallax' },
-      { title: 'Layered Material', href: '/docs/orl-standard/layered-material' },
+      { title: 'Vertex Animation', href: '/docs/orl-standard/vertex-animation' },
       { title: 'Vertical Fog', href: '/docs/orl-standard/vertical-fog' },
-      { title: 'LTCGI', href: '/docs/orl-standard/ltcgi' },
     ],
   },
   {
@@ -208,6 +211,12 @@ export function Layout({ children, title, tableOfContents }) {
 
   return (
     <>
+      <Banner
+        title="Version 6.1.0 is out!"
+        description="All new PBR, VFX and UI shaders!"
+        cta="Get it now"
+        ctaLink="/docs/installation"
+      />
       <Header navigation={navigation} />
 
       {isHomePage && <Hero />}
