@@ -3,6 +3,7 @@ import { QuickLink, QuickLinks } from '@/components/QuickLinks'
 import { LinkButton } from '@/components/LinkButton';
 import Video from '@/components/Video';
 import UnityDemo from '@/components/UnityDemo';
+import FAQ from '@/components/FAQ';
 
 const tags = {
   callout: {
@@ -71,6 +72,10 @@ const tags = {
       iconSize: { type: String },
       href: { type: String },
     },
+  },
+  'faq': {
+    selfClosing: true,
+    render: FAQ,
   },
 }
 
