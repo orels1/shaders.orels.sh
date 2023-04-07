@@ -28,7 +28,19 @@ module.exports = {
       maxWidth: {
         '8xl': '88rem',
       },
+      animationDuration: {
+        '2s': '2s',
+        '3s': '3s',
+        '4s': '4s',
+        '5s': '5s',
+        '6s': '6s',
+        '7s': '7s',
+        '8s': '8s',
+      }
     },
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require("tailwindcss-animate"),
+  ],
 }

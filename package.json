@@ -15,6 +15,7 @@
     "@heroicons/react": "^2.0.16",
     "@markdoc/markdoc": "0.1.7",
     "@markdoc/next.js": "0.1.6",
+    "@rehooks/local-storage": "^2.4.4",
     "@sindresorhus/slugify": "^2.1.0",
     "@tailwindcss/typography": "^0.5.7",
     "autoprefixer": "^10.4.12",
@@ -35,6 +36,7 @@
     "eslint": "8.26.0",
     "eslint-config-next": "13.0.2",
     "prettier": "^2.7.1",
-    "prettier-plugin-tailwindcss": "^0.1.13"
+    "prettier-plugin-tailwindcss": "^0.1.13",
+    "tailwindcss-animate": "^1.0.5"
   }
 }
