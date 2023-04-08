@@ -4,6 +4,8 @@ import { LinkButton } from '@/components/LinkButton';
 import Video from '@/components/Video';
 import UnityDemo from '@/components/UnityDemo';
 import FAQ from '@/components/FAQ';
+import AddToVCC from '@/components/AddToVCC';
+import ShaderList from '@/components/ShaderList';
 
 const tags = {
   callout: {
@@ -77,6 +79,14 @@ const tags = {
     selfClosing: true,
     render: FAQ,
   },
+  'add-to-vcc': {
+    selfClosing: true,
+    render: AddToVCC,
+  },
+  'shader-list': {
+    selfClosing: true,
+    render: ShaderList,
+  }
 }
 
 export default tags
