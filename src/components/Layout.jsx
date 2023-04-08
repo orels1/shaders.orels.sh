@@ -63,6 +63,13 @@ const navigation = [
     ],
   },
   {
+    title: 'UI Shaders',
+    links: [
+      { title: 'Base Shader', href: '/docs/ui/base-shader' },
+      { title: 'Scrolling Texture', href: '/docs/ui/scrolling-texture' },
+    ],
+  },
+  {
     title: 'Migration Guides',
     links: [
       { title: 'General Overview', href: '/docs/migration' },
