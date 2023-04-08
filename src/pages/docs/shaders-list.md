@@ -18,3 +18,7 @@ The ORL Shader package includes a variety of shaders split into multiple categor
 {% quick-link title="UI" icon="ui" iconSize="26" href="/docs/ui/base-shader" description="Unity UI Shaders with extras" /%}
 
 {% /quick-links %}
+
+---
+
+{% shader-list /%}
