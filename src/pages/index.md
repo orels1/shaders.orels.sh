@@ -30,15 +30,17 @@ There are a couple of ways to install the shaders depending on the type of your 
 
 ### Using the VRChat Creator Companion
 
-Add the following repo listing to your VCC
+Use the button below
+
+{% add-to-vcc /%}
+
+Or add it manually by using the URL below:
 
 ```
 https://orels1.github.io/orels-Unity-Shaders/index.json
 ```
 
-Or use the Add to VCC button below
-
-{% link-button href="vcc://vpm/addRepo?url=https://orels1.github.io/orels-Unity-Shaders/index.json" variant="secondary" text="Add to VCC" /%}
+If you're not familiar with how to add new repositories to the VCC - [check out the VCC docs](https://vcc.docs.vrchat.com/guides/community-repositories).
 
 Open the Project Management screen for your project and add the "ORL Shaders" package.
 
