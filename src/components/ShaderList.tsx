@@ -62,6 +62,7 @@ const SHADERS = [
     { name: 'Block Fader', href:'/docs/vfx/block-fader', type: 'VFX', fullName: 'orels1/VFX/Block Fader' },
   ] },
   { name: 'UI', shaders: [
+    { name: 'UI Base Shader', href:'/docs/ui/base-shader', type: 'UI', fullName: 'orels1/UI/Main' },
     { name: 'UI Overlay', href:'/docs/ui/base-shader', type: 'UI', fullName: 'orels1/UI/Main Overlay' },
     { name: 'Scrolling Texture UI', href:'/docs/ui/scrolling-texture', type: 'UI', fullName: 'orels1/UI/Scrolling Texture' },
     { name: 'Scrolling Texture UI Overlay', href:'/docs/ui/scrolling-texture', type: 'UI', fullName: 'orels1/UI/Scrolling Texture Overlay' },
