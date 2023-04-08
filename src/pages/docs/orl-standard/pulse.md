@@ -21,6 +21,7 @@ This shader provides a simple pulsing effect with an option to use a gradient fo
   - Local Position: Applies the gradient based on the mesh local position
   - UV: Applies the gradient based on the UV coordinates
   - Texture: Applies the gradient based on the value of the **Gradient Texture**. Generally is expected to be a gradient of some sort
+- Gradient Texture: Only visible when **Gradient Source** is set to Texture. The texture to use for the gradient
 - Gradient Direction: Controls the direction of the applied fade gradient
   - X/Y: Fade in the X/Y direction
   - Z: Fade in the Z direction. When **Fade Based On** is set to UV, this will not apply any fading
