@@ -27,6 +27,12 @@ const SHADERS = [
     { name: 'Clouds', href:'/docs/vfx/clouds', type: 'VFX', fullName: 'orels1/VFX/Clouds' },
     { name: 'Cubemap Screen', href:'/docs/vfx/cubemap-screen', type: 'VFX', fullName: 'orels1/VFX/Cubemap Screen' },
     { name: 'Block Fader', href:'/docs/vfx/block-fader', type: 'VFX', fullName: 'orels1/VFX/Block Fader' },
+    { name: 'UI Base Shader', href:'/docs/ui/base-shader', type: 'UI', fullName: 'orels1/UI/Main' },
+    { name: 'UI Overlay', href:'/docs/ui/base-shader', type: 'UI', fullName: 'orels1/UI/Main Overlay' },
+    { name: 'Scrolling Texture UI', href:'/docs/ui/scrolling-texture', type: 'UI', fullName: 'orels1/UI/Scrolling Texture' },
+    { name: 'Scrolling Texture UI Overlay', href:'/docs/ui/scrolling-texture', type: 'UI', fullName: 'orels1/UI/Scrolling Texture Overlay' },
+    { name: 'Layered Parallax UI', href:'/docs/ui/layered-parallax', type: 'UI', fullName: 'orels1/UI/Layered Parallax' },
+    { name: 'Layered Parallax UI Overlay', href:'/docs/ui/layered-parallax', type: 'UI', fullName: 'orels1/UI/Layered Parallax Overlay' },
   ] },
   { name: 'PBR', shaders: [
     { name: 'Base Shader', href:'/docs/orl-standard/base-shader', type: 'PBR', fullName: 'orels1/Standard' },
@@ -55,7 +61,13 @@ const SHADERS = [
     { name: 'Cubemap Screen', href:'/docs/vfx/cubemap-screen', type: 'VFX', fullName: 'orels1/VFX/Cubemap Screen' },
     { name: 'Block Fader', href:'/docs/vfx/block-fader', type: 'VFX', fullName: 'orels1/VFX/Block Fader' },
   ] },
-  { name: 'UI', shaders: [] },
+  { name: 'UI', shaders: [
+    { name: 'UI Overlay', href:'/docs/ui/base-shader', type: 'UI', fullName: 'orels1/UI/Main Overlay' },
+    { name: 'Scrolling Texture UI', href:'/docs/ui/scrolling-texture', type: 'UI', fullName: 'orels1/UI/Scrolling Texture' },
+    { name: 'Scrolling Texture UI Overlay', href:'/docs/ui/scrolling-texture', type: 'UI', fullName: 'orels1/UI/Scrolling Texture Overlay' },
+    { name: 'Layered Parallax UI', href:'/docs/ui/layered-parallax', type: 'UI', fullName: 'orels1/UI/Layered Parallax' },
+    { name: 'Layered Parallax UI Overlay', href:'/docs/ui/layered-parallax', type: 'UI', fullName: 'orels1/UI/Layered Parallax Overlay' },
+  ] },
 ]
 
 export default function ShaderList() {
