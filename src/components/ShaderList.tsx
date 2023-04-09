@@ -21,12 +21,14 @@ const SHADERS = [
     { name: 'Triplanar Effects', href:'/docs/orl-standard/triplanar-effects', type: 'PBR', fullName: 'orels1/Standard Triplanar Effects' },
     { name: 'Vertex Animation', href:'/docs/orl-standard/vertex-animation', type: 'PBR', fullName: 'orels1/Standard Vertex Animation' },
     { name: 'Vertical Fog', href:'/docs/orl-standard/vertical-fog', type: 'PBR', fullName: 'orels1/Standard Vertical Fog' },
+    { name: 'Video Screen', href:'/docs/orl-standard/video-screen', type: 'PBR', fullName: 'orels1/Standard Video Screen' },
     { name: 'Toon', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Main' },
     { name: 'Toon Transparent', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Transparent' },
     { name: 'Toon Cutout', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Cutout' },
     { name: 'Clouds', href:'/docs/vfx/clouds', type: 'VFX', fullName: 'orels1/VFX/Clouds' },
     { name: 'Cubemap Screen', href:'/docs/vfx/cubemap-screen', type: 'VFX', fullName: 'orels1/VFX/Cubemap Screen' },
     { name: 'Block Fader', href:'/docs/vfx/block-fader', type: 'VFX', fullName: 'orels1/VFX/Block Fader' },
+    { name: 'Unlit Video Screen', href:'/docs/orl-standard/video-screen', type: 'VFX', fullName: 'orels1/VFX/Unlit Video Screen' },
     { name: 'UI Base Shader', href:'/docs/ui/base-shader', type: 'UI', fullName: 'orels1/UI/Main' },
     { name: 'UI Overlay', href:'/docs/ui/base-shader', type: 'UI', fullName: 'orels1/UI/Main Overlay' },
     { name: 'UI Audio Link', href:'/docs/ui/audio-link', type: 'UI', fullName: 'orels1/UI/AudioLink' },
@@ -37,6 +39,8 @@ const SHADERS = [
     { name: 'Scrolling Texture UI Overlay', href:'/docs/ui/scrolling-texture', type: 'UI', fullName: 'orels1/UI/Scrolling Texture Overlay' },
     { name: 'UI Sheen', href:'/docs/ui/sheen', type: 'UI', fullName: 'orels1/UI/Sheen' },
     { name: 'UI Sheen Overlay', href:'/docs/ui/sheen', type: 'UI', fullName: 'orels1/UI/Sheen Overlay' },
+    { name: 'UI Video Screen', href:'/docs/orl-standard/video-screen', type: 'PBR', fullName: 'orels1/UI/Video Screen' },
+    { name: 'UI Video Screen Overlay', href:'/docs/orl-standard/video-screen', type: 'PBR', fullName: 'orels1/UI/Video Screen Overlay' },
   ] },
   { name: 'PBR', shaders: [
     { name: 'Base Shader', href:'/docs/orl-standard/base-shader', type: 'PBR', fullName: 'orels1/Standard' },
@@ -54,6 +58,7 @@ const SHADERS = [
     { name: 'Triplanar Effects', href:'/docs/orl-standard/triplanar-effects', type: 'PBR', fullName: 'orels1/Standard Triplanar Effects' },
     { name: 'Vertex Animation', href:'/docs/orl-standard/vertex-animation', type: 'PBR', fullName: 'orels1/Standard Vertex Animation' },
     { name: 'Vertical Fog', href:'/docs/orl-standard/vertical-fog', type: 'PBR', fullName: 'orels1/Standard Vertical Fog' },
+    { name: 'Video Screen', href:'/docs/orl-standard/video-screen', type: 'PBR', fullName: 'orels1/Standard Video Screen' },
   ] },
   { name: 'Toon', shaders: [
     { name: 'Toon', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Main' },
@@ -64,6 +69,7 @@ const SHADERS = [
     { name: 'Clouds', href:'/docs/vfx/clouds', type: 'VFX', fullName: 'orels1/VFX/Clouds' },
     { name: 'Cubemap Screen', href:'/docs/vfx/cubemap-screen', type: 'VFX', fullName: 'orels1/VFX/Cubemap Screen' },
     { name: 'Block Fader', href:'/docs/vfx/block-fader', type: 'VFX', fullName: 'orels1/VFX/Block Fader' },
+    { name: 'Unlit Video Screen', href:'/docs/orl-standard/video-screen', type: 'VFX', fullName: 'orels1/VFX/Unlit Video Screen' },
   ] },
   { name: 'UI', shaders: [
     { name: 'UI Base Shader', href:'/docs/ui/base-shader', type: 'UI', fullName: 'orels1/UI/Main' },
@@ -76,6 +82,8 @@ const SHADERS = [
     { name: 'Scrolling Texture UI Overlay', href:'/docs/ui/scrolling-texture', type: 'UI', fullName: 'orels1/UI/Scrolling Texture Overlay' },
     { name: 'UI Sheen', href:'/docs/ui/sheen', type: 'UI', fullName: 'orels1/UI/Sheen' },
     { name: 'UI Sheen Overlay', href:'/docs/ui/sheen', type: 'UI', fullName: 'orels1/UI/Sheen Overlay' },
+    { name: 'UI Video Screen', href:'/docs/orl-standard/video-screen', type: 'PBR', fullName: 'orels1/UI/Video Screen' },
+    { name: 'UI Video Screen Overlay', href:'/docs/orl-standard/video-screen', type: 'PBR', fullName: 'orels1/UI/Video Screen Overlay' },
   ] },
 ]
 

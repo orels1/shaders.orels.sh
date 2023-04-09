@@ -46,6 +46,7 @@ const navigation = [
       { title: 'Triplanar Effects', href: '/docs/orl-standard/triplanar-effects' },
       { title: 'Vertex Animation', href: '/docs/orl-standard/vertex-animation' },
       { title: 'Vertical Fog', href: '/docs/orl-standard/vertical-fog' },
+      { title: 'Video Screen', href: '/docs/orl-standard/video-screen' },
     ],
   },
   {
