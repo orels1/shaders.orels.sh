@@ -1,5 +1,5 @@
 ---
-title: Color Randomisation
+title: Color Randomisation Shader
 description: Options relevant to the orels1/Standard Color Randomisation shader
 ---
 

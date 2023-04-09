@@ -1,5 +1,5 @@
 ---
-title: Vertex Animation
+title: Vertex Animation Shader
 description: Options relevant to the orels1/Standard Vertex Animation shader
 ---
 

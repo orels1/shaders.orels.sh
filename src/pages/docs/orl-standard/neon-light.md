@@ -1,5 +1,5 @@
 ---
-title: Neon Light
+title: Neon Light Shader
 description: Options relevant to the orels1/Standard Neon Light shader
 ---
 

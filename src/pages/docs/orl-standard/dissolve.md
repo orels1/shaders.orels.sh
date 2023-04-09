@@ -1,5 +1,5 @@
 ---
-title: Dissolve
+title: Dissolve Shader
 description: Options relevant to the orels1/Standard Dissolve shader and other Dissolve variants
 ---
 

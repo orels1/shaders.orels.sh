@@ -1,5 +1,5 @@
 ---
-title: Tessellated Displacement
+title: Tessellated Displacement Shader
 description: Options relevant to the orels1/Standard Tessellated Displacement shader
 ---
 

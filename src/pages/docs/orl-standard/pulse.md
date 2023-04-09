@@ -1,5 +1,5 @@
 ---
-title: Pulse
+title: Pulse Shader
 description: Options relevant to the orels1/Standard Pulse shader
 ---
 

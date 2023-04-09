@@ -1,5 +1,5 @@
 ---
-title: Glass
+title: Glass Shader
 description: Options relevant to the orels1/Standard Glass shader
 ---
 

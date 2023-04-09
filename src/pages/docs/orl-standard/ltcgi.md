@@ -1,5 +1,5 @@
 ---
-title: LTCGI
+title: LTCGI Shader
 description: Options relevant to the orels1/Standard LTCGI shader
 ---
 

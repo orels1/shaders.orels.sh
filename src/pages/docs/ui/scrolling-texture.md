@@ -1,5 +1,5 @@
 ---
-title: Scrolling Texture
+title: Scrolling Texture Shader
 description: Options relevant to the orels1/UI/Scrolling Texture shader
 ---
 

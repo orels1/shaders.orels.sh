@@ -1,5 +1,5 @@
 ---
-title: Triplanar Effects
+title: Triplanar Effects Shader
 description: Options relevant to the orels1/Standard Triplanar Effects shader
 ---
 

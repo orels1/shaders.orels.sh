@@ -1,5 +1,5 @@
 ---
-title: Layered Parallax
+title: Layered Parallax Shader
 description: Options relevant to the orels1/Standard Layered Parallax shader
 ---
 

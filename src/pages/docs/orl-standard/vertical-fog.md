@@ -1,5 +1,5 @@
 ---
-title: Vertical Fog
+title: Vertical Fog Shader
 description: Options relevant to the orels1/Standard Vertical Fog shader
 ---
 

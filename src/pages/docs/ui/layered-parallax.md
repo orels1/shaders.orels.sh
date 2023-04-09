@@ -1,5 +1,5 @@
 ---
-title: Layered Parallax
+title: Layered Parallax Shader
 description: Options relevant to the orels1/UI/Layered Parallax shader
 ---
 
@@ -9,11 +9,11 @@ Options relevant to the orels1/UI/Layered Parallax shader
 
 An adaptation of a the [PBR Layered Parallax shader](/docs/orl-standard/layered-parallax) to work with Unity UI. It provides multi-layered parallax effects that can be used for posters or other shadowbox-style UI elements.
 
-{% callout type="note" title="Parallax Offset" %}
+{% callout type="note" title="Shader Channels Required" %}
 Make sure your root Canvas component has **Normal** and **Tangent** checked in the **Additional Shader Channels** dropdown when using Parallax Offset setting.
 {% /callout %}
 
-{% video url="https://iframe.mediadelivery.net/embed/165/1c3f40e1-eacf-49d8-abb0-91bc8d70e6d5?autoplay=true&loop=true&muted=true" title="An example poster-style image using the Layered Parallax shader" /%}
+{% video url="https://iframe.mediadelivery.net/embed/165/7d691743-1b8c-4b50-940f-ef974dab5e7c?autoplay=true&loop=true&muted=true" title="UI Panel with a Parallax Background effect" /%}
 
 ## General Settings
 

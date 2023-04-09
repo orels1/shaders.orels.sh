@@ -1,5 +1,5 @@
 ---
-title: Layered Material
+title: Layered Material Shader
 description: Options relevant to the orels1/Standard Layered Material shader
 ---
 
