@@ -66,8 +66,10 @@ const navigation = [
     title: 'UI Shaders',
     links: [
       { title: 'Base Shader', href: '/docs/ui/base-shader' },
-      { title: 'Scrolling Texture', href: '/docs/ui/scrolling-texture' },
+      { title: 'AudioLink', href: '/docs/ui/audio-link' },
       { title: 'Layered Parallax', href: '/docs/ui/layered-parallax' },
+      { title: 'Scrolling Texture', href: '/docs/ui/scrolling-texture' },
+      { title: 'Sheen', href: '/docs/ui/sheen' },
     ],
   },
   {
