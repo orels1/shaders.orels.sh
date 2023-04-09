@@ -1,5 +1,5 @@
 ---
-title: AudioLink
+title: AudioLink Shader
 description: Options relevant to the orels1/Standard AudioLink shader
 ---
 
