@@ -60,6 +60,7 @@ const navigation = [
     links: [
       { title: 'Clouds', href: '/docs/vfx/clouds' },
       { title: 'Ghost Lines', href: '/docs/vfx/ghost-lines' },
+      { title: 'Holographic Parallax', href: '/docs/vfx/holographic-parallax' },
       { title: 'Cubemap Screen', href: '/docs/vfx/cubemap-screen' },
       { title: 'Block Fader', href: '/docs/vfx/block-fader' },
     ],
