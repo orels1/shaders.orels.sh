@@ -1,5 +1,5 @@
 ---
-title: Block Fader
+title: Block Fader Shader
 description: A very specific fade in/out effect
 ---
 

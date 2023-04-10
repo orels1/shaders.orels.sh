@@ -1,5 +1,5 @@
 ---
-title: Cubemap Screen
+title: Cubemap Screen Shader
 description: Fake skybox screen, inspired by Boneworks
 ---
 

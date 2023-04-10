@@ -1,5 +1,5 @@
 ---
-title: Clouds
+title: Clouds Shader
 description: Stylized, performant and cross-platform cloud layer shader
 ---
 
