@@ -26,6 +26,7 @@ const SHADERS = [
     { name: 'Toon Transparent', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Transparent' },
     { name: 'Toon Cutout', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Cutout' },
     { name: 'Clouds', href:'/docs/vfx/clouds', type: 'VFX', fullName: 'orels1/VFX/Clouds' },
+    { name: 'Ghost Lines', href:'/docs/vfx/ghost-lines', type: 'VFX', fullName: 'orels1/VFX/Ghost Lines' },
     { name: 'Cubemap Screen', href:'/docs/vfx/cubemap-screen', type: 'VFX', fullName: 'orels1/VFX/Cubemap Screen' },
     { name: 'Block Fader', href:'/docs/vfx/block-fader', type: 'VFX', fullName: 'orels1/VFX/Block Fader' },
     { name: 'Unlit Video Screen', href:'/docs/orl-standard/video-screen', type: 'VFX', fullName: 'orels1/VFX/Unlit Video Screen' },
@@ -67,6 +68,7 @@ const SHADERS = [
   ] },
   { name: 'VFX', shaders: [
     { name: 'Clouds', href:'/docs/vfx/clouds', type: 'VFX', fullName: 'orels1/VFX/Clouds' },
+    { name: 'Ghost Lines', href:'/docs/vfx/ghost-lines', type: 'VFX', fullName: 'orels1/VFX/Ghost Lines' },
     { name: 'Cubemap Screen', href:'/docs/vfx/cubemap-screen', type: 'VFX', fullName: 'orels1/VFX/Cubemap Screen' },
     { name: 'Block Fader', href:'/docs/vfx/block-fader', type: 'VFX', fullName: 'orels1/VFX/Block Fader' },
     { name: 'Unlit Video Screen', href:'/docs/orl-standard/video-screen', type: 'VFX', fullName: 'orels1/VFX/Unlit Video Screen' },
