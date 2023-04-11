@@ -54,16 +54,43 @@ Two Way: Determines if the object should only move in the positive direction alo
 
 ## Scale
 
+Applies various scaling effects to the object
+
+- Scaling: Controls the application of the scaling effect. Options are: None/Uniform/Flow
+
+## Uniform
+
 Applies uniform scaling to the object
 
 {% video url="https://iframe.mediadelivery.net/embed/165/f289b1d7-dc10-4cb1-b77c-e474b30974e6?autoplay=true&loop=true&muted=true" title="Scale Effect" /%}
 
 ![Scale Effect Options](/img/docs/orl-standard/vertex-animation/vertex-animation-scale-inspector.png "Scale Effect Options")
 
-- Scaling: Controls the application of the scaling effect. Options are: None/Uniform
 - Scale Speed: The speed of the scaling effect
 - Scale Amount: Controls the amount of scaling applied
 - Phase Offset: Controls the offset of the animation, allows you to specify per-material time offsets
 - Position Offset: Enables the animation offset based on object's position
 - Position Offset Axis: Controls the axis which is considered for position offset. Options are: XYZ/X/Y/Z, where XYZ uses object's position as is, while individual axis will only consider the world-space X/Y/Z axis position. All other objects with the same X/Y/Z value will have the same animation offset
 - Position Offset Scale: Controls the strength of the position-based animation offset effect
+
+## Flow
+
+Applies a flowing scale effect that scales a region of a mesh along its UVs or Local Position
+
+{% video url="https://iframe.mediadelivery.net/embed/165/32d3a321-54e1-4d39-88e6-61a269b9bc83?autoplay=true&loop=true&muted=true" title="Flow Effect" /%}
+
+![Scale Flow Effect Options](/img/docs/orl-standard/vertex-animation/vertex-animation-scale-flow-inspector.png "Scale Flow Effect Options")
+
+- Flow Based On: Controls the source of Flow animation
+  - UV: Uses UV coordinates to determine the flow animation
+  - Local Position: Uses local position to determine the flow of animation
+- Flow UV Channel: Only visible if **Flow Based On** is set to **UV**. Controls the UV channel used for flow animation
+- Flow Axis: Controls the axis of flow animation
+  - X/Y/Z: Sets the channel to be used for flow animation. Z is only available if **Flow Based On** is set to **Local Position**. In **UV** mode it will use the `X` axis when set to `Z`
+- Scale Speed: The speed of the scaling effect
+- Cycle Pause: Sets the wait time (in seconds) between cycles
+- Phase Offset: Controls the offset of the animation, allows you to specify per-material time offsets
+- Scale Amount: Controls the amount of scaling applied
+- Flow Smoothing: Controls the amount of smoothing applied to the flow mask
+- Flow Width: Controls the width of the flow mask
+
