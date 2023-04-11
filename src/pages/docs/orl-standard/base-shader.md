@@ -104,6 +104,22 @@ Details section allows adding extra variety to the surface with its own set of m
 
 {% video url="https://iframe.mediadelivery.net/embed/165/e9ae56db-968d-44cc-a29d-317d80ca50b7?autoplay=true&loop=true&muted=true" title="Adding detail Normal and Albedo" /%}
 
+## VRChat Features
+
+![VRC Features controls](/img/docs/orl-standard/base-shader/vrcfeatures.png "VRC Features controls")
+
+- VRChat Features Enabled: Enables the VRChat features
+- Hide from Main View: Controls whether the object should be hidden from the main player view
+  - In VR: Hides the object from the main player view in VR
+  - On Desktop: Hides the object from the main player view on Desktop
+- Hide form Handheld Camera: Controls whether the object should be hidden from the handheld camera view
+  - In VR: Hides the object from the handheld camera view in VR
+  - On Desktop: Hides the object from the handheld camera view on the Desktop
+- Hide from Mirror: Controls whether the object should be hidden from the mirror view
+  - In VR: Hides the object from the mirror view in VR
+  - On Desktop: Hides the object from the mirror view on Desktop
+
+
 ## Advanced Features
 
 ![Advanced Features controls](/img/docs/orl-standard/base-shader/base-shader-advanced-features.png)
