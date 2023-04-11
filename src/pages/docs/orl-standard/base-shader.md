@@ -159,7 +159,7 @@ Comparing **Baked Specular** OFF vs ON
 ## Internal
 
 {% callout type="warning" title="Debug Information" %}
-You do not have to adjust settings shown in the Internal section, these are provided only for debugging
+You do not have to adjust the settings shown in the Internal section, these are provided only for debugging
 {% /callout %}
 
 - DFG LUT: The DFG-multiscatter LUT texture used for the specular calculations
@@ -170,6 +170,8 @@ You do not have to adjust settings shown in the Internal section, these are prov
 There is also a cutout variant of the Standard shader, which provides all the same features, but with support for regular and Alpha To Coverage cutout
 
 ![Cutout Variant](/img/docs/orl-standard/base-shader/cutout-inspector.png)
+
+- Enable Dither Fade: Enables distance-based dither fade. Check out the [Dither Fade](/docs/orl-standard/dither-fade) documentation for more information
 
 ## Examples
 

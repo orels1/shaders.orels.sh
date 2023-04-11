@@ -36,6 +36,7 @@ const navigation = [
       },
       { title: 'Color Randomisation', href: '/docs/orl-standard/color-randomisation' },
       { title: 'Dissolve', href: '/docs/orl-standard/dissolve' },
+      { title: 'Dither Fade', href: '/docs/orl-standard/dither-fade' },
       { title: 'Glass', href: '/docs/orl-standard/glass' },
       { title: 'Layered Material', href: '/docs/orl-standard/layered-material' },
       { title: 'Layered Parallax', href: '/docs/orl-standard/layered-parallax' },
