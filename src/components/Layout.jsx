@@ -12,6 +12,7 @@ import { ThemeSelector } from '@/components/ThemeSelector'
 import Image from 'next/image'
 import logoImage from '@/images/orl.png'
 import Banner from './Banner'
+import MobileToC from './MobileToC'
 
 const navigation = [
   {
@@ -264,6 +265,7 @@ export function Layout({ children, title, tableOfContents }) {
                 )}
               </header>
             )}
+            <MobileToC tableOfContents={tableOfContents} className="xl:hidden" />
             <Prose>{children}</Prose>
           </article>
           <dl className="mt-12 flex border-t border-slate-200 pt-6 dark:border-slate-800">
