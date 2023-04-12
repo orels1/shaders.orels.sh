@@ -7,10 +7,10 @@ A simple Cloud Layer shader
 
 ---
 
-This shader is aimed at providing a passable cloud layer effect for background use without using any noise generators. The effect is fully unlit and relies on artistic use of gradients to look correct in the environment
+This shader is aimed at providing a passable cloud layer effect for background use without using any noise generators. The effect is fully unlit and relies on the artistic use of gradients to look correct in the environment
 
 {% callout type="note" title="Mesh Requirements" %}
-Put this shader on a pre-subdivided mesh. I recommend anywhere from 32k to 128k triangles for a small to medium sized layer (room-scale). And 512k for outdoor clouds. The shader will not work well with a low-poly mesh.
+Put this shader on a pre-subdivided mesh. I recommend anywhere from 32k to 128k triangles for a small to medium-sized layer (room scale). And 512k for outdoor clouds. The shader will not work well with a low-poly mesh.
 {% /callout %}
 
 
@@ -27,7 +27,7 @@ Put this shader on a pre-subdivided mesh. I recommend anywhere from 32k to 128k 
 - Height Bottom: Controls the position of the gradient start, applied in local space
 - Height Top: Controls the position of the gradient end, applied in local space
 - Extrusion Mode: Determines the way the cloud movement is done
-  - Normal: The mesh will be move along the normal vectors of the surface
+  - Normal: The mesh will move along the normal vectors of the surface
   - World Space: The mesh will be moved along the pre-determined direction in world space
 - Extrusion Direction: Only visible when Extrusion Mode is set to World Space. Controls the world-space direction of the extrusion applied by the cloud noise
 - Only Top: Only visible when Extrusion Mod is set to World Space. Limits the vertex movement to the upwards-facing vertices
