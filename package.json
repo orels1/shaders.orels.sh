@@ -1,5 +1,9 @@
 {
-  "name": "tailwindui-syntax",
+  "name": "sh.orels.shaders",
+  "author": {
+    "name": "orels1",
+    "email": "ping@orels.sh"
+  },
   "version": "0.1.0",
   "private": true,
   "scripts": {
