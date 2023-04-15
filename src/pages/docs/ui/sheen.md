@@ -9,7 +9,7 @@ Options relevant to the orels1/UI/Sheen shader
 
 A metallic-like effect for your UI Elements
 
-{% video url="https://iframe.mediadelivery.net/embed/165/ce024212-568c-4d46-9327-940529834655?autoplay=true&loop=true&muted=true" title="Sheen Demo" /%}
+{% video url="https://iframe.mediadelivery.net/embed/165/290e7c2e-24e9-4e7a-8f3c-aa54731343b0?autoplay=true&loop=true&muted=true" title="Sheen Demo" /%}
 
 ![Sheen Inspector](/img/docs/ui/sheen/sheen-inspector.png "Sheen Inspector")
 
