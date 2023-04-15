@@ -9,7 +9,7 @@ Options relevant to the orels1/Standard Dissolve shader and other Dissolve varia
 
 This shader provides a customizable cutout dissolve effect on top of Standard. It can be used to create a variety of effects, from simple fade to more complex ones like the one shown below
 
-{% video url="https://iframe.mediadelivery.net/embed/165/777f8384-b4f7-48c5-a46f-dfaaf5dff1be?autoplay=true&loop=true&muted=true" title="An Advanced Dissolve Effect" /%}
+{% video url="https://iframe.mediadelivery.net/embed/165/3e08653f-f12e-41fd-9712-0b27107c2960?autoplay=true&loop=true&muted=true" title="An Advanced Dissolve Effect" /%}
 
 ![Dissolve Inspector](/img/docs/orl-standard/dissolve/dissolve-inspector.png "Dissolve Inspector")
 
