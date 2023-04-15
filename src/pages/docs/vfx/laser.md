@@ -7,7 +7,7 @@ A simple laser shader with support for trail renderers
 
 ---
 
-{% video url="https://iframe.mediadelivery.net/embed/165/da2b9d71-f0ae-4049-a378-69986761a96c?autoplay=true&loop=true&muted=true" title="Laser Shader Demo" /%}
+{% video url="https://iframe.mediadelivery.net/embed/165/37f9c8f9-e372-4ce0-9681-0503605fa3e1?autoplay=true&loop=true&muted=true" title="Laser Shader Demo" /%}
 
 ![Laser Shader](/img/docs/vfx/laser/laser-inspector.png "Laser Shader")
 
