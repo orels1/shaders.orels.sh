@@ -7,7 +7,7 @@ Lines overlay on top of a glowing vertex wobble shader. Inspired by Ghostwire: T
 
 ---
 
-{% video url="https://iframe.mediadelivery.net/embed/165/d93de200-d0f3-4817-90e2-1ba2de6b4810?autoplay=true&loop=true&muted=true" title="Ghost Lines shader with default settings" /%}
+{% video url="https://iframe.mediadelivery.net/embed/165/810490e0-f3cf-4e97-b9c1-01e5e15ae6b8?autoplay=true&loop=true&muted=true" title="Ghost Lines shader with default settings" /%}
 
 ![Ghost Lines Inspector](/img/docs/vfx/ghost-lines/ghost-lines-inspector.png "Ghost Lines Inspector")
 
@@ -34,6 +34,9 @@ You can achieve very interesting combinations if you take advantage of the provi
 
 ## Lines Settings
 
+- Coordinate Source: Controls the source of the generation of the lines
+  - Local Position: Uses object local position to generate the lines
+  - UV: Uses UV coordinates to generate the lines. This is useful for skinned meshes that do not have stable local positions
 - Origin: Sets the point from which the lines will originate
 - Movement: Controls the movement speed of the lines across the mesh surface
 - Scale: Controls the number of lines
