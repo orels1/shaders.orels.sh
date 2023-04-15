@@ -80,6 +80,10 @@ const navigation = [
     ],
   },
   {
+    title: 'Changelog',
+    link: { title: 'Changelog', href: '/docs/changelog' },
+  },
+  {
     title: 'Migration Guides',
     links: [
       { title: 'General Overview', href: '/docs/migration' },
@@ -234,6 +238,8 @@ export function Layout({ children, title, tableOfContents }) {
         description="All new PBR, VFX and UI shaders!"
         cta="Get it now"
         ctaLink="/docs/installation"
+        changelogLink="/docs/changelog"
+        changelogTitle="See What's New"
       />
       <Header navigation={navigation} />
 

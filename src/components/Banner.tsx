@@ -6,11 +6,15 @@ export default function Banner({
   description,
   cta,
   ctaLink,
+  changelogLink,
+  changelogTitle,
 }: {
   title: string;
   description: string;
   cta: string;
   ctaLink: string;
+  changelogLink: string;
+  changelogTitle: string;
 }) {
   const [dismissed, setDismissed] = useLocalStorage('bannerDismissed', false);
 
@@ -56,6 +60,14 @@ export default function Banner({
         >
           {cta} <span aria-hidden="true">&rarr;</span>
         </a>
+        {changelogLink && (
+          <a
+            href={changelogLink}
+            className="flex-none rounded-full bg-gray-300 px-3.5 py-1 text-sm font-semibold text-slate-800 shadow-sm hover:bg-slate-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
+          >
+            {changelogTitle}
+          </a>
+        )}
       </div>
       <div className="flex flex-1 justify-end">
         <button type="button" onClick={() => setDismissed(true)} title="Close" className="-m-3 p-3 focus-visible:outline-offset-[-4px]">
