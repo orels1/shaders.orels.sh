@@ -31,7 +31,7 @@ Everything else on the docs is MIT. Check the [License](LICENSE) file for more d
 
 ## Learn more
 
-To learn more about the technologies used in this site template, see the following resources:
+Some of the tech used to build the docs:
 
 - [Tailwind CSS](https://tailwindcss.com/docs) - the official Tailwind CSS documentation
 - [Next.js](https://nextjs.org/docs) - the official Next.js documentation
