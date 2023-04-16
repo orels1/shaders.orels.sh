@@ -46,8 +46,11 @@ It is also the first release to support the VCC!
 
 ### Other Changes
 
-- Fixed an issue where specular occlusion, was not aggressive enough, especially on lighter albedo materials
 - Added gradient editor to the **Ramp** slot in the **Toon** shader
 - Improved the naming and location of repacked textures
 - Added VCC Support
 - Added Overlay, Screen and Lighten blends to the utility module
+
+### Known Issues
+
+- Specular occlusion is currently not as aggressive on metallic surfaces as desired. I'm currently looking into reworking the specular occlusion code to make it work properly
