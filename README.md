@@ -8,7 +8,7 @@ This website is deployed to Vercel on branch push.
 
 ## Development
 
-To get started with development, first install the dependencies:
+To get started with development, first, install the dependencies:
 
 ```bash
 npm install
