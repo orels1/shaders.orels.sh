@@ -1,10 +1,14 @@
-# Syntax
+# shaders.orels.sh docs
 
-Syntax is a [Tailwind UI](https://tailwindui.com) site template built using [Tailwind CSS](https://tailwindcss.com) and [Next.js](https://nextjs.org).
+This is the [ORL Shaders](https://shaders.orels.sh) documentation website.
 
-## Getting started
+It is built with Next.js using Tailwind UI "Syntax" theme as the base and customized to fit the style and requirements of the documentation.
 
-To get started with this template, first install the npm dependencies:
+This website is deployed to Vercel on branch push.
+
+## Development
+
+To get started with development, first install the dependencies:
 
 ```bash
 npm install
@@ -19,23 +23,11 @@ npm run dev
 
 Finally, open [http://localhost:3000](http://localhost:3000) in your browser to view the website.
 
-## Customizing
-
-You can start editing this template by modifying the files in the `/src` folder. The site will auto-update as you edit these files.
-
-## Global search
-
-By default this template uses [Algolia DocSearch](https://docsearch.algolia.com) for the global search. DocSearch is free for open-source projects, and you can sign up for an account on their website. Once your DocSearch account is ready, update the following [environment variables](https://nextjs.org/docs/basic-features/environment-variables) in your project with the values provided by Algolia:
-
-```
-NEXT_PUBLIC_DOCSEARCH_APP_ID=
-NEXT_PUBLIC_DOCSEARCH_API_KEY=
-NEXT_PUBLIC_DOCSEARCH_INDEX_NAME=
-```
-
 ## License
 
-This site template is a commercial product and is licensed under the [Tailwind UI license](https://tailwindui.com/license).
+This site's base template is a commercial product and is licensed under the [Tailwind UI license](https://tailwindui.com/license). It was customized beyond that to fit the style and requirements of the documentation.
+
+Everything else on the docs is MIT. Check the [License](LICENSE) file for more details.
 
 ## Learn more
 
