@@ -9,7 +9,7 @@ Options relevant to the orels1/UI/Scrolling Texture shader
 
 This shader provides simple UI scrolling texture functionality with an optional Parallax effect to be used with Unity UI
 
-{% video url="ttps://iframe.mediadelivery.net/embed/165/a2c2a5e8-fb12-4af0-97b9-722ce8980797?autoplay=true&loop=true&muted=true" title="Scrolling Demo" /%}
+{% video url="https://iframe.mediadelivery.net/embed/165/a2c2a5e8-fb12-4af0-97b9-722ce8980797?autoplay=true&loop=true&muted=true" title="Scrolling Demo" /%}
 
 ![Scrolling Inspector](/img/docs/ui/scrolling/scrolling-inspector.png "Scrolling Inspector")
 
