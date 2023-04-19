@@ -9,7 +9,7 @@ The generator [Development Basics](/docs/generator/development-basics) guide is 
 
 ## Reporting Bugs
 
-If you spot a bug in the shaders, please [open an issue](https://github.com/orels1/orels-Unity-Shaders/issues/new) on GitHub. Please include the following information:
+If you spot a bug in the shaders, please [open an issue](https://github.com/orels1/orels-Unity-Shaders/issues/new/choose) on GitHub. Please include the following information:
 
 - Version of Unity you're using
 - Version of the shaders you're using

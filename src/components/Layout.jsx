@@ -109,7 +109,7 @@ const navigation = [
   {
     title: 'Contributing',
     links: [
-      { title: 'How to contribute', href: '/docs/development/' },
+      { title: 'How to contribute', href: '/docs/contributing/how-to-contribute/' },
     ],
   },
 ]
