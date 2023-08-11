@@ -4,7 +4,7 @@
     "name": "orels1",
     "email": "ping@orels.sh"
   },
-  "version": "0.1.0",
+  "version": "6.2.0-dev.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
