@@ -53,6 +53,7 @@ Not every module is compatible with every other module. The Inspector will try t
 - Matrix variables are now properly supported by the generator
 - Repack texture button no longer looks ugly at some UI scaling levels 🎉The majority of Toon shader features now support independent tiling options, great for detail textures!
 - The VRChat Features docs link is now pointing to the correct spot
+- Added support for exporting generated shaders without CoreRP sampling macros (for external tool compatibility)
 
 ## v6.1.0
 
