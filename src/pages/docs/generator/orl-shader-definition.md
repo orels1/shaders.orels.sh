@@ -58,6 +58,14 @@ Defines the custom editor to use, no default is provided, but you can use the OR
 %CustomEditor("ORL.ShaderInspector.InspectorGUI")
 ```
 
+### `%TemplateFeatures(string[] features)`
+
+Defines the template features to use. Template features a special blocks of the source Template that are only included when the specified feature is listed in this block
+
+```hlsl
+%TemplateFeatures("MyFeature", "PrePass")
+```
+
 ### `%Includes()`
 
 Contains the list of other shader modules to include, can be `.orlshader` shader files or `.orlsource` modules. The order of the includes is important, as the modules will be included in the order they are specified. The resolver will recursively follow the trail of includes and pull in any submodules if they are needed.
@@ -336,6 +344,7 @@ The built-in templates allow you to enable optional features by specifying some 
 
 - `NEED_DEPTH`: Adds the depth texture macro, which creates a depth texture as `_CameraDepthTexture`
 - `NEED_FRAGMENT_IN_SHADOW`: Forces the shadowcaster pass to execute all of the included fragment functions (except the lighting calculation), useful if you want to utilize the final calculated alpha to augment the shadow silhouette.
+- `NEED_FRAGMENT_IN_PREPASS`: When using Toon template with `PrePass` `TemplateFeature` enabled - forces the prepass to execute all of the included fragment functions. Majority of the time, to save performance, you probably want to reimplement the bare minimum of the calculations inside a custom `PrePassColor` function instead of using this define.
 - `EXTRA_V2F_0`, `EXTRA_V2F_1`, `EXTRA_V2F_2`, `EXTRA_V2F_3`: Tells the the templates to compile in extra float4s in the Vertex stage so you can pass some custom data to your Fragment stage, see the struct definition below
 
 ## Mesh and Surface Data
