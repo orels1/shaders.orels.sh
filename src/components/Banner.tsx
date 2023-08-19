@@ -3,6 +3,7 @@ import { XMarkIcon } from '@heroicons/react/20/solid';
 
 export default function Banner({
   title,
+  bannerKey,
   description,
   cta,
   ctaLink,
@@ -10,13 +11,14 @@ export default function Banner({
   changelogTitle,
 }: {
   title: string;
+  bannerKey: string;
   description: string;
   cta: string;
   ctaLink: string;
   changelogLink: string;
   changelogTitle: string;
 }) {
-  const [dismissed, setDismissed] = useLocalStorage('bannerDismissed', false);
+  const [dismissed, setDismissed] = useLocalStorage('bannerDismissed_' + bannerKey, false);
 
   if (dismissed) return null;
 

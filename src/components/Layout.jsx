@@ -234,8 +234,9 @@ export function Layout({ children, title, tableOfContents }) {
   return (
     <>
       <Banner
-        title="Version 6.1.0 is out!"
-        description="All new PBR, VFX and UI shaders!"
+        title="Version 6.2.0 is out!"
+        bannerKey="v6.2.0"
+        description="Make your own Shaders with Configurable Shaders!"
         cta="Get it now"
         ctaLink="/docs/installation"
         changelogLink="/docs/changelog"

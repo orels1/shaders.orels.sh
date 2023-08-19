@@ -12,9 +12,13 @@ ORL Shaders Changelog
 ### New Shaders
 
 - **PBR**
-  - Puddles
+  - [Puddles](/docs/orl-standard/puddles): a puddles variant of the PBR shader with support for different puddle drivers, e.g. based on Depth texture, mask texture or a vertex color. Also includes the rain droplets effect
+- **VFX**
+  - [Patterns](/docs/vfx/patterns): a collection of procedural patterns you can use to make looping effects for extra background detail
+  - [Glitch Screen](/docs/vfx/glitch-screen): a shader aiming to create a glitchy screen effect, inspired by Stray    
 - **Toon**
-  - UV Discard
+  - [UV Discard](/docs/toon/uv-discard): a shader that allows you to hide pieces of your mesh using UV Tiles
+  - Transparent PrePass: a variant of the transparent shader with 2-Pass transparency. Useful for things like Hair on avatars
 
 ### New Features
 
@@ -32,13 +36,14 @@ ORL Shaders Changelog
 Not every module is compatible with every other module. The Inspector will try to make it clear when you're trying to do something unsupported, but I encourage you to mix and match and see what works! Sometimes things might work better in a particular order, as you're essentially "stacking" effects together. The modules on top of the list are added first
 {% /callout %}
 
-- **AmbientCG Library**
-  - There is now experimental support for the [AmbientCG Material Library](https://ambientcg.com), which is a library of CC0 PBR materials you can use in your projects. It is meant to speed up your workflow especially when prototyping a new environment.
-  - Note that this works best with PBR shaders, so any Standard variant should work well!
-  - **This is very experimental so if something breaks, please let me know!**
 - `%SetProp()` drawer function has been added to the inspector
   - This allows you to set a property of your material to some specific value based on another value
   - E.g. you can set the Stencil operation to Keep or Replace depending on whether the Outline is enabled or not (used by the main Toon shader)
+- `%Preset(<path to presets folder>)` drawer function which displays a dropdown of Unity material presets from a particular folder
+  - This is used by the VFX Patterns shader to display a bunch of pre-made effects you can build on top of
+- `%TemplateFeature(<FeatureName>)` support
+  - This allows you to define a block or piece of the template as optional, and then enable/disable it inside the specific shader module via `%TemplateFeatures("MyFeature")`
+  - This is now used for the 2-Pass Transparency Toon Shader
 
 ### Other Changes
 
@@ -54,6 +59,11 @@ Not every module is compatible with every other module. The Inspector will try t
 - Repack texture button no longer looks ugly at some UI scaling levels 🎉The majority of Toon shader features now support independent tiling options, great for detail textures!
 - The VRChat Features docs link is now pointing to the correct spot
 - Added support for exporting generated shaders without CoreRP sampling macros (for external tool compatibility)
+- Added support for switching between World Space and Local Space for Laser and Shield shaders
+- Fixed an issue where the texture packer would not read the correct texture color space
+- Rim Light in Toon shaders now respects the alpha value of a color
+- Width slider for the Outline is now using a Logarithmic scale for better control at low values
+- Toon Transparent shader now supports a separate alpha texture
 
 ## v6.1.0
 
