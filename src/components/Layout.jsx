@@ -24,8 +24,11 @@ const navigation = [
     ],
   },
   {
-    title: 'Shaders List',
-    link: { title: 'Shaders List', href: '/docs/shaders-list' },
+    title: 'All Shaders',
+    links: [
+      { title: 'Shaders List', href: '/docs/shaders-list' },
+      { title: 'Configurable Shaders', href: '/docs/configurable-shaders' },
+    ],
   },
   {
     title: 'Standard Shaders (PBR)',
@@ -63,6 +66,7 @@ const navigation = [
     links: [
       { title: 'Clouds', href: '/docs/vfx/clouds' },
       { title: 'Ghost Lines', href: '/docs/vfx/ghost-lines' },
+      { title: 'Patterns', href: '/docs/vfx/patterns' },
       { title: 'Shield', href: '/docs/vfx/shield' },
       { title: 'Laser', href: '/docs/vfx/laser' },
       { title: 'Holographic Parallax', href: '/docs/vfx/holographic-parallax' },
