@@ -166,11 +166,9 @@ If you're not seeing MonoSH in your Directionality Mode dropdown when using bake
 
 {% video url="https://iframe.mediadelivery.net/embed/165/884ea2b0-6ef3-4ebf-b97c-e6fcbfcff7df?autoplay=true&loop=true&muted=true" title="Specular Occlusion in action" /%}
 
-Comparing **Baked Specular** OFF vs ON
+![Without Baked Specular](/img/docs/orl-standard/base-shader/baked-specular-off.png "Without Baked Specular")
 
-![Without Baked Specular](/img/docs/orl-standard/base-shader/baked-specular-off.png)
-
-![With Baked Specular](/img/docs/orl-standard/base-shader/baked-specular-on.png)
+![With Baked Specular](/img/docs/orl-standard/base-shader/baked-specular-on.png "With Baked Specular")
 
 ## Internal
 
