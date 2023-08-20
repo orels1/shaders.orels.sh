@@ -16,7 +16,7 @@ export default function Image({
   return (
     <>
       <NextImage src={src} alt={alt} width={width} height={height} quality={95} className="mb-1" />
-      <span className="text-sm text-center mt-3 mb-4 text-slate-400 block">{title}</span>
+      {title && <span className="text-sm text-center mt-3 mb-4 text-slate-400 block">{title}</span>}
     </>
   );
 }

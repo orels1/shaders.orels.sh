@@ -3,7 +3,8 @@
     "**/orl-standard/*.md": "${documentWorkspaceFolder}/public/img/docs/orl-standard/${documentBaseName}/${documentBaseName}-${fileName}",
     "**/vfx/*.md": "${documentWorkspaceFolder}/public/img/docs/vfx/${documentBaseName}/${documentBaseName}-${fileName}",
     "**/toon/*.md": "${documentWorkspaceFolder}/public/img/docs/toon/${documentBaseName}/${documentBaseName}-${fileName}",
-    "**/ui/*.md": "${documentWorkspaceFolder}/public/img/docs/ui/${documentBaseName}/${documentBaseName}-${fileName}"
+    "**/ui/*.md": "${documentWorkspaceFolder}/public/img/docs/ui/${documentBaseName}/${documentBaseName}-${fileName}",
+    "**/docs/*.md": "${documentWorkspaceFolder}/public/img/docs/root/${documentBaseName}/${documentBaseName}-${fileName}"
   },
   "markdown.copyFiles.overwriteBehavior": "nameIncrementally",
   "markdownlint.config": {

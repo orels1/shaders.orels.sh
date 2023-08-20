@@ -59,6 +59,7 @@ const navigation = [
     title: 'Toon Shaders',
     links: [
       { title: 'Base Shader', href: '/docs/toon/base-shader' },
+      { title: 'UV Discard', href: '/docs/toon/uv-discard' },
     ],
   },
   {
@@ -66,6 +67,7 @@ const navigation = [
     links: [
       { title: 'Clouds', href: '/docs/vfx/clouds' },
       { title: 'Ghost Lines', href: '/docs/vfx/ghost-lines' },
+      { title: 'Glitch Screen', href: '/docs/vfx/glitch-screen' },
       { title: 'Patterns', href: '/docs/vfx/patterns' },
       { title: 'Shield', href: '/docs/vfx/shield' },
       { title: 'Laser', href: '/docs/vfx/laser' },

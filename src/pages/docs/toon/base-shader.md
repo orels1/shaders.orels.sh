@@ -8,7 +8,7 @@ ORL Shaders package comes with a fully-featured Toon shader geared towards use i
 You can find the toon shader under `orels1/Toon/Main` in the shaders list.
 
 {% callout type="note" title="Transparent and Cutout Variants" %}
-This shader has a Transparent and Cutout variants under `orels1/Toon/Transparent` and `orels1/Toon/Cutout` respectively.
+This shader has a Transparent and Cutout variants under `orels1/Toon/Transparent` and `orels1/Toon/Cutout` respectively. For things like Hair with partial transparency an `orels1/Toon/Transparent PrePass` shader is recommended
 {% /callout %}
 
 ![Toon Shader Demo](/img/docs/toon/toon-overview.png "Example of the Toon shader in action")

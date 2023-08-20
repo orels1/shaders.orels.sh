@@ -45,19 +45,23 @@ const nodes = {
   
         return new Tag(this.render, { ...attributes, ...imageInfo }, children);
       }
-  
-      return [
+
+      const tags = [
         new Tag(
           `img`,
           { ...attributes, class: 'mb-2' },
           children
-        ),
-        new Tag(
+        )
+      ];
+      if (node.attributes.title) {
+        tags.push(new Tag(
           'span',
           { class: 'text-sm text-center mt-4 mb-4 text-slate-400 block' },
           [node.attributes.title]
-        )
-      ]
+        ));
+      }
+  
+      return tags;
     }
   }
 }

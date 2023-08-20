@@ -9,6 +9,8 @@ ORL Shaders Changelog
 
 ## v6.2.0 (in progress)
 
+![6.2.0 Release](</img/docs/root/changelog/changelog-Shader_v6.2_Splash.png>)
+
 ### New Shaders
 
 - **PBR**
