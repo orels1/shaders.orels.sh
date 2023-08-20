@@ -24,8 +24,11 @@ const navigation = [
     ],
   },
   {
-    title: 'Shaders List',
-    link: { title: 'Shaders List', href: '/docs/shaders-list' },
+    title: 'All Shaders',
+    links: [
+      { title: 'Shaders List', href: '/docs/shaders-list' },
+      { title: 'Configurable Shaders', href: '/docs/configurable-shaders' },
+    ],
   },
   {
     title: 'Standard Shaders (PBR)',
@@ -43,6 +46,7 @@ const navigation = [
       { title: 'Layered Parallax', href: '/docs/orl-standard/layered-parallax' },
       { title: 'LTCGI', href: '/docs/orl-standard/ltcgi' },
       { title: 'Neon Light', href: '/docs/orl-standard/neon-light' },
+      { title: 'Puddles', href: '/docs/orl-standard/puddles' },
       { title: 'Pulse', href: '/docs/orl-standard/pulse' },
       { title: 'Tessellated Displacement', href: '/docs/orl-standard/tessellated-displacement' },
       { title: 'Triplanar Effects', href: '/docs/orl-standard/triplanar-effects' },
@@ -55,6 +59,7 @@ const navigation = [
     title: 'Toon Shaders',
     links: [
       { title: 'Base Shader', href: '/docs/toon/base-shader' },
+      { title: 'UV Discard', href: '/docs/toon/uv-discard' },
     ],
   },
   {
@@ -62,6 +67,8 @@ const navigation = [
     links: [
       { title: 'Clouds', href: '/docs/vfx/clouds' },
       { title: 'Ghost Lines', href: '/docs/vfx/ghost-lines' },
+      { title: 'Glitch Screen', href: '/docs/vfx/glitch-screen' },
+      { title: 'Patterns', href: '/docs/vfx/patterns' },
       { title: 'Shield', href: '/docs/vfx/shield' },
       { title: 'Laser', href: '/docs/vfx/laser' },
       { title: 'Holographic Parallax', href: '/docs/vfx/holographic-parallax' },
@@ -103,7 +110,7 @@ const navigation = [
       { title: 'ORL Shader Definition', href: '/docs/generator/orl-shader-definition' },
       { title: 'Creating Modules', href: '/docs/generator/creating-modules' },
       { title: 'Creating Lighting Models', href: '/docs/generator/creating-lighting-models' },
-      { title: 'Creating Templates', href: '/docs/generator/creating-templates' },
+      { title: 'Templates', href: '/docs/generator/templates' },
     ]
   },
   {
@@ -158,7 +165,7 @@ function Header({ navigation }) {
       </div>
       <div className="relative flex basis-0 justify-end gap-6 sm:gap-8 md:flex-grow">
         <ThemeSelector className="relative z-10" />
-        <Link href="https://github.com" className="group" aria-label="GitHub">
+        <Link href="https://github.com/orels1/orels-Unity-Shaders" className="group" aria-label="GitHub">
           <GitHubIcon className="h-6 w-6 fill-slate-400 group-hover:fill-slate-500 dark:group-hover:fill-slate-300" />
         </Link>
       </div>
@@ -234,8 +241,9 @@ export function Layout({ children, title, tableOfContents }) {
   return (
     <>
       <Banner
-        title="Version 6.1.0 is out!"
-        description="All new PBR, VFX and UI shaders!"
+        title="Version 6.2.0 is out!"
+        bannerKey="v6.2.0"
+        description="Make your own Shaders with Configurable Shaders!"
         cta="Get it now"
         ctaLink="/docs/installation"
         changelogLink="/docs/changelog"

@@ -21,6 +21,8 @@ ORL Shader Inspector is a Property-based shader GUI system for Unity. It is desi
 - Property combining for rendering multiple properties on a single line
 - Texture Packing
 - Keyword debugging
+- Presets
+- Settings props based on other props
 
 ## Installation
 
@@ -267,6 +269,14 @@ UI_ChannelsNote("> R: Albedo, G: Normal G, B: Smooth, A: Normal R", Int) = 0
 
 ![Note](/img/docs/inspector/overview-note.png "Note")
 
+You can also make a note that is hidden by default, but can be expanded by clicking on a "Show Note" button. This is most useful for very long notes that use newlines (via `\n`).
+
+```hlsl
+UI_ChannelsNote("?> R: Albedo\nG: Normal G\nB: Smooth\nA: Normal R", Int) = 0
+```
+
+![Note Hidden by Default](/img/docs/inspector/overview/overview-image.png "Note Hidden by Default")
+
 ### Link Field
 
 You might also want to link full external documentation in your inspector, and for that a markdown link notation is used
@@ -288,6 +298,48 @@ _BumpMap("Normal Map >", 2D) =  "bump" {}
 ```
 
 ![Single Line](/img/docs/inspector/overview-single-line.png "Single Line")
+
+### Presets
+
+It is often nice to provide users with easily findable presets. And while simply adding a bunch of Unity Preset files somewhere in your package is a good place to start - it is much better to show a subset of specific presets in the inspector.
+
+This is what a `%Preset()` function is for.
+
+```hlsl
+UI_Preset("Select Preset %Preset(Path/To/Presets/Folder)", Int) = 0
+```
+
+This will render a dropdown with all the presets found in that folder. When the user selects a new preset - they'll get a popup explaining that this will clear all of their settings and set them to the values provided in the preset.
+
+The selected preset index will then be saved into the property the `%Preset()` function is added to.
+
+![Patterns Shader using Presets](/img/docs/inspector/overview/overview-image-1.png "Patterns Shader using Presets")
+
+### Setting Prop values based on other Props
+
+Sometimes it is useful to set a property value based on a keyword or some other prop, especially an Enum one.
+
+For example, you might want to set a bunch of Stecil properties based on whether the Outline is enabled or not.
+
+For that use case a `%SetProp()` function is provided.
+
+```hlsl
+_Outline("Enable Outline %SetProp((OUTLINE_ENABLED), _StencilBasePass, 2, 0)", Int) = 0
+```
+
+The above code will set the `_StencilBasePass` prop to `2` if `OUTLINE_ENABLED` keyword is set, or `0` otherwise.
+
+The syntax of conditions is the same as in the [Conditional Properties](#conditional-properties) section.
+
+The signature of the function is as follows
+
+```hlsl
+%SetProp((<condition>), <prop>, <true value>, <false value>)
+```
+
+{% callout type="warning" %}
+The parenthesis around the `<condition>` are required, so make sure they are there
+{% /callout %}
 
 ### Combine and Experiment
 

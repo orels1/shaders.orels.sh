@@ -17,6 +17,7 @@ const SHADERS = [
     { name: 'Layered Parallax', href:'/docs/orl-standard/layered-parallax', type: 'PBR', fullName: 'orels1/Standard Layered Parallax' },
     { name: 'LTCGI', href:'/docs/orl-standard/ltcgi', type: 'PBR', fullName: 'orels1/Standard LTCGI' },
     { name: 'Neon Light', href:'/docs/orl-standard/neon-light', type: 'PBR', fullName: 'orels1/Standard Neon Light' },
+    { name: 'Puddles', href:'/docs/orl-standard/puddles', type: 'PBR', fullName: 'orels1/Standard Puddles' },
     { name: 'Pulse', href:'/docs/orl-standard/pulse', type: 'PBR', fullName: 'orels1/Standard Pulse' },
     { name: 'Tessellated Displacement', href:'/docs/orl-standard/tessellated-displacement', type: 'PBR', fullName: 'orels1/Standard Tessellated Displacement' },
     { name: 'Triplanar Effects', href:'/docs/orl-standard/triplanar-effects', type: 'PBR', fullName: 'orels1/Standard Triplanar Effects' },
@@ -25,12 +26,16 @@ const SHADERS = [
     { name: 'Video Screen', href:'/docs/orl-standard/video-screen', type: 'PBR', fullName: 'orels1/Standard Video Screen' },
     { name: 'Toon', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Main' },
     { name: 'Toon Transparent', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Transparent' },
+    { name: 'Toon Transparent PrePass', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Transparent PrePass' },
     { name: 'Toon Cutout', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Cutout' },
+    { name: 'Toon UV Discard', href:'/docs/toon/uv-discard', type: 'Toon', fullName: 'orels1/Toon/UV Discard' },
     { name: 'Clouds', href:'/docs/vfx/clouds', type: 'VFX', fullName: 'orels1/VFX/Clouds' },
-    { name: 'Dither Fade', href:'/docs/orl-standard/dither-fade', type: 'PBR', fullName: 'orels1/VFX/Dither Fade' },
+    { name: 'Dither Fade', href:'/docs/orl-standard/dither-fade', type: 'VFX', fullName: 'orels1/VFX/Dither Fade' },
     { name: 'Ghost Lines', href:'/docs/vfx/ghost-lines', type: 'VFX', fullName: 'orels1/VFX/Ghost Lines' },
+    { name: 'Glitch Screen', href: '/docs/vfx/glitch-screen', type: 'VFX', fullName: 'orels1/VFX/Glitch Screen' },
     { name: 'Shield', href:'/docs/vfx/shield', type: 'VFX', fullName: 'orels1/VFX/Shield' },
     { name: 'Laser', href:'/docs/vfx/laser', type: 'VFX', fullName: 'orels1/VFX/Laser' },
+    { name: 'Layered Parallax', href:'/docs/orl-standard/layered-parallax', type: 'VFX', fullName: 'orels1/VFX/Layered Parallax' },
     { name: 'Holographic Parallax', href:'/docs/vfx/holographic-parallax', type: 'VFX', fullName: 'orels1/VFX/Holographic Parallax' },
     { name: 'Cubemap Screen', href:'/docs/vfx/cubemap-screen', type: 'VFX', fullName: 'orels1/VFX/Cubemap Screen' },
     { name: 'Block Fader', href:'/docs/vfx/block-fader', type: 'VFX', fullName: 'orels1/VFX/Block Fader' },
@@ -60,6 +65,7 @@ const SHADERS = [
     { name: 'Layered Parallax', href:'/docs/orl-standard/layered-parallax', type: 'PBR', fullName: 'orels1/Standard Layered Parallax' },
     { name: 'LTCGI', href:'/docs/orl-standard/ltcgi', type: 'PBR', fullName: 'orels1/Standard LTCGI' },
     { name: 'Neon Light', href:'/docs/orl-standard/neon-light', type: 'PBR', fullName: 'orels1/Standard Neon Light' },
+    { name: 'Puddles', href:'/docs/orl-standard/puddles', type: 'PBR', fullName: 'orels1/Standard Puddles' },
     { name: 'Pulse', href:'/docs/orl-standard/pulse', type: 'PBR', fullName: 'orels1/Standard Pulse' },
     { name: 'Tessellated Displacement', href:'/docs/orl-standard/tessellated-displacement', type: 'PBR', fullName: 'orels1/Standard Tessellated Displacement' },
     { name: 'Triplanar Effects', href:'/docs/orl-standard/triplanar-effects', type: 'PBR', fullName: 'orels1/Standard Triplanar Effects' },
@@ -70,14 +76,19 @@ const SHADERS = [
   { name: 'Toon', shaders: [
     { name: 'Toon', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Main' },
     { name: 'Toon Transparent', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Transparent' },
+    { name: 'Toon Transparent PrePass', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Transparent PrePass' },
     { name: 'Toon Cutout', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Cutout' },
+    { name: 'Toon UV Discard', href:'/docs/toon/uv-discard', type: 'Toon', fullName: 'orels1/Toon/UV Discard' },
   ] },
   { name: 'VFX', shaders: [
     { name: 'Clouds', href:'/docs/vfx/clouds', type: 'VFX', fullName: 'orels1/VFX/Clouds' },
     { name: 'Dither Fade', href:'/docs/orl-standard/dither-fade', type: 'PBR', fullName: 'orels1/VFX/Dither Fade' },
     { name: 'Ghost Lines', href:'/docs/vfx/ghost-lines', type: 'VFX', fullName: 'orels1/VFX/Ghost Lines' },
+    { name: 'Glitch Screen', href: '/docs/vfx/glitch-screen', type: 'VFX', fullName: 'orels1/VFX/Glitch Screen' },
+    { name: 'Patterns', href:'/docs/vfx/patterns', type: 'VFX', fullName: 'orels1/VFX/Patterns'},
     { name: 'Shield', href:'/docs/vfx/shield', type: 'VFX', fullName: 'orels1/VFX/Shield' },
     { name: 'Laser', href:'/docs/vfx/laser', type: 'VFX', fullName: 'orels1/VFX/Laser' },
+    { name: 'Layered Parallax', href:'/docs/orl-standard/layered-parallax', type: 'VFX', fullName: 'orels1/VFX/Layered Parallax' },
     { name: 'Holographic Parallax', href:'/docs/vfx/holographic-parallax', type: 'VFX', fullName: 'orels1/VFX/Holographic Parallax' },
     { name: 'Cubemap Screen', href:'/docs/vfx/cubemap-screen', type: 'VFX', fullName: 'orels1/VFX/Cubemap Screen' },
     { name: 'Block Fader', href:'/docs/vfx/block-fader', type: 'VFX', fullName: 'orels1/VFX/Block Fader' },
@@ -127,7 +138,7 @@ export default function ShaderList() {
                 <span
                   className={clsx(
                     'dark:bg-slate-500 bg-slate-200 text-gray-600 dark:text-gray-200',
-                    'ml-auto inline-block rounded-full py-0.5 px-3 text-xs'
+                    'ml-auto inline-block rounded-full px-3 text-xs leading-[10px] py-[4px]'
                   )}
                 >
                   {item.shaders.length}
@@ -155,7 +166,7 @@ export default function ShaderList() {
         <div className="grid grid-cols-1 gap-2 mt-2 sm:grid-cols-2">
           {SHADERS[selected].shaders.filter(sh => sh.name.toLowerCase().includes(filter.toLowerCase())).map((shader) => (
             <div
-              key="s"
+              key={shader.name}
               className="relative flex px-4 pt-2 items-center space-x-3 rounded-md border border-gray-300 hover:dark:border-gray-600 dark:border-gray-700 bg-white/5"
             >
               {/* <div className="flex-shrink-0">

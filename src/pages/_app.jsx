@@ -21,6 +21,7 @@ function collectHeadings(nodes, slugify = slugifyWithCounter()) {
   let sections = []
 
   for (let node of nodes) {
+    if (node == null) continue;
     if (node.name === 'h2' || node.name === 'h3') {
       let title = getNodeText(node)
       if (title) {

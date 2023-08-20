@@ -58,6 +58,14 @@ Defines the custom editor to use, no default is provided, but you can use the OR
 %CustomEditor("ORL.ShaderInspector.InspectorGUI")
 ```
 
+### `%TemplateFeatures(string[] features)`
+
+Defines the template features to use. Template features a special blocks of the source Template that are only included when the specified feature is listed in this block
+
+```hlsl
+%TemplateFeatures("MyFeature", "PrePass")
+```
+
 ### `%Includes()`
 
 Contains the list of other shader modules to include, can be `.orlshader` shader files or `.orlsource` modules. The order of the includes is important, as the modules will be included in the order they are specified. The resolver will recursively follow the trail of includes and pull in any submodules if they are needed.
@@ -179,6 +187,12 @@ Some built-in LightingModels (like Toon and PBR) also support modifying other pa
 {
   // Modifiers for ShadowCaster
 }
+
+%PrePassModifiers()
+{
+  // Modifiers for the PrePass
+  // Only available in the Toon template
+}
 ```
 
 ### `%Variables`
@@ -242,6 +256,14 @@ Modifying anything but the `FinalColor` variable here will not have any effect
     }
 }
 ```
+
+### `%PrePassColor(string functioName)`
+
+Same as [Fragment](#fragmentstring-functionname) but this one is injected into the PrePass stage of the Toon template.
+
+PrePass stage is only available when the `PrePass` template feature is enabled.
+
+Read more about template features [here](/docs/generator/templates#template-features).
 
 ### `%Shadow(string functionName)`
 
@@ -336,6 +358,7 @@ The built-in templates allow you to enable optional features by specifying some 
 
 - `NEED_DEPTH`: Adds the depth texture macro, which creates a depth texture as `_CameraDepthTexture`
 - `NEED_FRAGMENT_IN_SHADOW`: Forces the shadowcaster pass to execute all of the included fragment functions (except the lighting calculation), useful if you want to utilize the final calculated alpha to augment the shadow silhouette.
+- `NEED_FRAGMENT_IN_PREPASS`: When using Toon template with `PrePass` `TemplateFeature` enabled - forces the prepass to execute all of the included fragment functions. Majority of the time, to save performance, you probably want to reimplement the bare minimum of the calculations inside a custom `PrePassColor` function instead of using this define.
 - `EXTRA_V2F_0`, `EXTRA_V2F_1`, `EXTRA_V2F_2`, `EXTRA_V2F_3`: Tells the the templates to compile in extra float4s in the Vertex stage so you can pass some custom data to your Fragment stage, see the struct definition below
 
 ## Mesh and Surface Data
@@ -503,6 +526,10 @@ For example, this is how you would lower the overall brightness of the material 
 {% callout type="note" title="VFX Template" %}
 In the VFX template `FinalColor` is constructed from `o.Albedo` and `o.Alpha`, so the `Fragment` function essentially operates on the FinalColor directly. As such, there is no need to use a `ColorFunction` in there.
 {% /callout %}
+
+### Facing attribute
+
+A float `facing` parameter is also passed into the function. This allows you to detect if the current fragment is rendering the front face or the backface of the triangle.
 
 ## Shader Example
 
