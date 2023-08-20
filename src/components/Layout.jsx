@@ -43,6 +43,7 @@ const navigation = [
       { title: 'Layered Parallax', href: '/docs/orl-standard/layered-parallax' },
       { title: 'LTCGI', href: '/docs/orl-standard/ltcgi' },
       { title: 'Neon Light', href: '/docs/orl-standard/neon-light' },
+      { title: 'Puddles', href: '/docs/orl-standard/puddles' },
       { title: 'Pulse', href: '/docs/orl-standard/pulse' },
       { title: 'Tessellated Displacement', href: '/docs/orl-standard/tessellated-displacement' },
       { title: 'Triplanar Effects', href: '/docs/orl-standard/triplanar-effects' },

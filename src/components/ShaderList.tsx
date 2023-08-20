@@ -17,6 +17,7 @@ const SHADERS = [
     { name: 'Layered Parallax', href:'/docs/orl-standard/layered-parallax', type: 'PBR', fullName: 'orels1/Standard Layered Parallax' },
     { name: 'LTCGI', href:'/docs/orl-standard/ltcgi', type: 'PBR', fullName: 'orels1/Standard LTCGI' },
     { name: 'Neon Light', href:'/docs/orl-standard/neon-light', type: 'PBR', fullName: 'orels1/Standard Neon Light' },
+    { name: 'Puddles', href:'/docs/orl-standard/puddles', type: 'PBR', fullName: 'orels1/Standard Puddles' },
     { name: 'Pulse', href:'/docs/orl-standard/pulse', type: 'PBR', fullName: 'orels1/Standard Pulse' },
     { name: 'Tessellated Displacement', href:'/docs/orl-standard/tessellated-displacement', type: 'PBR', fullName: 'orels1/Standard Tessellated Displacement' },
     { name: 'Triplanar Effects', href:'/docs/orl-standard/triplanar-effects', type: 'PBR', fullName: 'orels1/Standard Triplanar Effects' },
@@ -127,7 +128,7 @@ export default function ShaderList() {
                 <span
                   className={clsx(
                     'dark:bg-slate-500 bg-slate-200 text-gray-600 dark:text-gray-200',
-                    'ml-auto inline-block rounded-full py-0.5 px-3 text-xs'
+                    'ml-auto inline-block rounded-full px-3 text-xs leading-[10px] py-[4px]'
                   )}
                 >
                   {item.shaders.length}
@@ -155,7 +156,7 @@ export default function ShaderList() {
         <div className="grid grid-cols-1 gap-2 mt-2 sm:grid-cols-2">
           {SHADERS[selected].shaders.filter(sh => sh.name.toLowerCase().includes(filter.toLowerCase())).map((shader) => (
             <div
-              key="s"
+              key={shader.name}
               className="relative flex px-4 pt-2 items-center space-x-3 rounded-md border border-gray-300 hover:dark:border-gray-600 dark:border-gray-700 bg-white/5"
             >
               {/* <div className="flex-shrink-0">
