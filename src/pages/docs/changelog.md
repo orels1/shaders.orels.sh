@@ -24,7 +24,7 @@ ORL Shaders Changelog
 
 ### New Features
 
-- **Configurable Shaders**
+- [**Configurable Shaders**](/docs/configurable-shaders)
   - This new system allows you to mix and match all of the features available in the ORL Shader Package to your liking!
   - To start, right-click anywhere in your project, then Create -> Shader -> orels1 -> Configurable Shader. This will make a new instance of a configurable shader you can set up in the inspector
   - Give your shader a name
