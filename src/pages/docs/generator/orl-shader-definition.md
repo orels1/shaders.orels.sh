@@ -187,6 +187,12 @@ Some built-in LightingModels (like Toon and PBR) also support modifying other pa
 {
   // Modifiers for ShadowCaster
 }
+
+%PrePassModifiers()
+{
+  // Modifiers for the PrePass
+  // Only available in the Toon template
+}
 ```
 
 ### `%Variables`
@@ -250,6 +256,14 @@ Modifying anything but the `FinalColor` variable here will not have any effect
     }
 }
 ```
+
+### `%PrePassColor(string functioName)`
+
+Same as [Fragment](#fragmentstring-functionname) but this one is injected into the PrePass stage of the Toon template.
+
+PrePass stage is only available when the `PrePass` template feature is enabled.
+
+Read more about template features [here](/docs/generator/templates#template-features).
 
 ### `%Shadow(string functionName)`
 

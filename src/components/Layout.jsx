@@ -110,7 +110,7 @@ const navigation = [
       { title: 'ORL Shader Definition', href: '/docs/generator/orl-shader-definition' },
       { title: 'Creating Modules', href: '/docs/generator/creating-modules' },
       { title: 'Creating Lighting Models', href: '/docs/generator/creating-lighting-models' },
-      { title: 'Creating Templates', href: '/docs/generator/creating-templates' },
+      { title: 'Templates', href: '/docs/generator/templates' },
     ]
   },
   {

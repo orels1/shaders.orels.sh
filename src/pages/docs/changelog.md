@@ -38,13 +38,13 @@ ORL Shaders Changelog
 Not every module is compatible with every other module. The Inspector will try to make it clear when you're trying to do something unsupported, but I encourage you to mix and match and see what works! Sometimes things might work better in a particular order, as you're essentially "stacking" effects together. The modules on top of the list are added first
 {% /callout %}
 
-- `%SetProp()` drawer function has been added to the inspector
+- [`%SetProp()`](/docs/inspector/overview#setting-prop-values-based-on-other-props) drawer function has been added to the inspector
   - This allows you to set a property of your material to some specific value based on another value
   - E.g. you can set the Stencil operation to Keep or Replace depending on whether the Outline is enabled or not (used by the main Toon shader)
-- `%Preset(<path to presets folder>)` drawer function which displays a dropdown of Unity material presets from a particular folder
+- [`%Preset(<path to presets folder>)`](/docs/inspector/overview#presets) drawer function which displays a dropdown of Unity material presets from a particular folder
   - This is used by the VFX Patterns shader to display a bunch of pre-made effects you can build on top of
-- `%TemplateFeature(<FeatureName>)` support
-  - This allows you to define a block or piece of the template as optional, and then enable/disable it inside the specific shader module via `%TemplateFeatures("MyFeature")`
+- [`%TemplateFeature(<FeatureName>)`](/docs/generator/templates#template-features) support
+  - This allows you to define a block or piece of the template as optional, and then enable/disable it inside the specific shader module via [`%TemplateFeatures("MyFeature")`](/docs/generator/orl-shader-definition#template-features-string-features)
   - This is now used for the 2-Pass Transparency Toon Shader
 
 ### Other Changes
