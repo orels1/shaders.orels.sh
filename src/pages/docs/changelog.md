@@ -66,6 +66,7 @@ Not every module is compatible with every other module. The Inspector will try t
 - Rim Light in Toon shaders now respects the alpha value of a color
 - Width slider for the Outline is now using a Logarithmic scale for better control at low values
 - Toon Transparent shader now supports a separate alpha texture
+- Added a `VFX` variant of Layered Parallax
 
 ## v6.1.0
 
