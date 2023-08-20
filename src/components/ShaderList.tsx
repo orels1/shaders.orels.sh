@@ -26,6 +26,7 @@ const SHADERS = [
     { name: 'Video Screen', href:'/docs/orl-standard/video-screen', type: 'PBR', fullName: 'orels1/Standard Video Screen' },
     { name: 'Toon', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Main' },
     { name: 'Toon Transparent', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Transparent' },
+    { name: 'Toon Transparent PrePass', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Transparent PrePass' },
     { name: 'Toon Cutout', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Cutout' },
     { name: 'Toon UV Discard', href:'/docs/toon/uv-discard', type: 'Toon', fullName: 'orels1/Toon/UV Discard' },
     { name: 'Clouds', href:'/docs/vfx/clouds', type: 'VFX', fullName: 'orels1/VFX/Clouds' },
@@ -74,6 +75,7 @@ const SHADERS = [
   { name: 'Toon', shaders: [
     { name: 'Toon', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Main' },
     { name: 'Toon Transparent', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Transparent' },
+    { name: 'Toon Transparent PrePass', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Transparent PrePass' },
     { name: 'Toon Cutout', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Cutout' },
     { name: 'Toon UV Discard', href:'/docs/toon/uv-discard', type: 'Toon', fullName: 'orels1/Toon/UV Discard' },
   ] },
