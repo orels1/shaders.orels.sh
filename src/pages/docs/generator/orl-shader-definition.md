@@ -527,6 +527,10 @@ For example, this is how you would lower the overall brightness of the material 
 In the VFX template `FinalColor` is constructed from `o.Albedo` and `o.Alpha`, so the `Fragment` function essentially operates on the FinalColor directly. As such, there is no need to use a `ColorFunction` in there.
 {% /callout %}
 
+### Facing attribute
+
+A float `facing` parameter is also passed into the function. This allows you to detect if the current fragment is rendering the front face or the backface of the triangle.
+
 ## Shader Example
 
 Below is an example of a shader with all the blocks supported by the built-in toon template. You can also find this example in the `/Packages/sh.orels.shaders.generator/Runtime/Resources/ORL Shader Example.txt`

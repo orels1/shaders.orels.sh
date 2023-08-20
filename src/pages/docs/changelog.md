@@ -7,9 +7,13 @@ ORL Shaders Changelog
 
 ---
 
-## v6.2.0 (in progress)
+## v6.2.0
 
 ![6.2.0 Release](</img/docs/root/changelog/changelog-Shader_v6.2_Splash.png>)
+
+### Summary
+
+Update 6.2.0 brings a couple of new and highly requested shaders like **Puddles**. It also adds a new system for creating your own custom shaders called **Configurable Shaders**, and a bunch of new features and improvements to existing shaders.
 
 ### New Shaders
 
