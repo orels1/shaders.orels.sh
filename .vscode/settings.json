@@ -4,7 +4,9 @@
     "**/vfx/*.md": "${documentWorkspaceFolder}/public/img/docs/vfx/${documentBaseName}/${documentBaseName}-${fileName}",
     "**/toon/*.md": "${documentWorkspaceFolder}/public/img/docs/toon/${documentBaseName}/${documentBaseName}-${fileName}",
     "**/ui/*.md": "${documentWorkspaceFolder}/public/img/docs/ui/${documentBaseName}/${documentBaseName}-${fileName}",
-    "**/docs/*.md": "${documentWorkspaceFolder}/public/img/docs/root/${documentBaseName}/${documentBaseName}-${fileName}"
+    "**/docs/*.md": "${documentWorkspaceFolder}/public/img/docs/root/${documentBaseName}/${documentBaseName}-${fileName}",
+    "**/inspector/*.md": "${documentWorkspaceFolder}/public/img/docs/inspector/${documentBaseName}/${documentBaseName}-${fileName}",
+    "**/generator/*.md": "${documentWorkspaceFolder}/public/img/docs/inspector/${documentBaseName}/${documentBaseName}-${fileName}",
   },
   "markdown.copyFiles.overwriteBehavior": "nameIncrementally",
   "markdownlint.config": {
