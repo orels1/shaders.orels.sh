@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { slugifyWithCounter } from '@sindresorhus/slugify'
+import { Analytics } from '@vercel/analytics/react';
 
 import { Layout } from '@/components/Layout'
 
@@ -70,6 +71,7 @@ export default function App({ Component, pageProps }) {
       </Head>
       <Layout title={title} tableOfContents={tableOfContents}>
         <Component {...pageProps} />
+        <Analytics />
       </Layout>
     </>
   )
