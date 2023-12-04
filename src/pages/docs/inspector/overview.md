@@ -341,6 +341,18 @@ The signature of the function is as follows
 The parenthesis around the `<condition>` are required, so make sure they are there
 {% /callout %}
 
+### Setting an Override tag based on an Enum
+
+Unity allows you to modify Shader Tags per-material, which can be useful in cases where shader might be supporting multiple rendering modes, such as Transparent or Cutout.
+
+The `%OverrideTag()` function allows you to do exactly that
+
+```hlsl
+[Enum(Standard, 0, Toon, 1)]_VRCFallbackTag("VRC Fallback %OverrideTag(VRCFallback)", Int) = 0
+```
+
+The above code sets the `VRCFallback` tag to either Standard or Toon based on the selected value
+
 ### Combine and Experiment
 
 A lot of the above features are designed to be combined with each other, so you can create complex shader GUIs with ease.

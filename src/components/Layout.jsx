@@ -241,9 +241,9 @@ export function Layout({ children, title, tableOfContents }) {
   return (
     <>
       <Banner
-        title="Version 6.2.0 is out!"
-        bannerKey="v6.2.0"
-        description="Make your own Shaders with Configurable Shaders!"
+        title="Version 6.3.0 is out!"
+        bannerKey="v6.3.0"
+        description="LOD Crossfade and VRCFallback support!"
         cta="Get it now"
         ctaLink="/docs/installation"
         changelogLink="/docs/changelog"

@@ -106,8 +106,18 @@ Details section allows adding extra variety to the surface with its own set of m
 
 ## VRChat Features
 
-![VRC Features controls](/img/docs/orl-standard/base-shader/vrcfeatures.png "VRC Features controls")
+![VRChat Features controls](/img/docs/orl-standard/base-shader/base-shader-image.png "VRChat Features controls")
 
+- VRC Fallback: Sets the shader fallback mode as defined by the [VRChat's Shader Fallback System](https://creators.vrchat.com/avatars/shader-fallback-system/)
+  - Defaults to "Standard" which is the most fitting for the majority of shaders
+  - This option is available without needing to enable **VRChat Features**
+  - All of the available options are
+    - Standard
+    - Toon
+    - Hidden
+    - Transparent
+    - Cutout
+    - ToonCutout
 - VRChat Features Enabled: Enables the VRChat features
 - Hide from Main View: Controls whether the object should be hidden from the main player view
   - In VR: Hides the object from the main player view in VR
@@ -186,6 +196,12 @@ There is also a cutout variant of the Standard shader, which provides all the sa
 ![Cutout Variant](/img/docs/orl-standard/base-shader/cutout-inspector.png)
 
 - Enable Dither Fade: Enables distance-based dither fade. Check out the [Dither Fade](/docs/orl-standard/dither-fade) documentation for more information
+
+## LOD Crossfade
+
+To add LOD Crossfade - simply select the Cutout variant of any Standard shader. This allows you to fade out the object as it gets further away when combined with an LOD Group component. [Read more here](https://docs.unity3d.com/Manual/class-LODGroup.html).
+
+You can also add support for LOD Crossfade to any shader by utilizing [Configurable Shaders](/docs/configurable-shaders) and adding the `LODCrossfade` module.
 
 ## Examples
 

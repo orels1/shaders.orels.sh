@@ -7,6 +7,30 @@ ORL Shaders Changelog
 
 ---
 
+## v6.3.0
+
+### Summary
+
+Update 6.3.0 focuses on smaller features and incremental improvements to existing shaders
+
+### New Features
+
+- Cutout shaders now support LOD Crossfade
+  - No extra configuration is required, but [here's some extra info](/docs/orl-standard/base-shader/#lod-crossfade)
+- All shaders that have a "VRChat Features" block now have a "VRC Fallback" dropdown
+  - This allows you to select how the shader will be displayed when your shaders are blocked by the user's safety settings
+  - You can see full documentation [here](/docs/orl-standard/base-shader/#vr-chat-features)
+- [VFX Laser Shader](/docs/vfx/laser) now supports UV-Space noise for better compatibility with Line Renderers
+  - Also improved the overall VFX Laser Shader inspector layout
+- [`%OverrideTag()`](/docs/inspector/overview#setting-an-override-tag-based-on-an-enum) drawer function has been added to the inspector
+  - This allows you to set per-material Shader Tag overrides based on an enum value
+  - The VRC Features module uses it to set the `VRCFallback` tag value
+
+### Other Changes
+
+- Toon shaders now have the VRChat Features module that was missing before
+- The `facing` parameter has been changed from using `VFACE` to `SV_IsFrontFace` for better compatibility. It is also now a `bool` type instead of `fixed`
+
 ## v6.2.0
 
 ![6.2.0 Release](</img/docs/root/changelog/changelog-Shader_v6.2_Splash.png>)
