@@ -22,6 +22,8 @@ If you’re new to ORL, we recommend you start with the [installation guide](/do
 
 If you encounter any issues during the installation process - you can ask for help [in my discord](https://discord.gg/orels1)!
 
+{% roadmap /%}
+
 ---
 
 ## Quick start

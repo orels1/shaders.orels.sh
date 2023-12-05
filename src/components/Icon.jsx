@@ -11,6 +11,7 @@ import { PBRIcon } from '@/components/icons/PBRIcon'
 import { ToonIcon } from '@/components/icons/ToonIcon'
 import { VFXIcon } from '@/components/icons/VFXIcon'
 import { UIIcon } from '@/components/icons/UIIcon'
+import { RoadmapIcon } from '@/components/icons/RoadmapIcon'
 
 const icons = {
   installation: InstallationIcon,
@@ -23,6 +24,7 @@ const icons = {
   toon: ToonIcon,
   vfx: VFXIcon,
   ui: UIIcon,
+  roadmap: RoadmapIcon,
 }
 
 const iconStyles = {

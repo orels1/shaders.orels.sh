@@ -6,6 +6,7 @@ import UnityDemo from '@/components/UnityDemo';
 import FAQ from '@/components/FAQ';
 import AddToVCC from '@/components/AddToVCC';
 import ShaderList from '@/components/ShaderList';
+import Roadmap from '@/components/Roadmap';
 
 const tags = {
   callout: {
@@ -86,7 +87,11 @@ const tags = {
   'shader-list': {
     selfClosing: true,
     render: ShaderList,
-  }
+  },
+  'roadmap': {
+    selfClosing: true,
+    render: Roadmap,
+  },
 }
 
 export default tags
