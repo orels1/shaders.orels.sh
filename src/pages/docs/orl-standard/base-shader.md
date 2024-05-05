@@ -32,7 +32,7 @@ Note that not all of the settings are always visible, some options will show and
 ![Settings on a filled material](/img/docs/orl-standard/base-shader/image4.png)
 
 - Main Color: Main tint color
-- Albedo: The Main Texture, its tiling and offset will be used by **all** the textures in the material, unless the texture slot provides its own tiling/offset parameters
+- Albedo: The Main Texture, its tiling and offset will be used by **all** the textures in the material unless the texture slot provides its own tiling/offset parameters
 - Mapping Space: Allows you to select between UV-mapped and Local Space/World Space aligned textures, which is useful for flat surfaces like Floors or Ceilings
   - UV: Uses the first UV channel to display the texture
   - Local Space: uses local coordinates on the provided X and Y axis to display the texture
@@ -129,10 +129,9 @@ Details section allows adding extra variety to the surface with its own set of m
   - In VR: Hides the object from the mirror view in VR
   - On Desktop: Hides the object from the mirror view on Desktop
 
+## Advanced Settings
 
-## Advanced Features
-
-![Advanced Features controls](/img/docs/orl-standard/base-shader/base-shader-advanced-features.png)
+![Advanced Settings controls](/img/docs/orl-standard/base-shader/base-shader-advanced-features.png)
 
 - Culling Mode: Controls the culling applied to the mesh
   - Back: Culls visible backfaces
@@ -157,15 +156,23 @@ GSAA, or Geometric Specular Anti Aliasing, helps avoid severe specular aliasing 
 
 - Non-Linear Lightprobe SH: Enables higher quality lightprobe sampling which is more accurate and behaves much better in high-intensity lighting scenarios. Is recommended for use on PC platforms, but might be fairly expensive on mobile.
 - Force Box Projection: Enables support for Box Projected reflection probes on platforms that do not support it natively, e.g. Android (Oculus Quest). This is fairly expensive for mobile hardware, so use it sparingly
+- Apply Mobile Color Correction: Enables color correction for mobile devices. As mobile platforms lack Post-Processing, it is often beneficial to use in-shader tone mapping to bring the look of your worlds closer to the Desktop version.
+  - Lift: The black point of the color correction
+  - Gamma: The gamma of the color correction
+  - Gain: The white point of the color correction
 
 ## Lightmapping
 
 ![Lightmapping Controls](/img/docs/orl-standard/base-shader/lightmapping.png)
 
+- Non-Linear Lightprobe SH: Enables higher quality lightprobe sampling which is more accurate and behaves much better in high-intensity lighting scenarios. Is recommended for use on PC platforms, but might be fairly expensive on mobile.
 - Specular Occlusion: Controls the amount of Specular Occlusion applied to the material. This helps limit the amount of "unity shine" which is often present on metallic surfaces (see comparison below). This applies to both lightmapped and non-lightmapped objects
 - Specular Roughness Mod: Allows you to influence the roughness of Baked Specular, which can sometimes be too intensive due to imperfections of Baked Specular direction
 - Bicubic Sampling: Dramatically increases quality of the baked shadows, especially on the lower resolution lightmaps at a fairly small performance hit
 - Baked Specular: Toggles the display of baked specular. Only relevant when using some kind of Directional lightmap, e.g., Dominant Direction or Bakery's RNM or SH.
+- Global Illumination Tweaks
+  - GI Emissive Boost: Boosts the emissive contribution to the Global Illumination, can be useful for Realtime GI scenarios
+  - Ignore Realtime GI: Completely skips applying Realtime Lightmaps, which can be useful in scenarios where you want to only use Realtime GI for light probes
 - Enable Bakery Features: Allows usage of bakery-specific features like RNM, SH or MonoSH lightmaps
 - Bakery Mode: Specifies whether to use RNM, SH or MonoSH lightmaps for Baked Specular
 - Bakery Non-Linear SH: Enables the Non-Linear SH sampling that can improve the contrast of the lighting on the mesh, especially with high-frequency normal maps

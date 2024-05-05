@@ -13,6 +13,7 @@ import Image from 'next/image'
 import logoImage from '@/images/orl.png'
 import Banner from './Banner'
 import MobileToC from './MobileToC'
+import DevBanner from './DevBanner'
 
 const navigation = [
   {
@@ -42,6 +43,7 @@ const navigation = [
       { title: 'Dissolve', href: '/docs/orl-standard/dissolve' },
       { title: 'Dither Fade', href: '/docs/orl-standard/dither-fade' },
       { title: 'Glass', href: '/docs/orl-standard/glass' },
+      { title: 'Hotspotting', href: '/docs/orl-standard/hotspotting' },
       { title: 'Layered Material', href: '/docs/orl-standard/layered-material' },
       { title: 'Layered Parallax', href: '/docs/orl-standard/layered-parallax' },
       { title: 'LTCGI', href: '/docs/orl-standard/ltcgi' },
@@ -240,10 +242,11 @@ export function Layout({ children, title, tableOfContents }) {
 
   return (
     <>
+      <DevBanner />
       <Banner
-        title="Version 6.3.0 is out!"
-        bannerKey="v6.3.0"
-        description="LOD Crossfade and VRCFallback support!"
+        title="Version 6.4.0 is out!"
+        bannerKey="v6.4.0"
+        description="Hotspotting, in-shader Tonemapping, and bug fixes!"
         cta="Get it now"
         ctaLink="/docs/installation"
         changelogLink="/docs/changelog"

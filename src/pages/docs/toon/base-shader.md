@@ -47,8 +47,8 @@ This documentation is broken up into modules that correspond to the foldouts in 
 ![Toon Shader Normals](/img/docs/toon/toon-normals-full.png "Toon Shader Normals")
 
 - Normal Map: The normal map of the material
-- Normal Map Scale: Controls the strength of the normal map, can be used to flip the direction as well
-- Flip Y: Flips the Y axis of the normal map, this allows usage of DirectX based normals
+- Normal Map Scale: Controls the strength of the normal map, and can be used to flip the direction as well
+- Flip Y: Flips the Y axis of the normal map, this allows usage of DirectX-based normals
 - Detail Normal: The extra normal map texture to be applied on top. Has its own tiling controls
 - Detail Normal Scale: Controls the strength of the detail normal map
 - Flip Y: Flips the Y axis of the detail normal map
@@ -68,6 +68,9 @@ This documentation is broken up into modules that correspond to the foldouts in 
 - Albedo Tint: Controls how much the outline is tinted by the albedo texture
 - Width Mask: Controls the widths of the outline via the red channel of the texture. It will multiply the **Width** value by the texture value
 - Width: Controls the width of the outline
+- Adjust by Vertex Color: Enables adjusting the width of the outline by the vertex color of the mesh. Uses the red channel of the vertex color and multiplies the width by its value.
+- Ignore Stencils: Skips the stencil test for the outline.
+  - This is useful when you want to see outlines on top of the surface of your mesh instead of just around it. E.g. if you have clothing with folding details or things like buttons, you can use this to outline them as well.
 
 {% callout type="note" title="Outline Approach" %}
 ORL Toon uses a pass-based outline, which avoids using geometry shaders, but will have visual splits on hard edges. It does benefit from using stencils, on the other hand, so it works in the Transparent mode as well.
@@ -93,11 +96,13 @@ ORL Toon uses a pass-based outline, which avoids using geometry shaders, but wil
 ## Reflections
 
 Reflections in ORL Toon have 3 modes: PBR, Baked Cubemap and Matcap.
+
 - PBR Reflections follow unity's Metallic-Smoothness workflow and will look very similar to the built-in Standard shader reflections
 - Baked Cubemap work the same way as PBR but use a pre-defined Cubemap texture instead of the environment's Reflection Probes
 - Matcap uses a Matcap texture to simulate reflections. Can be used for many artistic effects
 
 There is one global setting shared between all 3 modes:
+
 - Reflection Blend Mode: Controls how reflections are composited on top of the material. Defaults to Additive
   - Additive: Adds reflections on top of the material
   - Multiply: Multiplies reflections with the material
@@ -189,7 +194,6 @@ The UV layout you should use is similar to the ORL Standard AudioLink effect, wh
 
 ![UV Layout Reference](/img/docs/orl-standard/audio-link/audio-link-uv-layout.png "UV Layout Reference")
 {% /callout %}
-
 
 ## Emission
 
