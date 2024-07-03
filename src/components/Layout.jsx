@@ -246,7 +246,7 @@ export function Layout({ children, title, tableOfContents }) {
       <Banner
         title="Version 6.4.0 is out!"
         bannerKey="v6.4.0"
-        description="Hotspotting, in-shader Tonemapping, and bug fixes!"
+        description="Hotspotting, in-shader Tonemapping, vertex lights, and bug fixes!"
         cta="Get it now"
         ctaLink="/docs/installation"
         changelogLink="/docs/changelog"

@@ -7,6 +7,40 @@ ORL Shaders Changelog
 
 ---
 
+## v6.4.0
+
+### Summary
+
+Update 6.4.0 focuses on improving the current feature set, quality-of-life changes, and fixing bugs
+
+### New Shaders
+
+- **PBR**
+  - [Hotspotting](/docs/orl-standard/hotspotting): An auto-hotspotting shader that can be used to quickly set up reusable hotspot materials
+
+### New Features
+
+- Standard-Based shaders can now adjust Stencil parameters
+- You can now occlude baked specular via Realtime Shadows. This effect is not physically accurate but can be helpful when used on dynamic objects
+- Vertex Lights now properly light up objects using Standard shaders. This requires enabling vertex lighting in Advanced Settings
+- You can now apply in-shader tonemapping on mobile platforms. This can drastically improve the look of your environments on Quest/Android. [See the full docs here](/docs/orl-standard/base-shader/#other-advanced-options)
+- Toon shader now fully sports baking. Recommended to be used with a directional lightmap for best results
+- Toon shader now has support for vertex-color masking of outline thickness
+- Toon shader can now use outlines without stencil. This can be useful for adding extra detail
+- LTCGI effect brightness can now be clamped to a 0-1 range and has a Maximum Brightness setting
+- You can now use BIRP Standard shader-style Detail Albedo mixing. This can be toggled via "Legacy Albedo Mixing" when using the Separated Detail Map mode.
+
+### Bugfixes
+
+- The tangent normals sign is now properly calculated per-vertex. This should not affect most users
+- Specular occlusion now properly occludes reflection probes again. You might need to tune the Specular Occlusion slider to adjust the effect
+- Fixed off-by-one errors in the channel selector for Albedo and Emission textures
+- Shader tags are now de-duplicated automatically, this can help with some issues with Bakery Lightmapper
+
+### Other Changes
+
+- The channel packer will now default Alpha channel slot to read from the Red channel, as that is the most common use-case
+
 ## v6.3.0
 
 ### Summary

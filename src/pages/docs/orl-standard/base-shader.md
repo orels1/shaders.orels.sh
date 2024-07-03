@@ -95,9 +95,10 @@ Details section allows adding extra variety to the surface with its own set of m
 - Mapping Space: Allows you to select between UV-mapped and Local Space/World Space aligned textures, which is useful for flat surfaces like Floors or Ceilings
   - UV: Uses the first UV channel to display the texture
   - Local Space: uses local coordinates on the provided X and Y axis to display the texture
-  - World Space: uses world coordinates on the provided X and Y axis to display the texture (useful for maintaining constant scale among many meshes)
+  - World Space: uses world coordinates on the provided X and Y axis to display the texture (useful for maintaining constant scale among many meshes).
 - X Axis and Y Axis: Only visible when **Mapping Space** is not in UV mode. Allows to select which axis (X/Y/Z) to use for displaying the texture
 - Albedo Scale: Used to brighten and darken the texture, as only one channel is available. Values below 0.5 - darken, and above 0.5 - lighten the original **Albedo**.
+- Legacy Albedo Mixing: Enables the legacy mixing mode, similar to Unity Standard Shader. This multiplies the main Albedo by Detail Albedo * 2. Only available when **Detail Map Mode** is set to **Separated**.
 - Normal Scale: Controls the strength of the detail normal.
 - Flip Y (UE Mode): Flips the Green channel of the detail normals. Allows the usage of DirectX normal maps, like the ones in the assets for Unreal Engine
 - Smooth Scale: Allows to offset the smoothness using the details map. Values below 0.5 - make the surface more rough, above 0.5 - make it more smooth
@@ -141,6 +142,17 @@ Details section allows adding extra variety to the surface with its own set of m
   - On: Enables depth writing. As a rule of thumb - all opaque/cutout objects should write to depth
   - Off: Disables depth writing, used for transparency
 - Depth Test: Controls how the depth testing is performed, you generally never need to change this
+- Enable Vertex Lights: Allows objects to receive lighting from non-important lights. Please note that only dynamic objects will receive such lighting. This is a Unity limitation.
+  
+### Stencils
+
+For more information on stencils - [check out the Unity Docs](https://docs.unity3d.com/Manual/SL-Stencil.html)
+
+- Reference: Sets the stencil reference value to use with the Various Operations
+- Comparison: Controls the comparison mode, common values: Always, Equal, NotEqual
+- Pass Operation: Controls what happens when the stencil comparison passes. Common values: Keep, Replace, Zero
+- Fail Operation: Controls what happens when the stencil comparison fails. Common values: Keep, Replace, Zero
+- ZFail Operation: Controls what happens when the stencil comparison passes but the depth test fails. Common values: Keep, Replace, Zero
 
 ### GSAA
 
@@ -157,6 +169,10 @@ GSAA, or Geometric Specular Anti Aliasing, helps avoid severe specular aliasing 
 - Non-Linear Lightprobe SH: Enables higher quality lightprobe sampling which is more accurate and behaves much better in high-intensity lighting scenarios. Is recommended for use on PC platforms, but might be fairly expensive on mobile.
 - Force Box Projection: Enables support for Box Projected reflection probes on platforms that do not support it natively, e.g. Android (Oculus Quest). This is fairly expensive for mobile hardware, so use it sparingly
 - Apply Mobile Color Correction: Enables color correction for mobile devices. As mobile platforms lack Post-Processing, it is often beneficial to use in-shader tone mapping to bring the look of your worlds closer to the Desktop version.
+  - Mobile Tonemapping Mode: Controls which algorithm to use for the color correction
+    - ACES: The default option and the most common tonemapper: ACES. Often produces results close to the Post Processing's ACES Tonemapper
+    - Unreal: The Unreal 3's ACES approximation. Faster to run but doesn't look as good
+    - Uncharted: The Uncharted 2's Filmic tonemapper approximation. It is also faster than ACES, but slower than Unreal
   - Lift: The black point of the color correction
   - Gamma: The gamma of the color correction
   - Gain: The white point of the color correction
@@ -167,6 +183,7 @@ GSAA, or Geometric Specular Anti Aliasing, helps avoid severe specular aliasing 
 
 - Non-Linear Lightprobe SH: Enables higher quality lightprobe sampling which is more accurate and behaves much better in high-intensity lighting scenarios. Is recommended for use on PC platforms, but might be fairly expensive on mobile.
 - Specular Occlusion: Controls the amount of Specular Occlusion applied to the material. This helps limit the amount of "unity shine" which is often present on metallic surfaces (see comparison below). This applies to both lightmapped and non-lightmapped objects
+- Realtime Shadow Specular Occlusion: Controls the amount of Specular Occlusion driven by the Realtime Shadows. This effect is not physically accurate but it can be useful to tame the strong specular on dynamically lit objects.
 - Specular Roughness Mod: Allows you to influence the roughness of Baked Specular, which can sometimes be too intensive due to imperfections of Baked Specular direction
 - Bicubic Sampling: Dramatically increases quality of the baked shadows, especially on the lower resolution lightmaps at a fairly small performance hit
 - Baked Specular: Toggles the display of baked specular. Only relevant when using some kind of Directional lightmap, e.g., Dominant Direction or Bakery's RNM or SH.
