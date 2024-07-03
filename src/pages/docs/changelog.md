@@ -40,6 +40,7 @@ Update 6.4.0 focuses on improving the current feature set, quality-of-life chang
 ### Other Changes
 
 - The channel packer will now default Alpha channel slot to read from the Red channel, as that is the most common use-case
+- Updated the Tessellated Displacement shader to use latest shader generator tech. It now has MONOSH and can be used with Configurable shaders.
 
 ## v6.3.0
 
