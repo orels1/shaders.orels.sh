@@ -184,6 +184,9 @@ GSAA, or Geometric Specular Anti Aliasing, helps avoid severe specular aliasing 
 - Non-Linear Lightprobe SH: Enables higher quality lightprobe sampling which is more accurate and behaves much better in high-intensity lighting scenarios. Is recommended for use on PC platforms, but might be fairly expensive on mobile.
 - Specular Occlusion: Controls the amount of Specular Occlusion applied to the material. This helps limit the amount of "unity shine" which is often present on metallic surfaces (see comparison below). This applies to both lightmapped and non-lightmapped objects
 - Realtime Shadow Specular Occlusion: Controls the amount of Specular Occlusion driven by the Realtime Shadows. This effect is not physically accurate but it can be useful to tame the strong specular on dynamically lit objects.
+- Direct Specular Occlusion: Controls how much occlusion to apply to various sources of direct baked specular.
+  - If the object is lightmapped: this will adjust the intensity of the lightmap specular derived from the Directional lightmap.
+  - If the object is not lightmapped: this will adjust the intensity of the specular derived from lightprobes
 - Specular Roughness Mod: Allows you to influence the roughness of Baked Specular, which can sometimes be too intensive due to imperfections of Baked Specular direction
 - Bicubic Sampling: Dramatically increases quality of the baked shadows, especially on the lower resolution lightmaps at a fairly small performance hit
 - Baked Specular: Toggles the display of baked specular. Only relevant when using some kind of Directional lightmap, e.g., Dominant Direction or Bakery's RNM or SH.

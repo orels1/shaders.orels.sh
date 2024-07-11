@@ -29,6 +29,7 @@ Update 6.4.0 focuses on improving the current feature set, quality-of-life chang
 - Toon shader can now use outlines without stencil. This can be useful for adding extra detail
 - LTCGI effect brightness can now be clamped to a 0-1 range and has a Maximum Brightness setting
 - You can now use BIRP Standard shader-style Detail Albedo mixing. This can be toggled via "Legacy Albedo Mixing" when using the Separated Detail Map mode.
+- "Direct Specular Occlusion" slider has been added to the Lightmapping section of all the Standard shaders. This can be used to control how much occlusion is applied to baked specular, e.g. from directional lightmaps or lightprobes.
 
 ### Bugfixes
 
