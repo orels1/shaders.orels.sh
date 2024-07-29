@@ -21,6 +21,7 @@ A metallic-like effect for your UI Elements
   - Lighten: Picks the lightest color between the base color and the sheen effect
   - Screen: Stacks the lightness of the base color and the sheen effect
   - Multiply: Multiplies the base color and the sheen effect (produces darkest edges)
+- Force Discard: Force-discards transparent pixels to avoid potential white pixel artifacts on sprite edges. Especially useful when using no sprite at all.
 
 {% callout type="note" title="Shader Channels Required" %}
 Make sure your root Canvas component has **Normal** checked in the **Additional Shader Channels** dropdown when using this shader

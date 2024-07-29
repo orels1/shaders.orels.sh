@@ -11,7 +11,7 @@ ORL Shaders Changelog
 
 ### Summary
 
-Update 6.4.0 focuses on improving the current feature set, quality-of-life changes, and fixing bugs
+Update 6.4.0 brings a plethora of new features, improvements, and bugfixes. There is no particular focus in this update. Please enjoy!
 
 ### New Shaders
 
@@ -29,12 +29,17 @@ Update 6.4.0 focuses on improving the current feature set, quality-of-life chang
 - Toon shader can now use outlines without stencil. This can be useful for adding extra detail
 - LTCGI effect brightness can now be clamped to a 0-1 range and has a Maximum Brightness setting
 - You can now use BIRP Standard shader-style Detail Albedo mixing. This can be toggled via "Legacy Albedo Mixing" when using the Separated Detail Map mode.
-- "Direct Specular Occlusion" slider has been added to the Lightmapping section of all the Standard shaders. This can be used to control how much occlusion is applied to baked specular, e.g. from directional lightmaps or lightprobes.
+- "Baked Specular Occlusion" slider has been added to the Lightmapping section of all the Standard shaders. This can be used to control how much occlusion is applied to baked specular, e.g. from directional lightmaps or lightprobes.
+- Added a "Force Discard" toggle to the [UI Sheen](/docs/ui/sheen) shader. This can be used to force-discard transparent pixels of the sprite to avoid white line artifacts on the edges of the sprite.
+- Shader Generator now supports `%PostVertex` function blocks in all Templates. This allows you to modify the final output of the Vertex shader, after the `VertexBase` function runs.
+- The [VFX Clouds](/docs/vfx/clouds) shader got a major update.
+  - Now supports Directional Light-based shading, using a color ramp (similar to toon shaders).
+  - Now supports normal recalculation. This provides more accurate shading that follows the extruded shape of the clouds. This effect can be a little noisy, so you can use the Precision slider to adjust it until it looks good.
 
 ### Bugfixes
 
 - The tangent normals sign is now properly calculated per-vertex. This should not affect most users
-- Specular occlusion now properly occludes reflection probes again. You might need to tune the Specular Occlusion slider to adjust the effect
+- Specular occlusion now properly occludes reflection probes again. You might need to tune the Specular Occlusion slider to adjust the effect. Please note that the slider has been renamed to "Reflection Probe Occlusion" in the UI
 - Fixed off-by-one errors in the channel selector for Albedo and Emission textures
 - Shader tags are now de-duplicated automatically, this can help with some issues with Bakery Lightmapper
 
@@ -42,6 +47,8 @@ Update 6.4.0 focuses on improving the current feature set, quality-of-life chang
 
 - The channel packer will now default Alpha channel slot to read from the Red channel, as that is the most common use-case
 - Updated the Tessellated Displacement shader to use latest shader generator tech. It now has MONOSH and can be used with Configurable shaders.
+- "Specular Occlusion" has been renamed to "Reflection Probe Occlusion" to better reflect what is happening under the hood.
+- Some properties in the Lightmapping section were moved around to improve usability.
 
 ## v6.3.0
 

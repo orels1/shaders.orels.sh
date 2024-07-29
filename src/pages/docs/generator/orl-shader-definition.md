@@ -241,6 +241,10 @@ You must provide a function name, and it must be unique across all included modu
 
 Same as [Fragment](#fragmentstring-functionname) but now its injected into the vertex stage
 
+### `%PostVertex(string functionName)`
+
+Same as [Vertex](#vertexstring-functionname) but this one is injected after the main `VertexBase` function of the Lighting Model. This is useful if you want to modify the vertex data after the main vertex function has already run.
+
 ### `%Color(string functionName)`
 
 Contains your FinalColor modifier code. It is appended after the lighting calculations have already been done, and allows to affect the very final output of the shader
@@ -359,7 +363,7 @@ The built-in templates allow you to enable optional features by specifying some 
 - `NEED_DEPTH`: Adds the depth texture macro, which creates a depth texture as `_CameraDepthTexture`
 - `NEED_FRAGMENT_IN_SHADOW`: Forces the shadowcaster pass to execute all of the included fragment functions (except the lighting calculation), useful if you want to utilize the final calculated alpha to augment the shadow silhouette.
 - `NEED_FRAGMENT_IN_PREPASS`: When using Toon template with `PrePass` `TemplateFeature` enabled - forces the prepass to execute all of the included fragment functions. Majority of the time, to save performance, you probably want to reimplement the bare minimum of the calculations inside a custom `PrePassColor` function instead of using this define.
-- `EXTRA_V2F_0`, `EXTRA_V2F_1`, `EXTRA_V2F_2`, `EXTRA_V2F_3`: Tells the the templates to compile in extra float4s in the Vertex stage so you can pass some custom data to your Fragment stage, see the struct definition below
+- `EXTRA_V2F_0`, `EXTRA_V2F_1`, `EXTRA_V2F_2`, `EXTRA_V2F_3`: Tells the templates to compile in extra float4s in the Vertex stage so you can pass some custom data to your Fragment stage, see the struct definition below
 
 ## Mesh and Surface Data
 
