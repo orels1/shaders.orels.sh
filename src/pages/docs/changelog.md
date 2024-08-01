@@ -42,6 +42,7 @@ Update 6.4.0 brings a plethora of new features, improvements, and bugfixes. Ther
 - Specular occlusion now properly occludes reflection probes again. You might need to tune the Specular Occlusion slider to adjust the effect. Please note that the slider has been renamed to "Reflection Probe Occlusion" in the UI
 - Fixed off-by-one errors in the channel selector for Albedo and Emission textures
 - Shader tags are now de-duplicated automatically, this can help with some issues with Bakery Lightmapper
+- Gradient editor now correctly handles "Fixed" blending mode. Thanks [@lackofbindings](https://github.com/lackofbindings) for the fix!
 
 ### Other Changes
 
@@ -49,6 +50,7 @@ Update 6.4.0 brings a plethora of new features, improvements, and bugfixes. Ther
 - Updated the Tessellated Displacement shader to use latest shader generator tech. It now has MONOSH and can be used with Configurable shaders.
 - "Specular Occlusion" has been renamed to "Reflection Probe Occlusion" to better reflect what is happening under the hood.
 - Some properties in the Lightmapping section were moved around to improve usability.
+- [Dissolve](/docs/orl-standard/dissolve) now has configurable **Cutoff Range** with adjusted defaults. Thanks [@lackofbindings](https://github.com/lackofbindings) for the suggestion!
 
 ## v6.3.0
 
