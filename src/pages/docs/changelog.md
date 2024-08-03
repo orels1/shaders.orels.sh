@@ -22,7 +22,7 @@ Update 6.4.0 brings a plethora of new features, improvements, and bugfixes. Ther
 
 - **Extra Passes** are now supported by the shader generator!
   - This allows you to add extra passes to your shaders without losing all the features of the shader generator (compared to using `%PostPasses` and `%PrePasses`)
-  - Read more about it [here](/docs/generator/orl-shader-definition/#extrapassstring-passname)
+  - Read more about it [here](/docs/generator/orl-shader-definition/#extra-pass-string-pass-name)
 - Standard-Based shaders can now adjust Stencil parameters
 - You can now occlude baked specular via Realtime Shadows. This effect is not physically accurate but can be helpful when used on dynamic objects
 - Vertex Lights now properly light up objects using Standard shaders. This requires enabling vertex lighting in Advanced Settings
