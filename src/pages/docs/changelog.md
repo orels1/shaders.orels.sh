@@ -20,6 +20,9 @@ Update 6.4.0 brings a plethora of new features, improvements, and bugfixes. Ther
 
 ### New Features
 
+- **Extra Passes** are now supported by the shader generator!
+  - This allows you to add extra passes to your shaders without losing all the features of the shader generator (compared to using `%PostPasses` and `%PrePasses`)
+  - Read more about it [here](/docs/generator/orl-shader-definition/#extrapassstring-passname)
 - Standard-Based shaders can now adjust Stencil parameters
 - You can now occlude baked specular via Realtime Shadows. This effect is not physically accurate but can be helpful when used on dynamic objects
 - Vertex Lights now properly light up objects using Standard shaders. This requires enabling vertex lighting in Advanced Settings
@@ -35,6 +38,7 @@ Update 6.4.0 brings a plethora of new features, improvements, and bugfixes. Ther
 - The [VFX Clouds](/docs/vfx/clouds) shader got a major update.
   - Now supports Directional Light-based shading, using a color ramp (similar to toon shaders).
   - Now supports normal recalculation. This provides more accurate shading that follows the extruded shape of the clouds. This effect can be a little noisy, so you can use the Precision slider to adjust it until it looks good.
+- You can now use all 8 UV channels by defining `NEED_UV4`/`NEED_UV5`/`NEED_UV6`/`NEED_UV7` in your shader defines.
 
 ### Bugfixes
 
@@ -43,6 +47,7 @@ Update 6.4.0 brings a plethora of new features, improvements, and bugfixes. Ther
 - Fixed off-by-one errors in the channel selector for Albedo and Emission textures
 - Shader tags are now de-duplicated automatically, this can help with some issues with Bakery Lightmapper
 - Gradient editor now correctly handles "Fixed" blending mode. Thanks [@lackofbindings](https://github.com/lackofbindings) for the fix!
+- All UV channels have been changed to use `float4` instead of `half4` to avoid precision issues on mobile platforms.
 
 ### Other Changes
 

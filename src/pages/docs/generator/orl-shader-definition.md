@@ -356,6 +356,47 @@ All of the LibraryFunctions, however, including the sampling library and utiliti
 }
 ```
 
+### `%ExtraPass(string passName)`
+
+Contains blocks for an extra pass. This allows you to add extra generated passes to the shader, which will leverage all of the features of existing passes.
+
+{% callout type="note" title="Template Requiremenets" %}
+This requires an `ExtraPass` template to be available for the current template. E.g. if the current template is `Toon`, then the `ToonExtraPass.orltemplate` file must be present somewhere Shader Generator can find it. Which, at the moment, means it must be in the same `Templates` folder.
+{% /callout %}
+
+You can nest most of the block types inside the `%ExtraPass`. It will also inherit all the blocks of the current shader apart from any function blocks, e.g. `%Vertex`, `%Fragment`, etc. Those are expected to be defined in the `%ExtraPass` block to implement your desired effect.
+
+Current ExtraPass templates are using `ForwardBase` light mode.
+
+```hlsl
+%ExtraPass("Wave")
+{
+    %PassModifiers()
+    {
+        Blend One One
+    }
+
+    %Vertex("WaveVertex")
+    {
+        void WaveVertex(inout VertexData v)
+        {
+            float mask = sin(_Time.y * .8 - v.vertex.x * 0.1) * 0.5 + 0.5;
+            v.vertex.y += (sin(_Time.y * 1.2 + length(v.uv0.xy) * 10)) * 0.5 * mask + 0.8 * mask;
+        }
+    }
+
+    %Fragment("WaveFragment")
+    {
+        void WaveFragment(MeshData d, inout SurfaceData o)
+        {
+            float mask = sin(_Time.y * 0.8 - d.localSpacePosition.x * 0.1) * 0.5 + 0.5;
+            o.Albedo = _Color;
+            o.Albedo *= mask;
+        }
+    }
+}
+```
+
 ## Optional Features
 
 The built-in templates allow you to enable optional features by specifying some special defines in your `%ShaderDefines` section
@@ -364,6 +405,7 @@ The built-in templates allow you to enable optional features by specifying some 
 - `NEED_FRAGMENT_IN_SHADOW`: Forces the shadowcaster pass to execute all of the included fragment functions (except the lighting calculation), useful if you want to utilize the final calculated alpha to augment the shadow silhouette.
 - `NEED_FRAGMENT_IN_PREPASS`: When using Toon template with `PrePass` `TemplateFeature` enabled - forces the prepass to execute all of the included fragment functions. Majority of the time, to save performance, you probably want to reimplement the bare minimum of the calculations inside a custom `PrePassColor` function instead of using this define.
 - `EXTRA_V2F_0`, `EXTRA_V2F_1`, `EXTRA_V2F_2`, `EXTRA_V2F_3`: Tells the templates to compile in extra float4s in the Vertex stage so you can pass some custom data to your Fragment stage, see the struct definition below
+- `NEED_UV4`, `NEED_UV5`, `NEED_UV6`, `NEED_UV7`: Tells the templates to include UV channels 4-7 in the Vertex stage and pass them to the Fragment stage.
 
 ## Mesh and Surface Data
 
@@ -391,10 +433,10 @@ struct VertexData
     float3 normal : NORMAL;
     float4 tangent : TANGENT;
     float4 color : COLOR;
-    float2 uv0 : TEXCOORD0;
-    float2 uv1 : TEXCOORD1;
-    float2 uv2 : TEXCOORD2;
-    float2 uv3 : TEXCOORD3;
+    float4 uv0 : TEXCOORD0;
+    float4 uv1 : TEXCOORD1;
+    float4 uv2 : TEXCOORD2;
+    float4 uv3 : TEXCOORD3;
     UNITY_VERTEX_INPUT_INSTANCE_ID
 };
 ```
