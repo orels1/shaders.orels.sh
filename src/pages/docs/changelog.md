@@ -56,6 +56,8 @@ Update 6.4.0 brings a plethora of new features, improvements, and bugfixes. Ther
 - "Specular Occlusion" has been renamed to "Reflection Probe Occlusion" to better reflect what is happening under the hood.
 - Some properties in the Lightmapping section were moved around to improve usability.
 - [Dissolve](/docs/orl-standard/dissolve) now has configurable **Cutoff Range** with adjusted defaults. Thanks [@lackofbindings](https://github.com/lackofbindings) for the suggestion!
+- The generator now includes a `BiRPtoURP` translation file. Based on [Error.mdl's implementation](https://github.com/Error-mdl/URP-ShaderIncludes-For-BiRP). You can now use it to write code that would be cross-compatible between URP and BiRP.
+- Depth texture definition is now always included. You no longer need to specify `NEED_DEPTH` in your defines.
 
 ## v6.3.0
 
