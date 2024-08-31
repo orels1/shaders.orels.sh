@@ -31,6 +31,10 @@ Note that not all of the settings are always visible, some options will show and
 
 ![Settings on a filled material](/img/docs/orl-standard/base-shader/image4.png)
 
+{% callout type="note" title="Note for Substance Painter Users" %}
+If you are an artist using Substance Painter - you can utilize the Unity HD Render Pipeline (Metallic) export tempalte for your textures. This will correctly map to what ORL Shaders expect.
+%{ /callout %}
+
 - Main Color: Main tint color
 - Albedo: The Main Texture, its tiling and offset will be used by **all** the textures in the material unless the texture slot provides its own tiling/offset parameters
 - Mapping Space: Allows you to select between UV-mapped and Local Space/World Space aligned textures, which is useful for flat surfaces like Floors or Ceilings
