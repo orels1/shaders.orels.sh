@@ -353,6 +353,26 @@ The `%OverrideTag()` function allows you to do exactly that
 
 The above code sets the `VRCFallback` tag to either Standard or Toon based on the selected value
 
+### Bakery Volume Assigner
+
+Allows you to assign bakery volume textures to a material by drag & dropping the Volume object onto a field.
+
+```hlsl
+UI_BakeryVolumeAssigner("Volume Assigner %BakeryVolumeAssigner()", Int) = 0
+```
+
+Shows an "Unset Volume" button if some data is set.
+
+### Vector 2 Field
+
+Shows a Vector 2 field for a vector property, instead of a usual Vector4. Can be used with custom names for each vector component
+
+```hlsl
+_HotspotDirtMaskParams("Edge Masking %Vector2(Mask Min, Mask Max)", Vector) = (0, 100, 0, 0)
+```
+
+The names are mandatory.
+
 ### Combine and Experiment
 
 A lot of the above features are designed to be combined with each other, so you can create complex shader GUIs with ease.

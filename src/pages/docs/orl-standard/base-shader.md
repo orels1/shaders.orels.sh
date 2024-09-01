@@ -202,6 +202,10 @@ GSAA, or Geometric Specular Anti Aliasing, helps avoid severe specular aliasing 
 - Enable Bakery Features: Allows usage of bakery-specific features like RNM, SH or MonoSH lightmaps
 - Bakery Mode: Specifies whether to use RNM, SH or MonoSH lightmaps for Baked Specular
 - Bakery Non-Linear SH: Enables the Non-Linear SH sampling that can improve the contrast of the lighting on the mesh, especially with high-frequency normal maps
+- Support Volumes: Enables Bakery Volume Support
+- Assign Volume: Used to assing the volume textures to the material. Drag & Drop your volume object into that field to assign it
+- Unset Volume: Removes the assigned volume from the material. Only visible if some volume data is set.
+- Support Compressed Volumes: Enables support for compressed Bakery Volume textures. Only use this when enabling "Compress Volume" option in the Bakery bake settings.
 
 {% callout type="warning" title="Update Your Bakery" %}
 If you're not seeing MonoSH in your Directionality Mode dropdown when using bakery, you should update to the latest version! MonoSH is a new feature that was added in Bakery 1.9.0, it allows you to use a single directional lightmap to achieve a level of quality comparable to the old regular SH lightmaps (which used 3 separate textures) and it doesn't require any special adapters to work
@@ -221,6 +225,9 @@ You do not have to adjust the settings shown in the Internal section, these are 
 
 - DFG LUT: The DFG-multiscatter LUT texture used for the specular calculations
 - RNM0/RNM1/RNM2: Bakery-specific texture slots for RNM and SH support
+- Volume 0/Volume 1/Volume 2/Volume 3/Volume Mask: Bakery Volume textures
+- Volume min: Bakery Volume minimum position (used for bounds)
+- Volume Inv Size: Bakery Volume size (used for bounds)
 
 ## Cutout Variant
 
