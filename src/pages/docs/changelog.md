@@ -39,6 +39,7 @@ Update 6.4.0 brings a plethora of new features, improvements, and bugfixes. Ther
   - Now supports Directional Light-based shading, using a color ramp (similar to toon shaders).
   - Now supports normal recalculation. This provides more accurate shading that follows the extruded shape of the clouds. This effect can be a little noisy, so you can use the Precision slider to adjust it until it looks good.
 - You can now use all 8 UV channels by defining `NEED_UV4`/`NEED_UV5`/`NEED_UV6`/`NEED_UV7` in your shader defines.
+- Configurable shaders can now accept arbitrary modules from anywhere in your project. Using the new "Custom Module" checkbox. This allows you to add modules that are not included in the shader generator.
 
 ### Bugfixes
 
@@ -56,8 +57,9 @@ Update 6.4.0 brings a plethora of new features, improvements, and bugfixes. Ther
 - "Specular Occlusion" has been renamed to "Reflection Probe Occlusion" to better reflect what is happening under the hood.
 - Some properties in the Lightmapping section were moved around to improve usability.
 - [Dissolve](/docs/orl-standard/dissolve) now has configurable **Cutoff Range** with adjusted defaults. Thanks [@lackofbindings](https://github.com/lackofbindings) for the suggestion!
-- The generator now includes a `BiRPtoURP` translation file. Based on [Error.mdl's implementation](https://github.com/Error-mdl/URP-ShaderIncludes-For-BiRP). You can now use it to write code that would be cross-compatible between URP and BiRP.
+- The generator now includes a `BiRPtoURP` translation file. Based on [Error.mdl's implementation](https://github.com/Error-mdl/URP-ShaderIncludes-For-BiRP). You can now use it to write code that would be cross-compatible between URP and BiRP. [Check out the source file](https://github.com/orels1/orels-Unity-Shaders/blob/main/Packages/sh.orels.shaders.generator/Runtime/Sources/Libraries/CoreRPShaderLibrary/BiRPtoURP.orlsource) to see whats available!
 - Depth texture definition is now always included. You no longer need to specify `NEED_DEPTH` in your defines.
+- Configurable shaders can now be hand edited in code. This allows you to use the UI to set up the basic shader and then use code to edit it further. However, this makes it no longer editable via UI. A relevant warning will be shown in the inspector and the editing UI will be locked. You can use a "Force Reset" button to clear your changes and sync the shader back to the configuration.
 
 ## v6.3.0
 
