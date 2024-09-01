@@ -27,6 +27,9 @@ The part that currently takes the most time in hotspotting is the material setup
 
 - Hotspot Mask: The main mask which matches the UV layout of your source hotspot mesh
 - Hotspot Normal: The hotspot groove normal map adds grooves between different tiles of the hotspot texture.
+- Tiling X: Controls the hotspot mask/normal tiling in X
+- Tiling Y: Controls the hotspot mask/normal tiling in Y
+- Hotspot Rotation: Controls the hotspot mask/normal rotation
 
 Both of the above are included with the shader to be used together with the `Hotspot` mesh provided in the `Runtime/Assets` folder of the ORL Shaders package.
 
@@ -34,10 +37,13 @@ Both of the above are included with the shader to be used together with the `Hot
 If you're using Unity 2022 or newer - it is highly recommended to use Material Variants when setting up Hotspotting materials. That way you can define the base settings like the hotspot mask and normal on the parent material and lock them, using the variants to only change the texture set and other individual settings
 {% /callout %}
 
-## Dirt
+## Groove Detail
 
-- Mask: The main noise texture to be used for painting dirt on the surface
-- Edge Masking: Controls the spread of the dirt from the edges of the tiles
+- Dirt: The main noise texture to be used for painting dirt on the surface
+- Mask Min/Max: Controls the spread of the dirt from the edges of the tiles
+- Nudge: Shifts the dirt with precise control
+- Sharpness: Controls the sharpness of the dirt edge. Can be effective at creating a sharper edge wear effect
+- Dirt Mask Strength: Controls the influence dirt mask has over the edge mask
 - Color: Controls the color of the applied dirt
 - Color Blend Mode: Controls how the color is blended with base albedo
   - Blend: Simply blends from base albedo to dirt color
@@ -49,8 +55,13 @@ If you're using Unity 2022 or newer - it is highly recommended to use Material V
   - Add: **Smoothness Modifier** is added on top of the base smoothness
   - Multiply: The base smoothness is multiplied by the **Smoothness Modifier**
 - Smoothness Modifier: Adjusts the smoothness of the dirt
-- Groove AO: Controls the strength of Ambient Occlusion in the grooves between the tiles
-- AO Masking: Controls the spread of the AO from the grooves of the tiles
+
+### Groove AO
+
+- AO Strength: Controls the strength of Ambient Occlusion in the grooves between the tiles
+- Mask Min/Max: Controls the spread of the AO from the grooves of the tiles
+- Nudge: Shifts the AO with precise control
+- Sharpness: Controls the sharpness of the AO edge.
 
 ## Per-Tile Variance
 
@@ -70,7 +81,7 @@ Hotspotting details act as a second material layer to be applied inside each of 
 
 ### Masking
 
-- Masking: Controls the spread and edge sharpness of the overlaid details
+- Mask Min/Max: Controls the spread of the detail textures within the tiles
 - Mask Sharpness: Further adjusts the sharpness of the mask edge
 - Dirt Mask Influence: Controls how much the **Dirt Mask** influences the blending of the detail layer
 - Dirt Mask Influence Mode: Controls how does the **Dirt Mask** influence the blending of the detail layer
