@@ -52,6 +52,7 @@ Update 6.4.0 brings a plethora of new features, improvements, and bugfixes. Ther
 - Shader tags are now de-duplicated automatically, this can help with some issues with Bakery Lightmapper
 - Gradient editor now correctly handles "Fixed" blending mode. Thanks [@lackofbindings](https://github.com/lackofbindings) for the fix!
 - All UV channels have been changed to use `float4` instead of `half4` to avoid precision issues on mobile platforms.
+- Fixed a number of issues with the Texture Packer when using mixed color spaces.
 
 ### Other Changes
 
