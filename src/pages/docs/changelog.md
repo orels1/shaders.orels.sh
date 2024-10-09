@@ -43,6 +43,9 @@ Update 6.4.0 brings a plethora of new features, improvements, and bugfixes. Ther
 - Bakery Volumes are now supported in all PBR Shaders. Check out the [Lightmapping section](/docs/orl-standard/base-shader#lightmapping) for more information.
 - The Shader Inspector can now show a Vector2 field for Vector properties. The most basic usage looks like this `%Vector2(Min, Max)`. Check out the relevant [Shader Inspector section](/docs/inspector/overview#vector-2-field) for more information.
 - You can now draw a Bakery Volume Assigner field in the Shader Inspector by using `%BakeryVolumeAssigner()`. Check out the relevant [Shader Inspector section](/docs/inspector/overview#bakery-volume-assigner) for more information.
+- You can now use a new block type `%CheckedInclude()` to only include a shader include file (e.g. a `.cginc` or `.hlsl`) if that file actually exists on disk. This is useful when working around conitional includes via keywords that sometimes produce errors in console. Check out the relevant [Shader Generator Section](/docs/generator/orl-shader-definition#checked-include-string-path) for more information.
+- You can now define a hook point similar to the Template files inside your function blocks. Check out the [Template docs](/docs/generator/templates#template-hook-points) for more information.
+- `%ShaderModifiers` as well as all of the `%PassModifiers` variants (like `%MetaPassModifiers`) now support overriding. This means that values you set in your `.orlshader` file will override the values in the `FragmentBase` or other files of your lighting model and other dependencies. Check out [Shader Modifiers](/docs/generator/orl-shader-definition#shader-modifiers) for more information.
 
 ### Bugfixes
 

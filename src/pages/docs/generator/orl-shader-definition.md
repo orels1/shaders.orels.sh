@@ -80,6 +80,7 @@ You should use `self` to include current shader's module in a specific spot
     "@/Modules/AudioLink", // include a module from the generator package
     "@/Shaders/ORL Standard", // include a base shader form the shaders package
     "../MyModule", // include a module from the parent folder,
+    "Assets/OtherModule", // include a module from the project folder,
     "self" // mount point for the current shader
 }
 ```
@@ -92,6 +93,14 @@ To make the development process nice and easy, a lot of things come pre-included
 - A pack of Utility functions like `remap`, `invLerp`, `HSV2RGB`, etc (check out `Utilities.orlsource` in the generator package)
 - A CoreRP sampling library for unified cross-platform cross-pipleine sampling macros
 {% /callout %}
+
+### `%CheckedInclude(string path)`
+
+Includes a shader include file (e.g. a `.cginc` or `.hlsl`) if that file actually exists on disk. This is useful when working around conitional includes via keywords that sometimes produce errors in console.
+
+```hlsl
+%CheckedInclude("Assets/MyCustomStuff/MyInclude.cginc")
+```
 
 ### `%Properties()`
 
@@ -146,7 +155,7 @@ Contains a list of top-level tags that will be appended to the `Tags { }` list
 }
 ```
 
-### `%ShaderTags()`
+### `%PassTags()`
 
 Same as [ShaderTags](#shadertags) but for individual passes
 
@@ -194,6 +203,21 @@ Some built-in LightingModels (like Toon and PBR) also support modifying other pa
   // Only available in the Toon template
 }
 ```
+
+`%PassModifiers` are resolved in the order of inclusion. For example, if you have a `%PassModifiers()` block in your `.orlshader` file directly - its values will override the values in the `FragmentBase` files of your lighting model.
+
+### `%ShaderModifiers()`
+
+Same as `%PassModifiers()` but for the entire shader. You can override the Shader Modifiers by specifying individual Pass Modifiers
+
+```hlsl
+%ShaderModifiers()
+{
+    ZWrite Off
+}
+```
+
+`%ShaderModifiers` are resolved in the order of inclusion. For example, if you have a `%ShaderModifiers()` block in your `.orlshader` file directly - its values will override the values in the `FragmentBase` files of your lighting model.
 
 ### `%Variables`
 
@@ -405,9 +429,32 @@ The built-in templates allow you to enable optional features by specifying some 
 - `NEED_FRAGMENT_IN_PREPASS`: When using Toon template with `PrePass` `TemplateFeature` enabled - forces the prepass to execute all of the included fragment functions. Majority of the time, to save performance, you probably want to reimplement the bare minimum of the calculations inside a custom `PrePassColor` function instead of using this define.
 - `EXTRA_V2F_0`, `EXTRA_V2F_1`, `EXTRA_V2F_2`, `EXTRA_V2F_3`: Tells the templates to compile in extra float4s in the Vertex stage so you can pass some custom data to your Fragment stage, see the struct definition below
 - `NEED_UV4`, `NEED_UV5`, `NEED_UV6`, `NEED_UV7`: Tells the templates to include UV channels 4-7 in the Vertex stage and pass them to the Fragment stage.
-- `_INTEGRATE_CUSTOMGI`: Enables support for custom GI injection on top of built-in GI. Only avaible in the PBR Lighting Model.
+- `_INTEGRATE_CUSTOMGI`: **LEGACY** Enables support for custom GI injection on top of built-in GI. Only avaible in the PBR Lighting Model.
   - You must define a function of the following signature inside of the `%Fragment()` block `IntegrateCustomGI(MeshData d, SurfaceData o, inout half3 indirectSpecular, inout half3 indirectDiffuse)`. This function will be called if the `_INTEGRATE_CUSTOMGI` is defined.
   - Check out `Packages/sh.orels.shaders.generator/Runtime/Sources/Modules/LTCGI.orlsource` for reference.
+- `_INTEGRATE_CUSTOMGI_FLEX` Enables support for custom GI injection on top of the built-in GI in the PBR Lighting Model. Compared to `_INTEGRATE_CUSTOMGI`, this version allows you to define a function with an arbitrary call signature, which is useful for more complex GI implementations.
+
+```hlsl
+%CustomGI("MyGIFunction")
+{
+    void MyGIFunction(MeshData d, inout half3 indirectSpecular)
+    {
+        indirectSpecular += pow(saturate(dot(d.worldNormal, d.worldSpaceViewDirection)), 10);
+    }
+}
+```
+
+Since the call sign is arbitrary - you can access any variable available in the PBR FragmentBase function's scope at the `%CustomGIFunctions` hook point.
+
+```hlsl
+%CustomGI("MyGIFunction")
+{
+    void MyGIFunction(MeshData d, half3 envBRDF, inout half3 indirectSpecular, inout half3 indirectDiffuse)
+    {
+        indirectDiffuse += envBRDF;
+    }
+}
+```
 
 ## Mesh and Surface Data
 

@@ -13,6 +13,47 @@ Docs for creating your own templates will be added at a later date.
 
 A Template is an `.orltemplate` file which serves as a basis for the shader generator. Every single module in the system is eventually inserted into the base template at a hook-up point.
 
+## Template Hook Points
+
+All of your Shader or Lighting Model blocks are inserted into the base template at a hook-up point.
+
+For example, when you define a `%Properties()` block in your `.orlshader` file, it will be inserted into the base template at the `%Properties` hook point.
+
+So when a shader file like this
+
+```hlsl
+// My.orlshader
+
+%Properties()
+{
+    _Color("Color", Color) = (1,1,1,1)
+}
+```
+
+Is being processed with a template like this
+
+```hlsl
+// MyTemplate.orltemplate
+
+Properties
+{
+   %Properties
+}
+```
+
+The resulting shader output will look like this
+
+```hlsl
+Properties
+{
+    _Color("Color", Color) = (1,1,1,1)
+}
+```
+
+Since version 7.0.0, you can also define hook points within your function blocks, like `%Vertex()`, `%Fragment()` or even `%FragmentBase()`. The latter allows you to, for example, insert a call to a custom gi function into the base lighting calculation of the PBR lighting model via `%CustomGI()` block.
+
+Check [Optional Features section](/docs/generator/orl-shader-definition#optional-features) for more information.
+
 ## Template Features
 
 Parts of the template can be conditionally added or removed, which can be used to include whole passes.
