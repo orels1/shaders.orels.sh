@@ -51,6 +51,7 @@ Update 6.4.0 brings a plethora of new features, improvements, and bugfixes. Ther
   - This also introduces a new shader tag `ORL_RenderType` which allows you to enforce a particular value of the render type, prevent the user from changing it. See the [Special Tags](/docs/inspector/overview#special-tags) section for more information.
   - The dropdown itself uses a new `%RenderType()` drawer function to display the available options and set the relevant properties on the material. See the [Render Type](/docs/inspector/overview#setting-render-type) section for more information.
   - This change means that if your render type is one of the preset options - you can use the `ORL_RenderType` tag to enable it without having to set any `%ShaderModifiers` or `%PassModifiers` yourself. However, you can still use those blocks to override the blending behaviour thanks to the new sorting and overriding mechanisms mentioned above.
+- You can now bake down procedural materials using something like a [Hotspotting](/docs/orl-standard/hotspotting) shader into static textures and PBR materials. Check out the [Map Baker](/docs/map-baker) section for more information.
 
 ### Bugfixes
 
