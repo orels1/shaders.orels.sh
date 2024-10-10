@@ -11,7 +11,7 @@ ORL Shaders Changelog
 
 ### Summary
 
-Version 7.0.0 ads lots of new features, improvements, and bugfixes. This release was heavily driven by community requests in my Discord, so if you have any suggestions or feedback - [please let me know!](https://discord.gg/orels1)
+Version 7.0.0 adds lots of new features, improvements, and bugfixes. This release was heavily driven by community requests in my Discord, so if you have any suggestions or feedback - [please let me know!](https://discord.gg/orels1)
 
 ### New Shaders
 
