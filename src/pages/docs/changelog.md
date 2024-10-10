@@ -53,6 +53,9 @@ Version 7.0.0 ads lots of new features, improvements, and bugfixes. This release
   - This change means that if your render type is one of the preset options - you can use the `ORL_RenderType` tag to enable it without having to set any `%ShaderModifiers` or `%PassModifiers` yourself. However, you can still use those blocks to override the blending behaviour thanks to the new sorting and overriding mechanisms mentioned above.
 - You can now bake down procedural materials using something like a [Hotspotting](/docs/orl-standard/hotspotting) shader into static textures and PBR materials. Check out the [Map Baker](/docs/map-baker) section for more information.
 - You can now turn off passing normal maps to the GSAA calculation. This can help avoid a "pixelation" effect on high frequency normal maps.
+- Toon shaders now properly support Vertex Lights
+- Toon shaders now have a new **Raise Minimum Light** checkbox which allows you to bump the minimum brightness of your material in environments with no lighting data.
+- Toon shaders can now sample lightprobe colors uniformly, which is desireable in some cases
 
 ### Bugfixes
 

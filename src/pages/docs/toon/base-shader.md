@@ -231,3 +231,16 @@ Rim shadow is an interesting effect that emphasizes the curved shapes of the mes
 - Threshold: Controls how much the rim shadow will be offset by the light direction. 1 - Will only show up in the areas in shadow, 0 - will show up everywhere
 - Sharpness: Controls the sharpness of the rim shadow. If set to 1 - will become a flat color with a sharp edge instead of a smooth gradient
 - Albedo Tint: Controls the amount of albedo tint applied to the rim shadow. Works well with skin materials as it can add a little redness to the shadowed areas
+
+## Advanced Settings
+
+![Toon Advanced Settings](/img/docs/toon/advanced-settings.png "Toon Advanced Settings")
+
+- Culling Mode: Controls the culling applied to the mesh
+  - Back: Culls visible backfaces
+  - Front: Culls visible frontfaces
+  - Off: Renders in double-sided mode
+- Depth Write: Controls whether the object writes to depth
+- Depth Test: Controls how the depth testing is performed, you generally never need to change this
+- Uniform Lightprobe Color: Samples the lightprobe color uniformly instead of using mesh normal directions. Can be useful for more stylized looking lighting.
+- Raise Minimum Light: Increases the minimum lighting level of the material in environments with no lighting data
