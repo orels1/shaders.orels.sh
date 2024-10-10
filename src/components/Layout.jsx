@@ -47,6 +47,7 @@ const navigation = [
       { title: 'Layered Material', href: '/docs/orl-standard/layered-material' },
       { title: 'Layered Parallax', href: '/docs/orl-standard/layered-parallax' },
       { title: 'LTCGI', href: '/docs/orl-standard/ltcgi' },
+      { title: 'AreaLit', href: '/docs/orl-standard/arealit' },
       { title: 'Neon Light', href: '/docs/orl-standard/neon-light' },
       { title: 'Puddles', href: '/docs/orl-standard/puddles' },
       { title: 'Pulse', href: '/docs/orl-standard/pulse' },
