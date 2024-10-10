@@ -80,6 +80,7 @@ Version 7.0.0 ads lots of new features, improvements, and bugfixes. This release
 - Configurable shaders can now be hand edited in code. This allows you to use the UI to set up the basic shader and then use code to edit it further. However, this makes it no longer editable via UI. A relevant warning will be shown in the inspector and the editing UI will be locked. You can use a "Force Reset" button to clear your changes and sync the shader back to the configuration.
 - `%RemapSlider()` and `CombineWith()` functions have improved layout that is more consistent with other properties.
 - The inspector of the PBR shaders has been simplified and sectioned in a better way. Stencils now exist in their own sections as they are not expected to be changed frequently.
+- `CreateMeshData` function of `MeshData` struct now takes in a `facing` parameter to flip the TBN matrix for correct normal directions on meshes with visible backfaces.
 
 ## v6.3.0
 
