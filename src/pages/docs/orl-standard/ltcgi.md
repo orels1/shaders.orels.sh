@@ -20,5 +20,6 @@ You must import the LTCGI package into the project for the shader to work correc
 ## Settings
 
 - Integrate LTCGI: Toggles LTCGI on and off
+- Enable on Mobile: Allows LTCGI effects to be calculated on mobile platforms
 - Clamp Brightness: Enabled brightness normalization and clamping to prevent brightness spikes
   - Max Brightness: Maximum allowed brightness

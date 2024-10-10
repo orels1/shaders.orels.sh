@@ -57,6 +57,7 @@ Version 7.0.0 ads lots of new features, improvements, and bugfixes. This release
 - Toon shaders now have a new **Raise Minimum Light** checkbox which allows you to bump the minimum brightness of your material in environments with no lighting data.
 - Toon shaders can now sample lightprobe colors uniformly, which is desireable in some cases.
 - Glitch Screen shader now has a separate **Transparency** texture that can be used to control the alpha channel of the material. It now also supports different render types.
+- You can now enable LTCGI on mobile platforms.
 
 ### Bugfixes
 
