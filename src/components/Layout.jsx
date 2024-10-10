@@ -43,6 +43,7 @@ const navigation = [
       { title: 'Decals', href: '/docs/orl-standard/decals' },
       { title: 'Dissolve', href: '/docs/orl-standard/dissolve' },
       { title: 'Dither Fade', href: '/docs/orl-standard/dither-fade' },
+      { title: 'Foliage', href: '/docs/orl-standard/foliage' },
       { title: 'Glass', href: '/docs/orl-standard/glass' },
       { title: 'Hotspotting', href: '/docs/orl-standard/hotspotting' },
       { title: 'Layered Material', href: '/docs/orl-standard/layered-material' },
