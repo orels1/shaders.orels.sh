@@ -373,6 +373,47 @@ _HotspotDirtMaskParams("Edge Masking %Vector2(Mask Min, Mask Max)", Vector) = (0
 
 The names are mandatory.
 
+### Setting Render Type
+
+If you want to replicate Unity Standard Shader's render type dropdown, you can use the `%RenderType()` drawer function.
+
+```hlsl
+_RenderType("Render Type %RenderType(_BlendOp, _SrcBlend, _DstBlend, _BlendOpAlpha, _SrcBlendAlpha, _DstBlendAlpha, _ZWrite)", Int) = 0
+```
+
+Then you could use the values set by this function inside your shader like this
+
+```hlsl
+
+SubShader
+{
+    Tags { "RenderType" = "Opaque" }
+
+    BlendOp [_BlendOp], [_BlendOpAlpha]
+    Blend [_SrcBlend] [_DstBlend], [_SrcBlendAlpha] [_DstBlendAlpha]
+    ZWrite [_ZWrite]
+
+    CGINCLUDE
+    // ...
+}
+```
+
+Note that the PBR and VFX lighting models already has this functionality built-in, so you don't need to set this up yourself. However, when using a custom lighting model or when using inspector with regular unity shaders - this is a commonly used feature.
+
+### Special Tags
+
+Some of the inspector functionality can be controlled via special tags.
+
+#### `ORL_RenderType`
+
+This tag allows you to enforce a particular value of the render type enabled by the [%RenderType() drawer](#setting-render-type), prevent the user from changing it.
+
+```hlsl
+Tags { "ORL_RenderType" = "Cutout" }
+```
+
+Supported values are `Opaque`, `Cutout`, `Transparent`, `Fade`, and `Custom`. The values are case-insensitive, but the tag name is case-sensitive.
+
 ### Combine and Experiment
 
 A lot of the above features are designed to be combined with each other, so you can create complex shader GUIs with ease.
