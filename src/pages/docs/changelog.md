@@ -66,6 +66,7 @@ Version 7.0.0 ads lots of new features, improvements, and bugfixes. This release
 - Gradient editor now correctly handles "Fixed" blending mode. Thanks [@lackofbindings](https://github.com/lackofbindings) for the fix!
 - All UV channels have been changed to use `float4` instead of `half4` to avoid precision issues on mobile platforms.
 - Fixed a number of issues with the Texture Packer when using mixed color spaces.
+- Fixed an issue where Triplanar Effects would not map the textures correctly resulting in flipped textures on the sides.
 
 ### Other Changes
 
