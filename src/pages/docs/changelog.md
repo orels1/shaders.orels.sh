@@ -17,6 +17,8 @@ Version 7.0.0 adds lots of new features, improvements, and bugfixes. This releas
 
 - **PBR**
   - [Hotspotting](/docs/orl-standard/hotspotting): An auto-hotspotting shader that can be used to quickly set up reusable hotspot materials
+  - [AreaLit](/docs/orl-standard/arealit): A special variant of the main shader with included AreaLit support.
+  - [Decals](/docs/orl-standard/decals): A simple Decalery-compatible decals shader.
 
 ### New Features
 
@@ -83,6 +85,7 @@ Version 7.0.0 adds lots of new features, improvements, and bugfixes. This releas
 - `%RemapSlider()` and `CombineWith()` functions have improved layout that is more consistent with other properties.
 - The inspector of the PBR shaders has been simplified and sectioned in a better way. Stencils now exist in their own sections as they are not expected to be changed frequently.
 - `CreateMeshData` function of `MeshData` struct now takes in a `facing` parameter to flip the TBN matrix for correct normal directions on meshes with visible backfaces.
+- Since all shaders can now be Opaque/Transparent/Cutout/Fade, the Cutout shader has been renamed to Foliage and will recieve relevant features in the future
 
 ## v6.3.0
 

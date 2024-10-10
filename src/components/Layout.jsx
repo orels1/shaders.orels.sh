@@ -40,6 +40,7 @@ const navigation = [
         href: '/docs/orl-standard/audio-link',
       },
       { title: 'Color Randomisation', href: '/docs/orl-standard/color-randomisation' },
+      { title: 'Decals', href: '/docs/orl-standard/decals' },
       { title: 'Dissolve', href: '/docs/orl-standard/dissolve' },
       { title: 'Dither Fade', href: '/docs/orl-standard/dither-fade' },
       { title: 'Glass', href: '/docs/orl-standard/glass' },

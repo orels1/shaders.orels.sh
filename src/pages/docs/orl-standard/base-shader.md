@@ -241,14 +241,6 @@ You do not have to adjust the settings shown in the Internal section, these are 
 - Volume min: Bakery Volume minimum position (used for bounds)
 - Volume Inv Size: Bakery Volume size (used for bounds)
 
-## Cutout Variant
-
-There is also a cutout variant of the Standard shader, which provides all the same features, but with support for regular and Alpha To Coverage cutout
-
-![Cutout Variant](/img/docs/orl-standard/base-shader/cutout-inspector.png)
-
-- Enable Dither Fade: Enables distance-based dither fade. Check out the [Dither Fade](/docs/orl-standard/dither-fade) documentation for more information
-
 ## LOD Crossfade
 
 To add LOD Crossfade - simply select the Cutout variant of any Standard shader. This allows you to fade out the object as it gets further away when combined with an LOD Group component. [Read more here](https://docs.unity3d.com/Manual/class-LODGroup.html).
