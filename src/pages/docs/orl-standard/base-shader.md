@@ -142,21 +142,21 @@ Details section allows adding extra variety to the surface with its own set of m
   - Back: Culls visible backfaces
   - Front: Culls visible frontfaces
   - Off: Renders in double-sided mode
+- Render Type: Controls the render type of the material
+  - Opaque: Renders opaque objects
+  - Cutout: Renders cutout objects
+  - Transparent: Renders transparent objects with PBR-style alpha blending (similar to Unity Standard's Transparent mode)
+  - Fade: Renders transparent objects with simple alpha blending
+  - Custom: Exposes all the blending options for you to adjust manually
+- Cutoff: Only visible when **RenderType** is **Cutout**. Controls the alpha cutoff value for the cutout render type
+
+### Depth
+
 - Depth Write: Controls whether the object writes to depth
   - On: Enables depth writing. As a rule of thumb - all opaque/cutout objects should write to depth
   - Off: Disables depth writing, used for transparency
 - Depth Test: Controls how the depth testing is performed, you generally never need to change this
 - Enable Vertex Lights: Allows objects to receive lighting from non-important lights. Please note that only dynamic objects will receive such lighting. This is a Unity limitation.
-  
-### Stencils
-
-For more information on stencils - [check out the Unity Docs](https://docs.unity3d.com/Manual/SL-Stencil.html)
-
-- Reference: Sets the stencil reference value to use with the Various Operations
-- Comparison: Controls the comparison mode, common values: Always, Equal, NotEqual
-- Pass Operation: Controls what happens when the stencil comparison passes. Common values: Keep, Replace, Zero
-- Fail Operation: Controls what happens when the stencil comparison fails. Common values: Keep, Replace, Zero
-- ZFail Operation: Controls what happens when the stencil comparison passes but the depth test fails. Common values: Keep, Replace, Zero
 
 ### GSAA
 
@@ -167,10 +167,10 @@ GSAA, or Geometric Specular Anti Aliasing, helps avoid severe specular aliasing 
 - GSAA Enabled: Toggles the effect
 - GSAA Variance: Controls the change of the Normal direction required to be considered for GSAA filtering
 - GSAA Threshold: Controls the cutoff of the variance which will be considered for GSAA filtering
+- Include Normal Maps: Determines whether the input normals will include the per-pixel normal maps or not. Disabling this can clean up the "pixelated" look on highly detailed normals
 
-### Other Advanced Options
+### Mobile Tweaks
 
-- Non-Linear Lightprobe SH: Enables higher quality lightprobe sampling which is more accurate and behaves much better in high-intensity lighting scenarios. Is recommended for use on PC platforms, but might be fairly expensive on mobile.
 - Force Box Projection: Enables support for Box Projected reflection probes on platforms that do not support it natively, e.g. Android (Oculus Quest). This is fairly expensive for mobile hardware, so use it sparingly
 - Apply Mobile Color Correction: Enables color correction for mobile devices. As mobile platforms lack Post-Processing, it is often beneficial to use in-shader tone mapping to bring the look of your worlds closer to the Desktop version.
   - Mobile Tonemapping Mode: Controls which algorithm to use for the color correction
@@ -216,6 +216,18 @@ If you're not seeing MonoSH in your Directionality Mode dropdown when using bake
 ![Without Baked Specular](/img/docs/orl-standard/base-shader/baked-specular-off.png "Without Baked Specular")
 
 ![With Baked Specular](/img/docs/orl-standard/base-shader/baked-specular-on.png "With Baked Specular")
+
+## Stencils
+
+![Stencil Controls](/img/docs/orl-standard/base-shader/base-shader-stencils.png "Stencil Controls")
+
+For more information on stencils - [check out the Unity Docs](https://docs.unity3d.com/Manual/SL-Stencil.html)
+
+- Reference: Sets the stencil reference value to use with the Various Operations
+- Comparison: Controls the comparison mode, common values: Always, Equal, NotEqual
+- Pass Operation: Controls what happens when the stencil comparison passes. Common values: Keep, Replace, Zero
+- Fail Operation: Controls what happens when the stencil comparison fails. Common values: Keep, Replace, Zero
+- ZFail Operation: Controls what happens when the stencil comparison passes but the depth test fails. Common values: Keep, Replace, Zero
 
 ## Internal
 

@@ -7,11 +7,11 @@ ORL Shaders Changelog
 
 ---
 
-## v6.4.0
+## v7.0.0
 
 ### Summary
 
-Update 6.4.0 brings a plethora of new features, improvements, and bugfixes. There is no particular focus in this update. Please enjoy!
+Version 7.0.0 ads lots of new features, improvements, and bugfixes. This release was heavily driven by community requests in my Discord, so if you have any suggestions or feedback - [please let me know!](https://discord.gg/orels1)
 
 ### New Shaders
 
@@ -52,6 +52,7 @@ Update 6.4.0 brings a plethora of new features, improvements, and bugfixes. Ther
   - The dropdown itself uses a new `%RenderType()` drawer function to display the available options and set the relevant properties on the material. See the [Render Type](/docs/inspector/overview#setting-render-type) section for more information.
   - This change means that if your render type is one of the preset options - you can use the `ORL_RenderType` tag to enable it without having to set any `%ShaderModifiers` or `%PassModifiers` yourself. However, you can still use those blocks to override the blending behaviour thanks to the new sorting and overriding mechanisms mentioned above.
 - You can now bake down procedural materials using something like a [Hotspotting](/docs/orl-standard/hotspotting) shader into static textures and PBR materials. Check out the [Map Baker](/docs/map-baker) section for more information.
+- You can now turn off passing normal maps to the GSAA calculation. This can help avoid a "pixelation" effect on high frequency normal maps.
 
 ### Bugfixes
 
@@ -74,6 +75,7 @@ Update 6.4.0 brings a plethora of new features, improvements, and bugfixes. Ther
 - Depth texture definition is now always included. You no longer need to specify `NEED_DEPTH` in your defines.
 - Configurable shaders can now be hand edited in code. This allows you to use the UI to set up the basic shader and then use code to edit it further. However, this makes it no longer editable via UI. A relevant warning will be shown in the inspector and the editing UI will be locked. You can use a "Force Reset" button to clear your changes and sync the shader back to the configuration.
 - `%RemapSlider()` and `CombineWith()` functions have improved layout that is more consistent with other properties.
+- The inspector of the PBR shaders has been simplified and sectioned in a better way. Stencils now exist in their own sections as they are not expected to be changed frequently.
 
 ## v6.3.0
 
