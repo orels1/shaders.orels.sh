@@ -27,6 +27,7 @@ const SHADERS = [
     { name: 'Vertex Animation', href:'/docs/orl-standard/vertex-animation', type: 'PBR', fullName: 'orels1/Standard Vertex Animation' },
     { name: 'Vertical Fog', href:'/docs/orl-standard/vertical-fog', type: 'PBR', fullName: 'orels1/Standard Vertical Fog' },
     { name: 'Video Screen', href:'/docs/orl-standard/video-screen', type: 'PBR', fullName: 'orels1/Standard Video Screen' },
+    { name: 'VRSL GI', href:'/docs/orl-standard/vrslgi', type: 'PBR', fullName: 'orels1/Standard VRSL GI' },
     { name: 'Toon', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Main' },
     { name: 'Toon Transparent', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Transparent' },
     { name: 'Toon Transparent PrePass', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Transparent PrePass' },
@@ -78,6 +79,7 @@ const SHADERS = [
     { name: 'Vertex Animation', href:'/docs/orl-standard/vertex-animation', type: 'PBR', fullName: 'orels1/Standard Vertex Animation' },
     { name: 'Vertical Fog', href:'/docs/orl-standard/vertical-fog', type: 'PBR', fullName: 'orels1/Standard Vertical Fog' },
     { name: 'Video Screen', href:'/docs/orl-standard/video-screen', type: 'PBR', fullName: 'orels1/Standard Video Screen' },
+    { name: 'VRSL GI', href:'/docs/orl-standard/vrslgi', type: 'PBR', fullName: 'orels1/Standard VRSL GI' },
   ] },
   { name: 'Toon', shaders: [
     { name: 'Toon', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Main' },

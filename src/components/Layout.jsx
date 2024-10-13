@@ -58,6 +58,7 @@ const navigation = [
       { title: 'Vertex Animation', href: '/docs/orl-standard/vertex-animation' },
       { title: 'Vertical Fog', href: '/docs/orl-standard/vertical-fog' },
       { title: 'Video Screen', href: '/docs/orl-standard/video-screen' },
+      { title: 'VRSL GI', href: '/docs/orl-standard/vrslgi' },
     ],
   },
   {

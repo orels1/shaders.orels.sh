@@ -19,6 +19,7 @@ Version 7.0.0 adds lots of new features, improvements, and bugfixes. This releas
   - [Hotspotting](/docs/orl-standard/hotspotting): An auto-hotspotting shader that can be used to quickly set up reusable hotspot materials
   - [AreaLit](/docs/orl-standard/arealit): A special variant of the main shader with included AreaLit support.
   - [Decals](/docs/orl-standard/decals): A simple Decalery-compatible decals shader.
+  - [VRSL GI](/docs/orl-standard/vrslgi): A special variant of the main shader with included VRSL GI support.
 
 ### New Features
 
