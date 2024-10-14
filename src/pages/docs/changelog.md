@@ -87,6 +87,8 @@ Version 7.0.0 adds lots of new features, improvements, and bugfixes. This releas
 - The inspector of the PBR shaders has been simplified and sectioned in a better way. Stencils now exist in their own sections as they are not expected to be changed frequently.
 - `CreateMeshData` function of `MeshData` struct now takes in a `facing` parameter to flip the TBN matrix for correct normal directions on meshes with visible backfaces.
 - Since all shaders can now be Opaque/Transparent/Cutout/Fade, the Cutout shader has been renamed to Foliage and will recieve relevant features in the future
+- The [Clouds](/docs/vfx/clouds) shader now has a Depth Blending option that allows you to disable the blending even when the depth buffer is present.
+- The [Clouds](/docs/vfx/clouds) shader now respects the transparency of Bottom and Top gradient colors
 
 ## v6.3.0
 

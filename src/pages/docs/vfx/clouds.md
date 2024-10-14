@@ -20,7 +20,8 @@ Put this shader on a pre-subdivided mesh. I recommend anywhere from 32k to 128k 
 
 ## Settings
 
-- Depth Transparency: Controls the amount of depth-based blending applied. Based on the name - requires a depth light (see below)
+- Enable Depth Blending: Enables transparency based on the depth of the scene. This allows soft blending around intersecting objects.
+- Depth Transparency: Only visible when **Enable Depth Blending** is checked. Controls the amount of depth-based blending applied. Based on the name - requires a depth light (see below)
 - Apply Shading: Enables realtime Directional Light-base shading using a **Shade Ramp**
 - Shade Ramp: Controls the color of the shading applied to the clouds. Only visible when **Apply Shading** is enabled
 - Tint: Tins the **Shade Ramp**. Only visible when **Apply Shading** is enabled
