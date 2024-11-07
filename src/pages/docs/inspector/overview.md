@@ -195,10 +195,12 @@ Sometimes you might want to define a keyword based on the presence of a texture.
 To do so, you can use the `%SetKeyword()` function.
 
 ```hlsl
-_BumpMap("Normal Map %SetKeyword(NORMALMAP_ON)", 2D) = "white" {}
+_BumpMap("Normal Map %SetKeyword(_BumpMap, NORMALMAP_ON)", 2D) = "white" {}
 ```
 
 This way you can add a relevant shader_feature and wrap your sampling code in `#if defined(NORMALMAP_ON)` so it will only be executed if the texture is set.
+
+Since the texture property is passed explicitly - that means you can add a texture-based keyword for a texture declared in a different module to toggle something inside of yours. Especially useful for normal maps, e.g. if you want to do a fairly expensive normal/tangent recalculation if a normal map was set by a prior module.
 
 ### Gradient Generator
 
