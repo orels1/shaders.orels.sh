@@ -61,6 +61,7 @@ Version 7.0.0 adds lots of new features, improvements, and bugfixes. This releas
 - Toon shaders can now sample lightprobe colors uniformly, which is desireable in some cases.
 - Glitch Screen shader now has a separate **Transparency** texture that can be used to control the alpha channel of the material. It now also supports different render types.
 - You can now enable LTCGI on mobile platforms.
+- Toon shaders now support using Bicubic sampling for the normal map. This can be useful for lower resolution/more aliased normal maps.
 
 ### Bugfixes
 

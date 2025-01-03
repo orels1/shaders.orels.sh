@@ -206,6 +206,10 @@ GSAA, or Geometric Specular Anti Aliasing, helps avoid severe specular aliasing 
 - Assign Volume: Used to assing the volume textures to the material. Drag & Drop your volume object into that field to assign it
 - Unset Volume: Removes the assigned volume from the material. Only visible if some volume data is set.
 - Support Compressed Volumes: Enables support for compressed Bakery Volume textures. Only use this when enabling "Compress Volume" option in the Bakery bake settings.
+- Support Baked Volume Rotation: Enables support for volumes rotated during baking. Requires special scripting support to work in VRChat.
+- Support Runtime Volume Rotations: Enables support for rotating volumes in runtime. Requires special scripting support to work in VRChat.
+
+_Support package for volume rotations in VRChat is going to be available in the future._
 
 {% callout type="warning" title="Update Your Bakery" %}
 If you're not seeing MonoSH in your Directionality Mode dropdown when using bakery, you should update to the latest version! MonoSH is a new feature that was added in Bakery 1.9.0, it allows you to use a single directional lightmap to achieve a level of quality comparable to the old regular SH lightmaps (which used 3 separate textures) and it doesn't require any special adapters to work

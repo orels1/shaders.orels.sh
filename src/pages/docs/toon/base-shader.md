@@ -52,6 +52,7 @@ This documentation is broken up into modules that correspond to the foldouts in 
 - Detail Normal: The extra normal map texture to be applied on top. Has its own tiling controls
 - Detail Normal Scale: Controls the strength of the detail normal map
 - Flip Y: Flips the Y axis of the detail normal map
+- Use Bicubic Sampling: Enables a more expensive but higher quality normal map sampling mode. This can be useful for lower resolution/more aliased normal maps.
 - Detail Normal Mask: The mask texture for the detail normal map. Allows you to control where the detail normal is applied
 - UV Set: Controls which UV set the Detail Normals will use
 
