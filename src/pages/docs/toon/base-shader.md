@@ -245,3 +245,4 @@ Rim shadow is an interesting effect that emphasizes the curved shapes of the mes
 - Depth Test: Controls how the depth testing is performed, you generally never need to change this
 - Uniform Lightprobe Color: Samples the lightprobe color uniformly instead of using mesh normal directions. Can be useful for more stylized looking lighting.
 - Raise Minimum Light: Increases the minimum lighting level of the material in environments with no lighting data
+- Monochrome Lighting: Controls how much the color of the environment lighting affects the object's color. At 1 only the intensity of the environment lighting is used, while the color is ignored.

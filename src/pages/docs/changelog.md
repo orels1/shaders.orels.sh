@@ -62,6 +62,7 @@ Version 7.0.0 adds lots of new features, improvements, and bugfixes. This releas
 - Glitch Screen shader now has a separate **Transparency** texture that can be used to control the alpha channel of the material. It now also supports different render types.
 - You can now enable LTCGI on mobile platforms.
 - Toon shaders now support using Bicubic sampling for the normal map. This can be useful for lower resolution/more aliased normal maps.
+- Toon shaders now have a "Monochrome Lighting" slider. This allows you to control how much the color of the environment lighting affects the object's color. At 1 only the intensity of the lighting is used.
 
 ### Bugfixes
 
