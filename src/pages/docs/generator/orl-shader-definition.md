@@ -380,13 +380,17 @@ All of the LibraryFunctions, however, including the sampling library and utiliti
 }
 ```
 
-### `%ExtraPass(string passName)`
+### `%ExtraPass(string passName, ExtraPassType type)`
 
 Contains blocks for an extra pass. This allows you to add extra generated passes to the shader, which will leverage all of the features of existing passes.
 
 {% callout type="note" title="Template Requiremenets" %}
 This requires an `ExtraPass` template to be available for the current template. E.g. if the current template is `Toon`, then the `ToonExtraPass.orltemplate` file must be present somewhere Shader Generator can find it. Which, at the moment, means it must be in the same `Templates` folder.
 {% /callout %}
+
+These passes are inserted at `%ExtraPrePasses` and `%ExtraPasses` hooks. You can define where you want the pass to be inserted by using the `ExtraPassType` enum. E.g. `%ExtraPass("MyPass", ExtraPassType.PrePass)` will insert the pass before the main passes, while `%ExtraPass("MyPass", ExtraPassType.PostPass)` will insert it after the main passes.
+
+If no `ExtraPassType` is specified, the pass will be inserted as a post pass.
 
 You can nest most of the block types inside the `%ExtraPass`. It will also inherit all the blocks of the current shader apart from any function blocks, e.g. `%Vertex`, `%Fragment`, etc. Those are expected to be defined in the `%ExtraPass` block to implement your desired effect.
 
