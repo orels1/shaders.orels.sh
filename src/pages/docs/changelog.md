@@ -55,7 +55,8 @@ Version 7.0.0 adds lots of new features, improvements, and bugfixes. This releas
   - The dropdown itself uses a new `%RenderType()` drawer function to display the available options and set the relevant properties on the material. See the [Render Type](/docs/inspector/overview#setting-render-type) section for more information.
   - This change means that if your render type is one of the preset options - you can use the `ORL_RenderType` tag to enable it without having to set any `%ShaderModifiers` or `%PassModifiers` yourself. However, you can still use those blocks to override the blending behaviour thanks to the new sorting and overriding mechanisms mentioned above.
 - You can now bake down procedural materials using something like a [Hotspotting](/docs/orl-standard/hotspotting) shader into static textures and PBR materials. Check out the [Map Baker](/docs/map-baker) section for more information.
-- You can now turn off passing normal maps to the GSAA calculation. This can help avoid a "pixelation" effect on high frequency normal maps.
+- You can now explicitly turn on passing normal maps to the GSAA calculation. Leaving it off can help avoid a "pixelation" effect on high frequency normal maps.
+  - This is turned off by default on all materials. You can turn it on for your existing materials via Tools > orels1 > Upgrade Materials.
 - Toon shaders now properly support Vertex Lights.
 - Toon shaders now have a new **Raise Minimum Light** checkbox which allows you to bump the minimum brightness of your material in environments with no lighting data.
 - Toon shaders can now sample lightprobe colors uniformly, which is desireable in some cases.
@@ -68,12 +69,15 @@ Version 7.0.0 adds lots of new features, improvements, and bugfixes. This releas
 
 - The tangent normals sign is now properly calculated per-vertex. This should not affect most users
 - Specular occlusion now properly occludes reflection probes again. You might need to tune the Specular Occlusion slider to adjust the effect. Please note that the slider has been renamed to "Reflection Probe Occlusion" in the UI
+  - You can migrate existing materials via Tools > orels1 > Upgrade Materials. This will adjust the new specular values to be closer to the pre-upgrade look
 - Fixed off-by-one errors in the channel selector for Albedo and Emission textures
 - Shader tags are now de-duplicated automatically, this can help with some issues with Bakery Lightmapper
 - Gradient editor now correctly handles "Fixed" blending mode. Thanks [@lackofbindings](https://github.com/lackofbindings) for the fix!
 - All UV channels have been changed to use `float4` instead of `half4` to avoid precision issues on mobile platforms.
 - Fixed a number of issues with the Texture Packer when using mixed color spaces.
 - Fixed an issue where Triplanar Effects would not map the textures correctly resulting in flipped textures on the sides.
+- Fixed an issue where the material emission values where not multiplied correctly (to mimic Unity's Standard emission behaviour)
+  - You can migrate existing materials via Tools > orels1 > Upgrade Materials. This will multiply the emission to match your current scene values
 
 ### Other Changes
 
