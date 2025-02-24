@@ -460,6 +460,45 @@ Since the call sign is arbitrary - you can access any variable available in the 
 }
 ```
 
+## Hook Points
+
+You can define hook points within your blocks using the `%HookPoint` syntax
+
+e.g. if you deifne a `%DataStruct` block as follows - youc an then dynamically inject code into it via a different module. This is the most useful for creating custom lighting models, but is not limited to that.
+
+```hlsl
+%DataStructs()
+{
+    struct MyData
+    {
+        float4 color;
+        float smoothness;
+
+        %AdditionalData
+    }
+}
+```
+
+Now in another module file - you can inject code into the `%AdditionalData` hook point
+
+```hlsl
+%AdditionalData()
+{
+    float3 normal;
+}
+```
+
+In the build-in templates - there are various `%AdditionalData` hooks that you can use to inject data into most of the main structs
+
+### Built-in Hook Points
+
+- `%AdditionalSurfaceData`: Allows you to pass more data from your modules to the final lighting calculation function (FragmentBase)
+- `%AdditionalMeshData`: Allows you to pass more data to every fragment-related module before they get executed
+  - To initialize the data - you can use the `%AdditionalMeshDataCreator` hook point. It will be executed directly in the `CreateMeshData` function
+- `%AdditionalMeshDataCreator`: Injects code into the `CreateMeshData` function allowing you to add/modify mesh data before it gets passed to the fragment functions
+- `%AddtionalFragmentData`: Allows you to pass more data between vertex and fragment stages
+  - Exceptionally useful in combination with the `%AdditionalMeshData` hook point
+
 ## Mesh and Surface Data
 
 ORL Shader Generator's built-in templates provide all the relevant data via a couple of structs, which are described below

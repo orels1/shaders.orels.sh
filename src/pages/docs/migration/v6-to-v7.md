@@ -3,8 +3,6 @@ title: Migration to v7
 description: How to migrate from any v6 release to v7.x
 ---
 
-# Migrating to v7
-
 Migrating to the v7 from v6 is a very simple process
 
 ## Step 1: Update the shaders

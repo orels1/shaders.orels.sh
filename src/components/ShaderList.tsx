@@ -116,6 +116,12 @@ const SHADERS = [
     { name: 'UI Video Screen', href:'/docs/orl-standard/video-screen', type: 'PBR', fullName: 'orels1/UI/Video Screen' },
     { name: 'UI Video Screen Overlay', href:'/docs/orl-standard/video-screen', type: 'PBR', fullName: 'orels1/UI/Video Screen Overlay' },
   ] },
+  { name: 'Modules', shaders: [
+    { name: 'Depth Fade', href:'/docs/configurable-shaders/modules/depth-fade', type: 'Any', fullName: 'DepthFade' },
+    { name: 'Dither Fade', href:'/docs/configurable-shaders/modules/dither-fade', type: 'Any', fullName: 'DitherFade' },
+    { name: 'SSR', href:'/docs/configurable-shaders/modules/ssr', type: 'PBR', fullName: 'SSR' },
+    { name: 'Vertex Colors', href:'/docs/configurable-shaders/modules/vertex-colors', type: 'Any', fullName: 'VertexColors' },
+  ]}
 ]
 
 export default function ShaderList() {
@@ -174,12 +180,9 @@ export default function ShaderList() {
         <div className="grid grid-cols-1 gap-2 mt-2 sm:grid-cols-2">
           {SHADERS[selected].shaders.filter(sh => sh.name.toLowerCase().includes(filter.toLowerCase())).map((shader) => (
             <div
-              key={shader.name}
+              key={shader.fullName}
               className="relative flex px-4 pt-2 items-center space-x-3 rounded-md border border-gray-300 hover:dark:border-gray-600 dark:border-gray-700 bg-white/5"
             >
-              {/* <div className="flex-shrink-0">
-                <img className="h-10 w-10 rounded-full" src={person.imageUrl} alt="" />
-              </div> */}
               <div className="min-w-0 flex-1">
                 <Link href={shader.href} className="focus:outline-none">
                   <span className="absolute inset-0" aria-hidden="true" />

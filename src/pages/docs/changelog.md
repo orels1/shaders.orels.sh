@@ -26,6 +26,17 @@ Version 7.0.0 adds lots of new features, improvements, and bugfixes. This releas
 - **Extra Passes** are now supported by the shader generator!
   - This allows you to add extra passes to your shaders without losing all the features of the shader generator (compared to using `%PostPasses` and `%PrePasses`)
   - Read more about it [here](/docs/generator/orl-shader-definition/#extra-pass-string-pass-name)
+- **Cloth** Shading mode added to all PBR shaders.
+  - This is still experimental, so please report any issues you encounter
+  - You can learn more about it [here](/docs/orl-standard/base-shader#cloth-shading-mode)
+- **ClearCoat** Option added to all PBR shaders in default shading mode
+  - This is still experimental and might not support all sources of lighting, please report any issues you encounter
+  - You can learn more about it [here](/docs/orl-standard/base-shader#clearcoat-option)
+- **Screen Space Reflections** module
+  - This module allows you to add screen space reflections to any PBR shader.
+  - Due to its cost - it is not included in any shaders by default, but you can use it via [Configurable Shaders](/docs/configurable-shaders)
+  - You can learn more about it [here](/docs/configurable-shaders/modules/ssr)
+  - The implementation is based on [Mochie's shaders](https://github.com/MochiesCode/Mochies-Unity-Shaders)
 - Standard-Based shaders can now adjust Stencil parameters
 - You can now occlude baked specular via Realtime Shadows. This effect is not physically accurate but can be helpful when used on dynamic objects
 - Vertex Lights now properly light up objects using Standard shaders. This requires enabling vertex lighting in Advanced Settings
@@ -64,6 +75,24 @@ Version 7.0.0 adds lots of new features, improvements, and bugfixes. This releas
 - You can now enable LTCGI on mobile platforms.
 - Toon shaders now support using Bicubic sampling for the normal map. This can be useful for lower resolution/more aliased normal maps.
 - Toon shaders now have a "Monochrome Lighting" slider. This allows you to control how much the color of the environment lighting affects the object's color. At 1 only the intensity of the lighting is used.
+- Added a **Depth Fade** module. It behaves like the Soft Particles mode in the default unity Particle Shaders.
+  - This module is not currently included in any shaders, but you can use it via [Configurable Shaders](/docs/configurable-shaders)
+  - You can learn more about it [here](/docs/configurable-shaders/modules/depth-fade)
+- Added a **Vertex Colors** module. It allows you to use the vertex color data to control various properties of the material.
+  - It is most useful for things like Particles, so you can use "Color over Lifetime" option to drive material Color and Alpha.
+  - This module is not currently included in any shaders, but you can use it via [Configurable Shaders](/docs/configurable-shaders)
+  - You can learn more about it [here](/docs/configurable-shaders/modules/vertex-colors)
+- You can now define hook points within your modules.
+  - This was previously only available in the Template files
+  - Using this feature - you can inject extra code into things like Data Structs or functions
+  - Read more here: [Hook Points](/docs/generator/orl-shader-definition#hook-points)
+- Added box projection contact hardening to the PBR shaders.
+  - Based on [DavidM's implementation](https://github.com/frostbone25/Unity-Improved-Box-Projected-Reflections/tree/main)
+  - Improves the accuracy of reflections closer to the "surface" of the mesh
+  - See [Base Shader](/docs/orl-standard/base-shader#box-projection-contact-hardening) for more info
+- Shader Generator now has a Project Settings window.
+  - This allows you to add or remove always included modules, change the default lighting model, and remap modules to your custom ones.
+  - Take a look at the [Project Settings](/docs/generator/project-settings) docs page for more information.
 
 ### Bugfixes
 
@@ -78,6 +107,9 @@ Version 7.0.0 adds lots of new features, improvements, and bugfixes. This releas
 - Fixed an issue where Triplanar Effects would not map the textures correctly resulting in flipped textures on the sides.
 - Fixed an issue where the material emission values where not multiplied correctly (to mimic Unity's Standard emission behaviour)
   - You can migrate existing materials via Tools > orels1 > Upgrade Materials. This will multiply the emission to match your current scene values
+- Fixed an issue with cutout materials not tiling the texture correctly in the shadowcaster pass
+- Vertex Animation shader inspector behaves correctly again
+- Fixed a number of issues with specular occlusion being overly aggressive
 
 ### Other Changes
 
@@ -95,6 +127,13 @@ Version 7.0.0 adds lots of new features, improvements, and bugfixes. This releas
 - Since all shaders can now be Opaque/Transparent/Cutout/Fade, the Cutout shader has been renamed to Foliage and will recieve relevant features in the future
 - The [Clouds](/docs/vfx/clouds) shader now has a Depth Blending option that allows you to disable the blending even when the depth buffer is present.
 - The [Clouds](/docs/vfx/clouds) shader now respects the transparency of Bottom and Top gradient colors
+- All the built-in templates now have a `%PassFunctions` block inserted before the all the other function definitions.
+  - This allows you to add functions that depend on speific structs and other per-pass data that you want to reference inside your other functions
+- AreaLit module can now be used in the VFX-based shaders
+- LTCGI module has been upgraded to the V2 API.
+  - If you're using LTCGI - make sure to update your LTCGI version to V2+
+  - This also adds an Alpha premultiply and more granular specular/diffuse controls. Check out the [LTCGI docs](/docs/orl-standard/ltcgi) for more information
+- VRSLGI module can now be used in the VFX-based shaders
 
 ## v6.3.0
 

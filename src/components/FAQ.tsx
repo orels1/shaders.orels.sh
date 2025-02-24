@@ -11,9 +11,9 @@ const faqs = [
   },
   {
     id: 2,
-    question: "Are the shaders Android/Quest compatible?",
+    question: "Are the shaders Android/Quest/iOS compatible?",
     answer:
-      "Yes! The shaders are compatible with Android and Quest. However, you will need to use the Built-In Render Pipeline.",
+      "Yes! The shaders are compatible with Android/Quest and iOS. However, you will need to use the Built-In Render Pipeline.",
   },
   {
     id: 3,
@@ -59,7 +59,7 @@ const faqs = [
   {
     id: 6,
     question: 'Which unity versions are supported?',
-    answer: 'The package is built and tested with unity 2019.4. However it should work with any newer versions as long as the Built-In Rendering Pipeline is used.'
+    answer: 'The package is built and tested with unity 2022.3. However it should work with any version from 2019.4 and above, as long as the Built-In Rendering Pipeline is used.'
   },
   {
     id: 7,

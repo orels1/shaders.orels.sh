@@ -9,7 +9,6 @@ ORL Shader Inspector is a Property-based shader GUI system for Unity. It is desi
 
 ![ORL Shader Inspector used for ORL Standard shader](/img/docs/inspector/overview-banner.png "ORL Shader Inspector used for ORL Standard shader")
 
-
 ## Features
 
 - H1 and H2 headers
@@ -22,7 +21,9 @@ ORL Shader Inspector is a Property-based shader GUI system for Unity. It is desi
 - Texture Packing
 - Keyword debugging
 - Presets
-- Settings props based on other props
+- Setting props based on other props
+
+And many more...
 
 ## Installation
 
@@ -413,6 +414,56 @@ Tags { "ORL_RenderType" = "Cutout" }
 ```
 
 Supported values are `Opaque`, `Cutout`, `Transparent`, `Fade`, and `Custom`. The values are case-insensitive, but the tag name is case-sensitive.
+
+### Forcing Render Type
+
+If you want to force a particular render type when a property is enabled, you can use the `%ForceRenderType()` function.
+
+```hlsl
+[Toggle(GLASS)]_Glass("Enable Glass %ForceRenderType(Transparent), Int) = 0
+```
+
+Now when the user checks the "Enable Glass" toggle - the render type will be forced to "Transparent".
+
+{%callout type="note" title="%RenderType() requirement" %}
+This requires the shader to have a `%RenderType()` function present in some other property, as otherwise the inspector won't know which properties are used to set render type parameters.
+{% /callout %}
+
+You can also provide more parameters to the function, for example, you can pass a specific queue number to set it alongside the render type.
+
+```hlsl
+[Toggle(GLASS)]_Glass("Enable Glass %ForceRenderType(Custom, 2501), Int) = 0
+```
+
+In this case - the render type will be set to "Custom" and the queue number will be 2501.
+
+In some scenarios you might also have some types that are compatible with what you want to force, and if they are alredy set - you might want to keep them (to preserve the user's settings).
+
+In this case, you can define up to 3 compatible types, and the inspector will only set the render type if the property is set to anything but one of those types.
+
+```hlsl
+[Toggle(GLASS)]_Glass("Enable Glass %ForceRenderType(Transparent, 3000, Fade), Int) = 0
+```
+
+In this case, the render type will only be forced only if it isn't already set to Transparent or Fade.
+
+### Enabling/Disabling passes by LightMode
+
+Unity allows you to enable/disable passes based on their respective LihgtMode.
+This is rarely useful, but in cases where you want to optionally enable, for example, a GrabPass - it can be incredibly handy.
+
+```hlsl
+[ToggleUI]_EnableGrabPass("Enable GrabPass %EnablePass(GrabPass)", Int) = 0
+```
+
+Now in your shader, if you give your grabpass a `LightMode = GrabPass` tag, it will only be enabled if the `_EnableGrabPass` property is set to `1`.
+
+```hlsl
+GrabPass {
+  Tags { "LightMode" = "GrabPass" }
+  "_GrabTexture
+}
+```
 
 ### Combine and Experiment
 

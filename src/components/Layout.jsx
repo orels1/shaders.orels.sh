@@ -32,6 +32,18 @@ const navigation = [
     ],
   },
   {
+    title: 'Changelog',
+    link: { title: 'Changelog', href: '/docs/changelog' },
+  },
+  {
+    title: 'Migration Guides',
+    links: [
+      { title: 'General Overview', href: '/docs/migration' },
+      { title: 'Migrating from v6.x to v7.x', href: '/docs/migration/v6-to-v7' },
+      { title: 'Migrating to v6.x', href: '/docs/migration/any-to-v6' },
+    ]
+  },
+  {
     title: 'Standard Shaders (PBR)',
     links: [
       { title: 'Base Shader', href: '/docs/orl-standard/base-shader' },
@@ -93,14 +105,16 @@ const navigation = [
     ],
   },
   {
-    title: 'Changelog',
-    link: { title: 'Changelog', href: '/docs/changelog' },
+    title: 'Configurable Shaders',
+    link: { title: 'Configurable Shaders', href: '/docs/configurable-shaders' },
   },
   {
-    title: 'Migration Guides',
+    title: 'Modules',
     links: [
-      { title: 'General Overview', href: '/docs/migration' },
-      { title: 'Migrating to v6.x', href: '/docs/migration/any-to-v6' },
+      { title: 'Depth Fade', href: '/docs/configurable-shaders/modules/depth-fade' },
+      { title: 'Dither Fade', href: '/docs/configurable-shaders/modules/dither-fade' },
+      { title: 'SSR', href: '/docs/configurable-shaders/modules/ssr' },
+      { title: 'Vertex Colors', href: '/docs/configurable-shaders/modules/vertex-colors' },
     ]
   },
   {
@@ -117,6 +131,7 @@ const navigation = [
       { title: 'Creating Modules', href: '/docs/generator/creating-modules' },
       { title: 'Creating Lighting Models', href: '/docs/generator/creating-lighting-models' },
       { title: 'Templates', href: '/docs/generator/templates' },
+      { title: 'Project Settings', href: '/docs/generator/project-settings' },
     ]
   },
   {
