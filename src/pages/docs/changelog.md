@@ -20,6 +20,14 @@ Version 7.0.0 adds lots of new features, improvements, and bugfixes. This releas
   - [AreaLit](/docs/orl-standard/arealit): A special variant of the main shader with included AreaLit support.
   - [Decals](/docs/orl-standard/decals): A simple Decalery-compatible decals shader.
   - [VRSL GI](/docs/orl-standard/vrslgi): A special variant of the main shader with included VRSL GI support.
+- **Toon**
+  - Version 2 of the toon shader is now available! Here are the highlights:
+    - You can now have up to 4 matcaps, detail normal layers and decals
+    - Most things can be masked by a mask texture with channel and UV selection
+      - This allows you to make use of highly tiled detail textures that can preserve high quality detail at low resolutions
+    - UV Discard is now included by default
+    - PBR Reflections have been redone and are now based on the ORL Standard shader
+  - You can find the [full docs here](/docs/toon/v2)
 
 ### New Features
 
@@ -93,6 +101,10 @@ Version 7.0.0 adds lots of new features, improvements, and bugfixes. This releas
 - Shader Generator now has a Project Settings window.
   - This allows you to add or remove always included modules, change the default lighting model, and remap modules to your custom ones.
   - Take a look at the [Project Settings](/docs/generator/project-settings) docs page for more information.
+- Shader Generator now supports writing to `SV_Depth` in the PBR shaders. Check out the [ORL Shader Definition docs](/docs/generator/orl-shader-definition#optional-features) for more info.
+- Shader Inspector can now add H3 headers via `### Some Header` syntax
+- You can now add horizontal separators in the Shader Inspector via `---`, e.g. `UI_Separator("---", Int) = 0`
+- Standard shaders now support a fast triplanar UV mode as one of the **Mapping Space** options
 
 ### Bugfixes
 
@@ -110,6 +122,7 @@ Version 7.0.0 adds lots of new features, improvements, and bugfixes. This releas
 - Fixed an issue with cutout materials not tiling the texture correctly in the shadowcaster pass
 - Vertex Animation shader inspector behaves correctly again
 - Fixed a number of issues with specular occlusion being overly aggressive
+- Improved UV derivative issues in the Glitch Screen shader. This could cause unwanted artifacts on the edges of the glitch
 
 ### Other Changes
 
@@ -134,6 +147,7 @@ Version 7.0.0 adds lots of new features, improvements, and bugfixes. This releas
   - If you're using LTCGI - make sure to update your LTCGI version to V2+
   - This also adds an Alpha premultiply and more granular specular/diffuse controls. Check out the [LTCGI docs](/docs/orl-standard/ltcgi) for more information
 - VRSLGI module can now be used in the VFX-based shaders
+- Parallax module has been updated to use simpler code and support angle-based flattening, which can help with layering artifacts
 
 ## v6.3.0
 

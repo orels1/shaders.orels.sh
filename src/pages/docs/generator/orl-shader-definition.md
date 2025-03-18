@@ -433,6 +433,7 @@ The built-in templates allow you to enable optional features by specifying some 
 - `NEED_FRAGMENT_IN_PREPASS`: When using Toon template with `PrePass` `TemplateFeature` enabled - forces the prepass to execute all of the included fragment functions. Majority of the time, to save performance, you probably want to reimplement the bare minimum of the calculations inside a custom `PrePassColor` function instead of using this define.
 - `EXTRA_V2F_0`, `EXTRA_V2F_1`, `EXTRA_V2F_2`, `EXTRA_V2F_3`: Tells the templates to compile in extra float4s in the Vertex stage so you can pass some custom data to your Fragment stage, see the struct definition below
 - `NEED_UV4`, `NEED_UV5`, `NEED_UV6`, `NEED_UV7`: Tells the templates to include UV channels 4-7 in the Vertex stage and pass them to the Fragment stage.
+- `NEED_SV_DEPTH`, `NEED_SV_DEPTH_LEQUAL`: Enables support for outputting depth value from the fragment stage. Simply define `inout float depth` in your modules to adjust the clip-space depth value. Only available in the PBR Lighting Model.
 - `_INTEGRATE_CUSTOMGI`: **LEGACY** Enables support for custom GI injection on top of built-in GI. Only avaible in the PBR Lighting Model.
   - You must define a function of the following signature inside of the `%Fragment()` block `IntegrateCustomGI(MeshData d, SurfaceData o, inout half3 indirectSpecular, inout half3 indirectDiffuse)`. This function will be called if the `_INTEGRATE_CUSTOMGI` is defined.
   - Check out `Packages/sh.orels.shaders.generator/Runtime/Sources/Modules/LTCGI.orlsource` for reference.

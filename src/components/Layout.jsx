@@ -76,8 +76,9 @@ const navigation = [
   {
     title: 'Toon Shaders',
     links: [
-      { title: 'Base Shader', href: '/docs/toon/base-shader' },
+      { title: 'Base Shader (v2)', href: '/docs/toon/v2' },
       { title: 'UV Discard', href: '/docs/toon/uv-discard' },
+      { title: 'Legacy Shader (v1)', href: '/docs/toon/base-shader' },
     ],
   },
   {

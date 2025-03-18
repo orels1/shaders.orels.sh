@@ -41,6 +41,7 @@ If you are an artist using Substance Painter - you can utilize the Unity HD Rend
   - UV: Uses the first UV channel to display the texture
   - Local Space: uses local coordinates on the provided X and Y axis to display the texture
   - World Space: uses world coordinates on the provided X and Y axis to display the texture (useful for maintaining constant scale among many meshes)
+  - Triplanar: Uses a fast triplanar technique to display the texture. This mode does not need the mesh to have usable UVs, but it is not as fast as any other mode. The tiling is controlled by the **X** axis of the **Albedo** texture settings
 - X Axis and Y Axis: Only visible when **Mapping Space** is not in UV mode. Allows to select which axis (X/Y/Z) to use for displaying the textures
 - Masks: Texture containing Metallic/Smoothness and AO maps. By default uses this channel setup:
   - Red: Metallic
@@ -74,8 +75,9 @@ Most parallax options are hidden until **Enable Parallax** is checked
 
 - Enable Parallax: Toggles the special Parallax variant of the shader
 - Height: The parallax heigh texture, **MUST** be set to linear ("sRGB" unchecked on the texture importer). The slider allows you to control the strength of the extrusion
-- Height Ref Plane: Moves the reference plane of the texture up and down, will change the perceived distance of the effect from the surface (see video below below)
-- Steps Min / Steps Max: Controls the quality of the effect. Default settings will probably be fine, unless you're using very high height intensity value, which will expose the "layering" of the effect.
+- Height Ref Plane: Moves the reference plane of the texture up and down, will change the perceived distance of the effect from the surface (see video below below). 0 is neutral
+- Steps: Controls the quality of the effect. Default settings will probably be fine, unless you're using very high height intensity value, which will expose the "layering" of the effect.
+- Scaled Based On Angle: "Flattens" the parllax strength at grazing angles. This hals avoid strong layer artifacts.
 
 {% video url="https://iframe.mediadelivery.net/embed/165/fb9820c0-9acd-4c8d-9c4a-8888c8a87c76?autoplay=true&loop=true&muted=true" title="Height Ref Plane adjustment" /%}
 

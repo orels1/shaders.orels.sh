@@ -1,7 +1,12 @@
 ---
-title: Toon Shader
+title: Toon Shader (legacy)
 description: Properties and features common to all ORL Toon-based shaders
 ---
+
+{% callout type="warning" title="Legacy Shader" %}
+This version of the Toon shader is now legacy and will no longer be updated.
+It is recommended to use the [Version 2 of the shader](/docs/toon/v2) instead.
+{% /callout %}
 
 ORL Shaders package comes with a fully-featured Toon shader geared towards use in VRChat. It is based on [XSToon](https://github.com/Xiexe/Xiexes-Unity-Shaders), which is a shader package that aims to mimic the lighting of Standard shader with Toon features like Ramp, Rim Lights, Outlines and so on added on top.
 

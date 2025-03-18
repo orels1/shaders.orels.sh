@@ -11,7 +11,7 @@ ORL Shader Inspector is a Property-based shader GUI system for Unity. It is desi
 
 ## Features
 
-- H1 and H2 headers
+- H1, H2, and H3 headers
 - Headers acting as foldouts with default expanded states
 - Min/Max Sliders
 - Gradients generator
@@ -71,7 +71,7 @@ When using ORL Shader Generator, you can use it by simply adding the following b
 
 ### Headers
 
-Headers are used to group properties together. The H1 top-level headers generate foldouts, while H2 headers simply appear as bold labels.
+Headers are used to group properties together. The H1 top-level headers generate foldouts, while H2 headers simply appear as bold labels. H3 is uses the minibold label style.
 
 To add a header, simply add the following property to the list of your shader properties
 
@@ -83,7 +83,7 @@ UI_SomeHeader("# Some Header", Int) = 0
 
 The default value you provide will specify if the section will be expanded or collapsed by default. So if you pass `1` - the section will be expanded.
 
-H2 headers are added in a similar fashion, although the default value does not matter as they aren't foldouts
+H2 headers are added in a similar fashion, although the default value does not matter as they aren't foldouts. Same goes for H3.
 
 ```hlsl
 UI_SomeSubheader("## Some Subheader", Int) = 0
@@ -94,6 +94,14 @@ UI_SomeSubheader("## Some Subheader", Int) = 0
 {% callout type="note" %}
 Prefix your properties with `UI` so they won't ever clash with any shader properties and clearly indicate that they do not bear any shader-specific meaning.
 {% /callout %}
+
+### Horizontal Separators
+
+You can add horizontal separators in the Shader Inspector via `---`
+
+```hlsl
+UI_Separator("---", Int) = 0
+```
 
 ### Min/Max Sliders
 
