@@ -164,6 +164,8 @@ You can apply up to 4 decal layers to the material.
 ![Toon Shader Decals Colors](/img/docs/toon/v2/toon-decals-colors.png "Toon Shader Decals Colors")
 
 - Tint: Controls the tint of the decal
+- Multiply By Albedo: Controls the amount of albedo tint applied to the decal
+  - Very useful when using decals that use tiled textures and simple color albedo. This way you can hue shift multiple different decal layers at once via albedo hue shift
 - Use Emission: Adds Emission to the decal, uses Tint color
 - Rim Fade: Adds a rim-style edge fade effect to the decal color
 - Rim Fade Power: Controls the sharpness of the rim fade
