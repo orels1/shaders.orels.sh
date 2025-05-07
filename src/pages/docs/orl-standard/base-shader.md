@@ -136,6 +136,14 @@ Details section allows adding extra variety to the surface with its own set of m
   - In VR: Hides the object from the mirror view in VR
   - On Desktop: Hides the object from the mirror view on Desktop
 
+## VRCLightVolumes
+
+![VRCLightVolumes controls](/img/docs/orl-standard/base-shader/vrclightvolumes.png)
+
+- Enable VRC Light Volumes: Enables the VRC Light Volumes module
+
+There are currently no other controls for the VRCLightVolumes module as they directly replace lighting data from the lightprobes.
+
 ## Advanced Settings
 
 ![Advanced Settings controls](/img/docs/orl-standard/base-shader/base-shader-advanced-features.png)

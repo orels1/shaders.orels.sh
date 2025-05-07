@@ -30,6 +30,14 @@ This documentation is broken up into modules that correspond to the foldouts in 
 - Saturation: Controls the saturation of the material
 - Value: Controls the value of the material
 
+## VRCLightVolumes
+
+![VRCLightVolumes controls](/img/docs/orl-standard/base-shader/vrclightvolumes.png)
+
+- Enable VRC Light Volumes: Enables the VRC Light Volumes module
+
+There are currently no other controls for the VRCLightVolumes module as they directly replace lighting data from the lightprobes.
+
 ## Shading Settings
 
 ![Toon Shader Shading Settings](/img/docs/toon/v2/toon-shading-settings.png "Shading Settings of the Toon shader")

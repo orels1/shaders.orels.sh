@@ -45,6 +45,10 @@ Version 7.0.0 adds lots of new features, improvements, and bugfixes. This releas
   - Due to its cost - it is not included in any shaders by default, but you can use it via [Configurable Shaders](/docs/configurable-shaders)
   - You can learn more about it [here](/docs/configurable-shaders/modules/ssr)
   - The implementation is based on [Mochie's shaders](https://github.com/MochiesCode/Mochies-Unity-Shaders)
+- **VRC Light Volumes** module
+  - This module adds support for [RED_SIM's VRC Light Volumes](https://github.com/REDSIM/VRCLightVolumes/tree/main)
+  - The module is included **and enabled by default** in Toon shaders. It is included **and disabled by default** in PBR (Standard) shaders.
+  - There is currently no support for this in VFX shaders as they do not sample lightprobes, however - you can implement it in a custom VFX shader by providing a spot for relevant hooks: `%CustomProbesSetupFunctions` and `%CustomProbesFunctions`. The latter requires creating a `half3 indirectDiffuse` variable prior to the hook, which will then get populated by the light volume color data.
 - Standard-Based shaders can now adjust Stencil parameters
 - You can now occlude baked specular via Realtime Shadows. This effect is not physically accurate but can be helpful when used on dynamic objects
 - Vertex Lights now properly light up objects using Standard shaders. This requires enabling vertex lighting in Advanced Settings
