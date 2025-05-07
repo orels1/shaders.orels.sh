@@ -36,7 +36,7 @@ This documentation is broken up into modules that correspond to the foldouts in 
 
 - Enable VRC Light Volumes: Enables the VRC Light Volumes module
 
-There are currently no other controls for the VRCLightVolumes module as they directly replace lighting data from the lightprobes.
+There are currently no other controls for the VRCLightVolumes module as it directly replaces lighting data from the lightprobes.
 
 ## Shading Settings
 

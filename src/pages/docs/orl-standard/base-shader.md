@@ -142,7 +142,7 @@ Details section allows adding extra variety to the surface with its own set of m
 
 - Enable VRC Light Volumes: Enables the VRC Light Volumes module
 
-There are currently no other controls for the VRCLightVolumes module as they directly replace lighting data from the lightprobes.
+There are currently no other controls for the VRCLightVolumes module as it directly replaces lighting data from the lightprobes.
 
 ## Advanced Settings
 
