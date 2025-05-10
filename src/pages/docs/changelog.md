@@ -127,6 +127,7 @@ Version 7.0.0 adds lots of new features, improvements, and bugfixes. This releas
 - Vertex Animation shader inspector behaves correctly again
 - Fixed a number of issues with specular occlusion being overly aggressive
 - Improved UV derivative issues in the Glitch Screen shader. This could cause unwanted artifacts on the edges of the glitch
+- Fixed AudioLink band selection in the Toon Shader
 
 ### Other Changes
 
