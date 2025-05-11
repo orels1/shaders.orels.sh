@@ -109,6 +109,7 @@ Version 7.0.0 adds lots of new features, improvements, and bugfixes. This releas
 - Shader Inspector can now add H3 headers via `### Some Header` syntax
 - You can now add horizontal separators in the Shader Inspector via `---`, e.g. `UI_Separator("---", Int) = 0`
 - Standard shaders now support a fast triplanar UV mode as one of the **Mapping Space** options
+- [Dissolve](/docs/orl-standard/dissolve) can now use Vertex Colors as a source of dissolve. Thanks [@lackofbindings](https://github.com/lackofbindings) for the contribution!
 
 ### Bugfixes
 
