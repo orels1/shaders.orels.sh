@@ -130,6 +130,7 @@ Version 7.0.0 adds lots of new features, improvements, and bugfixes. This releas
 - Improved UV derivative issues in the Glitch Screen shader. This could cause unwanted artifacts on the edges of the glitch
 - Fixed AudioLink band selection in the Toon Shader
 - [VRChat Features](/docs/orl-standard/base-shader#vr-chat-features) now hides the material from main view correctly
+- Fixed an issue where VertexAnimation would misbehave on Mobile platforms
 
 ### Other Changes
 
