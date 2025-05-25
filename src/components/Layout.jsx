@@ -112,6 +112,7 @@ const navigation = [
   {
     title: 'Modules',
     links: [
+      { title: 'Custom GI Diffuse Ramp', href: '/docs/configurable-shaders/modules/custom-gi-diffuse-ramp' },
       { title: 'Depth Fade', href: '/docs/configurable-shaders/modules/depth-fade' },
       { title: 'Dither Fade', href: '/docs/configurable-shaders/modules/dither-fade' },
       { title: 'SSR', href: '/docs/configurable-shaders/modules/ssr' },

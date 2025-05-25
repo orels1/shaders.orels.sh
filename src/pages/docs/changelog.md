@@ -49,6 +49,9 @@ Version 7.0.0 adds lots of new features, improvements, and bugfixes. This releas
   - This module adds support for [RED_SIM's VRC Light Volumes](https://github.com/REDSIM/VRCLightVolumes/tree/main)
   - The module is included **and enabled by default** in Toon shaders. It is included **and disabled by default** in PBR (Standard) shaders.
   - There is currently no support for this in VFX shaders as they do not sample lightprobes, however - you can implement it in a custom VFX shader by providing a spot for relevant hooks: `%CustomProbesSetupFunctions` and `%CustomProbesFunctions`. The latter requires creating a `half3 indirectDiffuse` variable prior to the hook, which will then get populated by the light volume color data.
+- **LTCGI** support for Toon shaders both v1 and v2. Thanks [@fundale](https://github.com/fundale) for the contribution!
+- **Custom GI Diffuse Ramp** module for Toon v2 shaders. This allows you to add a toon-style ramp to the diffuse lighting from custom GI sources, e.g. LTCGI.
+  - Thansk [@fundale](https://github.com/fundale) for the contribution!
 - Standard-Based shaders can now adjust Stencil parameters
 - You can now occlude baked specular via Realtime Shadows. This effect is not physically accurate but can be helpful when used on dynamic objects
 - Vertex Lights now properly light up objects using Standard shaders. This requires enabling vertex lighting in Advanced Settings
@@ -131,6 +134,7 @@ Version 7.0.0 adds lots of new features, improvements, and bugfixes. This releas
 - Fixed AudioLink band selection in the Toon Shader
 - [VRChat Features](/docs/orl-standard/base-shader#vr-chat-features) now hides the material from main view correctly
 - Fixed an issue where VertexAnimation would misbehave on Mobile platforms
+- Commented out lines no longer trip the parser. This means you can now comment out ORL Shader Definition blocks and they will be correctly ignored
 
 ### Other Changes
 

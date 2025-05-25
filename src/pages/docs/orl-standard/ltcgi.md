@@ -23,3 +23,14 @@ You must import the LTCGI package into the project for the shader to work correc
 - Enable on Mobile: Allows LTCGI effects to be calculated on mobile platforms
 - Clamp Brightness: Enabled brightness normalization and clamping to prevent brightness spikes
   - Max Brightness: Maximum allowed brightness
+- Diffuse Intensity: Controls the intensity of the diffuse lighting
+- Specular Intensity: Controls the intensity of the specular lighting
+- Roughness Modifier: Controls the roughness of the specular lighting
+
+### Toon v1 Only
+
+- LTCGI Ramp: THe ramp textgure to apply to the diffuse lighting. Can create a look of toon shading from LTCGI diffuse
+
+{% callout type="note" title="Toon v2 Ramp" %}
+Toon v2 Shaders support a global [Custom GI Diffuse Ramp](/docs/toon/v2/custom-gi-diffuse-ramp) that can be used to achieve the same effect as the LTCGI Ramp. The main benefit here is that it can affect more custom GI sources than just LTCGI
+{% /callout %}
