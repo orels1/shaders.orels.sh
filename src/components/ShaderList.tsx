@@ -121,8 +121,10 @@ const SHADERS = [
     { name: 'UI Video Screen Overlay', href:'/docs/orl-standard/video-screen', type: 'PBR', fullName: 'orels1/UI/Video Screen Overlay' },
   ] },
   { name: 'Modules', shaders: [
+    { name: 'Custom GI Diffuse Ramp', href:'/docs/configurable-shaders/modules/custom-gi-diffuse-ramp', type: 'Any', fullName: 'CustomGIDiffuseRamp' },
     { name: 'Depth Fade', href:'/docs/configurable-shaders/modules/depth-fade', type: 'Any', fullName: 'DepthFade' },
     { name: 'Dither Fade', href:'/docs/configurable-shaders/modules/dither-fade', type: 'Any', fullName: 'DitherFade' },
+    { name: 'Masked Tweaks', href:'/docs/configurable-shaders/modules/masked-tweaks', type: 'Any', fullName: 'MaskedTweaks' },
     { name: 'SSR', href:'/docs/configurable-shaders/modules/ssr', type: 'PBR', fullName: 'SSR' },
     { name: 'Vertex Colors', href:'/docs/configurable-shaders/modules/vertex-colors', type: 'Any', fullName: 'VertexColors' },
   ]}

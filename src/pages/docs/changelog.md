@@ -51,7 +51,10 @@ Version 7.0.0 adds lots of new features, improvements, and bugfixes. This releas
   - There is currently no support for this in VFX shaders as they do not sample lightprobes, however - you can implement it in a custom VFX shader by providing a spot for relevant hooks: `%CustomProbesSetupFunctions` and `%CustomProbesFunctions`. The latter requires creating a `half3 indirectDiffuse` variable prior to the hook, which will then get populated by the light volume color data.
 - **LTCGI** support for Toon shaders both v1 and v2. Thanks [@fundale](https://github.com/fundale) for the contribution!
 - **Custom GI Diffuse Ramp** module for Toon v2 shaders. This allows you to add a toon-style ramp to the diffuse lighting from custom GI sources, e.g. LTCGI.
-  - Thansk [@fundale](https://github.com/fundale) for the contribution!
+  - Thanks [@fundale](https://github.com/fundale) for the contribution!
+- **Masked Tweaks** module
+  - This module allows you to tweak your material's parameters based on a mask texture
+  - You can learn more about it [here](/docs/configurable-shaders/modules/masked-tweaks)
 - Standard-Based shaders can now adjust Stencil parameters
 - You can now occlude baked specular via Realtime Shadows. This effect is not physically accurate but can be helpful when used on dynamic objects
 - Vertex Lights now properly light up objects using Standard shaders. This requires enabling vertex lighting in Advanced Settings
@@ -104,7 +107,7 @@ Version 7.0.0 adds lots of new features, improvements, and bugfixes. This releas
 - Added box projection contact hardening to the PBR shaders.
   - Based on [DavidM's implementation](https://github.com/frostbone25/Unity-Improved-Box-Projected-Reflections/tree/main)
   - Improves the accuracy of reflections closer to the "surface" of the mesh
-  - See [Base Shader](/docs/orl-standard/base-shader#box-projection-contact-hardening) for more info
+  - See [Base Shader](/docs/orl-standard/base-shader#lightmapping) for more info
 - Shader Generator now has a Project Settings window.
   - This allows you to add or remove always included modules, change the default lighting model, and remap modules to your custom ones.
   - Take a look at the [Project Settings](/docs/generator/project-settings) docs page for more information.
@@ -113,6 +116,7 @@ Version 7.0.0 adds lots of new features, improvements, and bugfixes. This releas
 - You can now add horizontal separators in the Shader Inspector via `---`, e.g. `UI_Separator("---", Int) = 0`
 - Standard shaders now support a fast triplanar UV mode as one of the **Mapping Space** options
 - [Dissolve](/docs/orl-standard/dissolve) can now use Vertex Colors as a source of dissolve. Thanks [@lackofbindings](https://github.com/lackofbindings) for the contribution!
+- The Shader Inspector can now show a Vector3 field for Vector properties. The most basic usage looks like this `%Vector3(Hue, Saturation, Value)`. Check out the relevant [Shader Inspector section](/docs/inspector/overview#vector-3-field) for more information.
 
 ### Bugfixes
 

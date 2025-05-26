@@ -115,6 +115,7 @@ const navigation = [
       { title: 'Custom GI Diffuse Ramp', href: '/docs/configurable-shaders/modules/custom-gi-diffuse-ramp' },
       { title: 'Depth Fade', href: '/docs/configurable-shaders/modules/depth-fade' },
       { title: 'Dither Fade', href: '/docs/configurable-shaders/modules/dither-fade' },
+      { title: 'Masked Tweaks', href: '/docs/configurable-shaders/modules/masked-tweaks' },
       { title: 'SSR', href: '/docs/configurable-shaders/modules/ssr' },
       { title: 'Vertex Colors', href: '/docs/configurable-shaders/modules/vertex-colors' },
     ]
@@ -265,9 +266,9 @@ export function Layout({ children, title, tableOfContents }) {
     <>
       <DevBanner />
       <Banner
-        title="Version 6.4.0 is out!"
-        bannerKey="v6.4.0"
-        description="Hotspotting, in-shader Tonemapping, vertex lights, and bug fixes!"
+        title="Version 7.0.0 is out!"
+        bannerKey="v7.0.0"
+        description="Toon Shader v2, Hotspotting, in-shader Tonemapping, Light Volumes, SSR, and so much more!"
         cta="Get it now"
         ctaLink="/docs/installation"
         changelogLink="/docs/changelog"

@@ -382,6 +382,16 @@ _HotspotDirtMaskParams("Edge Masking %Vector2(Mask Min, Mask Max)", Vector) = (0
 
 The names are mandatory.
 
+### Vector 3 Field
+
+Shows a Vector 3 field for a vector property, instead of a usual Vector4. Can be used with custom names for each vector component
+
+```hlsl
+_HSVAdjustment("HSV %Vector3(Hue, Saturation, Value)", Vector) = (0, 0, 0, 0)
+```
+
+The names are mandatory.
+
 ### Setting Render Type
 
 If you want to replicate Unity Standard Shader's render type dropdown, you can use the `%RenderType()` drawer function.

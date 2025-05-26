@@ -64,7 +64,7 @@ const faqs = [
   {
     id: 7,
     question: 'The cloud shader does not blend with the environment',
-    answer: 'Make sure you have Dept enabled in the scene. Check the bottom of the Clouds documentation page to learn more.',
+    answer: 'Make sure you have Depth enabled in the scene. Check the bottom of the Clouds documentation page to learn more.',
     links: [
       {
         text: 'Clouds Documentation',

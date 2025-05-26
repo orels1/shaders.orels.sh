@@ -42,7 +42,7 @@ If you are an artist using Substance Painter - you can utilize the Unity HD Rend
   - Local Space: uses local coordinates on the provided X and Y axis to display the texture
   - World Space: uses world coordinates on the provided X and Y axis to display the texture (useful for maintaining constant scale among many meshes)
   - Triplanar: Uses a fast triplanar technique to display the texture. This mode does not need the mesh to have usable UVs, but it is not as fast as any other mode. The tiling is controlled by the **X** axis of the **Albedo** texture settings
-- X Axis and Y Axis: Only visible when **Mapping Space** is not in UV mode. Allows to select which axis (X/Y/Z) to use for displaying the textures
+- X Axis and Y Axis: Only visible when **Mapping Space** is not in UV or Triplanar mode. Allows to select which axis (X/Y/Z) to use for displaying the textures
 - Masks: Texture containing Metallic/Smoothness and AO maps. By default uses this channel setup:
   - Red: Metallic
   - Green: AO
@@ -74,7 +74,8 @@ ORL Standard uses a parallax technique called Parallax Occlusion Mapping, which 
 Most parallax options are hidden until **Enable Parallax** is checked
 
 - Enable Parallax: Toggles the special Parallax variant of the shader
-- Height: The parallax heigh texture, **MUST** be set to linear ("sRGB" unchecked on the texture importer). The slider allows you to control the strength of the extrusion
+- Height: The parallax heigh texture, **MUST** be set to linear ("sRGB" unchecked on the texture importer)
+- Height Strength: Controls the strength of the parallax effect
 - Height Ref Plane: Moves the reference plane of the texture up and down, will change the perceived distance of the effect from the surface (see video below below). 0 is neutral
 - Steps: Controls the quality of the effect. Default settings will probably be fine, unless you're using very high height intensity value, which will expose the "layering" of the effect.
 - Scaled Based On Angle: "Flattens" the parllax strength at grazing angles. This hals avoid strong layer artifacts.
@@ -159,6 +160,7 @@ There are currently no other controls for the VRCLightVolumes module as it direc
   - Fade: Renders transparent objects with simple alpha blending
   - Custom: Exposes all the blending options for you to adjust manually
 - Cutoff: Only visible when **RenderType** is **Cutout**. Controls the alpha cutoff value for the cutout render type
+- Enable Vertex Lights: Allows objects to receive lighting from non-important lights. Please note that only dynamic objects will receive such lighting. This is a Unity limitation.
 
 ### Depth
 
@@ -166,7 +168,6 @@ There are currently no other controls for the VRCLightVolumes module as it direc
   - On: Enables depth writing. As a rule of thumb - all opaque/cutout objects should write to depth
   - Off: Disables depth writing, used for transparency
 - Depth Test: Controls how the depth testing is performed, you generally never need to change this
-- Enable Vertex Lights: Allows objects to receive lighting from non-important lights. Please note that only dynamic objects will receive such lighting. This is a Unity limitation.
 
 ### GSAA
 
@@ -207,6 +208,7 @@ GSAA, or Geometric Specular Anti Aliasing, helps avoid severe specular aliasing 
   - If the object is lightmapped: this will adjust the intensity of the lightmap specular derived from the Directional lightmap.
   - If the object is not lightmapped: this will adjust the intensity of the specular derived from lightprobes
 - Global Illumination Tweaks
+  - Box Projection Contact Hardening: Enables box projection contact hardening, which improves the accuracy of reflections closer to the "surface" of the mesh
   - GI Emissive Boost: Boosts the emissive contribution to the Global Illumination, can be useful for Realtime GI scenarios
   - Ignore Realtime GI: Completely skips applying Realtime Lightmaps, which can be useful in scenarios where you want to only use Realtime GI for light probes
 - Enable Bakery Features: Allows usage of bakery-specific features like RNM, SH or MonoSH lightmaps
