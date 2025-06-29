@@ -122,6 +122,7 @@ Version 7.0.0 adds lots of new features, improvements, and bugfixes. This releas
     - `%LibraryFunctions()`
     - `%DataStructs()`
     - `%PassModifiers()`
+- Layered Material shader now supports masking via Alpha Channel
 
 ### Bugfixes
 
