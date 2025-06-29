@@ -117,6 +117,11 @@ Version 7.0.0 adds lots of new features, improvements, and bugfixes. This releas
 - Standard shaders now support a fast triplanar UV mode as one of the **Mapping Space** options
 - [Dissolve](/docs/orl-standard/dissolve) can now use Vertex Colors as a source of dissolve. Thanks [@lackofbindings](https://github.com/lackofbindings) for the contribution!
 - The Shader Inspector can now show a Vector3 field for Vector properties. The most basic usage looks like this `%Vector3(Hue, Saturation, Value)`. Check out the relevant [Shader Inspector section](/docs/inspector/overview#vector-3-field) for more information.
+- More blocks support `Order` parameters
+  - You can now supply an `Order` parameter to the following blocks:
+    - `%LibraryFunctions()`
+    - `%DataStructs()`
+    - `%PassModifiers()`
 
 ### Bugfixes
 
