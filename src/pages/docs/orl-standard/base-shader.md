@@ -145,6 +145,42 @@ Details section allows adding extra variety to the surface with its own set of m
 
 There are currently no other controls for the VRCLightVolumes module as it directly replaces lighting data from the lightprobes.
 
+## Shading Mode
+
+![Shading Mode controls](/img/docs/orl-standard/base-shader/shading-mode-clearcoat.png)
+
+Shading mode settings fundamentally change how the base Diffuse and Specular calculations are done. Some effects might only work correctly in the Default shading mode.
+
+- Shading Mode: Controls how the base shading is done
+  - Default: Default PBR Shading mode, expecting that the material is a regular solid surface: wood, metal, concrete, plastic, etc
+  - Cloth: Cloth-style Shading mode, when realtime lighting is used - cloth shading mode will make the material look like it has microsurface detail, adding a layer of sheen and wraparound lighting
+
+### Clear Coat settings
+
+These are only visible if **Shading Mode** is set to **Default**
+
+- Add Clear Coat: Adds a layer of clearcoat to the surface.
+- Clear Coat Strength: Adjust the strength of clearcoat reflections and specular
+- Use Clear Coat Mask: Enables texture masking of clearcoat areas. Useful if you only want some parts of your material to have clearcoat
+- Clear Coat Mask: The mask texture to use for clearcoat. Only visible if **Use Clear Coat Mask** is checked
+- Clear Coat Mask Channel: Picks which texture channel to use for masking the clearcoat effects. Only visible if **Use Clear Coat Mask** is checked
+- Clear Coat Smoothness: Controls the smoothness of the clearcoat
+
+### Cloth Settings
+
+These are only visible if **Shading Mode** is set to **Cloth**
+
+- Custom Sheen Color: Allows customization of the sheen color
+- Sheen Color: Tints the cloth sheen by this color
+- Add Subsurface Color: Adds a very simple subsurface effect. Useful for velvet-y cloth effects
+- Subsurface Color: Controls the tint of the subsurface ffect
+
+{% callout type="note" title="Cloth Subsurface" %}
+It's important to note that this "Subsurface" effect is a very rough approximation based on the angle between the view, normal and the incoming light. It is not physically accurate, and thus there is no thickness mask or any other controls.
+
+A proper subsurface implementation would be its own shading mode if it does get added at some point
+{% /callout %}
+
 ## Advanced Settings
 
 ![Advanced Settings controls](/img/docs/orl-standard/base-shader/base-shader-advanced-features.png)

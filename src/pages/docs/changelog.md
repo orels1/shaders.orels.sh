@@ -36,10 +36,10 @@ Version 7.0.0 adds lots of new features, improvements, and bugfixes. This releas
   - Read more about it [here](/docs/generator/orl-shader-definition/#extra-pass-string-pass-name)
 - **Cloth** Shading mode added to all PBR shaders.
   - This is still experimental, so please report any issues you encounter
-  - You can learn more about it [here](/docs/orl-standard/base-shader#cloth-shading-mode)
+  - You can learn more about it [here](/docs/orl-standard/base-shader#shading-mode)
 - **ClearCoat** Option added to all PBR shaders in default shading mode
   - This is still experimental and might not support all sources of lighting, please report any issues you encounter
-  - You can learn more about it [here](/docs/orl-standard/base-shader#clearcoat-option)
+  - You can learn more about it [here](/docs/orl-standard/base-shader#shading-mode)
 - **Screen Space Reflections** module
   - This module allows you to add screen space reflections to any PBR shader.
   - Due to its cost - it is not included in any shaders by default, but you can use it via [Configurable Shaders](/docs/configurable-shaders)
