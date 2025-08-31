@@ -7,9 +7,9 @@ Options relevant to the orels1/Standard Layered Material shader
 
 ---
 
-This is a special shader that replicates most of the Base Shader settings, but does it per-layer with up to 4 layers
+This is a special shader that replicates most of the Base Shader settings, but does it per-layer with up to 5 total layers, with one base layer and 4 masked layers stacked on top.
 
-Layers are masked using vertex colors, which allows you to utilize the same material on more different meshes, while keeping visual variety. The shader includes a debugging mode for ease of use
+Layers can be masked either with vertex colors (e.g. an ID mask) or a multi-channel apcked texture, which allows you to utilize the same material on more different meshes, while keeping visual variety. The shader includes a debugging mode for ease of use.
 
 {% callout type="note" title="Triplanar Variant" %}
 This shader also has a variant with [Triplanar Effects](/docs/orl-standard/triplanar-effects) support for added variety
@@ -29,20 +29,35 @@ This shader also has a variant with [Triplanar Effects](/docs/orl-standard/tripl
 - Mask Type: Controls what is used for masking. Options are: Vertex Colors or a Texture
 - Mask Texture: Only visible when **Mask Type** is set to Texture. This will be used to mask the layers by color
 - Mask Debugging: Displays the mask values on the mesh based on selected **Mask Type**
+- Debug Channel: Controls which channel to display during debugging. Only visible when **Mask Debugging** is enabled
+
+## Base Layer Settings
+
+![Base Layer](/img/docs/orl-standard/layered-material/layered-material-base.png "Base Layer")
+
+Base layer acts like a very stripped down ORL Standard material, with the usual set of textures and controls. If you want more information - check out [Base Shader's Main Settings](/docs/orl-standard/base-shader#main-settings) documentation.
 
 ## Per-Layer Settings
 
-All of the options here are cloned from the [Base Shader's Main Settings](/docs/orl-standard/base-shader#main-settings), check that documentation for more info
+![Per-Layer Settings](/img/docs/orl-standard/layered-material/layered-material-layer.png "Per-Layer Settings")
 
-The layers are by default filtered using these colors:
+Every additional layer beyond base has the same set of settings, including some masking options.
 
-- Layer 1: Black
-- Layer 2: Red
-- Layer 3: Green
-- Layer 4: Blue
+- Mask Channel: Defines which channel of Vertex Colors or Mask Texture to use
+  - R/G/B/A are the main options you're expected to use
+  - Black/White are special in a way that Black will appear only where all channels combined are 0, and White - wehre all of them are 1. This creates a pretty harsh mask edge, but it can be useful for hardsurface details that have defined edges
+- Mask Remap: Controls the contrast of the mask. This allows you to "nudge" the edge of the mask without needing to edit the base texture
+- Layer Strength: Controls how visible the layer is
+- Show Mask: Skips rendering the actual layer and simply outputs its mask as black and white value. Useful for debugging
 
-But you can swap the colors around if you want
+The rest of the options primarily mimic [Base Shader's Main Settings](/docs/orl-standard/base-shader#main-settings), check that documentation for more info.
 
-{% callout type="note" title="Texture Sampling Cost" %}
-While this shader does its best to not do unnecessary operations, overall, sampling a lot of textures has a cost, so make sure you actually need these features before using it
-{% /callout %}
+One special addition is the **Enable Triplanar** checkbox, which allows you to use triplanar mapping for individual layers.
+
+This can get pretty expensive, so make sure to only enable for layers that really need it, use regular UV channels where possible.
+
+If you enable the Triplanar option, the following settings become available:
+
+- Tiling: Controls the world-space tiling of the textures
+- Blend: Controls the blend between the axis. Higher blend values result in more "bleed" between the top-side-front projected textures. Generally you want to find the lowest value that doesn't create harsh edges between sides
+- Power: Offers a more granular control of blending. Higher power - means sharper transition between the projections
