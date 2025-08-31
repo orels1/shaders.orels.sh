@@ -55,6 +55,13 @@ Version 7.0.0 adds lots of new features, improvements, and bugfixes. This releas
 - **Masked Tweaks** module
   - This module allows you to tweak your material's parameters based on a mask texture
   - You can learn more about it [here](/docs/configurable-shaders/modules/masked-tweaks)
+- **Layered Material** shader got a major update
+  - A new "base layer" everything stacks on top of was added
+    - This makes it easier to use with terrain-style setups
+  - Mask debugging for each individual layer was added
+  - Normal "leaking" between layers is fixed
+  - Every layer now has a bespoke strength slider to simplify setup
+  - Every layer can now use triplanar UV mapping
 - Standard-Based shaders can now adjust Stencil parameters
 - You can now occlude baked specular via Realtime Shadows. This effect is not physically accurate but can be helpful when used on dynamic objects
 - Vertex Lights now properly light up objects using Standard shaders. This requires enabling vertex lighting in Advanced Settings

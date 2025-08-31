@@ -380,7 +380,7 @@ All of the LibraryFunctions, however, including the sampling library and utiliti
 }
 ```
 
-### `%ExtraPass(string passName, ExtraPassType type)`
+### `%ExtraPass(string passName, ExtraPassType type, ExtraPassInheritType inheritType)`
 
 Contains blocks for an extra pass. This allows you to add extra generated passes to the shader, which will leverage all of the features of existing passes.
 
@@ -393,6 +393,8 @@ These passes are inserted at `%ExtraPrePasses` and `%ExtraPasses` hooks. You can
 If no `ExtraPassType` is specified, the pass will be inserted as a post pass.
 
 You can nest most of the block types inside the `%ExtraPass`. It will also inherit all the blocks of the current shader apart from any function blocks, e.g. `%Vertex`, `%Fragment`, etc. Those are expected to be defined in the `%ExtraPass` block to implement your desired effect.
+
+If you want to skip inheriting any of the blocks - you can provide an optional `inheritType` parameter. Simply pass `ExtraPassInheritType.SkipParentBlocks` as the third parameter and the generator would only use the blocks directly included inside the `%ExtraPass()` block, which can be useful for making bespoke effects with custom vertex/fragment or even geometry stages.
 
 Current ExtraPass templates are using `ForwardBase` light mode.
 
@@ -437,7 +439,9 @@ The built-in templates allow you to enable optional features by specifying some 
 - `_INTEGRATE_CUSTOMGI`: **LEGACY** Enables support for custom GI injection on top of built-in GI. Only avaible in the PBR Lighting Model.
   - You must define a function of the following signature inside of the `%Fragment()` block `IntegrateCustomGI(MeshData d, SurfaceData o, inout half3 indirectSpecular, inout half3 indirectDiffuse)`. This function will be called if the `_INTEGRATE_CUSTOMGI` is defined.
   - Check out `Packages/sh.orels.shaders.generator/Runtime/Sources/Modules/LTCGI.orlsource` for reference.
-- `_INTEGRATE_CUSTOMGI_FLEX` Enables support for custom GI injection on top of the built-in GI in the PBR Lighting Model. Compared to `_INTEGRATE_CUSTOMGI`, this version allows you to define a function with an arbitrary call signature, which is useful for more complex GI implementations.
+- `NEED_FOG`: Enables fog calculations in VFX shaders
+- `FOG_DISABLED`: Disables fog calculations in the Toon-based shader
+- `_INTEGRATE_CUSTOMGI_FLEX`: Enables support for custom GI injection on top of the built-in GI in the PBR Lighting Model. Compared to `_INTEGRATE_CUSTOMGI`, this version allows you to define a function with an arbitrary call signature, which is useful for more complex GI implementations.s
 
 ```hlsl
 %CustomGI("MyGIFunction")
