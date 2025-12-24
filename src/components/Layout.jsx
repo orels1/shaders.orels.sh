@@ -13,7 +13,6 @@ import Image from 'next/image'
 import logoImage from '@/images/orl.png'
 import Banner from './Banner'
 import MobileToC from './MobileToC'
-import DevBanner from './DevBanner'
 
 const navigation = [
   {
@@ -39,9 +38,12 @@ const navigation = [
     title: 'Migration Guides',
     links: [
       { title: 'General Overview', href: '/docs/migration' },
-      { title: 'Migrating from v6.x to v7.x', href: '/docs/migration/v6-to-v7' },
+      {
+        title: 'Migrating from v6.x to v7.x',
+        href: '/docs/migration/v6-to-v7',
+      },
       { title: 'Migrating to v6.x', href: '/docs/migration/any-to-v6' },
-    ]
+    ],
   },
   {
     title: 'Standard Shaders (PBR)',
@@ -51,23 +53,41 @@ const navigation = [
         title: 'AudioLink',
         href: '/docs/orl-standard/audio-link',
       },
-      { title: 'Color Randomisation', href: '/docs/orl-standard/color-randomisation' },
+      {
+        title: 'Color Randomisation',
+        href: '/docs/orl-standard/color-randomisation',
+      },
       { title: 'Decals', href: '/docs/orl-standard/decals' },
       { title: 'Dissolve', href: '/docs/orl-standard/dissolve' },
       { title: 'Dither Fade', href: '/docs/orl-standard/dither-fade' },
       { title: 'Foliage', href: '/docs/orl-standard/foliage' },
       { title: 'Glass', href: '/docs/orl-standard/glass' },
       { title: 'Hotspotting', href: '/docs/orl-standard/hotspotting' },
-      { title: 'Layered Material', href: '/docs/orl-standard/layered-material' },
-      { title: 'Layered Parallax', href: '/docs/orl-standard/layered-parallax' },
+      {
+        title: 'Layered Material',
+        href: '/docs/orl-standard/layered-material',
+      },
+      {
+        title: 'Layered Parallax',
+        href: '/docs/orl-standard/layered-parallax',
+      },
       { title: 'LTCGI', href: '/docs/orl-standard/ltcgi' },
       { title: 'AreaLit', href: '/docs/orl-standard/arealit' },
       { title: 'Neon Light', href: '/docs/orl-standard/neon-light' },
       { title: 'Puddles', href: '/docs/orl-standard/puddles' },
       { title: 'Pulse', href: '/docs/orl-standard/pulse' },
-      { title: 'Tessellated Displacement', href: '/docs/orl-standard/tessellated-displacement' },
-      { title: 'Triplanar Effects', href: '/docs/orl-standard/triplanar-effects' },
-      { title: 'Vertex Animation', href: '/docs/orl-standard/vertex-animation' },
+      {
+        title: 'Tessellated Displacement',
+        href: '/docs/orl-standard/tessellated-displacement',
+      },
+      {
+        title: 'Triplanar Effects',
+        href: '/docs/orl-standard/triplanar-effects',
+      },
+      {
+        title: 'Vertex Animation',
+        href: '/docs/orl-standard/vertex-animation',
+      },
       { title: 'Vertical Fog', href: '/docs/orl-standard/vertical-fog' },
       { title: 'Video Screen', href: '/docs/orl-standard/video-screen' },
       { title: 'VRSL GI', href: '/docs/orl-standard/vrslgi' },
@@ -112,35 +132,60 @@ const navigation = [
   {
     title: 'Modules',
     links: [
-      { title: 'Custom GI Diffuse Ramp', href: '/docs/configurable-shaders/modules/custom-gi-diffuse-ramp' },
-      { title: 'Depth Fade', href: '/docs/configurable-shaders/modules/depth-fade' },
-      { title: 'Dither Fade', href: '/docs/configurable-shaders/modules/dither-fade' },
-      { title: 'Masked Tweaks', href: '/docs/configurable-shaders/modules/masked-tweaks' },
+      {
+        title: 'Custom GI Diffuse Ramp',
+        href: '/docs/configurable-shaders/modules/custom-gi-diffuse-ramp',
+      },
+      {
+        title: 'Depth Fade',
+        href: '/docs/configurable-shaders/modules/depth-fade',
+      },
+      {
+        title: 'Dither Fade',
+        href: '/docs/configurable-shaders/modules/dither-fade',
+      },
+      {
+        title: 'Masked Tweaks',
+        href: '/docs/configurable-shaders/modules/masked-tweaks',
+      },
       { title: 'SSR', href: '/docs/configurable-shaders/modules/ssr' },
-      { title: 'Vertex Colors', href: '/docs/configurable-shaders/modules/vertex-colors' },
-    ]
+      {
+        title: 'Vertex Colors',
+        href: '/docs/configurable-shaders/modules/vertex-colors',
+      },
+    ],
   },
   {
     title: 'Shader Inspector',
-    links: [
-      { title: 'Inspector Overview', href: '/docs/inspector/overview' },
-    ]
+    links: [{ title: 'Inspector Overview', href: '/docs/inspector/overview' }],
   },
   {
     title: 'Shader Generator',
     links: [
-      { title: 'Development Basics', href: '/docs/generator/development-basics' },
-      { title: 'ORL Shader Definition', href: '/docs/generator/orl-shader-definition' },
+      {
+        title: 'Development Basics',
+        href: '/docs/generator/development-basics',
+      },
+      {
+        title: 'ORL Shader Definition',
+        href: '/docs/generator/orl-shader-definition',
+      },
       { title: 'Creating Modules', href: '/docs/generator/creating-modules' },
-      { title: 'Creating Lighting Models', href: '/docs/generator/creating-lighting-models' },
+      {
+        title: 'Creating Lighting Models',
+        href: '/docs/generator/creating-lighting-models',
+      },
       { title: 'Templates', href: '/docs/generator/templates' },
       { title: 'Project Settings', href: '/docs/generator/project-settings' },
-    ]
+    ],
   },
   {
     title: 'Contributing',
     links: [
-      { title: 'How to contribute', href: '/docs/contributing/how-to-contribute/' },
+      {
+        title: 'How to contribute',
+        href: '/docs/contributing/how-to-contribute/',
+      },
     ],
   },
 ]
@@ -189,7 +234,11 @@ function Header({ navigation }) {
       </div>
       <div className="relative flex basis-0 justify-end gap-6 sm:gap-8 md:flex-grow">
         <ThemeSelector className="relative z-10" />
-        <Link href="https://github.com/orels1/orels-Unity-Shaders" className="group" aria-label="GitHub">
+        <Link
+          href="https://github.com/orels1/orels-Unity-Shaders"
+          className="group"
+          aria-label="GitHub"
+        >
           <GitHubIcon className="h-6 w-6 fill-slate-400 group-hover:fill-slate-500 dark:group-hover:fill-slate-300" />
         </Link>
       </div>
@@ -243,12 +292,16 @@ function useTableOfContents(tableOfContents) {
 export function Layout({ children, title, tableOfContents }) {
   let router = useRouter()
   let isHomePage = router.pathname === '/'
-  let allLinks = navigation.flatMap((section) => (section.links ?? []).concat(section.link ?? []))
+  let allLinks = navigation.flatMap((section) =>
+    (section.links ?? []).concat(section.link ?? [])
+  )
   let linkIndex = allLinks.findIndex((link) => link.href === router.pathname)
   let previousPage = allLinks[linkIndex - 1]
   let nextPage = allLinks[linkIndex + 1]
-  let section = navigation.find((section) =>
-    section.links?.find((link) => link?.href === router.pathname) ?? section.link?.href === router.pathname
+  let section = navigation.find(
+    (section) =>
+      section.links?.find((link) => link?.href === router.pathname) ??
+      section.link?.href === router.pathname
   )
   let currentSection = useTableOfContents(tableOfContents)
 
@@ -264,7 +317,6 @@ export function Layout({ children, title, tableOfContents }) {
 
   return (
     <>
-      <DevBanner />
       <Banner
         title="Version 7.0.0 is out!"
         bannerKey="v7.0.0"
@@ -281,8 +333,8 @@ export function Layout({ children, title, tableOfContents }) {
       <div className="relative mx-auto flex max-w-8xl justify-center sm:px-2 lg:px-8 xl:px-12">
         <div className="hidden lg:relative lg:block lg:flex-none">
           <div className="absolute inset-y-0 right-0 w-[50vw] bg-slate-50 dark:hidden" />
-          <div className="absolute top-16 bottom-0 right-0 hidden h-12 w-px bg-gradient-to-t from-slate-800 dark:block" />
-          <div className="absolute top-28 bottom-0 right-0 hidden w-px bg-slate-800 dark:block" />
+          <div className="absolute bottom-0 right-0 top-16 hidden h-12 w-px bg-gradient-to-t from-slate-800 dark:block" />
+          <div className="absolute bottom-0 right-0 top-28 hidden w-px bg-slate-800 dark:block" />
           <div className="sticky top-[4.5rem] -ml-0.5 h-[calc(100vh-4.5rem)] overflow-y-auto overflow-x-hidden py-16 pl-0.5">
             <Navigation
               navigation={navigation}
@@ -290,7 +342,7 @@ export function Layout({ children, title, tableOfContents }) {
             />
           </div>
         </div>
-        <div className="min-w-0 max-w-2xl flex-auto px-4 py-16 lg:max-w-none lg:pr-0 lg:pl-8 xl:px-16">
+        <div className="min-w-0 max-w-2xl flex-auto px-4 py-16 lg:max-w-none lg:pl-8 lg:pr-0 xl:px-16">
           <article>
             {(title || section) && (
               <header className="mb-9 space-y-1">
@@ -306,7 +358,10 @@ export function Layout({ children, title, tableOfContents }) {
                 )}
               </header>
             )}
-            <MobileToC tableOfContents={tableOfContents} className="xl:hidden" />
+            <MobileToC
+              tableOfContents={tableOfContents}
+              className="xl:hidden"
+            />
             <Prose>{children}</Prose>
           </article>
           <dl className="mt-12 flex border-t border-slate-200 pt-6 dark:border-slate-800">
