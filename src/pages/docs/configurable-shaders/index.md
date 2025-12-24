@@ -15,6 +15,8 @@ A configurable shader is a shader that is made up of one or multiple modules pro
 
 If you ever wanted to "add LTCGI to VertexAnimation shader" or "have support for distance Dither Fade in the Layered Material shader" this tool is for you!
 
+You can also use it to create an Uber shader that combines all the inidivudl features you want, so then objects using them can be batched together.
+
 ## Creating a new Shader
 
 Making a new Configurable Shader is super easy! Just right click in your project window and select Create -> Shader -> orels1 -> Configurable Shader. Give it a name at the top of the inspector that opened and you're good to go!
@@ -48,6 +50,16 @@ Now you can add the desired module in the modules list and it will be "stacked" 
 ![Vertex Animation with LTCGI](/img/docs/root/configurable-shaders/configurable-shaders-image-3.png "Vertex Animation with LTCGI")
 
 And that's it! You can use this new shader as you would any other in your project, and it will benefit from any future updates I make to either base shaders or the modules.
+
+## Finding Modules
+
+The full list of modules is only available within Unity when you condifure the shaders using the Inspector.
+
+However, modules that aren't included in any shaders by default are also listed under the Modules section [of the shaders list](/docs/shaders-list), as well as under the Modules section of the sidebar menu.
+
+## Custom Modules
+
+If you have shader developers on your team, or you're comfortable writing shaders yourself, you can also create your own modules and use them via Configurable Shaders by simply checking the "Custom Module" checkbox in the inspector and selecting your custom module file (`*.orlsource`).
 
 ## Things to keep in mind
 

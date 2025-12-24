@@ -13,6 +13,7 @@ import Image from 'next/image'
 import logoImage from '@/images/orl.png'
 import Banner from './Banner'
 import MobileToC from './MobileToC'
+import DevBanner from './DevBanner'
 
 const navigation = [
   {
@@ -31,6 +32,18 @@ const navigation = [
     ],
   },
   {
+    title: 'Changelog',
+    link: { title: 'Changelog', href: '/docs/changelog' },
+  },
+  {
+    title: 'Migration Guides',
+    links: [
+      { title: 'General Overview', href: '/docs/migration' },
+      { title: 'Migrating from v6.x to v7.x', href: '/docs/migration/v6-to-v7' },
+      { title: 'Migrating to v6.x', href: '/docs/migration/any-to-v6' },
+    ]
+  },
+  {
     title: 'Standard Shaders (PBR)',
     links: [
       { title: 'Base Shader', href: '/docs/orl-standard/base-shader' },
@@ -39,12 +52,16 @@ const navigation = [
         href: '/docs/orl-standard/audio-link',
       },
       { title: 'Color Randomisation', href: '/docs/orl-standard/color-randomisation' },
+      { title: 'Decals', href: '/docs/orl-standard/decals' },
       { title: 'Dissolve', href: '/docs/orl-standard/dissolve' },
       { title: 'Dither Fade', href: '/docs/orl-standard/dither-fade' },
+      { title: 'Foliage', href: '/docs/orl-standard/foliage' },
       { title: 'Glass', href: '/docs/orl-standard/glass' },
+      { title: 'Hotspotting', href: '/docs/orl-standard/hotspotting' },
       { title: 'Layered Material', href: '/docs/orl-standard/layered-material' },
       { title: 'Layered Parallax', href: '/docs/orl-standard/layered-parallax' },
       { title: 'LTCGI', href: '/docs/orl-standard/ltcgi' },
+      { title: 'AreaLit', href: '/docs/orl-standard/arealit' },
       { title: 'Neon Light', href: '/docs/orl-standard/neon-light' },
       { title: 'Puddles', href: '/docs/orl-standard/puddles' },
       { title: 'Pulse', href: '/docs/orl-standard/pulse' },
@@ -53,13 +70,15 @@ const navigation = [
       { title: 'Vertex Animation', href: '/docs/orl-standard/vertex-animation' },
       { title: 'Vertical Fog', href: '/docs/orl-standard/vertical-fog' },
       { title: 'Video Screen', href: '/docs/orl-standard/video-screen' },
+      { title: 'VRSL GI', href: '/docs/orl-standard/vrslgi' },
     ],
   },
   {
     title: 'Toon Shaders',
     links: [
-      { title: 'Base Shader', href: '/docs/toon/base-shader' },
+      { title: 'Base Shader (v2)', href: '/docs/toon/v2' },
       { title: 'UV Discard', href: '/docs/toon/uv-discard' },
+      { title: 'Legacy Shader (v1)', href: '/docs/toon/base-shader' },
     ],
   },
   {
@@ -87,14 +106,18 @@ const navigation = [
     ],
   },
   {
-    title: 'Changelog',
-    link: { title: 'Changelog', href: '/docs/changelog' },
+    title: 'Configurable Shaders',
+    link: { title: 'Configurable Shaders', href: '/docs/configurable-shaders' },
   },
   {
-    title: 'Migration Guides',
+    title: 'Modules',
     links: [
-      { title: 'General Overview', href: '/docs/migration' },
-      { title: 'Migrating to v6.x', href: '/docs/migration/any-to-v6' },
+      { title: 'Custom GI Diffuse Ramp', href: '/docs/configurable-shaders/modules/custom-gi-diffuse-ramp' },
+      { title: 'Depth Fade', href: '/docs/configurable-shaders/modules/depth-fade' },
+      { title: 'Dither Fade', href: '/docs/configurable-shaders/modules/dither-fade' },
+      { title: 'Masked Tweaks', href: '/docs/configurable-shaders/modules/masked-tweaks' },
+      { title: 'SSR', href: '/docs/configurable-shaders/modules/ssr' },
+      { title: 'Vertex Colors', href: '/docs/configurable-shaders/modules/vertex-colors' },
     ]
   },
   {
@@ -111,6 +134,7 @@ const navigation = [
       { title: 'Creating Modules', href: '/docs/generator/creating-modules' },
       { title: 'Creating Lighting Models', href: '/docs/generator/creating-lighting-models' },
       { title: 'Templates', href: '/docs/generator/templates' },
+      { title: 'Project Settings', href: '/docs/generator/project-settings' },
     ]
   },
   {
@@ -240,10 +264,11 @@ export function Layout({ children, title, tableOfContents }) {
 
   return (
     <>
+      <DevBanner />
       <Banner
-        title="Version 6.3.0 is out!"
-        bannerKey="v6.3.0"
-        description="LOD Crossfade and VRCFallback support!"
+        title="Version 7.0.0 is out!"
+        bannerKey="v7.0.0"
+        description="Toon Shader v2, Hotspotting, in-shader Tonemapping, Light Volumes, SSR, and so much more!"
         cta="Get it now"
         ctaLink="/docs/installation"
         changelogLink="/docs/changelog"

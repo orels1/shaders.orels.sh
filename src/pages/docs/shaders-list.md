@@ -21,4 +21,6 @@ The ORL Shader package includes a variety of shaders split into multiple categor
 
 ---
 
+If you can't find exactly what you're looking for in the list below, you can also trying creating your own combianations using [Configurable Shaders](/docs/configurable-shaders).
+
 {% shader-list /%}

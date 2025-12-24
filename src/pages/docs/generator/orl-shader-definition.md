@@ -80,6 +80,7 @@ You should use `self` to include current shader's module in a specific spot
     "@/Modules/AudioLink", // include a module from the generator package
     "@/Shaders/ORL Standard", // include a base shader form the shaders package
     "../MyModule", // include a module from the parent folder,
+    "Assets/OtherModule", // include a module from the project folder,
     "self" // mount point for the current shader
 }
 ```
@@ -92,6 +93,14 @@ To make the development process nice and easy, a lot of things come pre-included
 - A pack of Utility functions like `remap`, `invLerp`, `HSV2RGB`, etc (check out `Utilities.orlsource` in the generator package)
 - A CoreRP sampling library for unified cross-platform cross-pipleine sampling macros
 {% /callout %}
+
+### `%CheckedInclude(string path)`
+
+Includes a shader include file (e.g. a `.cginc` or `.hlsl`) if that file actually exists on disk. This is useful when working around conitional includes via keywords that sometimes produce errors in console.
+
+```hlsl
+%CheckedInclude("Assets/MyCustomStuff/MyInclude.cginc")
+```
 
 ### `%Properties()`
 
@@ -146,7 +155,7 @@ Contains a list of top-level tags that will be appended to the `Tags { }` list
 }
 ```
 
-### `%ShaderTags()`
+### `%PassTags()`
 
 Same as [ShaderTags](#shadertags) but for individual passes
 
@@ -195,6 +204,21 @@ Some built-in LightingModels (like Toon and PBR) also support modifying other pa
 }
 ```
 
+`%PassModifiers` are resolved in the order of inclusion. For example, if you have a `%PassModifiers()` block in your `.orlshader` file directly - its values will override the values in the `FragmentBase` files of your lighting model.
+
+### `%ShaderModifiers()`
+
+Same as `%PassModifiers()` but for the entire shader. You can override the Shader Modifiers by specifying individual Pass Modifiers
+
+```hlsl
+%ShaderModifiers()
+{
+    ZWrite Off
+}
+```
+
+`%ShaderModifiers` are resolved in the order of inclusion. For example, if you have a `%ShaderModifiers()` block in your `.orlshader` file directly - its values will override the values in the `FragmentBase` files of your lighting model.
+
 ### `%Variables`
 
 Contains a list of variables used in the pass. You must declare all the shared variables (like the ones bound to the properties) here so they can be de-duplicated across all included modules
@@ -240,6 +264,10 @@ You must provide a function name, and it must be unique across all included modu
 ### `%Vertex(string functionName)`
 
 Same as [Fragment](#fragmentstring-functionname) but now its injected into the vertex stage
+
+### `%PostVertex(string functionName)`
+
+Same as [Vertex](#vertexstring-functionname) but this one is injected after the main `VertexBase` function of the Lighting Model. This is useful if you want to modify the vertex data after the main vertex function has already run.
 
 ### `%Color(string functionName)`
 
@@ -352,14 +380,129 @@ All of the LibraryFunctions, however, including the sampling library and utiliti
 }
 ```
 
+### `%ExtraPass(string passName, ExtraPassType type, ExtraPassInheritType inheritType)`
+
+Contains blocks for an extra pass. This allows you to add extra generated passes to the shader, which will leverage all of the features of existing passes.
+
+{% callout type="note" title="Template Requiremenets" %}
+This requires an `ExtraPass` template to be available for the current template. E.g. if the current template is `Toon`, then the `ToonExtraPass.orltemplate` file must be present somewhere Shader Generator can find it. Which, at the moment, means it must be in the same `Templates` folder.
+{% /callout %}
+
+These passes are inserted at `%ExtraPrePasses` and `%ExtraPasses` hooks. You can define where you want the pass to be inserted by using the `ExtraPassType` enum. E.g. `%ExtraPass("MyPass", ExtraPassType.PrePass)` will insert the pass before the main passes, while `%ExtraPass("MyPass", ExtraPassType.PostPass)` will insert it after the main passes.
+
+If no `ExtraPassType` is specified, the pass will be inserted as a post pass.
+
+You can nest most of the block types inside the `%ExtraPass`. It will also inherit all the blocks of the current shader apart from any function blocks, e.g. `%Vertex`, `%Fragment`, etc. Those are expected to be defined in the `%ExtraPass` block to implement your desired effect.
+
+If you want to skip inheriting any of the blocks - you can provide an optional `inheritType` parameter. Simply pass `ExtraPassInheritType.SkipParentBlocks` as the third parameter and the generator would only use the blocks directly included inside the `%ExtraPass()` block, which can be useful for making bespoke effects with custom vertex/fragment or even geometry stages.
+
+Current ExtraPass templates are using `ForwardBase` light mode.
+
+```hlsl
+%ExtraPass("Wave")
+{
+    %PassModifiers()
+    {
+        Blend One One
+    }
+
+    %Vertex("WaveVertex")
+    {
+        void WaveVertex(inout VertexData v)
+        {
+            float mask = sin(_Time.y * .8 - v.vertex.x * 0.1) * 0.5 + 0.5;
+            v.vertex.y += (sin(_Time.y * 1.2 + length(v.uv0.xy) * 10)) * 0.5 * mask + 0.8 * mask;
+        }
+    }
+
+    %Fragment("WaveFragment")
+    {
+        void WaveFragment(MeshData d, inout SurfaceData o)
+        {
+            float mask = sin(_Time.y * 0.8 - d.localSpacePosition.x * 0.1) * 0.5 + 0.5;
+            o.Albedo = _Color;
+            o.Albedo *= mask;
+        }
+    }
+}
+```
+
 ## Optional Features
 
 The built-in templates allow you to enable optional features by specifying some special defines in your `%ShaderDefines` section
 
-- `NEED_DEPTH`: Adds the depth texture macro, which creates a depth texture as `_CameraDepthTexture`
 - `NEED_FRAGMENT_IN_SHADOW`: Forces the shadowcaster pass to execute all of the included fragment functions (except the lighting calculation), useful if you want to utilize the final calculated alpha to augment the shadow silhouette.
 - `NEED_FRAGMENT_IN_PREPASS`: When using Toon template with `PrePass` `TemplateFeature` enabled - forces the prepass to execute all of the included fragment functions. Majority of the time, to save performance, you probably want to reimplement the bare minimum of the calculations inside a custom `PrePassColor` function instead of using this define.
-- `EXTRA_V2F_0`, `EXTRA_V2F_1`, `EXTRA_V2F_2`, `EXTRA_V2F_3`: Tells the the templates to compile in extra float4s in the Vertex stage so you can pass some custom data to your Fragment stage, see the struct definition below
+- `EXTRA_V2F_0`, `EXTRA_V2F_1`, `EXTRA_V2F_2`, `EXTRA_V2F_3`: Tells the templates to compile in extra float4s in the Vertex stage so you can pass some custom data to your Fragment stage, see the struct definition below
+- `NEED_UV4`, `NEED_UV5`, `NEED_UV6`, `NEED_UV7`: Tells the templates to include UV channels 4-7 in the Vertex stage and pass them to the Fragment stage.
+- `NEED_SV_DEPTH`, `NEED_SV_DEPTH_LEQUAL`: Enables support for outputting depth value from the fragment stage. Simply define `inout float depth` in your modules to adjust the clip-space depth value. Only available in the PBR Lighting Model.
+- `_INTEGRATE_CUSTOMGI`: **LEGACY** Enables support for custom GI injection on top of built-in GI. Only avaible in the PBR Lighting Model.
+  - You must define a function of the following signature inside of the `%Fragment()` block `IntegrateCustomGI(MeshData d, SurfaceData o, inout half3 indirectSpecular, inout half3 indirectDiffuse)`. This function will be called if the `_INTEGRATE_CUSTOMGI` is defined.
+  - Check out `Packages/sh.orels.shaders.generator/Runtime/Sources/Modules/LTCGI.orlsource` for reference.
+- `NEED_FOG`: Enables fog calculations in VFX shaders
+- `FOG_DISABLED`: Disables fog calculations in the Toon-based shader
+- `_INTEGRATE_CUSTOMGI_FLEX`: Enables support for custom GI injection on top of the built-in GI in the PBR Lighting Model. Compared to `_INTEGRATE_CUSTOMGI`, this version allows you to define a function with an arbitrary call signature, which is useful for more complex GI implementations.s
+
+```hlsl
+%CustomGI("MyGIFunction")
+{
+    void MyGIFunction(MeshData d, inout half3 indirectSpecular)
+    {
+        indirectSpecular += pow(saturate(dot(d.worldNormal, d.worldSpaceViewDirection)), 10);
+    }
+}
+```
+
+Since the call sign is arbitrary - you can access any variable available in the PBR FragmentBase function's scope at the `%CustomGIFunctions` hook point.
+
+```hlsl
+%CustomGI("MyGIFunction")
+{
+    void MyGIFunction(MeshData d, half3 envBRDF, inout half3 indirectSpecular, inout half3 indirectDiffuse)
+    {
+        indirectDiffuse += envBRDF;
+    }
+}
+```
+
+## Hook Points
+
+You can define hook points within your blocks using the `%HookPoint` syntax
+
+e.g. if you deifne a `%DataStruct` block as follows - youc an then dynamically inject code into it via a different module. This is the most useful for creating custom lighting models, but is not limited to that.
+
+```hlsl
+%DataStructs()
+{
+    struct MyData
+    {
+        float4 color;
+        float smoothness;
+
+        %AdditionalData
+    }
+}
+```
+
+Now in another module file - you can inject code into the `%AdditionalData` hook point
+
+```hlsl
+%AdditionalData()
+{
+    float3 normal;
+}
+```
+
+In the build-in templates - there are various `%AdditionalData` hooks that you can use to inject data into most of the main structs
+
+### Built-in Hook Points
+
+- `%AdditionalSurfaceData`: Allows you to pass more data from your modules to the final lighting calculation function (FragmentBase)
+- `%AdditionalMeshData`: Allows you to pass more data to every fragment-related module before they get executed
+  - To initialize the data - you can use the `%AdditionalMeshDataCreator` hook point. It will be executed directly in the `CreateMeshData` function
+- `%AdditionalMeshDataCreator`: Injects code into the `CreateMeshData` function allowing you to add/modify mesh data before it gets passed to the fragment functions
+- `%AddtionalFragmentData`: Allows you to pass more data between vertex and fragment stages
+  - Exceptionally useful in combination with the `%AdditionalMeshData` hook point
 
 ## Mesh and Surface Data
 
@@ -387,10 +530,10 @@ struct VertexData
     float3 normal : NORMAL;
     float4 tangent : TANGENT;
     float4 color : COLOR;
-    float2 uv0 : TEXCOORD0;
-    float2 uv1 : TEXCOORD1;
-    float2 uv2 : TEXCOORD2;
-    float2 uv3 : TEXCOORD3;
+    float4 uv0 : TEXCOORD0;
+    float4 uv1 : TEXCOORD1;
+    float4 uv2 : TEXCOORD2;
+    float4 uv3 : TEXCOORD3;
     UNITY_VERTEX_INPUT_INSTANCE_ID
 };
 ```

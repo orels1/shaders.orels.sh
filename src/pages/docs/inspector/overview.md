@@ -9,10 +9,9 @@ ORL Shader Inspector is a Property-based shader GUI system for Unity. It is desi
 
 ![ORL Shader Inspector used for ORL Standard shader](/img/docs/inspector/overview-banner.png "ORL Shader Inspector used for ORL Standard shader")
 
-
 ## Features
 
-- H1 and H2 headers
+- H1, H2, and H3 headers
 - Headers acting as foldouts with default expanded states
 - Min/Max Sliders
 - Gradients generator
@@ -22,7 +21,9 @@ ORL Shader Inspector is a Property-based shader GUI system for Unity. It is desi
 - Texture Packing
 - Keyword debugging
 - Presets
-- Settings props based on other props
+- Setting props based on other props
+
+And many more...
 
 ## Installation
 
@@ -70,7 +71,7 @@ When using ORL Shader Generator, you can use it by simply adding the following b
 
 ### Headers
 
-Headers are used to group properties together. The H1 top-level headers generate foldouts, while H2 headers simply appear as bold labels.
+Headers are used to group properties together. The H1 top-level headers generate foldouts, while H2 headers simply appear as bold labels. H3 is uses the minibold label style.
 
 To add a header, simply add the following property to the list of your shader properties
 
@@ -82,7 +83,7 @@ UI_SomeHeader("# Some Header", Int) = 0
 
 The default value you provide will specify if the section will be expanded or collapsed by default. So if you pass `1` - the section will be expanded.
 
-H2 headers are added in a similar fashion, although the default value does not matter as they aren't foldouts
+H2 headers are added in a similar fashion, although the default value does not matter as they aren't foldouts. Same goes for H3.
 
 ```hlsl
 UI_SomeSubheader("## Some Subheader", Int) = 0
@@ -93,6 +94,14 @@ UI_SomeSubheader("## Some Subheader", Int) = 0
 {% callout type="note" %}
 Prefix your properties with `UI` so they won't ever clash with any shader properties and clearly indicate that they do not bear any shader-specific meaning.
 {% /callout %}
+
+### Horizontal Separators
+
+You can add horizontal separators in the Shader Inspector via `---`
+
+```hlsl
+UI_Separator("---", Int) = 0
+```
 
 ### Min/Max Sliders
 
@@ -354,6 +363,127 @@ The `%OverrideTag()` function allows you to do exactly that
 ```
 
 The above code sets the `VRCFallback` tag to either Standard or Toon based on the selected value
+
+### Bakery Volume Assigner
+
+Allows you to assign bakery volume textures to a material by drag & dropping the Volume object onto a field.
+
+```hlsl
+UI_BakeryVolumeAssigner("Volume Assigner %BakeryVolumeAssigner()", Int) = 0
+```
+
+Shows an "Unset Volume" button if some data is set.
+
+### Vector 2 Field
+
+Shows a Vector 2 field for a vector property, instead of a usual Vector4. Can be used with custom names for each vector component
+
+```hlsl
+_HotspotDirtMaskParams("Edge Masking %Vector2(Mask Min, Mask Max)", Vector) = (0, 100, 0, 0)
+```
+
+The names are mandatory.
+
+### Vector 3 Field
+
+Shows a Vector 3 field for a vector property, instead of a usual Vector4. Can be used with custom names for each vector component
+
+```hlsl
+_HSVAdjustment("HSV %Vector3(Hue, Saturation, Value)", Vector) = (0, 0, 0, 0)
+```
+
+The names are mandatory.
+
+### Setting Render Type
+
+If you want to replicate Unity Standard Shader's render type dropdown, you can use the `%RenderType()` drawer function.
+
+```hlsl
+_RenderType("Render Type %RenderType(_BlendOp, _SrcBlend, _DstBlend, _BlendOpAlpha, _SrcBlendAlpha, _DstBlendAlpha, _ZWrite)", Int) = 0
+```
+
+Then you could use the values set by this function inside your shader like this
+
+```hlsl
+
+SubShader
+{
+    Tags { "RenderType" = "Opaque" }
+
+    BlendOp [_BlendOp], [_BlendOpAlpha]
+    Blend [_SrcBlend] [_DstBlend], [_SrcBlendAlpha] [_DstBlendAlpha]
+    ZWrite [_ZWrite]
+
+    CGINCLUDE
+    // ...
+}
+```
+
+Note that the PBR and VFX lighting models already has this functionality built-in, so you don't need to set this up yourself. However, when using a custom lighting model or when using inspector with regular unity shaders - this is a commonly used feature.
+
+### Special Tags
+
+Some of the inspector functionality can be controlled via special tags.
+
+#### `ORL_RenderType`
+
+This tag allows you to enforce a particular value of the render type enabled by the [%RenderType() drawer](#setting-render-type), prevent the user from changing it.
+
+```hlsl
+Tags { "ORL_RenderType" = "Cutout" }
+```
+
+Supported values are `Opaque`, `Cutout`, `Transparent`, `Fade`, and `Custom`. The values are case-insensitive, but the tag name is case-sensitive.
+
+### Forcing Render Type
+
+If you want to force a particular render type when a property is enabled, you can use the `%ForceRenderType()` function.
+
+```hlsl
+[Toggle(GLASS)]_Glass("Enable Glass %ForceRenderType(Transparent), Int) = 0
+```
+
+Now when the user checks the "Enable Glass" toggle - the render type will be forced to "Transparent".
+
+{%callout type="note" title="%RenderType() requirement" %}
+This requires the shader to have a `%RenderType()` function present in some other property, as otherwise the inspector won't know which properties are used to set render type parameters.
+{% /callout %}
+
+You can also provide more parameters to the function, for example, you can pass a specific queue number to set it alongside the render type.
+
+```hlsl
+[Toggle(GLASS)]_Glass("Enable Glass %ForceRenderType(Custom, 2501), Int) = 0
+```
+
+In this case - the render type will be set to "Custom" and the queue number will be 2501.
+
+In some scenarios you might also have some types that are compatible with what you want to force, and if they are alredy set - you might want to keep them (to preserve the user's settings).
+
+In this case, you can define up to 3 compatible types, and the inspector will only set the render type if the property is set to anything but one of those types.
+
+```hlsl
+[Toggle(GLASS)]_Glass("Enable Glass %ForceRenderType(Transparent, 3000, Fade), Int) = 0
+```
+
+In this case, the render type will only be forced only if it isn't already set to Transparent or Fade.
+
+### Enabling/Disabling passes by LightMode
+
+Unity allows you to enable/disable passes based on their respective LihgtMode.
+This is rarely useful, but in cases where you want to optionally enable, for example, a GrabPass - it can be incredibly handy.
+
+```hlsl
+[ToggleUI]_EnableGrabPass("Enable GrabPass %EnablePass(GrabPass)", Int) = 0
+```
+
+Now in your shader, if you give your grabpass a `LightMode = GrabPass` tag, it will only be enabled if the `_EnableGrabPass` property is set to `1`.
+
+```hlsl
+GrabPass {
+  Tags { "LightMode" = "GrabPass" }
+  "_GrabTexture
+}
+```
 
 ### Combine and Experiment
 

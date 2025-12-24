@@ -14,6 +14,8 @@ A set of glitch effects overlaid on top of a fake CRT shader. Inspired by Stray
 ## General Settings
 
 - Base Texture: the base texture of the poster to be used for the glitch effect
+- Separate Transparency Texture: Used only when **Render Type** is set to anything other than Opaque. This allows you to specify a separate **Transparency** texture that will be used for the alpha channel.
+- Transparency: Only visible when **Separate Transparency Texture** is enabled. Controls the alpha of the material
 - Emission: controls the emission of the **Base Texture**. When using **Subpixel Effect** it is recommended to set the emission intensity higher
 - Effects Cycle Speed: controls the overall frequency of the glitch effects
 

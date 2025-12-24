@@ -9,13 +9,16 @@ const SHADERS = [
     { name: 'Base Shader', href:'/docs/orl-standard/base-shader', type: 'PBR', fullName: 'orels1/Standard' },
     { name: 'Audio Link', href:'/docs/orl-standard/audio-link', type: 'PBR', fullName: 'orels1/Standard AudioLink' },
     { name: 'Color Randomisation', href:'/docs/orl-standard/color-randomisation', type: 'PBR', fullName: 'orels1/Standard Color Randomisation' },
-    { name: 'Cutout', href:'/docs/orl-standard/base-shader', type: 'PBR', fullName: 'orels1/Standard Cutout' },
+    { name: 'Decals', href:'/docs/orl-standard/decals', type: 'PBR', fullName: 'orels1/Standard Decals' },
     { name: 'Dissolve', href:'/docs/orl-standard/dissolve', type: 'PBR', fullName: 'orels1/Standard Dissolve' },
     { name: 'Dither Fade', href:'/docs/orl-standard/dither-fade', type: 'PBR', fullName: 'orels1/Standard Dither Fade' },
+    { name: 'Foliage', href: '/docs/orl-standard/foliage', type: 'PBR', fullName: 'orels1/Standard Foliage' },
     { name: 'Glass', href:'/docs/orl-standard/glass', type: 'PBR', fullName: 'orels1/Standard Glass' },
+    { name: 'Hotspotting', href:'/docs/orl-standard/hotspotting', type: 'PBR', fullName: 'orels1/Standard Hotspotting' },
     { name: 'Layered Material', href:'/docs/orl-standard/layered-material', type: 'PBR', fullName: 'orels1/Standard Layered Material' },
     { name: 'Layered Parallax', href:'/docs/orl-standard/layered-parallax', type: 'PBR', fullName: 'orels1/Standard Layered Parallax' },
     { name: 'LTCGI', href:'/docs/orl-standard/ltcgi', type: 'PBR', fullName: 'orels1/Standard LTCGI' },
+    { name: 'AreaLit', href:'/docs/orl-standard/arealt', type: 'PBR', fullName: 'orels1/Standard AreaLit' },
     { name: 'Neon Light', href:'/docs/orl-standard/neon-light', type: 'PBR', fullName: 'orels1/Standard Neon Light' },
     { name: 'Puddles', href:'/docs/orl-standard/puddles', type: 'PBR', fullName: 'orels1/Standard Puddles' },
     { name: 'Pulse', href:'/docs/orl-standard/pulse', type: 'PBR', fullName: 'orels1/Standard Pulse' },
@@ -24,11 +27,14 @@ const SHADERS = [
     { name: 'Vertex Animation', href:'/docs/orl-standard/vertex-animation', type: 'PBR', fullName: 'orels1/Standard Vertex Animation' },
     { name: 'Vertical Fog', href:'/docs/orl-standard/vertical-fog', type: 'PBR', fullName: 'orels1/Standard Vertical Fog' },
     { name: 'Video Screen', href:'/docs/orl-standard/video-screen', type: 'PBR', fullName: 'orels1/Standard Video Screen' },
-    { name: 'Toon', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Main' },
-    { name: 'Toon Transparent', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Transparent' },
-    { name: 'Toon Transparent PrePass', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Transparent PrePass' },
-    { name: 'Toon Cutout', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Cutout' },
-    { name: 'Toon UV Discard', href:'/docs/toon/uv-discard', type: 'Toon', fullName: 'orels1/Toon/UV Discard' },
+    { name: 'VRSL GI', href:'/docs/orl-standard/vrslgi', type: 'PBR', fullName: 'orels1/Standard VRSL GI' },
+    { name: 'Toon v2', href:'/docs/toon/v2/', type: 'Toon', fullName: 'orels1/Toon/v2/Main' },
+    { name: 'Toon Transparent', href:'/docs/toon/v2/', type: 'Toon', fullName: 'orels1/Toon/v2/Transparent' },
+    { name: 'Toon Transparent PrePass', href:'/docs/toon/v2/', type: 'Toon', fullName: 'orels1/Toon/v2/Transparent PrePass' },
+    { name: 'Toon LTCGI', href:'/docs/toon/v2/', type: 'Toon', fullName: 'orels1/Toon/v2/LTCGI' },
+    { name: 'Toon LTCGI Cutout', href:'/docs/toon/v2/', type: 'Toon', fullName: 'orels1/Toon/v2/LTCGI Cutout' },
+    { name: 'Toon Cutout', href:'/docs/toon/v2/', type: 'Toon', fullName: 'orels1/Toon/v2/Cutout' },
+    { name: 'Toon (Legacy)', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Main' },
     { name: 'Clouds', href:'/docs/vfx/clouds', type: 'VFX', fullName: 'orels1/VFX/Clouds' },
     { name: 'Dither Fade', href:'/docs/orl-standard/dither-fade', type: 'VFX', fullName: 'orels1/VFX/Dither Fade' },
     { name: 'Ghost Lines', href:'/docs/vfx/ghost-lines', type: 'VFX', fullName: 'orels1/VFX/Ghost Lines' },
@@ -55,15 +61,18 @@ const SHADERS = [
   ] },
   { name: 'PBR', shaders: [
     { name: 'Base Shader', href:'/docs/orl-standard/base-shader', type: 'PBR', fullName: 'orels1/Standard' },
-    { name: 'Cutout', href:'/docs/orl-standard/base-shader', type: 'PBR', fullName: 'orels1/Standard Cutout' },
     { name: 'Audio Link', href:'/docs/orl-standard/audio-link', type: 'PBR', fullName: 'orels1/Standard AudioLink' },
     { name: 'Color Randomisation', href:'/docs/orl-standard/color-randomisation', type: 'PBR', fullName: 'orels1/Standard Color Randomisation' },
+    { name: 'Decals', href:'/docs/orl-standard/decals', type: 'PBR', fullName: 'orels1/Standard Decals' },
     { name: 'Dissolve', href:'/docs/orl-standard/dissolve', type: 'PBR', fullName: 'orels1/Standard Dissolve' },
     { name: 'Dither Fade', href:'/docs/orl-standard/dither-fade', type: 'PBR', fullName: 'orels1/Standard Dither Fade' },
+    { name: 'Foliage', href: '/docs/orl-standard/foliage', type: 'PBR', fullName: 'orels1/Standard Foliage' },
     { name: 'Glass', href:'/docs/orl-standard/glass', type: 'PBR', fullName: 'orels1/Standard Glass' },
+    { name: 'Hotspotting', href:'/docs/orl-standard/hotspotting', type: 'PBR', fullName: 'orels1/Standard Hotspotting' },
     { name: 'Layered Material', href:'/docs/orl-standard/layered-material', type: 'PBR', fullName: 'orels1/Standard Layered Material' },
     { name: 'Layered Parallax', href:'/docs/orl-standard/layered-parallax', type: 'PBR', fullName: 'orels1/Standard Layered Parallax' },
     { name: 'LTCGI', href:'/docs/orl-standard/ltcgi', type: 'PBR', fullName: 'orels1/Standard LTCGI' },
+    { name: 'AreaLit', href:'/docs/orl-standard/arealt', type: 'PBR', fullName: 'orels1/Standard AreaLit' },
     { name: 'Neon Light', href:'/docs/orl-standard/neon-light', type: 'PBR', fullName: 'orels1/Standard Neon Light' },
     { name: 'Puddles', href:'/docs/orl-standard/puddles', type: 'PBR', fullName: 'orels1/Standard Puddles' },
     { name: 'Pulse', href:'/docs/orl-standard/pulse', type: 'PBR', fullName: 'orels1/Standard Pulse' },
@@ -72,13 +81,16 @@ const SHADERS = [
     { name: 'Vertex Animation', href:'/docs/orl-standard/vertex-animation', type: 'PBR', fullName: 'orels1/Standard Vertex Animation' },
     { name: 'Vertical Fog', href:'/docs/orl-standard/vertical-fog', type: 'PBR', fullName: 'orels1/Standard Vertical Fog' },
     { name: 'Video Screen', href:'/docs/orl-standard/video-screen', type: 'PBR', fullName: 'orels1/Standard Video Screen' },
+    { name: 'VRSL GI', href:'/docs/orl-standard/vrslgi', type: 'PBR', fullName: 'orels1/Standard VRSL GI' },
   ] },
   { name: 'Toon', shaders: [
-    { name: 'Toon', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Main' },
-    { name: 'Toon Transparent', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Transparent' },
-    { name: 'Toon Transparent PrePass', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Transparent PrePass' },
-    { name: 'Toon Cutout', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Cutout' },
-    { name: 'Toon UV Discard', href:'/docs/toon/uv-discard', type: 'Toon', fullName: 'orels1/Toon/UV Discard' },
+    { name: 'Toon v2', href:'/docs/toon/v2/', type: 'Toon', fullName: 'orels1/Toon/v2/Main' },
+    { name: 'Toon Transparent', href:'/docs/toon/v2/', type: 'Toon', fullName: 'orels1/Toon/v2/Transparent' },
+    { name: 'Toon Transparent PrePass', href:'/docs/toon/v2/', type: 'Toon', fullName: 'orels1/Toon/v2/Transparent PrePass' },
+    { name: 'Toon LTCGI', href:'/docs/toon/v2/', type: 'Toon', fullName: 'orels1/Toon/v2/LTCGI' },
+    { name: 'Toon LTCGI Cutout', href:'/docs/toon/v2/', type: 'Toon', fullName: 'orels1/Toon/v2/LTCGI Cutout' },
+    { name: 'Toon Cutout', href:'/docs/toon/v2/', type: 'Toon', fullName: 'orels1/Toon/v2/Cutout' },
+    { name: 'Toon (Legacy)', href:'/docs/toon/base-shader', type: 'Toon', fullName: 'orels1/Toon/Main' },
   ] },
   { name: 'VFX', shaders: [
     { name: 'Clouds', href:'/docs/vfx/clouds', type: 'VFX', fullName: 'orels1/VFX/Clouds' },
@@ -108,6 +120,14 @@ const SHADERS = [
     { name: 'UI Video Screen', href:'/docs/orl-standard/video-screen', type: 'PBR', fullName: 'orels1/UI/Video Screen' },
     { name: 'UI Video Screen Overlay', href:'/docs/orl-standard/video-screen', type: 'PBR', fullName: 'orels1/UI/Video Screen Overlay' },
   ] },
+  { name: 'Modules', shaders: [
+    { name: 'Custom GI Diffuse Ramp', href:'/docs/configurable-shaders/modules/custom-gi-diffuse-ramp', type: 'Any', fullName: 'CustomGIDiffuseRamp' },
+    { name: 'Depth Fade', href:'/docs/configurable-shaders/modules/depth-fade', type: 'Any', fullName: 'DepthFade' },
+    { name: 'Dither Fade', href:'/docs/configurable-shaders/modules/dither-fade', type: 'Any', fullName: 'DitherFade' },
+    { name: 'Masked Tweaks', href:'/docs/configurable-shaders/modules/masked-tweaks', type: 'Any', fullName: 'MaskedTweaks' },
+    { name: 'SSR', href:'/docs/configurable-shaders/modules/ssr', type: 'PBR', fullName: 'SSR' },
+    { name: 'Vertex Colors', href:'/docs/configurable-shaders/modules/vertex-colors', type: 'Any', fullName: 'VertexColors' },
+  ]}
 ]
 
 export default function ShaderList() {
@@ -166,12 +186,9 @@ export default function ShaderList() {
         <div className="grid grid-cols-1 gap-2 mt-2 sm:grid-cols-2">
           {SHADERS[selected].shaders.filter(sh => sh.name.toLowerCase().includes(filter.toLowerCase())).map((shader) => (
             <div
-              key={shader.name}
+              key={shader.fullName}
               className="relative flex px-4 pt-2 items-center space-x-3 rounded-md border border-gray-300 hover:dark:border-gray-600 dark:border-gray-700 bg-white/5"
             >
-              {/* <div className="flex-shrink-0">
-                <img className="h-10 w-10 rounded-full" src={person.imageUrl} alt="" />
-              </div> */}
               <div className="min-w-0 flex-1">
                 <Link href={shader.href} className="focus:outline-none">
                   <span className="absolute inset-0" aria-hidden="true" />

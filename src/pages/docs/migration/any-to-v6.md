@@ -3,8 +3,6 @@ title: Migration to v6
 description: How to migrate from any version prior to v6 to v6.x
 ---
 
-# Migrating to v6
-
 Migrating to the v6 versions is a 3 step process. This version is a complete rewrite with a totally new shader architecture. This means that all the old shaders are gone, and you will need to migrate your materials to the new shaders.
 
 ## Step 1: Import the new shaders

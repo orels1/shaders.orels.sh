@@ -14,10 +14,12 @@ This shader provides a customizable cutout dissolve effect on top of Standard. I
 ![Dissolve Inspector](/img/docs/orl-standard/dissolve/dissolve-inspector.png "Dissolve Inspector")
 
 - Cutoff: Any pixels with an alpha value below this value will be cut out
+- Cutoff Range Min/Max: Controls the range of the cutoff value. This can be especially useful when using **Fade Based On** set to Local Position
 - Fade Based On: Controls how the dissolve effect is applied. The values selected here will be then passed to the Alpha channel and used by the **Cutoff** to control the fade
   - Local Position: Fades the dissolve effect based on the mesh local position
   - UV: Fades the dissolve effect based on the UV coordinates
   - Texture: Fades the dissolve effect based on the value of the Fade texture. Generally is expected to be a gradient of some sort
+  - Vertex Colors: Fades the dissolve effect based on the vertex color of the mesh. X/Y/Z are essentially the R/G/B channels of the vertex color
 - Fade Texture: The texture used to fade the dissolve effect. Only used when **Fade Based On** is set to Texture
 - Fade Direction: Controls the direction of the applied fade gradient
   - X/Y: Fade in the X/Y direction

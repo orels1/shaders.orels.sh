@@ -1,7 +1,12 @@
 ---
-title: Toon Shader
+title: Toon Shader (legacy)
 description: Properties and features common to all ORL Toon-based shaders
 ---
+
+{% callout type="warning" title="Legacy Shader" %}
+This version of the Toon shader is now legacy and will no longer be updated.
+It is recommended to use the [Version 2 of the shader](/docs/toon/v2) instead.
+{% /callout %}
 
 ORL Shaders package comes with a fully-featured Toon shader geared towards use in VRChat. It is based on [XSToon](https://github.com/Xiexe/Xiexes-Unity-Shaders), which is a shader package that aims to mimic the lighting of Standard shader with Toon features like Ramp, Rim Lights, Outlines and so on added on top.
 
@@ -47,11 +52,12 @@ This documentation is broken up into modules that correspond to the foldouts in 
 ![Toon Shader Normals](/img/docs/toon/toon-normals-full.png "Toon Shader Normals")
 
 - Normal Map: The normal map of the material
-- Normal Map Scale: Controls the strength of the normal map, can be used to flip the direction as well
-- Flip Y: Flips the Y axis of the normal map, this allows usage of DirectX based normals
+- Normal Map Scale: Controls the strength of the normal map, and can be used to flip the direction as well
+- Flip Y: Flips the Y axis of the normal map, this allows usage of DirectX-based normals
 - Detail Normal: The extra normal map texture to be applied on top. Has its own tiling controls
 - Detail Normal Scale: Controls the strength of the detail normal map
 - Flip Y: Flips the Y axis of the detail normal map
+- Use Bicubic Sampling: Enables a more expensive but higher quality normal map sampling mode. This can be useful for lower resolution/more aliased normal maps.
 - Detail Normal Mask: The mask texture for the detail normal map. Allows you to control where the detail normal is applied
 - UV Set: Controls which UV set the Detail Normals will use
 
@@ -68,6 +74,9 @@ This documentation is broken up into modules that correspond to the foldouts in 
 - Albedo Tint: Controls how much the outline is tinted by the albedo texture
 - Width Mask: Controls the widths of the outline via the red channel of the texture. It will multiply the **Width** value by the texture value
 - Width: Controls the width of the outline
+- Adjust by Vertex Color: Enables adjusting the width of the outline by the vertex color of the mesh. Uses the red channel of the vertex color and multiplies the width by its value.
+- Ignore Stencils: Skips the stencil test for the outline.
+  - This is useful when you want to see outlines on top of the surface of your mesh instead of just around it. E.g. if you have clothing with folding details or things like buttons, you can use this to outline them as well.
 
 {% callout type="note" title="Outline Approach" %}
 ORL Toon uses a pass-based outline, which avoids using geometry shaders, but will have visual splits on hard edges. It does benefit from using stencils, on the other hand, so it works in the Transparent mode as well.
@@ -93,11 +102,13 @@ ORL Toon uses a pass-based outline, which avoids using geometry shaders, but wil
 ## Reflections
 
 Reflections in ORL Toon have 3 modes: PBR, Baked Cubemap and Matcap.
+
 - PBR Reflections follow unity's Metallic-Smoothness workflow and will look very similar to the built-in Standard shader reflections
 - Baked Cubemap work the same way as PBR but use a pre-defined Cubemap texture instead of the environment's Reflection Probes
 - Matcap uses a Matcap texture to simulate reflections. Can be used for many artistic effects
 
 There is one global setting shared between all 3 modes:
+
 - Reflection Blend Mode: Controls how reflections are composited on top of the material. Defaults to Additive
   - Additive: Adds reflections on top of the material
   - Multiply: Multiplies reflections with the material
@@ -190,7 +201,6 @@ The UV layout you should use is similar to the ORL Standard AudioLink effect, wh
 ![UV Layout Reference](/img/docs/orl-standard/audio-link/audio-link-uv-layout.png "UV Layout Reference")
 {% /callout %}
 
-
 ## Emission
 
 ![Toon Shader Emission](/img/docs/toon/toon-emission.png "Toon Shader Emission")
@@ -227,3 +237,17 @@ Rim shadow is an interesting effect that emphasizes the curved shapes of the mes
 - Threshold: Controls how much the rim shadow will be offset by the light direction. 1 - Will only show up in the areas in shadow, 0 - will show up everywhere
 - Sharpness: Controls the sharpness of the rim shadow. If set to 1 - will become a flat color with a sharp edge instead of a smooth gradient
 - Albedo Tint: Controls the amount of albedo tint applied to the rim shadow. Works well with skin materials as it can add a little redness to the shadowed areas
+
+## Advanced Settings
+
+![Toon Advanced Settings](/img/docs/toon/advanced-settings.png "Toon Advanced Settings")
+
+- Culling Mode: Controls the culling applied to the mesh
+  - Back: Culls visible backfaces
+  - Front: Culls visible frontfaces
+  - Off: Renders in double-sided mode
+- Depth Write: Controls whether the object writes to depth
+- Depth Test: Controls how the depth testing is performed, you generally never need to change this
+- Uniform Lightprobe Color: Samples the lightprobe color uniformly instead of using mesh normal directions. Can be useful for more stylized looking lighting.
+- Raise Minimum Light: Increases the minimum lighting level of the material in environments with no lighting data
+- Monochrome Lighting: Controls how much the color of the environment lighting affects the object's color. At 1 only the intensity of the environment lighting is used, while the color is ignored.

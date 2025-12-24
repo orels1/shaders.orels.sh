@@ -52,8 +52,11 @@ For more detailed installation instructions check out the [installation](/docs/i
 
 ### Learning about the shaders
 
-You can find documentation for all of the shaders in the [shader list](/shaders/).
+You can find documentation for all of the shaders in the [shader list](/shaders/) or via the search bar on the top of the scren.
 
+### Combining features
+
+In case you want to combine multiple shaders together - you can use [Configurable Shaders](/docs/configurable-shaders) to do so. This allows you to assemble an Uber shader with the featres you want.
 
 ### Getting Updates
 
