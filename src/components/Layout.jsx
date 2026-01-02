@@ -318,9 +318,9 @@ export function Layout({ children, title, tableOfContents }) {
   return (
     <>
       <Banner
-        title="Version 7.0.0 is out!"
-        bannerKey="v7.0.0"
-        description="Toon Shader v2, Hotspotting, in-shader Tonemapping, Light Volumes, SSR, and so much more!"
+        title="Version 7.1.0 is out!"
+        bannerKey="v7.1.0"
+        description="Layered Material improvements and bugfixes"
         cta="Get it now"
         ctaLink="/docs/installation"
         changelogLink="/docs/changelog"

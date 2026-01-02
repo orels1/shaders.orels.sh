@@ -28,6 +28,7 @@ This shader also has a variant with [Triplanar Effects](/docs/orl-standard/tripl
 - Layer Count: The amount of layers used. Can go between 1 and 4
 - Mask Type: Controls what is used for masking. Options are: Vertex Colors or a Texture
 - Mask Texture: Only visible when **Mask Type** is set to Texture. This will be used to mask the layers by color
+- UV Set: Controls which UV channel is used for sampling the **Mask Texture**
 - Mask Debugging: Displays the mask values on the mesh based on selected **Mask Type**
 - Debug Channel: Controls which channel to display during debugging. Only visible when **Mask Debugging** is enabled
 

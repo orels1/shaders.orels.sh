@@ -7,6 +7,26 @@ ORL Shaders Changelog
 
 ---
 
+## v7.1.0
+
+### Summary
+
+Version 7.1.0 fixes issues with the "Sampling Macro Stripping" generation mode, this is required for the shaders to be supported by d4rkpl4y3r's avatar optimizer.
+
+### Bugfixes
+
+- Fixed broken shaders being generated when exporting with "Strip Sampling Macros" option
+  - This shoudl allow the shaders to support texture combining via d4rkpl4y3r's avatar optimizer
+- Layered Material Mask Sliders (Smoothness/AO) now work correctly
+- Most included Inspector Drawers now correctly pass down the `[Tooltip]` property attribute, improving documentation
+
+### Changes
+
+- Layered Material now supports UV selection for the Mask texture
+- Layered Material's Base Layer now supports UV selection
+- Added Tooltips to the Layered Material shader
+- Added a new way to add tooltips to a shader, using a `*.orlloc` file, this is still in development on a separate `feature/localization` branch
+
 ## v7.0.0
 
 ### Summary
