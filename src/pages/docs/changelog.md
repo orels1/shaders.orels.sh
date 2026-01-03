@@ -7,6 +7,12 @@ ORL Shaders Changelog
 
 ---
 
+## v7.1.1
+
+### Bugfixes
+
+- Fixed an Exception when a new texture property is added to the shader while inspecting a connected material
+
 ## v7.1.0
 
 ### Summary
