@@ -7,6 +7,25 @@ ORL Shaders Changelog
 
 ---
 
+## v7.2.0
+
+### Summary
+
+Version 7.2.0 adds a new Snow Coverage shader
+
+### New Shaders
+
+- [Snow Coverage](/docs/special/snow-coverage): A PBR shader with snow overlay support
+  - Comes in 2 versions: Regular and Tessellated
+    - Regular version allows you to define a direction the snow should appear from, controls for how covered the object is, and various masking options
+    - Tessellated version extends the above to add support for 3D snow piles created by subdividing and deforming the mesh via shader
+      - This version will be a noticeable performance hit on lower-end hardware, but is very viable on VR-capable Desktop GPUs
+      
+### Changes
+
+- **Special** - this is a new sub-section of the ORL Shaders list, along with VFX and Toon. Anything that is tailored to a super narrow scenario that wouldn't be considered a pure VFX will go here from now on
+  - Technically things like Neon Light and Puddles would also fall into this category, but to avoid breaking changes - I will not be touching those
+
 ## v7.1.1
 
 ### Bugfixes
