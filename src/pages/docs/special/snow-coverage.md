@@ -65,6 +65,29 @@ The following are the usual PBR material settings
 - Normal
 - Normal Strength
 
+## Glitter Settings
+
+![Glitter Settings](/img/docs/special/snow-coverage/glitter-settings.png "Glitter Settings")
+
+- Enable Glitter: Turns on snow glitter effects
+- Glitter Texture: A glitter noise map. Preferably a normal map (Red + Green noise texture)
+- Tiling: Tiling amount for the noise map
+- Color: Controls glitter sparkle tint color
+- Threshold: Controls how much glitter is visible
+- Strength: Controls the overall strength of the glitter
+- Boost: Additionally boosts the glitter effect beyond 0-1 range
+- Anisotropy: Controls the anisotropic highlight direction for the glitter effect. Effectively spreads the glitter horizontally or vertically across the surface
+- Spread: Controls how wide the glitter highliught is
+- Mask Power: Controls the sharpness of the rim-based masking. Values below and above 0 will rim mask in different directions
+- Mask Strength: Controls how much the rim mask affects the glitter highlights
+
+## Rim Light Settings
+
+![Rim Settings](/img/docs/special/snow-coverage/rim-settings.png "Rim Settings")
+
+- Color: Controls the tint of a rim light effect
+- Power: Controls the spread of the rim light effect
+
 ## Displacement Settings
 
 ![Displacement Settings](/img/docs/special/snow-coverage/displacement-settings.png "Snow Settings")
