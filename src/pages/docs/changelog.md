@@ -21,10 +21,17 @@ Version 7.2.0 adds a new Snow Coverage shader
     - Tessellated version extends the above to add support for 3D snow piles created by subdividing and deforming the mesh via shader
       - This version will be a noticeable performance hit on lower-end hardware, but is very viable on VR-capable Desktop GPUs
       
+### Bugfixes
+
+- The Shader Parser no longer fiales to parse a module if it includes tabs
+      
 ### Changes
 
 - **Special** - this is a new sub-section of the ORL Shaders list, along with VFX and Toon. Anything that is tailored to a super narrow scenario that wouldn't be considered a pure VFX will go here from now on
   - Technically things like Neon Light and Puddles would also fall into this category, but to avoid breaking changes - I will not be touching those
+- `%Vector2()` and `%Vector3()` drawers now show the property name
+  - This addresses [#109](https://github.com/orels1/orels-Unity-Shaders/issues/109)
+- Added a number of textures for the snow glitter as a part of the generator package
 
 ## v7.1.1
 
