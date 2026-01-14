@@ -22,7 +22,7 @@ Version 7.1.0 fixes issues with the "Sampling Macro Stripping" generation mode, 
 ### Bugfixes
 
 - Fixed broken shaders being generated when exporting with "Strip Sampling Macros" option
-  - This shoudl allow the shaders to support texture combining via d4rkpl4y3r's avatar optimizer
+  - This should allow the shaders to support texture combining via d4rkpl4y3r's avatar optimizer
 - Layered Material Mask Sliders (Smoothness/AO) now work correctly
 - Most included Inspector Drawers now correctly pass down the `[Tooltip]` property attribute, improving documentation
 
