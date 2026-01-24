@@ -102,6 +102,10 @@ const navigation = [
     ],
   },
   {
+    title: 'Special Shaders',
+    links: [{ title: 'Snow Coverage', href: '/docs/special/snow-coverage' }],
+  },
+  {
     title: 'VFX Shaders',
     links: [
       { title: 'Clouds', href: '/docs/vfx/clouds' },
@@ -318,9 +322,9 @@ export function Layout({ children, title, tableOfContents }) {
   return (
     <>
       <Banner
-        title="Version 7.1.0 is out!"
-        bannerKey="v7.1.0"
-        description="Layered Material improvements and bugfixes"
+        title="Version 7.2.0 is out!"
+        bannerKey="v7.2.0"
+        description="New Snow Coverage Shader"
         cta="Get it now"
         ctaLink="/docs/installation"
         changelogLink="/docs/changelog"

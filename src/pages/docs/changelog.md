@@ -7,6 +7,44 @@ ORL Shaders Changelog
 
 ---
 
+## v7.2.0
+
+### Summary
+
+Version 7.2.0 adds a new Snow Coverage shader
+
+### New Shaders
+
+- [Snow Coverage](/docs/special/snow-coverage): A PBR shader with snow overlay support
+  - Comes in 2 versions: Regular and Tessellated
+    - Regular version allows you to define a direction the snow should appear from, controls for how covered the object is, and various masking options
+    - Tessellated version extends the above to add support for 3D snow piles created by subdividing and deforming the mesh via shader
+      - This version will be a noticeable performance hit on lower-end hardware, but is very viable on VR-capable Desktop GPUs
+      
+### Bugfixes
+
+- The Shader Parser no longer fiales to parse a module if it includes tabs
+- Fixed an issue where combining particular modules could break functionality
+  - E.g. combining VRCLV and Depth Fade would result in depth fade not working
+      
+### Changes
+
+- **Special** - this is a new sub-section of the ORL Shaders list, along with VFX and Toon. Anything that is tailored to a super narrow scenario that wouldn't be considered a pure VFX will go here from now on
+  - Technically things like Neon Light and Puddles would also fall into this category, but to avoid breaking changes - I will not be touching those
+- `%Vector2()` and `%Vector3()` drawers now show the property name
+  - This addresses [#109](https://github.com/orels1/orels-Unity-Shaders/issues/109)
+- Added a number of textures for the snow glitter as a part of the generator package
+- Updated Depth Fade module to work more reliably with every shader type
+- The "Toon" and "Empty Toon" shader templates (under Create -> Shader -> orels1 menu) now use Toon v2 lighting model
+  - Also added "Toon Transparent" and "Toon Transparent PrePass" templates for faster development
+- Added a built-in SDF library with some simple SDF functions and smooth min operations
+  - Shapes: Circle, Box, Rounded Box, Rhombus
+    - Available as `SDF<ShapeName>`, e.g. `SDFRoundedBox()`
+  - Smooth Mins: Exponential, Quad, Cube, and Quart
+    - Available as `SDFMin<Type>`, e.g. `SDFMinCube(dist1, dist2, smoothing)`
+- Dramatically removed variant counts of all shaders by reducing fog keywords
+  - This uses a technique from [Poiyomi Toon Shader (MIT Licensed)](https://github.com/poiyomi/PoiyomiToonShader)
+
 ## v7.1.1
 
 ### Bugfixes
