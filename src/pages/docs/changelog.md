@@ -23,7 +23,7 @@ Version 7.2.0 adds a new Snow Coverage shader
       
 ### Bugfixes
 
-- The Shader Parser no longer fiales to parse a module if it includes tabs
+- The Shader Parser no longer fails to parse a module if it includes tabs
 - Fixed an issue where combining particular modules could break functionality
   - E.g. combining VRCLV and Depth Fade would result in depth fade not working
       
