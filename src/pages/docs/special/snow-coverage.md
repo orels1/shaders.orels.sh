@@ -80,6 +80,8 @@ The following are the usual PBR material settings
 - Spread: Controls how wide the glitter highliught is
 - Mask Power: Controls the sharpness of the rim-based masking. Values below and above 0 will rim mask in different directions
 - Mask Strength: Controls how much the rim mask affects the glitter highlights
+- Distance Fade: Controls the distance fade effect of glitter highlights
+  - Set Start and End to 0 to disable the effect
 
 ## Rim Light Settings
 

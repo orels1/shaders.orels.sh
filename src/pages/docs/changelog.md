@@ -24,6 +24,8 @@ Version 7.2.0 adds a new Snow Coverage shader
 ### Bugfixes
 
 - The Shader Parser no longer fiales to parse a module if it includes tabs
+- Fixed an issue where combining particular modules could break functionality
+  - E.g. combining VRCLV and Depth Fade would result in depth fade not working
       
 ### Changes
 
@@ -32,6 +34,16 @@ Version 7.2.0 adds a new Snow Coverage shader
 - `%Vector2()` and `%Vector3()` drawers now show the property name
   - This addresses [#109](https://github.com/orels1/orels-Unity-Shaders/issues/109)
 - Added a number of textures for the snow glitter as a part of the generator package
+- Updated Depth Fade module to work more reliably with every shader type
+- The "Toon" and "Empty Toon" shader templates (under Create -> Shader -> orels1 menu) now use Toon v2 lighting model
+  - Also added "Toon Transparent" and "Toon Transparent PrePass" templates for faster development
+- Added a built-in SDF library with some simple SDF functions and smooth min operations
+  - Shapes: Circle, Box, Rounded Box, Rhombus
+    - Available as `SDF<ShapeName>`, e.g. `SDFRoundedBox()`
+  - Smooth Mins: Exponential, Quad, Cube, and Quart
+    - Available as `SDFMin<Type>`, e.g. `SDFMinCube(dist1, dist2, smoothing)`
+- Dramatically removed variant counts of all shaders by reducing fog keywords
+  - This uses a technique from [Poiyomi Toon Shader (MIT Licensed)](https://github.com/poiyomi/PoiyomiToonShader)
 
 ## v7.1.1
 
