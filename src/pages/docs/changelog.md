@@ -7,6 +7,41 @@ ORL Shaders Changelog
 
 ---
 
+## v7.3.0
+
+### Summary
+
+Version 7.3.0 focuses on code cleanup, bugfixes and minor improvements
+
+### New Features
+
+- Specular and Occlusion Toon modules now have Channel selectors for their input maps
+- Added a way to mask the Emission in Toon shader by a UV tile
+- Added support for a `%SkipAlwaysIncludedBlocks()` directive within shaders
+  - You can uses this, for example, within your Lighting Model to skip any base modules when generating your shader
+  - This is useful when completely detaching from the built-in modules to build something of your own
+
+### Bugfixes
+
+- Fixed an issue where Metallic and Smoothness remaps didn't work on the Layered Material layer 3
+- Fixed Texture3Ds being rewritten to Texture2Ds during sampler macro stripping process
+- Fixed an issue with shader parsing when the `%ShaderName()` block contains parenthesis in the name
+  - E.g. `%ShaderName("Test (For Real)")` no longer breaks
+
+### Changes
+
+- Improved the Audio Link module UI for the Toon shader
+- Removed extra sampler definitions which were adding extra complexity for no real benefit
+- Alpha Scale now goes between -2 and 2 in the Toon shader
+  - Values below 0 invert the albedo map
+- Added a utility to compute World Space position from depth
+- Improved rendering of the Toon Cutout shader in VRChat Transparent personal mirrors
+- Shaders now default to using `float2` UV channels
+  - You can use `NEED_FLOAT4_UV` to pass them all as `float4`
+- Improved uv handling in the toon shader, reducing the interpolator counts
+- Updated Unity Shader Parser dependency
+  - No major changes in the generator as a part of this
+
 ## v7.2.0
 
 ### Summary
