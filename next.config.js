@@ -7,6 +7,10 @@ const nextConfig = {
   experimental: {
     scrollRestoration: true,
   },
+  output: 'export',
+  images: {
+    unoptimized: true,
+  },
 }
 
 module.exports = withMarkdoc()(nextConfig)
