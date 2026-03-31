@@ -39,6 +39,7 @@ Then add the following contents to it
 {
     "target",
     "@/Structs/MeshData",
+    "@/Functions/VertexBase",
     "/Assets/Shaders/Structs/BlinnPhong/SurfaceData",
     "/Assets/Shaders/Functions/BlinnPhong/FragmentBase",
 }
@@ -69,15 +70,17 @@ Of course if you want something to be ordered differently - feel free to move it
 {
     "target",
     "@/Structs/MeshData",
+    "@/Functions/VertexBase",
 ```
 
-Then we add the MeshData struct reference, so we have something to access the mesh data through. In this case we're just using the built in one as it provides a good baseline.
+Then we add the MeshData struct and VertexBase function references, so we have something to access the mesh data through and our mesh's geometry is positioned correctly. You could replace these with your own, but in this case, we're just using the built-in ones as they provide a good baseline.
 
 ```hlsl
 %Includes()
 {
     "target",
     "@/Structs/MeshData",
+    "@/Functions/VertexBase",
     "/Assets/Shaders/Structs/BlinnPhong/SurfaceData",
 ```
 
@@ -88,6 +91,7 @@ Afterwards, we include a reference to our custom SurfaceData struct. We haven't 
 {
     "target",
     "@/Structs/MeshData",
+    "@/Functions/VertexBase",
     "/Assets/Shaders/Structs/BlinnPhong/SurfaceData",
     "/Assets/Shaders/Functions/BlinnPhong/FragmentBase",
 }
@@ -315,6 +319,7 @@ Here's a full example of a Blinn-Phong lighting model we implemented in this gui
 {
     "target",
     "@/Structs/MeshData",
+    "@/Functions/VertexBase",
     "/Assets/Shaders/Structs/BlinnPhong/SurfaceData",
     "/Assets/Shaders/Functions/BlinnPhong/FragmentBase",
 }
