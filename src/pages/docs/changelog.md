@@ -20,13 +20,21 @@ Version 7.3.0 focuses on code cleanup, bugfixes and minor improvements
 - Added support for a `%SkipAlwaysIncludedBlocks()` directive within shaders
   - You can uses this, for example, within your Lighting Model to skip any base modules when generating your shader
   - This is useful when completely detaching from the built-in modules to build something of your own
+- Added an option to perform bicubic sampling of the Alpha texture in the Toon Shader
+- Added support to perform Rim Masking in the Toon Emission module
+  - This can be nice for creating subtle highlight effects
+- Added support for adjusting the emission texture Power in the Toon shader
+  - This is very useful when combined with a linear emission textures (e.g. when using a single channel texture for better VRAM usage)
 
 ### Bugfixes
 
 - Fixed an issue where Metallic and Smoothness remaps didn't work on the Layered Material layer 3
 - Fixed Texture3Ds being rewritten to Texture2Ds during sampler macro stripping process
 - Fixed an issue with shader parsing when the `%ShaderName()` block contains parenthesis in the name
-  - E.g. `%ShaderName("Test (For Real)")` no longer breaks
+  - E.g. `%ShaderName("Test (For Real)")` no longer breaks 
+- Fixed an issue with Toon shaders not compiling in Meta Pass with Emission enabled
+- Fixed a bug where Shader Generator would fail when encountering empty lines inside the `%Includes()` block
+- Fixed alpha not being clamped to a 0-1 range in the Toon Shader
 
 ### Changes
 
