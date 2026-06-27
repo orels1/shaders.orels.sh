@@ -46,6 +46,11 @@ Version 7.3.0 focuses on code cleanup, bugfixes and minor improvements
     - This still respects `NEED_FLOAT4_UV` for passing a full float4 array, which is necessary for particle systems
     - You should check the `GLOBAL_UVS_PRESENT` define before accessing them if you're planning to distribute a shared module
 - Added Brightness Clamp to `VRCSLGI` module
+- Shader Inspector drawer functions now support an `InvokeAfterDraw` property
+  - If the drawer function defines an `InvokeAfterDraw` property returning `true`, then it will only be invoke **after** the main field has already been drawn, this is helpful for adding extra information or custom UI after the original field, instead of before it
+- `%Linear()` drawer function has been added for marking textures are requiring Linear data
+  - A message box with an "Auto Fix" button will be provided if an sRGB texture is plugged into a slot marked `%Linear`
+  - Optionally, a custom message can be provided as a parameter, e.g. `%Linear(Please use a linear texture)`
 
 ### Bugfixes
 
