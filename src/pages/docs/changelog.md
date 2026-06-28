@@ -45,7 +45,7 @@ Version 7.3.0 focuses on code cleanup, bugfixes and minor improvements
     - This still respects things like `NEED_UV4` for including more normal maps
     - This still respects `NEED_FLOAT4_UV` for passing a full float4 array, which is necessary for particle systems
     - You should check the `GLOBAL_UVS_PRESENT` define before accessing them if you're planning to distribute a shared module
-- Added Brightness Clamp to `VRCSLGI` module
+- Added Brightness Clamp to `VRSLGI` module
 - Shader Inspector drawer functions now support an `InvokeAfterDraw` property
   - If the drawer function defines an `InvokeAfterDraw` property returning `true`, then it will only be invoke **after** the main field has already been drawn, this is helpful for adding extra information or custom UI after the original field, instead of before it
 - `%Linear()` drawer function has been added for marking textures are requiring Linear data
@@ -82,7 +82,7 @@ Version 7.3.0 focuses on code cleanup, bugfixes and minor improvements
   - No major changes in the generator as a part of this
 - Minimum Light toggle now emulates an actual light direction,  producing proper shading instead of a flat ambient light increase
 - Toon Outlines module now defines its stencil properties via `%OutlinePassModifiers`, this allows you to override its stencil parameters if necessary
-- AudioLink Effects module's cbuffer and texture sampler count, freeing up more samplers when effects arent used
+- AudioLink Effects module's cbuffer and texture sampler count, freeing up more samplers when effects aren't used
 - AudioLink Effects module now has a separate UV channel picker for the Mask texture, allowing you to map the effect itself and the mask using different UVs
 - Layered Material shader now supports bicubic mask sampling for nicer transitions. Mostly helpful with low resolution splat maps
 - `VRCSLGI` Diffuse Mix default value now matches the original VRSLGI shader (0.25 - 1.0)

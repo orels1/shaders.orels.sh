@@ -54,6 +54,27 @@ There are currently no other controls for the VRCLightVolumes module as it direc
 
 ![Shadow Sharpness 1](/img/docs/toon/v2/toon-shadow-sharpness-1.png "Shadow Sharpness 1")
 
+## Occlusion
+
+![Toon Shader Occlusion Settings](/img/docs/toon/v2/toon-occlusion-settings.png "Occlusion Settings of the Toon shader")
+
+- Occlusion: The occlusion texture to use
+- Channel: Specifies which texture channel of the occlusion texture to use, useful for more efficient texture packing
+- Occlusion Strength: Controls the strength of the applied occlusion
+- Tiling Mode: Controls how the occlusion map is tiled across the mesh
+  - Synced With Albedo: The occlusion map will be tiled together with the albedo texture
+  - Independent: The occlusion map will be tiled independently of the albedo texture
+- Tiling: Controls the tiling factor of the occlusion map. If **Tiling Mode** is set to "Synced With Albedo", this will multiply the tiling set by the **Albedo** texture
+
+- Occlusion Detail Enabled: Allows passing a secondary occlusion texture, this is generally expected to be used for high frequency details
+- Occlusion Detail: The occlusion texture to be used as a second occlusion layer
+- Channel: Specifies which texture channel of the occlusion detail texture to use, useful for more efficient texture packing
+- Occlusion Detail Strength: Controls the strength of the applied occlusion
+- Tiling Mode: Controls how the occlusion detail map is tiled across the mesh
+  - Synced With Albedo: The occlusion detail map will be tiled together with the albedo texture
+  - Independent: The occlusion detail map will be tiled independently of the albedo texture
+- Tiling: Controls the tiling factor of the occlusion detail map. If **Tiling Mode** is set to "Synced With Albedo", this will multiply the tiling set by the **Albedo** texture
+
 ## Normals
 
 ![Toon Shader Normals](/img/docs/toon/v2/toon-normals.png "Toon Shader Normals")
@@ -93,6 +114,7 @@ Each layer has the same set of settings:
 
 - Enable Specular: Enables the specular effect
 - Specular Map: Controls various specular properties of the material. Will be multiplied by the respective values from sliders below
+- By default it uses the following channels for different parameters, which can be edited by their respective dropdowns
   - Red Channel: Controls the intensity of specular
   - Green Channel: Controls the amount of specular albedo tint (makes the specular more metallic)
   - Blue Channel: Controls the roughness of the material when applying specular
@@ -163,6 +185,11 @@ You can apply up to 4 decal layers to the material.
 
 ![Toon Shader Decals Colors](/img/docs/toon/v2/toon-decals-colors.png "Toon Shader Decals Colors")
 
+- Blend Mode: Controls how the decal is blended with the base texture
+  - Replace: Simply pastes the decal on top of the original surface
+  - Add: Performs an additive blend
+  - Multiply: Multiplies the base surface color by the decal. Can produce interesting results when combined with the **Multiply By Albedo** slider
+  - Overlay: Blends using an Overlay method, values below 0.5 will darken the surface, and above 0.5 will brighten it
 - Tint: Controls the tint of the decal
 - Multiply By Albedo: Controls the amount of albedo tint applied to the decal
   - Very useful when using decals that use tiled textures and simple color albedo. This way you can hue shift multiple different decal layers at once via albedo hue shift
@@ -196,6 +223,7 @@ You can apply up to 4 decal layers to the material.
 - Sharpness: Controls the sharpness of the rim light. If set to 1 - will become a flat color with a sharp edge instead of a smooth gradient
 - Threshold: Controls how much the rim light will be offset by the light direction. 1 - Will only show up in the areas hit by the light, 0 - will show up everywhere
 - Attenuation: Controls how much the rimlight will be visible in shadowed areas. 0 - always visible
+- Normal Map Influence: Controls how much the rim light is affected by the normal map. Setting it to 0 will make your rim light only follow the mesh surface
 
 ## Rim Shadow
 
@@ -307,10 +335,19 @@ The UV layout you should use is similar to the ORL Standard AudioLink effect, wh
 - Emission Map: The emission map to use
 - Emission Map Channel: Controls which channel of the **Emission Map** texture will be used to control the emission
 - Color: Controls the color of the emission
+- Mask By UV Tile: Allows limiting the emission effects only to a particular UV tile, allowing you to offset all the emissive parts onto a separate UV region to prevent any kind of bleeding or other unwanted artifacts
+  - First: Limits the emission to an x: 0-1 region of the UV map
+  - Second: Limits the emission to an x: 1-2 region of the UV map
+  - Third: Limits the emission to an x: 2-3 region of the UV map
+  - Fourth: Limits the emission to an x: 3-4 region of the UV map
 - Hue: Controls the hue shift of the emission
 - Saturation: Controls the saturation of the emission
 - Value: Controls the value of the emission
 - Tint To Diffuse: Controls the amount of albedo tint applied to the emission. This will help saturate the color
+- Power: Applies a smoothing effect to the emission map, providing extra control over gradients in the texture
+- Rim Masking: Applies a rim light or rim-shadow style effect to the emission.
+  - Values below 0 will limit the emission only to the parts facing away from the user (essentially the edges of the mesh, similar to a rim light)
+  - Values above 0 will limit the emission only to the parts of the mesh facing the user, fading the emission out towards the edges
 - Scale w/ Light: Controls whether the emission should be adjusted based on the current light intensity. This allows you to make it so your material only glows in the dark. Default is "No"
 - Scaling Sensitivity: Only visible if **Emission Scale w/ Light** is set to "Yes". Controls the the light level needed to turn off Emission. The emission will only be visible if the current lighting is less than the value specified, e.g. if set to 0.5 - the emission will show up when the light is 0.49 and lower
 

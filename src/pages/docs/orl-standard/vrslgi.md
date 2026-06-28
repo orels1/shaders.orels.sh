@@ -24,6 +24,11 @@ You must import the VRSL GI Shader Pack into the project for the shader to work 
 - Integrate VRSL GI: Toggles VRSL GI on and off
 - VRSL GI Strength: Controls the overall strength of the VRSL GI effect. Values above 1 will boost the intensity
 - VRSL Diffuse Mix: Controls how much the Material's albedo affects the GI effects
+- Clamp Brightness: Enabled brightness normalization and clamping to prevent brightness spikes
+  - Max Brightness: Maximum allowed brightness
+- Roughness Modifier: Nudges the roughness values before passing them to VRSL GI, useful for toning down or exaggerating the specular reflections
+- Alpha Premultiply
+  - Multiplies the final color output by alpha, this is required for things like Additive particles to look correct
 - Use VRSL GI Specular: Enables VRSL GI Specular
 - VRSL Specular Function: Only visible when **Use VRSL GI Specular** is enabled. Controls the Specular function to use for VRSL GI
   - GGX: Uses the GGX specular function, this is the default and is closest to the main ORL Shaders specular look
