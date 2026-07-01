@@ -71,7 +71,7 @@ Version 7.3.0 focuses on code cleanup, bugfixes and minor improvements
 
 - Improved the Audio Link module UI for the Toon shader
 - Removed extra sampler definitions which were adding extra complexity for no real benefit
-- Alpha Scale now goes between -2 and 2 in the Toon shader
+- Alpha Scale now goes between -4 and 4 in the Toon shader
   - Values below 0 invert the albedo map
 - Added a utility to compute World Space position from depth
 - Improved rendering of the Toon Cutout shader in VRChat Transparent personal mirrors
