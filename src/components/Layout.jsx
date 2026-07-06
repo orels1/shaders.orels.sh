@@ -322,9 +322,9 @@ export function Layout({ children, title, tableOfContents }) {
   return (
     <>
       <Banner
-        title="Version 7.2.0 is out!"
-        bannerKey="v7.2.0"
-        description="New Snow Coverage Shader"
+        title="Version 7.3.0 is out!"
+        bannerKey="v7.3.0"
+        description="Quality of Life Updates"
         cta="Get it now"
         ctaLink="/docs/installation"
         changelogLink="/docs/changelog"

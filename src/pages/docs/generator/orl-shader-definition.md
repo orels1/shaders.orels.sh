@@ -427,6 +427,11 @@ Current ExtraPass templates are using `ForwardBase` light mode.
 }
 ```
 
+### `%SkipAlwaysIncludedBlocks()`
+
+This directive allows you to skip any of the always included blocks without using project settings.
+This is mostly useful when completely detaching a particular lighting model or a specific shader from the built-in lighting / utilities, and creating a complete blank slate ready to be customized with your own code.
+
 ## Optional Features
 
 The built-in templates allow you to enable optional features by specifying some special defines in your `%ShaderDefines` section
@@ -435,6 +440,7 @@ The built-in templates allow you to enable optional features by specifying some 
 - `NEED_FRAGMENT_IN_PREPASS`: When using Toon template with `PrePass` `TemplateFeature` enabled - forces the prepass to execute all of the included fragment functions. Majority of the time, to save performance, you probably want to reimplement the bare minimum of the calculations inside a custom `PrePassColor` function instead of using this define.
 - `EXTRA_V2F_0`, `EXTRA_V2F_1`, `EXTRA_V2F_2`, `EXTRA_V2F_3`: Tells the templates to compile in extra float4s in the Vertex stage so you can pass some custom data to your Fragment stage, see the struct definition below
 - `NEED_UV4`, `NEED_UV5`, `NEED_UV6`, `NEED_UV7`: Tells the templates to include UV channels 4-7 in the Vertex stage and pass them to the Fragment stage.
+- `NEED_FLOAT4_UV`: Tells the templates to include full float4 uv channels in the `MeshData`. This is mostly useful for particle shaders, as they pack extra data streams in the full uv `xyzw`.
 - `NEED_SV_DEPTH`, `NEED_SV_DEPTH_LEQUAL`: Enables support for outputting depth value from the fragment stage. Simply define `inout float depth` in your modules to adjust the clip-space depth value. Only available in the PBR Lighting Model.
 - `_INTEGRATE_CUSTOMGI`: **LEGACY** Enables support for custom GI injection on top of built-in GI. Only avaible in the PBR Lighting Model.
   - You must define a function of the following signature inside of the `%Fragment()` block `IntegrateCustomGI(MeshData d, SurfaceData o, inout half3 indirectSpecular, inout half3 indirectDiffuse)`. This function will be called if the `_INTEGRATE_CUSTOMGI` is defined.
@@ -613,6 +619,30 @@ For example - you can access mesh UVs like this
     }
 }
 ```
+
+### Convenience globals
+
+There are some global things that are provided for your convenience in all the built-in lighting models.
+
+#### GLOBAL_uvArray
+
+This global contains all of the uv data in a single spot. So you can use it together with a channel picker like this:
+
+```hlsl
+// somewhere in properties
+[Enum(UV0, 0, UV1, 1, UV2, 2, UV3, 3)]_MaskUVChannel("Mask UV Channel", Int) = 0
+
+// then in your fragment code
+#if defined(GLOBAL_UVS_PRESENT)
+float2 uv = GLOBAL_uvArray[clamp(_MaskUVChannel, 0, 3)].xy;
+#endif
+```
+
+Important things to note:
+  - The array is always set up for all 8 channels to avoid compilation issues
+  - You should check for `#if defined(GLOBAL_UVS_PRESENT)` if possible, especially if you're planning to distribute your code as a standalone module
+  - Channels 5-8 are only populated if `NEED_UV4`, `NEED_UV5`, and so on are defined
+  - By default its a `float2` array, if you want a `float4` array that contains all of the `xyzw` data, you need to define `NEED_FLOAT4_UV`
 
 ### SurfaceData
 

@@ -457,7 +457,7 @@ You can also provide more parameters to the function, for example, you can pass 
 
 In this case - the render type will be set to "Custom" and the queue number will be 2501.
 
-In some scenarios you might also have some types that are compatible with what you want to force, and if they are alredy set - you might want to keep them (to preserve the user's settings).
+In some scenarios you might also have some types that are compatible with what you want to force, and if they are already set - you might want to keep them (to preserve the user's settings).
 
 In this case, you can define up to 3 compatible types, and the inspector will only set the render type if the property is set to anything but one of those types.
 
@@ -469,7 +469,7 @@ In this case, the render type will only be forced only if it isn't already set t
 
 ### Enabling/Disabling passes by LightMode
 
-Unity allows you to enable/disable passes based on their respective LihgtMode.
+Unity allows you to enable/disable passes based on their respective Light.
 This is rarely useful, but in cases where you want to optionally enable, for example, a GrabPass - it can be incredibly handy.
 
 ```hlsl
@@ -484,6 +484,45 @@ GrabPass {
   "_GrabTexture
 }
 ```
+
+### Requiring input texture to be linear
+
+If a particular texture slot requires linear data input, you can use a `Linear` drawer function to communicate that to a user and provide an auto fix button.
+
+```hlsl
+_Height("Height > %ShowIf(PARALLAX) %Linear()", 2D) = "black" {}
+```
+
+Now the user will get a little message box below the texture slot, if they provide an sRGB texture when a linear texture is expected, with a convenient "Auto Fix" button.
+
+You can also provide a custom message instead of the default one by passing it as an parameter
+
+```hlsl
+_Height("Height > %ShowIf(PARALLAX) %Linear(Please use a linear texture)", 2D) = "black" {}
+```
+
+### Prioritizing a specific copy of a property
+
+Sometimes you might end up with 2 modules defining the same property. While that is generally undesirable, the generator will automatically deduplicate them to avoid compilation issues.
+
+However, currently this will mean that only the last instance of the property is kept in the final inspector, which might not be what u want.
+
+In that case you can use a `%Priority` drawer, to specify which instance of a particular property takes priority. For example, lets say you have 2 modules that have properties like this
+
+```hlsl
+
+// Main Module
+
+_EmissionStrength("Emission Strength %Priority(10)", Range(0, 10)) = 0
+
+// Custom Emission Module
+
+_EmissionStrength("Emission Strength", Range(0, 10)) = 0
+```
+
+In a setup like this - when the `Custom Emission Module` is included together with the `Main Module` in the final shader - only the first instance will be drawn (as it has higher priority) instead of the last instance (if there was no priority setting).
+
+This is especially useful for providing fallback settings or rearranging commonly used controls across modules for a better user experience.
 
 ### Combine and Experiment
 

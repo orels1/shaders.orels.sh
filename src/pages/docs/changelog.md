@@ -7,6 +7,96 @@ ORL Shaders Changelog
 
 ---
 
+## v7.3.0
+
+### Summary
+
+Version 7.3.0 focuses on code cleanup, bugfixes and minor improvements
+
+### New Features
+
+- Specular and Occlusion Toon modules now have Channel selectors for their input maps
+- Added a way to mask the Emission in Toon shader by a UV tile
+- Added support for a `%SkipAlwaysIncludedBlocks()` directive within shaders
+  - You can uses this, for example, within your Lighting Model to skip any base modules when generating your shader
+  - This is useful when completely detaching from the built-in modules to build something of your own
+  - Thanks @warrenwolfy for this and other shader generator bug reports and suggestions!
+- Added an option to perform bicubic sampling of the Alpha texture in the Toon Shader
+- Added support to perform Rim Masking in the Toon Emission module
+  - This can be nice for creating subtle highlight effects
+- Added support for adjusting the emission texture Power in the Toon shader
+  - This is very useful when combined with a linear emission textures (e.g. when using a single channel texture for better VRAM usage)
+- Toon Decal layers now support multiple blending modes:
+    - Replace (current method)
+    - Add
+    - Multiply
+    - Overlay
+- Toon Rim Light module now has a slider for the Normal Map Influence
+    - This allows you to create smooth rim light effects on top of strong normal maps
+- You can now use `%Priority()` drawer function in your shader property definitions to define which instance of the same property should be visible in the final inspector
+    - E.g. you can define the same property in 2 different modules like this
+        - Module 1
+            - `_MyProp("My Main Property %Priority(10)", Int) = 0`
+        - Module 2
+            - `_MyProp("My Fallback Property", Int) = 0`
+        - Before this change - the second instance of the same property would always override the first one
+        - Now the first instance will be visible in the final inspector, as it has higher priority
+- All shading models now pass a `GLOBAL_uvArray` array that contains all of the UV maps requested by the current shader
+    - This allows you to make easy channel pickers that address any UV channel by simply indexing the array like `float2 uv = GLOBAL_uvArray[uvIndex].xy`
+    - This still respects things like `NEED_UV4` for including more normal maps
+    - This still respects `NEED_FLOAT4_UV` for passing a full float4 array, which is necessary for particle systems
+    - You should check the `GLOBAL_UVS_PRESENT` define before accessing them if you're planning to distribute a shared module
+- Added Brightness Clamp to `VRSLGI` module
+- Shader Inspector drawer functions now support an `InvokeAfterDraw` property
+  - If the drawer function defines an `InvokeAfterDraw` property returning `true`, then it will only be invoke **after** the main field has already been drawn, this is helpful for adding extra information or custom UI after the original field, instead of before it
+- `%Linear()` drawer function has been added for marking textures are requiring Linear data
+  - A message box with an "Auto Fix" button will be provided if an sRGB texture is plugged into a slot marked `%Linear`
+  - Optionally, a custom message can be provided as a parameter, e.g. `%Linear(Please use a linear texture)`
+  - Thanks @kamarekitsune for the suggestion!
+- You can now set fallback Smoothness/Metallic and Occlusion values/textures in the VRCFeatures module to improve the look of your VRChat Avatars when fallback shaders are used
+  - Thanks @lackofbindings for the reference implementation!
+
+### Bugfixes
+
+- Fixed an issue where Metallic and Smoothness remaps didn't work on the Layered Material layer 3
+- Fixed Texture3Ds being rewritten to Texture2Ds during sampler macro stripping process
+- Fixed an issue with shader parsing when the `%ShaderName()` block contains parenthesis in the name
+  - E.g. `%ShaderName("Test (For Real)")` no longer breaks 
+- Fixed an issue with Toon shaders not compiling in Meta Pass with Emission enabled
+- Fixed a bug where Shader Generator would fail when encountering empty lines inside the `%Includes()` block
+- Fixed alpha not being clamped to a 0-1 range in the Toon Shader
+- Fixed UV issues with the Scrolling UI shader
+- Toon Audio Link module inspector no longer always shows the Packed Map channel picker
+- Toon Outline pass now properly blends alpha in VRChat mirrors
+- Fixed SSR module when it is used at a queue 2500 and lower with Depth Write enabled
+    - This addresses issues with screen space shaders that rely on depth (e.g. screen space outlines)
+    - Thanks @nikkyai for the report
+
+### Changes
+
+- Improved the Audio Link module UI for the Toon shader
+- Removed extra sampler definitions which were adding extra complexity for no real benefit
+- Alpha Scale now goes between -4 and 4 in the Toon shader
+  - Values below 0 invert the albedo map
+- Added a utility to compute World Space position from depth
+- Improved rendering of the Toon Cutout shader in VRChat Transparent personal mirrors
+- Shaders now default to using `float2` UV channels
+  - You can use `NEED_FLOAT4_UV` to pass them all as `float4`
+- Improved uv handling in the toon shader, reducing the interpolator counts
+- Updated Unity Shader Parser dependency
+  - No major changes in the generator as a part of this
+- Minimum Light toggle now emulates an actual light direction,  producing proper shading instead of a flat ambient light increase
+- Toon Outlines module now defines its stencil properties via `%OutlinePassModifiers`, this allows you to override its stencil parameters if necessary
+- AudioLink Effects module's cbuffer and texture sampler count, freeing up more samplers when effects aren't used
+- AudioLink Effects module now has a separate UV channel picker for the Mask texture, allowing you to map the effect itself and the mask using different UVs
+- Layered Material shader now supports bicubic mask sampling for nicer transitions. Mostly helpful with low resolution splat maps
+- `VRCSLGI` Diffuse Mix default value now matches the original VRSLGI shader (0.25 - 1.0)
+- Added `SDFTriangle`, `SDFEqualTriangle`, and `SDFCross` utilities to the `SDF` library module
+- Added a number of SDF combination utilities to the `SDF` library module
+- Added a `bool DepthPresent()` utility for checking if there is a depth texture present
+- VRC Light Volumes module got updated
+- VRC Point Light Volumes in PBR shaders now properly show specular
+
 ## v7.2.0
 
 ### Summary
