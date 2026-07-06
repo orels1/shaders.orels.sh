@@ -20,6 +20,7 @@ Version 7.3.0 focuses on code cleanup, bugfixes and minor improvements
 - Added support for a `%SkipAlwaysIncludedBlocks()` directive within shaders
   - You can uses this, for example, within your Lighting Model to skip any base modules when generating your shader
   - This is useful when completely detaching from the built-in modules to build something of your own
+  - Thanks @warrenwolfy for this and other shader generator bug reports and suggestions!
 - Added an option to perform bicubic sampling of the Alpha texture in the Toon Shader
 - Added support to perform Rim Masking in the Toon Emission module
   - This can be nice for creating subtle highlight effects
@@ -51,6 +52,9 @@ Version 7.3.0 focuses on code cleanup, bugfixes and minor improvements
 - `%Linear()` drawer function has been added for marking textures are requiring Linear data
   - A message box with an "Auto Fix" button will be provided if an sRGB texture is plugged into a slot marked `%Linear`
   - Optionally, a custom message can be provided as a parameter, e.g. `%Linear(Please use a linear texture)`
+  - Thanks @kamarekitsune for the suggestion!
+- You can now set fallback Smoothness/Metallic and Occlusion values/textures in the VRCFeatures module to improve the look of your VRChat Avatars when fallback shaders are used
+  - Thanks @lackofbindings for the reference implementation!
 
 ### Bugfixes
 
@@ -66,6 +70,7 @@ Version 7.3.0 focuses on code cleanup, bugfixes and minor improvements
 - Toon Outline pass now properly blends alpha in VRChat mirrors
 - Fixed SSR module when it is used at a queue 2500 and lower with Depth Write enabled
     - This addresses issues with screen space shaders that rely on depth (e.g. screen space outlines)
+    - Thanks @nikkyai for the report
 
 ### Changes
 
