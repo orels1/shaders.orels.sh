@@ -7,6 +7,12 @@ ORL Shaders Changelog
 
 ---
 
+## v7.3.1
+
+### Bugfixes
+
+- Fixed a bug with LTCGI screens not working properly
+
 ## v7.3.0
 
 ### Summary
