@@ -7,6 +7,17 @@ ORL Shaders Changelog
 
 ---
 
+## v7.4.0
+
+### Summary
+
+This release includes Light Volumes 3.0 support
+
+### New Features
+
+- VRC Light Volumes 3.0 is now supported in all shaders
+  - With this - individual specular from different point lights is now properly integrated with the Toon v2 shader Specular Module
+
 ## v7.3.1
 
 ### Bugfixes
